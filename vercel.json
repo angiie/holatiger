@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "public": "landing",
   "headers": [
     {
       "source": "/(.*)",
@@ -19,7 +20,7 @@
       ]
     },
     {
-      "source": "/styles.css",
+      "source": "/style.css",
       "headers": [
         {
           "key": "Cache-Control",
@@ -28,7 +29,7 @@
       ]
     },
     {
-      "source": "/script.js",
+      "source": "/main.js",
       "headers": [
         {
           "key": "Cache-Control",
