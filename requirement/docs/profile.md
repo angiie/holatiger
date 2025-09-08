@@ -1,6 +1,0 @@
-nickname: "angiie"
-description: "全栈个人开发者"
-avatar: "https://github.com/angiie.png"
-twitter: "https://x.com/angiie_smart"
-instagram: "https://instagram.com/angiie_inside"
-github: "https://github.com/angiie"
