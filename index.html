@@ -1,23 +1,22 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>虎啦 · Landing</title>
+  <title>虎啦</title>
   <link rel="icon" type="image/png" sizes="32x32" href="./images/icons/icon_32x32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="./images/icons/icon_64x64.png">
-  <link rel="icon" type="image/png" sizes="128x128" href="./images/icons/icon_128x128.png">
-  <link rel="icon" type="image/png" sizes="256x256" href="./images/icons/icon_256x256.png">
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/tw.css" />
   <script src="./js/main.js" defer></script>
 </head>
-<body>
+<body class="v1-professional">
   <!-- Header -->
-  <header class="site-header" id="top">
-    <div class="container nav">
-      <a class="logo" href="#home">虎啦</a>
-      <button class="menu-toggle" aria-label="打开菜单" aria-expanded="false">☰</button>
-      <nav class="nav-links" aria-label="主导航">
+  <header class="site-header-v1" id="top">
+    <div class="container nav-v1">
+      <a class="logo-v1" href="#home">
+        <img src="/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+      </a>
+      <nav class="nav-links-v1">
         <a href="#home">Home</a>
         <a href="#extensions">Chrome Extensions</a>
         <a href="#tools">Web Tools</a>
@@ -28,78 +27,81 @@
 
   <main>
     <!-- Hero -->
-    <section id="home" class="section hero">
-      <div class="container">
-        <h1>让小工具放大你的效率</h1>
-        <p class="subtitle">轻量、实用、开箱即用的浏览器扩展与在线工具集合。</p>
-        <div class="actions">
-          <a class="btn primary" href="#extensions">查看扩展</a>
-          <a class="btn" href="#tools">探索工具</a>
+    <section id="home" class="section hero-v1">
+      <div class="container text-center">
+        <h1 class="hero-title-v1">让小工具放大你的效率</h1>
+        <p class="hero-subtitle-v1">轻量、实用、开箱即用的浏览器扩展与在线工具集合。</p>
+        <div class="actions-v1">
+          <a class="btn-v1 primary small" href="#extensions">查看扩展</a>
+          <a class="btn-v1 small" href="#tools">探索工具</a>
         </div>
       </div>
     </section>
 
-    <!-- Chrome Extensions -->
-    <section id="extensions" class="section">
+    <!-- All Tools in One Section -->
+    <section id="all-tools" class="section-v1">
       <div class="container">
-        <h2>Chrome 扩展</h2>
-        <div class="grid cards">
-          <article class="card">
-            <div class="card-icon">
-              <img src="./images/tinypass/svg-export-40x40.png" alt="TinyPass" width="40" height="40">
+        <div class="grid-v1">
+          <!-- Chrome Extensions -->
+          <div id="extensions" class="category-v1">
+            <h2 class="category-title-v1">Chrome 扩展</h2>
+            <div class="card-list-v1">
+              <article class="card-v1">
+                <div class="card-icon-v1">
+                  <img src="./images/tinypass/svg-export-40x40.png" alt="TinyPass" width="40" height="40">
+                </div>
+                <div class="card-content-v1">
+                  <h3>TinyPass</h3>
+                  <p>一个简单的密码生成工具。</p>
+                  <a class="btn-v1 small" href="https://chromewebstore.google.com/detail/tinypass/jjfmaihmmbclkonnkkipbplhklepopne" target="_blank">安装扩展</a>
+                </div>
+              </article>
+              <article class="card-v1">
+                <div class="card-icon-v1">
+                  <img src="./images/icons/icon_64x64.png" alt="WebDavy" width="40" height="40">
+                </div>
+                <div class="card-content-v1">
+                  <h3>WebDavy</h3>
+                  <p>一个轻量化的 WebDAV 连接工具。</p>
+                  <span class="btn-v1 small disabled">即将上线</span>
+                </div>
+              </article>
             </div>
-            <h3>TinyPass</h3>
-            <p>一个简单的密码生成工具。</p>
-            <a class="btn small" href="https://chromewebstore.google.com/detail/tinypass/jjfmaihmmbclkonnkkipbplhklepopne" target="_blank">安装扩展</a>
-          </article>
-          <article class="card">
-            <div class="card-icon">
-              <img src="./images/icons/icon_64x64.png" alt="WebDavy" width="40" height="40">
-            </div>
-            <h3>WebDavy</h3>
-            <p>一个轻量化的 WebDav 连接工具。</p>
-            <span class="btn small disabled">即将上线</span>
-          </article>
-        </div>
-      </div>
-    </section>
+          </div>
 
-    <!-- Web Tools -->
-    <section id="tools" class="section alt">
-      <div class="container">
-        <h2>Web 工具</h2>
-        <div class="grid cards">
-          <article class="card">
-            <div class="card-icon">
-              <img src="./images/icons/icon_64x64.png" alt="SVG Studio" width="40" height="40">
+          <!-- Web Tools -->
+          <div id="tools" class="category-v1">
+            <h2 class="category-title-v1">Web 工具</h2>
+            <div class="card-list-v1">
+              <article class="card-v1">
+                <div class="card-icon-v1">
+                  <img src="./images/icons/icon_64x64.png" alt="SVG Studio" width="40" height="40">
+                </div>
+                <div class="card-content-v1">
+                  <h3>SVG Studio</h3>
+                  <p>一个简单的 SVG 转换工具。</p>
+                  <a class="btn-v1 small" href="./svg-studio">试用工具</a>
+                </div>
+              </article>
             </div>
-            <h3>SVG Studio</h3>
-            <p>一个简单的 SVG 转换工具。</p>
-            <a class="btn small" href="./svg-studio">试用工具</a>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- About Me -->
-    <section id="about" class="section">
-      <div class="container">
-        <div class="about-content">
-          <div class="about-avatar">
-            <img src="https://github.com/angiie.png" alt="angiie" width="80" height="80">
-          </div>
-          <div class="about-text">
-            <h2>About Me</h2>
-            <p>我是 <strong>angiie</strong>，全栈个人开发者，热爱把小想法变成能落地的效率工具。这里会持续更新 Chrome 扩展与 Web 工具，欢迎收藏与反馈。</p>
-            <ul class="about-list">
-              <li>定位：实用主义 · 轻干扰 · 高效率</li>
-              <li>状态：持续构建中</li>
-            </ul>
-            <div class="social-links">
-              <a href="https://github.com/angiie" target="_blank" class="social-link">GitHub</a>
-              <a href="https://x.com/angiie_smart" target="_blank" class="social-link">Twitter</a>
-              <a href="https://instagram.com/angiie_inside" target="_blank" class="social-link">Instagram</a>
-            </div>
+    <section id="about" class="section-v1 about-v1">
+      <div class="container about-container-v1">
+        <div class="about-avatar-v1">
+          <img src="https://github.com/angiie.png" alt="angiie" width="100" height="100">
+        </div>
+        <div class="about-text-v1">
+          <h2>About Me</h2>
+          <p>我是 <strong>angiie</strong>，全栈个人开发者，热爱把小想法变成能落地的效率工具。这里会持续更新 Chrome 扩展与 Web 工具，欢迎收藏与反馈。</p>
+          <div class="social-links-v1">
+            <a href="https://github.com/angiie" target="_blank">GitHub</a>
+            <a href="https://x.com/angiie_smart" target="_blank">Twitter</a>
+            <a href="https://instagram.com/angiie_inside" target="_blank">Instagram</a>
           </div>
         </div>
       </div>
@@ -107,10 +109,9 @@
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container foot">
+  <footer class="site-footer-v1">
+    <div class="container footer-container-v1">
       <span>© <span id="year"></span> HolaTiger</span>
-      <a href="#top" class="back-to-top">返回顶部 ↑</a>
     </div>
   </footer>
 </body>
