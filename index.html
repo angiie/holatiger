@@ -3,18 +3,205 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>虎啦</title>
+  <title>虎啦 - 小工具，大能量</title>
   <link rel="icon" type="image/png" sizes="32x32" href="./images/icons/icon_32x32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="./images/icons/icon_64x64.png">
   <link rel="stylesheet" href="./css/tw.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script src="./js/main.js" defer></script>
+  <style>
+    /* 动画效果 */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(249, 115, 22, 0.6); }
+    }
+    
+    .float-animation { animation: float 3s ease-in-out infinite; }
+    .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+    .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+    
+    /* 渐变文字效果 */
+    .gradient-text {
+      background: linear-gradient(135deg, #f97316, #ef4444, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 200%;
+      animation: gradient-shift 3s ease infinite;
+    }
+    
+    @keyframes gradient-shift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    /* 粒子背景效果 */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(249, 115, 22, 0.3);
+      border-radius: 50%;
+      animation: particle-float 6s linear infinite;
+    }
+    
+    @keyframes particle-float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* 鼠标跟随效果 */
+    .hero-interactive {
+      position: relative;
+    }
+    
+    .hero-interactive::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                                  rgba(249, 115, 22, 0.1) 0%, 
+                                  transparent 50%);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .hero-interactive:hover::before {
+      opacity: 1;
+    }
+
+    /* 打字机效果 */
+    .typewriter {
+      overflow: hidden;
+      border-right: 3px solid rgba(249, 115, 22, 0.8);
+      white-space: nowrap;
+      animation: typing 2s steps(8, end), blink-caret 1s step-end infinite;
+    }
+    
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: rgba(249, 115, 22, 0.8); }
+    }
+
+    /* 统计数字动画 */
+    .counter {
+      display: inline-block;
+    }
+
+    /* 悬浮卡片效果 */
+    .floating-card {
+      animation: float-card 4s ease-in-out infinite;
+    }
+    
+    .floating-card:nth-child(2) {
+      animation-delay: 1s;
+    }
+    
+    .floating-card:nth-child(3) {
+      animation-delay: 2s;
+    }
+    
+    .floating-card:nth-child(4) {
+      animation-delay: 3s;
+    }
+    
+    @keyframes float-card {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* 覆盖原有样式，使用新的橙色主题 */
+    .v1-professional {
+      background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
+    }
+    
+    .site-header-v1 {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+    }
+    
+    .logo-v1 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    
+    .logo-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.75rem;
+      background: linear-gradient(135deg, #f97316, #ef4444);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    .logo-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+    
+    .nav-links-v1 a:hover {
+      color: #f97316;
+    }
+  </style>
 </head>
 <body class="v1-professional">
   <!-- Header -->
   <header class="site-header-v1" id="top">
     <div class="container nav-v1">
       <a class="logo-v1" href="#home">
-        <img src="/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <img src="./images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <span class="logo-text">虎啦</span>
       </a>
       <nav class="nav-links-v1">
         <a href="#home">Home</a>
@@ -26,65 +213,153 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section id="home" class="section hero-v1">
-      <div class="container text-center">
-        <h1 class="hero-title-v1">让小工具放大你的效率</h1>
-        <p class="hero-subtitle-v1">轻量、实用、开箱即用的浏览器扩展与在线工具集合。</p>
-        <div class="actions-v1">
-          <a class="btn-v1 primary small" href="#extensions">查看扩展</a>
-          <a class="btn-v1 small" href="#tools">探索工具</a>
+    <!-- Hero - 互动增强版 -->
+    <section id="home" class="hero-interactive relative py-16 px-6 overflow-hidden">
+
+      
+      <!-- 粒子背景 -->
+      <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 0.5s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 1.5s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 2.5s;"></div>
+      </div>
+      
+      <!-- 背景装饰 -->
+      <div class="absolute inset-0 bg-gradient-to-r from-orange-100/20 to-red-100/20 rounded-full blur-3xl transform -translate-y-1/2 scale-150"></div>
+      
+      <div class="max-w-5xl mx-auto text-center relative z-10">
+        <!-- 状态徽章 -->
+        <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-100 text-orange-700 text-sm font-medium mb-8 shadow-lg border border-orange-200 fade-in-up" style="animation-delay: 0.2s;">
+          <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
+          🚀 持续更新中
+        </div>
+        
+        <!-- 主标题 - 打字机效果 -->
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight fade-in-up" style="animation-delay: 0.4s;">
+          <span class="gradient-text typewriter">小工具，大能量。</span>
+        </h1>
+        
+        <!-- 副标题 -->
+        <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed fade-in-up" style="animation-delay: 0.6s;">
+          轻量、实用、开箱即用的浏览器扩展与在线工具集合<br/>
+          <span class="text-orange-600 font-semibold">为你的工作流程增添便利</span>
+        </p>
+        
+        <!-- 按钮组 -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style="animation-delay: 0.8s;">
+          <a href="#extensions" class="px-8 py-3 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md border border-orange-500" style="text-decoration: none !important;">
+            🔧 查看扩展
+          </a>
+          <a href="#tools" class="px-8 py-3 border-2 border-orange-500 bg-white text-orange-600 rounded-xl font-semibold hover:bg-orange-50 hover:border-orange-600 transition-all duration-300 shadow-md" style="text-decoration: none !important;">
+            🛠️ 探索工具
+          </a>
+        </div>
+        
+
+      </div>
+
+
+    </section>
+
+    <!-- Chrome扩展区域 -->
+    <section id="extensions" class="py-12 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-10">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">
+            🧩 Chrome Extensions
+          </div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">浏览器扩展</h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto">增强你的浏览器功能，让日常操作更加高效便捷</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- TinyPass -->
+          <div class="group bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 w-72">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center shadow-sm">
+                <img src="./images/tinypass/svg-export-40x40.png" alt="TinyPass" class="w-8 h-8">
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg">TinyPass</h3>
+                <span class="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full font-medium">Chrome扩展</span>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4 leading-relaxed">一个简单而强大的密码生成工具，支持多种复杂度设置和自定义规则。</p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-sm text-gray-500">
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                已发布
+              </div>
+              <a href="https://chromewebstore.google.com/detail/tinypass/jjfmaihmmbclkonnkkipbplhklepopne" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm shadow-sm no-underline" style="background-color: #2563eb !important; color: white !important; text-decoration: none !important;">安装扩展</a>
+            </div>
+          </div>
+
+          <!-- WebDavy -->
+          <div class="group bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 opacity-75 w-72">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center shadow-sm">
+                <img src="./images/icons/icon_64x64.png" alt="WebDavy" class="w-8 h-8 opacity-60">
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg">WebDavy</h3>
+                <span class="text-sm text-gray-500 bg-gray-50 px-3 py-1 rounded-full font-medium">Chrome扩展</span>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4 leading-relaxed">轻量化的WebDAV连接工具，简化文件同步和管理流程。</p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-sm text-gray-500">
+                <span class="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></span>
+                开发中
+              </div>
+              <span class="inline-flex items-center px-4 py-2 bg-gray-100 text-gray-500 rounded-lg font-medium text-sm cursor-not-allowed" style="background-color: #f3f4f6 !important; color: #6b7280 !important;">即将上线</span>
+            </div>
+          </div>
+
+
         </div>
       </div>
     </section>
 
-    <!-- All Tools in One Section -->
-    <section id="all-tools" class="section-v1">
-      <div class="container">
-        <div class="grid-v1">
-          <!-- Chrome Extensions -->
-          <div id="extensions" class="category-v1">
-            <h2 class="category-title-v1">Chrome 扩展</h2>
-            <div class="card-list-v1">
-              <article class="card-v1">
-                <div class="card-icon-v1">
-                  <img src="./images/tinypass/svg-export-40x40.png" alt="TinyPass" width="40" height="40">
-                </div>
-                <div class="card-content-v1">
-                  <h3>TinyPass</h3>
-                  <p>一个简单的密码生成工具。</p>
-                  <a class="btn-v1 small" href="https://chromewebstore.google.com/detail/tinypass/jjfmaihmmbclkonnkkipbplhklepopne" target="_blank">安装扩展</a>
-                </div>
-              </article>
-              <article class="card-v1">
-                <div class="card-icon-v1">
-                  <img src="./images/icons/icon_64x64.png" alt="WebDavy" width="40" height="40">
-                </div>
-                <div class="card-content-v1">
-                  <h3>WebDavy</h3>
-                  <p>一个轻量化的 WebDAV 连接工具。</p>
-                  <span class="btn-v1 small disabled">即将上线</span>
-                </div>
-              </article>
+    <!-- Web工具区域 -->
+    <section id="tools" class="py-12 px-6 bg-gradient-to-br from-orange-50/50 to-red-50/50">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-10">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium mb-4">
+            🛠️ Web Tools
+          </div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">在线工具</h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto">无需安装，打开即用的在线工具集合</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <!-- SVG Studio -->
+          <div class="group bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 w-72">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center shadow-sm">
+                <img src="./images/icons/icon_64x64.png" alt="SVG Studio" class="w-8 h-8">
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg">SVG Studio</h3>
+                <span class="text-sm text-purple-600 bg-purple-50 px-3 py-1 rounded-full font-medium">Web工具</span>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4 leading-relaxed">简单易用的SVG转换工具，支持多种格式输出和实时预览功能。</p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-sm text-gray-500">
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                可用
+              </div>
+              <a href="./svg-studio" class="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm shadow-sm no-underline" style="background-color: #9333ea !important; color: white !important; text-decoration: none !important;">试用工具</a>
             </div>
           </div>
 
-          <!-- Web Tools -->
-          <div id="tools" class="category-v1">
-            <h2 class="category-title-v1">Web 工具</h2>
-            <div class="card-list-v1">
-              <article class="card-v1">
-                <div class="card-icon-v1">
-                  <img src="./images/icons/icon_64x64.png" alt="SVG Studio" width="40" height="40">
-                </div>
-                <div class="card-content-v1">
-                  <h3>SVG Studio</h3>
-                  <p>一个简单的 SVG 转换工具。</p>
-                  <a class="btn-v1 small" href="./svg-studio">试用工具</a>
-                </div>
-              </article>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
@@ -97,11 +372,20 @@
         </div>
         <div class="about-text-v1">
           <h2>About Me</h2>
-          <p>我是 <strong>angiie</strong>，全栈个人开发者，热爱把小想法变成能落地的效率工具。这里会持续更新 Chrome 扩展与 Web 工具，欢迎收藏与反馈。</p>
+          <p>我是 <strong class="text-orange-600">angiie</strong>，全栈个人开发者，热爱把小想法变成能落地的效率工具。这里会持续更新 Chrome 扩展与 Web 工具，欢迎收藏与反馈。</p>
           <div class="social-links-v1">
-            <a href="https://github.com/angiie" target="_blank">GitHub</a>
-            <a href="https://x.com/angiie_smart" target="_blank">Twitter</a>
-            <a href="https://instagram.com/angiie_inside" target="_blank">Instagram</a>
+            <a href="https://github.com/angiie" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium text-sm shadow-sm" style="text-decoration: none !important;">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              GitHub
+            </a>
+            <a href="https://x.com/angiie_smart" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium text-sm shadow-sm" style="text-decoration: none !important;">
+              <i data-lucide="twitter" class="w-4 h-4"></i>
+              Twitter
+            </a>
+            <a href="https://instagram.com/angiie_inside" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition-colors font-medium text-sm shadow-sm" style="text-decoration: none !important;">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+              Instagram
+            </a>
           </div>
         </div>
       </div>
@@ -109,10 +393,83 @@
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer-v1">
-    <div class="container footer-container-v1">
-      <span>© <span id="year"></span> HolaTiger</span>
+  <footer class="py-12 px-6 border-t border-gray-200 bg-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-gray-500 text-lg">© <span id="year">2024</span> 虎啦 (HolaTiger) - 小工具，大能量</p>
     </div>
   </footer>
+
+  <script>
+    // 页面加载动画
+    window.addEventListener('load', function() {
+      const elements = document.querySelectorAll('.fade-in-up');
+      elements.forEach((el, index) => {
+        setTimeout(() => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.animation = `fadeInUp 0.8s ease-out ${index * 0.2}s forwards`;
+        }, 100);
+      });
+
+      // 初始化 Lucide 图标
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+
+    // 鼠标跟随光晕效果
+    const heroSection = document.querySelector('.hero-interactive');
+    
+    if (heroSection) {
+      heroSection.addEventListener('mousemove', (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        heroSection.style.setProperty('--mouse-x', x + '%');
+        heroSection.style.setProperty('--mouse-y', y + '%');
+      });
+    }
+
+
+
+
+
+    // 按钮点击效果
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        // 添加点击波纹效果
+        const ripple = document.createElement('span');
+        ripple.style.position = 'absolute';
+        ripple.style.borderRadius = '50%';
+        ripple.style.background = 'rgba(255,255,255,0.6)';
+        ripple.style.transform = 'scale(0)';
+        ripple.style.animation = 'ripple 0.6s linear';
+        ripple.style.left = e.offsetX - 10 + 'px';
+        ripple.style.top = e.offsetY - 10 + 'px';
+        ripple.style.width = '20px';
+        ripple.style.height = '20px';
+        
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+
+    // 添加波纹动画CSS
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes ripple {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
 </body>
 </html>
