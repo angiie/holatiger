@@ -14,6 +14,10 @@
       "destination": "/src/tools/svg-studio/$1"
     },
     {
+      "source": "/tools/(.*)",
+      "destination": "/src/tools/$1"
+    },
+    {
       "source": "/assets/(.*)",
       "destination": "/src/assets/$1"
     },
