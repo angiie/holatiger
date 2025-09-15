@@ -30,7 +30,15 @@
       "destination": "/src/pages/tinypass.html"
     },
     {
+      "source": "/tinypass.html",
+      "destination": "/src/pages/tinypass.html"
+    },
+    {
       "source": "/webdavy",
+      "destination": "/src/pages/webdavy.html"
+    },
+    {
+      "source": "/webdavy.html",
       "destination": "/src/pages/webdavy.html"
     }
   ],
