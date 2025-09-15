@@ -10,6 +10,10 @@
       "destination": "/src/tools/svg-studio/index.html"
     },
     {
+      "source": "/svg-studio/(.*)",
+      "destination": "/src/tools/svg-studio/$1"
+    },
+    {
       "source": "/assets/(.*)",
       "destination": "/src/assets/$1"
     }
