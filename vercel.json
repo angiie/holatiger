@@ -3,11 +3,11 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/index.html"
+      "destination": "/src/pages/index.html"
     },
     {
       "source": "/svg-studio",
-      "destination": "/svg-studio/index.html"
+      "destination": "/src/tools/svg-studio/index.html"
     }
   ],
   "headers": [
@@ -29,7 +29,7 @@
       ]
     },
     {
-      "source": "/css/(.*)\\.css",
+      "source": "/src/assets/css/(.*)\\.css",
       "headers": [
         {
           "key": "Cache-Control",
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "source": "/js/(.*)\\.js",
+      "source": "/src/assets/js/(.*)\\.js",
       "headers": [
         {
           "key": "Cache-Control",
