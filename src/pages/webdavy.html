@@ -3,25 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="WebDavy：WebDavy Chrome扩展" />
+  <meta name="description" content="WebDavy：WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。" />
   <meta name="keywords" content="WebDavy, Chrome 扩展, 浏览器插件, HolaTiger" />
-  <link rel="canonical" href="http://localhost:8000/chrome-extensions/webdavy.html" />
+  <link rel="canonical" href="https://holatiger.com/webdavy.html" />
   <meta property="og:title" content="WebDavy - 虎啦" />
-  <meta property="og:description" content="WebDavy Chrome扩展" />
+  <meta property="og:description" content="WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。" />
   <meta property="og:type" content="product" />
-  <meta property="og:url" content="http://localhost:8000/chrome-extensions/webdavy.html" />
-  <meta property="og:image" content="http://localhost:8000/images/social/webdavy-1200x630.png" />
+  <meta property="og:url" content="https://holatiger.com/webdavy.html" />
+  <meta property="og:image" content="https://holatiger.com/images/social/webdavy-1200x630.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="WebDavy - 虎啦" />
-  <meta name="twitter:description" content="WebDavy Chrome扩展" />
-  <meta name="twitter:image" content="http://localhost:8000/images/social/webdavy-1200x630.png" />
-  <title>WebDavy - 虎啦</title>
+  <meta name="twitter:description" content="WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。" />
+  <meta name="twitter:image" content="https://holatiger.com/images/social/webdavy-1200x630.png" />
+  <title data-i18n="title.webdavy">WebDavy - 虎啦</title>
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/icon_32x32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="../assets/images/icons/icon_64x64.png">
-  <link rel="stylesheet" href="../css/tw.css" />
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/images/icons/icon_64x64.png">
+  <link rel="stylesheet" href="../assets/css/tw.css" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="../assets/js/i18n.js"></script>
   <style>
     /* 继承主站样式 */
+    /* Carousel height fallback: ensure visible even if utilities missing */
+    .carousel-container { height: 24rem; }
+    @media (min-width: 768px) { .carousel-container { height: 500px; } }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: contain; }
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -230,12 +235,12 @@
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "WebDavy",
-    "description": "WebDavy Chrome扩展",
+    "description": "WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。",
     "brand": { "@type": "Brand", "name": "HolaTiger" },
-    "image": "http://localhost:8000/../assets/images/webdavy/svg-export-40x40.png",
-    "url": "http://localhost:8000/chrome-extensions/webdavy.html",
+    "image": "https://holatiger.com/images/webdavy/svg-export-40x40.png",
+    "url": "https://holatiger.com/webdavy.html",
     "sku": "webdavy",
-    "version": "1.0.0"
+    "version": "1.1.0"
   }
   </script>
 </head>
@@ -243,23 +248,24 @@
   <!-- Header -->
   <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
-      <a class="logo-v1" href="../index.html">
+      <a class="logo-v1" href="https://holatiger.com/">
         <img src="../assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
         <span class="logo-text">虎啦</span>
       </a>
       <div class="flex items-center gap-6">
         <nav class="nav-links-v1 hidden md:flex items-center gap-6">
-          <a href="../index.html#home" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
-          <a href="../index.html#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
-          <a href="../index.html#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
-          <a href="../index.html#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="./index.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+            <a href="./index.html#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+            <a href="./tinypass.html" class="text-gray-600 hover:text-orange-500 transition-colors">TinyPass</a>
+            <a href="./index.html#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+            <a href="./index.html#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
         </nav>
         
         <!-- 语言选择器 -->
         <div class="dropdown dropdown-end">
           <div tabindex="0" role="button" class="lang-switcher-btn">
             <i data-lucide="globe" class="w-4 h-4"></i>
-            <span id="current-lang">中文</span>
+            <span id="current-lang" data-i18n="lang.current">简体</span>
             <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-200"></i>
           </div>
           <ul tabindex="0" class="lang-dropdown-menu">
@@ -295,27 +301,27 @@
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
               <span class="gradient-text">WebDavy</span>
             </h1>
-            <div class="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">
-              版本 1.0.0
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium" data-i18n="webdavy.version">
+              版本 1.1.0
             </div>
           </div>
         </div>
         
         <!-- 产品简介 -->
         <div class="fade-in-up" style="animation-delay: 0.2s;">
-          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-            WebDavy Chrome扩展
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed" data-i18n="webdavy.description">
+            WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。
           </p>
           
           <!-- 操作按钮 -->
           <div class="flex flex-col sm:flex-row gap-3">
             
-      <span class="inline-flex items-center px-8 py-3 bg-gray-100 text-gray-500 rounded-xl font-semibold cursor-not-allowed shadow-md">
+      <span class="inline-flex items-center px-8 py-3 bg-gray-100 text-gray-500 rounded-xl font-semibold cursor-not-allowed shadow-md" data-i18n="webdavy.status.development">
         🚧 开发中
       </span>
-      <a href="../index.html#extensions" 
+      <a href="https://holatiger.com/#extensions" 
          class="px-8 py-3 border-2 border-gray-400 bg-white text-gray-600 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 shadow-md" 
-         style="text-decoration: none !important;">
+         style="text-decoration: none !important;" data-i18n="webdavy.button.more">
         📖 查看更多
       </a>
     
@@ -328,12 +334,73 @@
     <section class="py-16 px-6 bg-white">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up">产品特性</h2>
-          <p class="text-gray-600 text-lg fade-in-up" style="animation-delay: 0.2s;">了解这款工具的核心功能和优势</p>
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="webdavy.features.title">产品特性</h2>
+          <p class="text-gray-600 text-lg fade-in-up" style="animation-delay: 0.2s;" data-i18n="webdavy.features.subtitle">了解这款工具的核心功能和优势</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           
+    <div class="feature-card fade-in-up" style="animation-delay: 0.1s;">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center flex-shrink-0">
+          <span class="text-xl">🔒</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="webdavy.feature1.title">一键连接WebDAV服务器</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="webdavy.feature1.desc">支持主流WebDAV服务如NextCloud、OwnCloud等，安全保存连接配置</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="feature-card fade-in-up" style="animation-delay: 0.2s;">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center flex-shrink-0">
+          <span class="text-xl">⚙️</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="webdavy.feature2.title">完整文件管理功能</h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="webdavy.feature2.desc">在浏览器中直接浏览、上传、下载、创建和删除文件夹</p>
+        </div>
+      </div>
+    </div>
+  
+        </div>
+      </div>
+    </section>
+
+    <!-- 产品截图轮播 -->
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="webdavy.screenshots.title">产品截图</h2>
+          <p class="text-gray-600 text-lg fade-in-up" style="animation-delay: 0.2s;" data-i18n="webdavy.screenshots.subtitle">直观了解 WebDavy 的界面和功能</p>
+        </div>
+        
+        <!-- 轮播图容器 -->
+        <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden fade-in-up" style="animation-delay: 0.3s;">
+          <!-- 轮播图片容器 -->
+          <div class="carousel-container relative h-96 md:h-[500px] overflow-hidden">
+            <!-- 轮播项 1 - 连接配置 -->
+            <div class="carousel-slide absolute inset-0 transition-transform duration-500 ease-in-out" data-slide="0">
+              <img src="../assets/images/webdavy/screenshot/zh/login-page.png" 
+                   alt="WebDavy 登录页面界面" 
+                   class="w-full h-full object-cover">
+            </div>
+            
+            <!-- 轮播项 2 - 文件管理 -->
+            <div class="carousel-slide absolute inset-0 transition-transform duration-500 ease-in-out" data-slide="1">
+              <img src="../assets/images/webdavy/screenshot/zh/detail-page.png" 
+                   alt="WebDavy 文件管理界面" 
+                   class="w-full h-full object-cover">
+            </div>
+
+          </div>
+          
+          <!-- 指示器 -->
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center space-x-2 z-20 bg-black/30 backdrop-blur-sm rounded-full px-3 py-2">
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white/60 hover:bg-white ring-2 ring-white/80 transition-all duration-300" data-slide="0" data-i18n="carousel.slide" data-i18n-params='{"index":"1"}' aria-label="切换到第1张"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white/60 hover:bg-white ring-2 ring-white/80 transition-all duration-300" data-slide="1" data-i18n="carousel.slide" data-i18n-params='{"index":"2"}' aria-label="切换到第2张"></button>
+          </div>
         </div>
       </div>
     </section>
@@ -343,8 +410,8 @@
     <section class="py-16 px-6 bg-gradient-to-br from-orange-50/50 to-red-50/50">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">支持的WebDAV服务器</h2>
-          <p class="text-gray-600 text-lg">兼容主流WebDAV服务，满足不同使用场景</p>
+          <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="webdavy.servers.title">支持的WebDAV服务器</h2>
+          <p class="text-gray-600 text-lg" data-i18n="webdavy.servers.subtitle">兼容主流WebDAV服务，满足不同使用场景</p>
         </div>
         
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -387,7 +454,7 @@
   <!-- Footer -->
   <footer class="py-12 px-6 border-t border-gray-200 bg-white">
     <div class="max-w-4xl mx-auto text-center">
-      <p class="text-gray-500">© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量</p>
+      <p class="text-gray-500" data-i18n="footer.copyright">© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量</p>
     </div>
   </footer>
 
@@ -413,110 +480,13 @@
       }
       
       // 初始化语言
-      initLanguage();
+      if (typeof i18n !== 'undefined') {
+        i18n.init();
+      }
     });
-    
-    // 语言翻译数据
-    const translations = {
-      'zh': {
-        'title': 'WebDavy - 虎啦',
-        'nav.home': '首页',
-        'nav.extensions': '浏览器扩展',
-        'nav.tools': '在线工具',
-        'nav.about': '关于我',
-        'footer.copyright': '© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量'
-      },
-      'zh-tw': {
-        'title': 'WebDavy - 虎啦',
-        'nav.home': '首頁',
-        'nav.extensions': '瀏覽器擴展',
-        'nav.tools': '線上工具',
-        'nav.about': '關於我',
-        'footer.copyright': '© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量'
-      },
-      'en': {
-        'title': 'WebDavy - HolaTiger',
-        'nav.home': 'Home',
-        'nav.extensions': 'Extensions',
-        'nav.tools': 'Tools',
-        'nav.about': 'About',
-        'footer.copyright': '© 2024 HolaTiger - Small Tools, Big Power'
-      }
-    };
-
-    // 获取当前语言
-    function getCurrentLanguage() {
-      return localStorage.getItem('language') || 'zh';
-    }
-
-    // 设置语言
-    function setLanguage(lang) {
-      localStorage.setItem('language', lang);
-      const langMap = {
-        'zh': 'zh-CN',
-        'zh-tw': 'zh-TW',
-        'en': 'en'
-      };
-      document.documentElement.lang = langMap[lang] || 'zh-CN';
-    }
-
-    // 切换语言
-    function switchLanguage(lang) {
-      setLanguage(lang);
-      updateContent(lang);
-      updateLanguageSelector(lang);
-    }
-
-    // 更新内容
-    function updateContent(lang) {
-      const elements = document.querySelectorAll('[data-i18n]');
-      elements.forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          element.innerHTML = translations[lang][key];
-        }
-      });
-      
-      // 更新页面标题
-      if (translations[lang] && translations[lang]['title']) {
-        document.title = translations[lang]['title'];
-      }
-    }
-
-    // 更新语言选择器显示
-    function updateLanguageSelector(lang) {
-      const currentLangElement = document.getElementById('current-lang');
-      const langOptions = document.querySelectorAll('.lang-option');
-      
-      if (currentLangElement) {
-        const langNames = {
-          'zh': '简体',
-          'zh-tw': '繁體', 
-          'en': 'EN'
-        };
-        currentLangElement.textContent = langNames[lang] || '简体';
-      }
-      
-      // 更新选项状态
-      langOptions.forEach(option => {
-        const optionLang = option.getAttribute('data-lang');
-        if (optionLang === lang) {
-          option.classList.add('active');
-        } else {
-          option.classList.remove('active');
-        }
-      });
-    }
-
-    // 初始化语言
-    function initLanguage() {
-      const currentLang = getCurrentLanguage();
-      updateContent(currentLang);
-      updateLanguageSelector(currentLang);
-    }
-
-    // 将switchLanguage函数暴露到全局作用域
-    window.switchLanguage = switchLanguage;
   </script>
+  
+  <!-- 轮播图控制脚本 -->
+  <script src="../assets/js/carousel.js"></script>
 </body>
 </html>

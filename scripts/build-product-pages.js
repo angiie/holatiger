@@ -7,7 +7,7 @@ const path = require('path');
 const productConfigs = {
   'tinypass': {
     name: 'TinyPass',
-    icon: '../assets/images/tinypass/svg-export-40x40.png',
+    icon: '../images/tinypass/svg-export-40x40.png',
     gradient: 'from-blue-100 to-indigo-100',
     actions: `
       <a href="https://chromewebstore.google.com/detail/tinypass/jjfmaihmmbclkonnkkipbplhklepopne" target="_blank" 
@@ -25,7 +25,7 @@ const productConfigs = {
   },
   'webdavy': {
     name: 'WebDavy',
-    icon: '../assets/images/webdavy/svg-export-40x40.png',
+    icon: '../images/webdavy/svg-export-40x40.png',
     gradient: 'from-gray-100 to-gray-200',
     actions: `
       <span class="inline-flex items-center px-8 py-3 bg-gray-100 text-gray-500 rounded-xl font-semibold cursor-not-allowed shadow-md">
@@ -175,20 +175,15 @@ function buildProductPage(productKey) {
     return;
   }
   
-  // 读取 Markdown 文件（可选）
+  // 读取 Markdown 文件
   const mdPath = path.join(__dirname, `${productKey}-product-details.md`);
-  let parsed = {
-    version: '1.0.0',
-    intro: `${config.name} Chrome扩展`,
-    features: []
-  };
-  
-  if (fs.existsSync(mdPath)) {
-    const mdContent = fs.readFileSync(mdPath, 'utf8');
-    parsed = parseMarkdown(mdContent);
-  } else {
-    console.log(`Markdown file not found: ${mdPath}, using default values`);
+  if (!fs.existsSync(mdPath)) {
+    console.error(`Markdown file not found: ${mdPath}`);
+    return;
   }
+  
+  const mdContent = fs.readFileSync(mdPath, 'utf8');
+  const parsed = parseMarkdown(mdContent);
   
   // 读取 HTML 模板
   const templatePath = path.join(__dirname, 'product-detail-template.html');
