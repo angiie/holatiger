@@ -69,9 +69,3 @@ npm run build:css
 - [技术架构与设计规范](docs/design-system.md)
 - [开发指南](docs/development.md)
 - [页面结构说明](docs/pages.md)
-
-## 📞 联系方式
-
-- GitHub: [@angiie](https://github.com/angiie)
-- Twitter: [@angiie_smart](https://x.com/angiie_smart)
-- Instagram: [@angiie_inside](https://instagram.com/angiie_inside)
