@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:css": "tailwindcss -i ./css/tw-src.css -o ./css/tw.css --minify",
-    "dev:css": "tailwindcss -i ./css/tw-src.css -o ./css/tw.css --watch",
+    "build:css": "tailwindcss -i ./src/assets/css/tw-src.css -o ./src/assets/css/tw.css --minify",
+    "dev:css": "tailwindcss -i ./src/assets/css/tw-src.css -o ./src/assets/css/tw.css --watch",
+    "serve": "python3 -m http.server 8000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

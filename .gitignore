@@ -3,3 +3,5 @@ requirement/
 node_modules/
 **/node_modules/
 /node_modules/*
+.trae/*
+dist/*
