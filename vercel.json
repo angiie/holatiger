@@ -16,6 +16,10 @@
     {
       "source": "/assets/(.*)",
       "destination": "/src/assets/$1"
+    },
+    {
+      "source": "/images/(.*)",
+      "destination": "/src/assets/images/$1"
     }
   ],
   "headers": [
