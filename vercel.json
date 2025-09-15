@@ -8,6 +8,10 @@
     {
       "source": "/svg-studio",
       "destination": "/src/tools/svg-studio/index.html"
+    },
+    {
+      "source": "/assets/(.*)",
+      "destination": "/src/assets/$1"
     }
   ],
   "headers": [
