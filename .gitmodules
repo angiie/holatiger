@@ -1,0 +1,3 @@
+[submodule "svg-studio"]
+	path = svg-studio
+	url = git@gitee.com:angiie/svg-studio.git
