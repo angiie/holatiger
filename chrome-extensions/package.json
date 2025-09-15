@@ -1,0 +1,17 @@
+{
+  "name": "holatiger-product-pages",
+  "version": "1.0.0",
+  "description": "Product detail pages generator for HolaTiger chrome extensions",
+  "main": "build-product-pages.js",
+  "scripts": {
+    "build": "node build-product-pages.js",
+    "build:watch": "nodemon build-product-pages.js",
+    "clean": "rm -f *.html"
+  },
+  "keywords": ["chrome-extension", "product-pages", "static-generator"],
+  "author": "angiie",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

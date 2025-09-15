@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="WebDavy：WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。" />
+  <meta name="keywords" content="WebDavy, Chrome 扩展, 浏览器插件, HolaTiger" />
+  <link rel="canonical" href="http://localhost:8000/chrome-extensions/webdavy.html" />
+  <meta property="og:title" content="WebDavy - 虎啦" />
+  <meta property="og:description" content="WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。" />
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="http://localhost:8000/chrome-extensions/webdavy.html" />
+  <meta property="og:image" content="http://localhost:8000/images/social/webdavy-1200x630.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WebDavy - 虎啦" />
+  <meta name="twitter:description" content="WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。" />
+  <meta name="twitter:image" content="http://localhost:8000/images/social/webdavy-1200x630.png" />
+  <title>WebDavy - 虎啦</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/icons/icon_32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="../images/icons/icon_64x64.png">
+  <link rel="stylesheet" href="../css/tw.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <style>
+    /* 继承主站样式 */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(249, 115, 22, 0.6); }
+    }
+    
+    .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+    .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #f97316, #ef4444, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .v1-professional {
+      background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
+    }
+    
+    .site-header-v1 {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+    }
+    
+    .logo-v1 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    
+    .logo-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.75rem;
+      background: linear-gradient(135deg, #f97316, #ef4444);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    .logo-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+    
+    .nav-links-v1 a {
+      text-decoration: none;
+    }
+    
+    .nav-links-v1 a:hover {
+      color: #f97316;
+      text-decoration: none;
+    }
+    
+    /* 产品详情页专用样式 */
+    .product-hero {
+      background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .product-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%);
+    }
+    
+    .feature-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(249, 115, 22, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(249, 115, 22, 0.15);
+    }
+    
+    /* 语言切换按钮样式 */
+    .lang-switcher-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.375rem 0.5rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(249, 115, 22, 0.2);
+      border-radius: 0.75rem;
+      color: #374151;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    
+    .lang-switcher-btn:hover {
+      background: rgba(255, 255, 255, 1);
+      border-color: rgba(249, 115, 22, 0.4);
+      box-shadow: 0 4px 8px rgba(249, 115, 22, 0.1);
+      transform: translateY(-1px);
+    }
+    
+    .lang-switcher-btn:focus {
+      outline: none;
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+    }
+    
+    .dropdown:focus .lang-switcher-btn .chevron-down {
+      transform: rotate(180deg);
+    }
+    
+    /* 下拉菜单样式 */
+    .lang-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 0.5rem;
+      min-width: 7rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(249, 115, 22, 0.1);
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+      padding: 0.5rem;
+      z-index: 50;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.2s ease;
+    }
+    
+    .dropdown:focus-within .lang-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .lang-dropdown-menu li {
+      list-style: none;
+      margin: 0;
+    }
+    
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.625rem;
+      color: #374151;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    
+    .lang-option:hover {
+      background: linear-gradient(135deg, #fff7ed, #fed7aa);
+      color: #f97316;
+      transform: translateX(2px);
+    }
+    
+    .lang-option.active {
+      background: linear-gradient(135deg, #fff7ed, #fed7aa);
+      color: #f97316;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgba(249, 115, 22, 0.1);
+    }
+    
+    .lang-flag {
+      font-size: 1rem;
+      line-height: 1;
+    }
+    
+    .lang-text {
+      flex: 1;
+    }
+
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "WebDavy",
+    "description": "WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。",
+    "brand": { "@type": "Brand", "name": "HolaTiger" },
+    "image": "http://localhost:8000/../images/webdavy/svg-export-40x40.png",
+    "url": "http://localhost:8000/chrome-extensions/webdavy.html",
+    "sku": "webdavy",
+    "version": "1.1.0"
+  }
+  </script>
+</head>
+<body class="v1-professional">
+  <!-- Header -->
+  <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <a class="logo-v1" href="../index.html">
+        <img src="../images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <span class="logo-text">虎啦</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+          <a href="../index.html#home" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="../index.html#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="../index.html#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="../index.html#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        </nav>
+        
+        <!-- 语言选择器 -->
+        <div class="dropdown dropdown-end">
+          <div tabindex="0" role="button" class="lang-switcher-btn">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+            <span id="current-lang">中文</span>
+            <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-200"></i>
+          </div>
+          <ul tabindex="0" class="lang-dropdown-menu">
+            <li><a onclick="switchLanguage('zh')" class="lang-option" data-lang="zh">
+              <span class="lang-text">简体</span>
+            </a></li>
+            <li><a onclick="switchLanguage('zh-tw')" class="lang-option" data-lang="zh-tw">
+              <span class="lang-text">繁體</span>
+            </a></li>
+            <li><a onclick="switchLanguage('en')" class="lang-option" data-lang="en">
+              <span class="lang-text">EN</span>
+            </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+
+    <!-- 产品详情 Hero -->
+    <section class="product-hero py-12 px-6">
+      <div class="max-w-4xl mx-auto relative z-10">
+        <div class="flex items-center gap-6 mb-8 fade-in-up">
+          <!-- 产品图标 -->
+          <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center shadow-md flex-shrink-0">
+            <img src="../images/webdavy/svg-export-40x40.png" alt="WebDavy" class="w-10 h-10">
+          </div>
+          
+          <!-- 产品标题和版本 -->
+          <div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              <span class="gradient-text">WebDavy</span>
+            </h1>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">
+              版本 1.1.0
+            </div>
+          </div>
+        </div>
+        
+        <!-- 产品简介 -->
+        <div class="fade-in-up" style="animation-delay: 0.2s;">
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。
+          </p>
+          
+          <!-- 操作按钮 -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            
+      <span class="inline-flex items-center px-8 py-3 bg-gray-100 text-gray-500 rounded-xl font-semibold cursor-not-allowed shadow-md">
+        🚧 开发中
+      </span>
+      <a href="../index.html#extensions" 
+         class="px-8 py-3 border-2 border-gray-400 bg-white text-gray-600 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 shadow-md" 
+         style="text-decoration: none !important;">
+        📖 查看更多
+      </a>
+    
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 产品特性 -->
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up">产品特性</h2>
+          <p class="text-gray-600 text-lg fade-in-up" style="animation-delay: 0.2s;">了解这款工具的核心功能和优势</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+    <div class="feature-card fade-in-up" style="animation-delay: 0.1s;">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center flex-shrink-0">
+          <span class="text-xl">🔒</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">一键连接WebDAV服务器</h3>
+          <p class="text-gray-600 leading-relaxed">支持主流WebDAV服务如NextCloud、OwnCloud等，安全保存连接配置</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="feature-card fade-in-up" style="animation-delay: 0.2s;">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center flex-shrink-0">
+          <span class="text-xl">⚙️</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2">完整文件管理功能</h3>
+          <p class="text-gray-600 leading-relaxed">在浏览器中直接浏览、上传、下载、创建和删除文件夹</p>
+        </div>
+      </div>
+    </div>
+  
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- 支持的服务器 -->
+    <section class="py-16 px-6 bg-gradient-to-br from-orange-50/50 to-red-50/50">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">支持的WebDAV服务器</h2>
+          <p class="text-gray-600 text-lg">兼容主流WebDAV服务，满足不同使用场景</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="w-12 h-12 mx-auto mb-2 bg-blue-100 rounded-lg flex items-center justify-center">
+              <span class="text-blue-600 font-bold text-sm">NC</span>
+            </div>
+            <span class="text-sm font-medium text-gray-700">NextCloud</span>
+          </div>
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="w-12 h-12 mx-auto mb-2 bg-green-100 rounded-lg flex items-center justify-center">
+              <span class="text-green-600 font-bold text-sm">OC</span>
+            </div>
+            <span class="text-sm font-medium text-gray-700">OwnCloud</span>
+          </div>
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="w-12 h-12 mx-auto mb-2 bg-red-100 rounded-lg flex items-center justify-center">
+              <span class="text-red-600 font-bold text-sm">AP</span>
+            </div>
+            <span class="text-sm font-medium text-gray-700">Apache</span>
+          </div>
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="w-12 h-12 mx-auto mb-2 bg-purple-100 rounded-lg flex items-center justify-center">
+              <span class="text-purple-600 font-bold text-sm">NG</span>
+            </div>
+            <span class="text-sm font-medium text-gray-700">Nginx</span>
+          </div>
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="w-12 h-12 mx-auto mb-2 bg-yellow-100 rounded-lg flex items-center justify-center">
+              <span class="text-yellow-600 font-bold text-sm">IIS</span>
+            </div>
+            <span class="text-sm font-medium text-gray-700">IIS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-gray-200 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-gray-500">© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量</p>
+    </div>
+  </footer>
+
+  <script>
+    // 页面加载动画
+    window.addEventListener('load', function() {
+      // 设置年份
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const elements = document.querySelectorAll('.fade-in-up');
+      elements.forEach((el, index) => {
+        setTimeout(() => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.animation = `fadeInUp 0.8s ease-out ${index * 0.2}s forwards`;
+        }, 100);
+      });
+
+      // 初始化 Lucide 图标
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+      
+      // 初始化语言
+      initLanguage();
+    });
+    
+    // 语言翻译数据
+    const translations = {
+      'zh': {
+        'title': 'WebDavy - 虎啦',
+        'nav.home': '首页',
+        'nav.extensions': '浏览器扩展',
+        'nav.tools': '在线工具',
+        'nav.about': '关于我',
+        'footer.copyright': '© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量'
+      },
+      'zh-tw': {
+        'title': 'WebDavy - 虎啦',
+        'nav.home': '首頁',
+        'nav.extensions': '瀏覽器擴展',
+        'nav.tools': '線上工具',
+        'nav.about': '關於我',
+        'footer.copyright': '© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量'
+      },
+      'en': {
+        'title': 'WebDavy - HolaTiger',
+        'nav.home': 'Home',
+        'nav.extensions': 'Extensions',
+        'nav.tools': 'Tools',
+        'nav.about': 'About',
+        'footer.copyright': '© 2024 HolaTiger - Small Tools, Big Power'
+      }
+    };
+
+    // 获取当前语言
+    function getCurrentLanguage() {
+      return localStorage.getItem('language') || 'zh';
+    }
+
+    // 设置语言
+    function setLanguage(lang) {
+      localStorage.setItem('language', lang);
+      const langMap = {
+        'zh': 'zh-CN',
+        'zh-tw': 'zh-TW',
+        'en': 'en'
+      };
+      document.documentElement.lang = langMap[lang] || 'zh-CN';
+    }
+
+    // 切换语言
+    function switchLanguage(lang) {
+      setLanguage(lang);
+      updateContent(lang);
+      updateLanguageSelector(lang);
+    }
+
+    // 更新内容
+    function updateContent(lang) {
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+      
+      // 更新页面标题
+      if (translations[lang] && translations[lang]['title']) {
+        document.title = translations[lang]['title'];
+      }
+    }
+
+    // 更新语言选择器显示
+    function updateLanguageSelector(lang) {
+      const currentLangElement = document.getElementById('current-lang');
+      const langOptions = document.querySelectorAll('.lang-option');
+      
+      if (currentLangElement) {
+        const langNames = {
+          'zh': '简体',
+          'zh-tw': '繁體', 
+          'en': 'EN'
+        };
+        currentLangElement.textContent = langNames[lang] || '简体';
+      }
+      
+      // 更新选项状态
+      langOptions.forEach(option => {
+        const optionLang = option.getAttribute('data-lang');
+        if (optionLang === lang) {
+          option.classList.add('active');
+        } else {
+          option.classList.remove('active');
+        }
+      });
+    }
+
+    // 初始化语言
+    function initLanguage() {
+      const currentLang = getCurrentLanguage();
+      updateContent(currentLang);
+      updateLanguageSelector(currentLang);
+    }
+
+    // 将switchLanguage函数暴露到全局作用域
+    window.switchLanguage = switchLanguage;
+  </script>
+</body>
+</html>
