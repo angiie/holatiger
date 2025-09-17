@@ -6,6 +6,10 @@
       "destination": "/src/pages/index.html"
     },
     {
+      "source": "/:page(.+).html",
+      "destination": "/src/pages/:page.html"
+    },
+    {
       "source": "/svg-studio",
       "destination": "/src/tools/svg-studio/index.html"
     },
