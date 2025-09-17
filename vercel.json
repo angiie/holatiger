@@ -26,6 +26,10 @@
       "destination": "/src/assets/$1"
     },
     {
+      "source": "/src/assets/(.*)",
+      "destination": "/src/assets/$1"
+    },
+    {
       "source": "/images/(.*)",
       "destination": "/src/assets/images/$1"
     },
