@@ -118,16 +118,6 @@
  * 版本 V1: 专业清晰
  * =============================================
  */
-.v1-professional {
-  @apply font-sans text-base-content;
-  background-image: url('/images/background/marble-2398946_1280.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-:is([data-theme="dark"] .v1-professional) {
-  /* The background image is now handled by the base .v1-professional class */
-}
 .site-header-v1 {
   @apply sticky top-0 z-30 w-full bg-white/50 dark:bg-slate-900/50 backdrop-blur-md border-b border-slate-200/30 dark:border-slate-800/30 shadow-sm;
 }
