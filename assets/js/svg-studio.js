@@ -10,6 +10,12 @@ const i18nData = {
         twitterTitle: 'SVG Studio Pro - 专业SVG查看器和导出工具',
         twitterDescription: '功能强大的SVG处理工具，支持实时预览、多格式导出、批量处理。完全免费，无需注册。',
         
+        // 面包屑导航
+        breadcrumb: {
+            home: '首页',
+            svgStudio: 'SVG Studio Pro'
+        },
+        
         // 主要界面文本
         svgCodeInput: 'SVG 代码输入',
         svgCodeLabel: 'SVG 代码',
@@ -105,6 +111,12 @@ const i18nData = {
         ogDescription: '功能強大的SVG處理工具，支援即時預覽、多格式匯出、批次處理。完全免費，無需註冊。',
         twitterTitle: 'SVG Studio Pro - 專業SVG檢視器和匯出工具',
         twitterDescription: '功能強大的SVG處理工具，支援即時預覽、多格式匯出、批次處理。完全免費，無需註冊。',
+        
+        // 面包屑導航
+        breadcrumb: {
+            home: '首頁',
+            svgStudio: 'SVG Studio Pro'
+        },
 
         // 主要功能區域
         svgCodeInput: 'SVG 程式碼輸入',
@@ -202,6 +214,12 @@ const i18nData = {
         ogDescription: 'Powerful SVG processing tool with real-time preview, multi-format export, and batch processing. Completely free, no registration required.',
         twitterTitle: 'SVG Studio Pro - Professional SVG Viewer and Export Tool',
         twitterDescription: 'Powerful SVG processing tool with real-time preview, multi-format export, and batch processing. Completely free, no registration required.',
+        
+        // Breadcrumb navigation
+        breadcrumb: {
+            home: 'Home',
+            svgStudio: 'SVG Studio Pro'
+        },
         
         // Main interface text
         svgCodeInput: 'SVG Code Input',
@@ -410,31 +428,7 @@ function initLanguage() {
 // 主要功能变量
 let currentSVG = '';
 
-// Toast 提示功能
-function showToast(message, type = 'error') {
-    const toastId = type === 'error' ? 'errorToast' : 'successToast';
-    const toast = document.getElementById(toastId);
-    
-    if (!toast) {
-        console.error(`Toast element with id '${toastId}' not found`);
-        return;
-    }
-    
-    toast.textContent = message;
-    toast.classList.add('show');
 
-    setTimeout(() => {
-        toast.classList.remove('show');
-    }, 4000);
-}
-
-function showError(message) {
-    showToast(message, 'error');
-}
-
-function showSuccess(message) {
-    showToast(message, 'success');
-}
 
 // 尺寸设置功能
 function setSize(width, height) {
@@ -460,24 +454,18 @@ function updateLayout() {
 }
 
 // 预览更新功能
-function updatePreview(showToastMessage = true) {
+function updatePreview() {
     const svgInput = document.getElementById('svgInput').value.trim();
     const width = parseInt(document.getElementById('widthInput').value);
     const height = parseInt(document.getElementById('heightInput').value);
 
     if (!svgInput) {
         updatePreviewStatus(getText('waitingInput'), 'text-gray-400');
-        if (showToastMessage) {
-            showError(getText('errorEnterSVG'));
-        }
         return;
     }
 
     if (!width || !height || width <= 0 || height <= 0) {
         updatePreviewStatus(getText('invalidSize'), 'text-red-500');
-        if (showToastMessage) {
-            showError(getText('errorValidSize'));
-        }
         return;
     }
 
@@ -524,22 +512,16 @@ function updatePreview(showToastMessage = true) {
         // 更新状态
         updatePreviewStatus(getText('updated'), 'text-green-500');
 
-        if (showToastMessage) {
-            showSuccess(getText('successPreviewUpdate'));
-        }
-
     } catch (error) {
         updatePreviewStatus(getText('formatError'), 'text-red-500');
-        if (showToastMessage) {
-            showError(getText('errorInvalidSVG') + ': ' + error.message);
-        }
+        console.error('SVG parsing error:', error.message);
     }
 }
 
 // PNG 下载功能
 function downloadPNG() {
     if (!currentSVG) {
-        showError(getText('errorEnterSVGFirst'));
+        console.error('请先输入 SVG 代码');
         return;
     }
 
@@ -591,14 +573,14 @@ function downloadPNG() {
                 downloadBtn.disabled = false;
             }, 'image/png');
         } catch (error) {
-            showError('生成 PNG 时出错');
+            console.error('生成 PNG 时出错');
             downloadBtn.innerHTML = originalText;
             downloadBtn.disabled = false;
         }
     };
 
     img.onerror = function () {
-        showError('转换为 PNG 时出错，请检查 SVG 代码');
+                    console.error('转换为 PNG 时出错，请检查 SVG 代码');
         downloadBtn.innerHTML = originalText;
         downloadBtn.disabled = false;
     };

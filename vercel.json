@@ -9,7 +9,12 @@
     },
     {
       "source": "/svg-studio",
-      "destination": "/svg-studio/",
+      "destination": "/svg-studio.html",
+      "permanent": true
+    },
+    {
+      "source": "/svg-studio/",
+      "destination": "/svg-studio.html",
       "permanent": true
     }
   ],
