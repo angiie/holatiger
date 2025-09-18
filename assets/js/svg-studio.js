@@ -37,6 +37,7 @@ const i18nData = {
         downloadPNG: '下载 PNG',
         downloadICO: '下载 ICO',
         batchExportPNG: '批量导出 PNG',
+        batchExportICO: '批量导出 ICO',
         chromeIconPack: 'Chrome 图标包',
         preview: '预览',
         
@@ -132,6 +133,7 @@ const i18nData = {
         downloadPNG: '下載 PNG',
         downloadICO: '下載 ICO',
         batchExportPNG: '批次匯出 PNG',
+        batchExportICO: '批次匯出 ICO',
         chromeIconPack: 'Chrome 圖示包',
         preview: '預覽',
 
@@ -228,6 +230,7 @@ const i18nData = {
         downloadPNG: 'Download PNG',
         downloadICO: 'Download ICO',
         batchExportPNG: 'Batch Export PNG',
+        batchExportICO: 'Batch Export ICO',
         chromeIconPack: 'Chrome Icon Pack',
         preview: 'Preview',
         
@@ -890,6 +893,10 @@ function updateExportButtonsState() {
     if (batchExportBtn) {
         batchExportBtn.disabled = !hasSelection || !hasPreview;
     }
+    const batchExportIcoBtn = document.getElementById('batchExportIcoBtn');
+    if (batchExportIcoBtn) {
+        batchExportIcoBtn.disabled = !hasSelection || !hasPreview;
+    }
 }
 
 // ICO 文件下载功能
@@ -1164,6 +1171,83 @@ function batchExportPNG() {
         const svgBlob = new Blob([currentSVG], { type: 'image/svg+xml;charset=utf-8' });
         const url = URL.createObjectURL(svgBlob);
         img.src = url;
+    });
+}
+
+// 批量导出ICO功能
+function batchExportICO() {
+    if (!currentSVG) {
+        showError('请先输入 SVG 代码并预览');
+        return;
+    }
+
+    if (selectedSizes.length === 0) {
+        showError('请至少选择一个导出尺寸');
+        return;
+    }
+
+    const icoBatchBtn = document.getElementById('batchExportIcoBtn');
+    if (!icoBatchBtn) {
+        console.error('Batch export ICO button element not found');
+        return;
+    }
+    const originalText = icoBatchBtn.innerHTML;
+    icoBatchBtn.innerHTML = '<div class="loading-spinner"></div><span>批量生成中...</span>';
+    icoBatchBtn.disabled = true;
+
+    const zip = new JSZip();
+    let completedCount = 0;
+    const totalCount = selectedSizes.length;
+
+    // 逐尺寸生成 ICO（每个 ICO 内仅该尺寸，便于按需分发）
+    selectedSizes.forEach(size => {
+        generateIconPNG(size, function (blob) {
+            if (!blob) {
+                icoBatchBtn.innerHTML = originalText;
+                icoBatchBtn.disabled = false;
+                showError(`生成 ${size}x${size} PNG 失败`);
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function () {
+                try {
+                    const pngArray = new Uint8Array(reader.result);
+                    // 利用现有 pngToIco，将单个 PNG 封装成单尺寸 ICO
+                    const icoData = pngToIco([pngArray]);
+                    const icoBlob = new Blob([new Uint8Array(icoData)], { type: 'image/x-icon' });
+                    zip.file(`icon_${size}x${size}.ico`, icoBlob);
+                    completedCount++;
+
+                    // 更新进度
+                    icoBatchBtn.innerHTML = `<div class="loading-spinner"></div><span>生成中... (${completedCount}/${totalCount})</span>`;
+
+                    if (completedCount === totalCount) {
+                        zip.generateAsync({ type: 'blob' }).then(function (content) {
+                            const a = document.createElement('a');
+                            a.href = URL.createObjectURL(content);
+                            a.download = 'icons_ico_batch.zip';
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+
+                            icoBatchBtn.innerHTML = originalText;
+                            icoBatchBtn.disabled = false;
+                            showSuccess(`批量导出成功！已生成 ${totalCount} 个尺寸的ICO文件`);
+                        }).catch(function (error) {
+                            icoBatchBtn.innerHTML = originalText;
+                            icoBatchBtn.disabled = false;
+                            showError('ZIP文件生成失败: ' + error.message);
+                        });
+                    }
+                } catch (err) {
+                    icoBatchBtn.innerHTML = originalText;
+                    icoBatchBtn.disabled = false;
+                    showError('ICO 文件生成失败: ' + err.message);
+                }
+            };
+            reader.readAsArrayBuffer(blob);
+        });
     });
 }
 
