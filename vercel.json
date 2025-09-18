@@ -26,6 +26,8 @@
       "destination": "/src/tools/svg-studio/index.html"
     },
     {
+      "source": "/favicon.ico",
+      "destination": "/public/favicon.ico"
     },
     {
       "source": "/tools/(.*)",
