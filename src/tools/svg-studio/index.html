@@ -2,19 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ME7HRY1CXN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-ME7HRY1CXN');
-    </script>
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="HDiRWpHWVxttOINcLS9xmA" async></script>
+    <!-- Analytics Scripts -->
+    <script src="/assets/js/analytics.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- SEO 基础标签 -->
     <title>SVG Studio Pro - SVG 查看器和导出工具</title>
     <meta name="description" content="专业的SVG查看器和导出工具，支持实时预览、多格式导出(PNG/ICO/WebP/JPG)、批量处理、Chrome图标包生成。简洁高效，完全免费。">
@@ -23,7 +15,16 @@
     <meta name="robots" content="index, follow">
     <meta name="language" content="zh-CN">
     <link rel="canonical" href="https://holatiger.com/svg-studio/">
-    
+
+    <!-- Hreflang 标签 -->
+    <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/svg-studio/">
+    <link rel="alternate" hreflang="zh-TW" href="https://holatiger.com/svg-studio/?lang=zh-TW">
+    <link rel="alternate" hreflang="en" href="https://holatiger.com/svg-studio/?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://holatiger.com/svg-studio/">
+
+    <!-- 结构化数据 -->
+    <script type="application/ld+json" src="/assets/js/svg-studio-schema.json"></script>
+    <script type="application/ld+json" src="/assets/js/svg-studio-breadcrumb.json"></script>
     <!-- Open Graph 标签 -->
     <meta property="og:type" content="website">
     <meta property="og:image" content="/images/social/holatiger-svg-studio-1200x630.png">
@@ -33,34 +34,44 @@
     <meta property="og:site_name" content="SVG Studio">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:locale:alternate" content="en_US">
-    
+
     <!-- Twitter 卡片标签 -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="/images/social/holatiger-svg-studio-1200x630.png">
     <meta name="twitter:title" content="SVG Studio Pro - 专业SVG查看器和导出工具">
     <meta name="twitter:description" content="功能强大的SVG处理工具，支持实时预览、多格式导出、批量处理。完全免费，无需注册。">
     <meta name="twitter:creator" content="@SVGStudio">
-    
+
     <!-- 移动端优化 -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="SVG Studio">
-    
+
     <!-- 主题颜色 -->
     <meta name="theme-color" content="#3b82f6">
     <meta name="msapplication-TileColor" content="#3b82f6">
-    
+
     <!-- 字体和外部资源 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    
+
     <!-- 外部样式引用 -->
-    <link rel="stylesheet" href="/svg-studio/styles.css">
+    <link rel="stylesheet" href="/assets/css/svg-studio.css">
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- 面包屑导航 -->
+    <nav class="breadcrumb" aria-label="面包屑导航">
+        <ol class="breadcrumb-list">
+            <li class="breadcrumb-item">
+                <a href="/" class="breadcrumb-link">首页</a>
+            </li>
+            <li class="breadcrumb-item">
+                <span class="breadcrumb-current">SVG Studio Pro</span>
+            </li>
+        </ol>
+    </nav> <!-- Header -->
     <header class="app-header">
         <div class="header-container">
             <div class="header-left">
@@ -94,10 +105,6 @@
 
     <div class="app-container">
         <div class="main-card">
-
-            
-
-
             <div class="content">
                 <!-- 左侧内容区域 -->
                 <div class="left-panel">
@@ -105,38 +112,47 @@
                         <div class="upload-area" id="uploadArea">
                             <div class="upload-content">
                                 <div class="upload-icon">
-                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
                                 <p data-i18n="uploadText">拖拽 SVG 文件到这里或</p>
-                                <button class="upload-btn" onclick="document.getElementById('fileInput').click()" data-i18n="uploadLink">点击选择文件</button>
+                                <button class="upload-btn" onclick="document.getElementById('fileInput').click()"
+                                    data-i18n="uploadLink">点击选择文件</button>
                                 <p class="upload-hint" data-i18n="uploadHint">支持 .svg 格式文件 | 支持 Ctrl+V 粘贴文件</p>
                             </div>
                             <input type="file" id="fileInput" accept=".svg" style="display: none;">
                         </div>
                         <div class="drag-drop-hint" data-i18n="dragDropHint">💡 提示：您也可以直接将 SVG 文件拖拽到页面任意位置进行导入</div>
 
-
-
                         <div class="input-group">
                             <label for="svgInput" data-i18n="svgCodeLabel">SVG 代码</label>
-                            <textarea id="svgInput" placeholder="在这里粘贴你的 SVG 代码，或使用上方的文件上传..." data-i18n-placeholder="placeholder"></textarea>
+                            <textarea id="svgInput" placeholder="在这里粘贴你的 SVG 代码，或使用上方的文件上传..."
+                                data-i18n-placeholder="placeholder"></textarea>
                         </div>
                     </div>
-                    
+
                     <!-- 导出功能Tab区域 -->
                     <div class="export-tabs-section">
                         <div class="tab-header">
-                            <button class="tab-btn active" onclick="switchTab('export')" data-i18n="sizeAndExport">尺寸设置与导出</button>
+                            <button class="tab-btn active" onclick="switchTab('export')"
+                                data-i18n="sizeAndExport">尺寸设置与导出</button>
                             <button class="tab-btn" onclick="switchTab('batch')" data-i18n="batchExport">批量导出</button>
                             <span class="size-badge" id="sizeBadge">0</span>
                         </div>
-                        
+
                         <!-- 导出Tab内容 -->
                         <div class="tab-content active" id="exportTab">
                             <div class="size-inputs">
@@ -149,7 +165,7 @@
                                     <input type="number" id="heightInput" value="512" min="1" max="2048">
                                 </div>
                             </div>
-                            
+
                             <!-- 预设尺寸选择器 -->
                             <div class="preset-sizes">
                                 <h4 data-i18n="presetSizes">预设尺寸</h4>
@@ -157,21 +173,25 @@
                                     <!-- 预设尺寸按钮将通过 JavaScript 动态生成 -->
                                 </div>
                             </div>
-                            
+
                             <div class="export-buttons">
-                                <button class="btn btn-primary" id="downloadBtn" onclick="downloadPNG()" data-i18n="downloadPNG" disabled>下载 PNG</button>
-                                <button class="btn btn-secondary" id="icoBtn" onclick="downloadICO()" data-i18n="downloadICO" disabled>下载 ICO</button>
+                                <button class="btn btn-primary" id="downloadBtn" onclick="downloadPNG()"
+                                    data-i18n="downloadPNG" disabled>下载 PNG</button>
+                                <button class="btn btn-secondary" id="icoBtn" onclick="downloadICO()"
+                                    data-i18n="downloadICO" disabled>下载 ICO</button>
                             </div>
                         </div>
-                        
+
                         <!-- 批量导出Tab内容 -->
                         <div class="tab-content" id="batchTab">
                             <div class="batch-section">
                                 <div class="batch-header">
                                     <h4 data-i18n="batchExportSizes">批量导出尺寸选择</h4>
                                     <div class="batch-controls">
-                                        <button class="btn btn-small" onclick="selectAllSizes()" data-i18n="selectAll">全选</button>
-                                        <button class="btn btn-small" onclick="clearAllSizes()" data-i18n="clearAll">清空</button>
+                                        <button class="btn btn-small" onclick="selectAllSizes()"
+                                            data-i18n="selectAll">全选</button>
+                                        <button class="btn btn-small" onclick="clearAllSizes()"
+                                            data-i18n="clearAll">清空</button>
                                     </div>
                                 </div>
                                 <div class="size-grid" id="sizeGrid">
@@ -181,8 +201,10 @@
                                     <span id="selectedCount" data-i18n="selectedSizesCount">已选择 0 个尺寸</span>
                                 </div>
                                 <div class="batch-buttons">
-                                    <button class="btn btn-primary" id="batchExportBtn" onclick="batchExportPNG()" data-i18n="batchExportPNG" disabled>批量导出 PNG</button>
-                                    <button class="btn btn-accent" id="chromePackBtn" onclick="downloadChromeIconPack()" data-i18n="chromeIconPack" disabled>Chrome 图标包</button>
+                                    <button class="btn btn-primary" id="batchExportBtn" onclick="batchExportPNG()"
+                                        data-i18n="batchExportPNG" disabled>批量导出 PNG</button>
+                                    <button class="btn btn-accent" id="chromePackBtn" onclick="downloadChromeIconPack()"
+                                        data-i18n="chromeIconPack" disabled>Chrome 图标包</button>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +217,8 @@
                         <h3 data-i18n="preview">预览</h3>
                         <div class="preview-container">
                             <div class="preview-content" id="previewContent">
-                                <div class="preview-placeholder" data-i18n="previewPlaceholder">在左侧输入 SVG 代码，预览将自动更新</div>
+                                <div class="preview-placeholder" data-i18n="previewPlaceholder">在左侧输入 SVG 代码，预览将自动更新
+                                </div>
                             </div>
                             <div class="preview-info">
                                 <span class="file-size" id="fileSize"></span>
@@ -219,16 +242,31 @@
                     </div>
                     <p class="footer-description">专业的SVG处理工具，让创作更简单</p>
                 </div>
+                <div class="footer-right">
+                    <div class="footer-links">
+                        <h4>相关资源</h4>
+                        <ul>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank"
+                                    rel="noopener">SVG 文档 (MDN)</a></li>
+                            <li><a href="https://www.w3.org/Graphics/SVG/" target="_blank" rel="noopener">W3C SVG 规范</a>
+                            </li>
+                            <li><a href="https://svgontheweb.com/" target="_blank" rel="noopener">SVG 最佳实践</a></li>
+                            <li><a href="https://github.com/svg/svgo" target="_blank" rel="noopener">SVGO 优化工具</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="footer-description">专业的SVG处理工具，让创作更简单</p>
+            </div>
 
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                <p>&copy; 2025 SVG Studio Pro. All rights reserved.</p>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    <p>&copy; 2025 SVG Studio Pro. All rights reserved.</p>
-                </div>
-                <div class="footer-version">
-                    <span class="version-badge">v1.0.0</span>
-                </div>
+            <div class="footer-version">
+                <span class="version-badge">v1.0.0</span>
             </div>
+        </div>
         </div>
     </footer>
 
@@ -238,7 +276,7 @@
     <div class="paste-indicator" id="pasteIndicator" data-i18n="pasteIndicator">准备粘贴 SVG 文件...</div>
 
     <!-- JavaScript 引用 -->
-    <script src="/svg-studio/script.js"></script>
+    <script src="/assets/js/svg-studio.js"></script>
 </body>
 
 </html>

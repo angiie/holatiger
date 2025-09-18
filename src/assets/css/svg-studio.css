@@ -1976,3 +1976,111 @@ body.drag-active::after {
         padding: 2rem 1rem 1rem;
     }
 }
+/* 面包屑导航样式 */
+.breadcrumb {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border-light);
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    content: "›";
+    margin: 0 0.5rem;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+.breadcrumb-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.breadcrumb-current {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Footer 外部链接样式 */
+.footer-links {
+    margin-left: 2rem;
+}
+
+.footer-links h4 {
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .breadcrumb {
+        padding: 0.5rem 0;
+    }
+    
+    .breadcrumb-list {
+        padding: 0 0.75rem;
+    }
+    
+    .breadcrumb-link,
+    .breadcrumb-current {
+        font-size: 0.8rem;
+    }
+    
+    .footer-links {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}

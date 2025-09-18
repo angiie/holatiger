@@ -1,17 +1,5 @@
 {
   "version": 2,
-  "redirects": [
-    {
-      "source": "/svg-studio",
-      "destination": "/svg-studio/",
-      "permanent": true
-    },
-    {
-      "source": "https://www.holatiger.com/(.*)",
-      "destination": "https://holatiger.com/$1",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
       "source": "/",
@@ -26,6 +14,8 @@
       "destination": "/src/tools/svg-studio/index.html"
     },
     {
+      "source": "/svg-studio/(.*)",
+      "destination": "/src/tools/svg-studio/$1"
     },
     {
       "source": "/tools/(.*)",
@@ -58,14 +48,6 @@
     {
       "source": "/webdavy.html",
       "destination": "/src/pages/webdavy.html"
-    },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/public/sitemap.xml"
-    },
-    {
-      "source": "/robots.txt",
-      "destination": "/public/robots.txt"
     }
   ],
   "headers": [
