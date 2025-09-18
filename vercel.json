@@ -6,12 +6,13 @@
       "destination": "/svg-studio/",
       "permanent": true
     },
-    {
-      "source": "https://www.holatiger.com/(.*)",
-      "destination": "https://holatiger.com/$1",
-      "permanent": true
-    }
-  ],
+      {
+        "source": "/(.*)",
+        "has": [ { "type": "host", "value": "www.holatiger.com" } ],
+        "destination": "https://holatiger.com/:1",
+        "permanent": true
+      }
+    ],
   "rewrites": [
     {
       "source": "/",
