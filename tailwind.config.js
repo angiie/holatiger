@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./index.html",
     "./svg-studio/index.html",
+    "./src/**/*.{ts,tsx,js,jsx,html}",
     "./**/*.{html,js}",
     "!./node_modules/**"
   ],
