@@ -39,7 +39,7 @@ class I18nManager {
     }
 
     try {
-      const response = await fetch(`../assets/i18n/${lang}.json`);
+      const response = await fetch(`/assets/i18n/${lang}.json`);
       if (!response.ok) {
         throw new Error(`Failed to load language pack: ${lang}`);
       }
@@ -107,13 +107,19 @@ class I18nManager {
         parsedParams.year = new Date().getFullYear();
       }
       
-      element.innerHTML = this.t(key, parsedParams);
+      const text = this.t(key, parsedParams);
+      if (text !== key) element.innerHTML = text;
     });
     
     // 更新页面标题
     const titleKey = this.getPageTitleKey();
     if (titleKey) {
       document.title = this.t(titleKey);
+    }
+    // 首页等无特定titleKey时，直接使用通用的 title 键
+    const directTitle = this.t('title');
+    if (directTitle && directTitle !== 'title') {
+      document.title = directTitle;
     }
     
     // 更新meta描述

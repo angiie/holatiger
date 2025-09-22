@@ -58,5 +58,33 @@
   "carousel.prev": "Previous",
   "carousel.next": "Next",
   "carousel.slide": "Go to slide {index}",
-  "lang.current": "EN"
+  "lang.current": "EN",
+
+  "title": "HolaTiger - Small Tools, Big Power",
+  "logo.text": "HolaTiger",
+
+  "hero.badge": "🚀 Updating Continuously",
+  "hero.title": "Small Tools, Big Power.",
+  "hero.subtitle1": "A collection of lightweight, practical, ready-to-use browser extensions and web tools",
+  "hero.subtitle2": "Boost your workflow with convenience",
+  "hero.btn1": "🔧 View Extensions",
+  "hero.btn2": "🛠️ Explore Tools",
+
+  "extensions.title": "Browser Extensions",
+  "extensions.subtitle": "Enhance your browser with more efficient daily operations",
+  "extensions.badge": "Chrome Extension",
+  "tinypass.desc": "A simple yet powerful password generator with multiple complexity options and custom rules.",
+  "webdavy.desc": "A lightweight WebDAV connection tool that simplifies file syncing and management.",
+  "status.published": "Published",
+  "btn.install": "Install",
+
+  "tools.title": "Web Tools",
+  "tools.subtitle": "No installation required, use instantly in your browser",
+  "tools.badge": "Web Tool",
+  "svg-studio.desc": "An easy-to-use SVG conversion tool with multiple output formats and live preview.",
+  "status.available": "Available",
+  "btn.try-tool": "Try Tool",
+
+  "about.title": "About Me",
+  "about.desc": "I'm <strong class=\"text-orange-600\">angiie</strong>, a full-stack indie developer who loves turning small ideas into practical productivity tools. This site will keep updating Chrome extensions and web tools. You're welcome to star and give feedback." 
 }

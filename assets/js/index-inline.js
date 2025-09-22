@@ -54,6 +54,11 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 })();
 
 (function i18nSetup(){
+  if (window.i18n && typeof window.i18n.init === 'function') {
+    window.addEventListener('load', function(){ window.i18n.init(); });
+    window.switchLanguage = function(lang){ window.i18n.switchLanguage(lang); };
+    return;
+  }
   const translations = window.indexTranslations || {};
   function getCurrentLanguage() { return localStorage.getItem('language') || 'zh'; }
   function setLanguage(lang) {
