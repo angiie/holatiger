@@ -7,6 +7,8 @@
     "build:css": "tailwindcss -i ./src/assets/css/tw-src.css -o ./src/assets/css/tw.css --minify",
     "dev:css": "tailwindcss -i ./src/assets/css/tw-src.css -o ./src/assets/css/tw.css --watch",
     "serve": "python3 -m http.server 8000",
+    "export:covers": "node scripts/export-covers.mjs",
+    "export:covers:pw": "node scripts/export-covers-playwright.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,6 +18,8 @@
     "autoprefixer": "^10.4.21",
     "daisyui": "^4.12.24",
     "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "puppeteer": "^22.13.1",
+    "playwright": "^1.47.2"
   }
 }
