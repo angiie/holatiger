@@ -10,12 +10,6 @@ const i18nData = {
         twitterTitle: 'SVG Studio Pro - 专业SVG查看器和导出工具',
         twitterDescription: '功能强大的SVG处理工具，支持实时预览、多格式导出、批量处理。完全免费，无需注册。',
         
-        // 面包屑导航
-        breadcrumb: {
-            home: '首页',
-            svgStudio: 'SVG Studio Pro'
-        },
-        
         // 主要界面文本
         svgCodeInput: 'SVG 代码输入',
         svgCodeLabel: 'SVG 代码',
@@ -44,9 +38,21 @@ const i18nData = {
         downloadICO: '下载 ICO',
         batchExportPNG: '批量导出 PNG',
         batchExportICO: '批量导出 ICO',
+        exportPNG: '导出 PNG',
+        exportICO: '导出 ICO',
         chromeIconPack: 'Chrome 图标包',
         preview: '预览',
         exportAllPacks: '一键导出全规格',
+        exportWeb: '导出 Web',
+        exportChrome: '导出 Chrome 扩展',
+        exportAndroid: '导出 Android',
+        exportIOS: '导出 iOS',
+        exportWindows: '导出 Windows',
+        exportMacOS: '导出 macOS',
+        exportSocial: '导出 Social',
+        selectExport: '选择导出',
+        confirm: '确认',
+        cancel: '取消',
         
         // 状态文本
         realtimeUpdate: '实时更新',
@@ -58,6 +64,7 @@ const i18nData = {
         packing: '打包中...',
         batchGenerating: '批量生成中...',
         exportingAll: '导出所有规格中...',
+        exportingPack: '导出中...',
         
         // 导航栏
         'nav-home': '首页',
@@ -98,11 +105,22 @@ const i18nData = {
         successChromePackDownload: 'Chrome 图标包已下载 (icons.zip)',
         successBatchExport: '批量导出成功！已生成 {count} 个尺寸的PNG文件',
         successAllExport: '所有规格已打包下载（all-assets.zip）',
+        successPackExport: '打包完成',
         
         // 粘贴提示（恢复）
         pasteReady: '准备粘贴 SVG 文件...',
         pasteFileOrCode: '粘贴 SVG 文件或代码...',
-        pastePrompt: '请粘贴 SVG 文件或代码'
+        pastePrompt: '请粘贴 SVG 文件或代码',
+        
+        // README 模板
+        readmeWeb: '此包包含 Web 所需图标（favicon、apple touch、PWA）。',
+        readmeChrome: '此包包含 Chrome 扩展所需图标尺寸。',
+        readmeAndroid: '此包包含 Android 所需 mipmap/play store/adaptive 前景图标。',
+        readmeIOS: '此包包含 iOS 所需 iPhone/iPad/App Store 图标。',
+        readmeWindows: '此包包含 Windows 所需多尺寸 ICO。',
+        readmeMacOS: '此包包含 macOS 多尺寸 PNG，可用 iconutil 生成 ICNS。',
+        readmeSocial: '此包包含社交头像与分享图（含 1200x630）。',
+        readmeFilename: '目录说明.txt'
     },
     'zh-TW': {
         // SEO 和页面元数据
@@ -114,12 +132,6 @@ const i18nData = {
         twitterTitle: 'SVG Studio Pro - 專業SVG檢視器和匯出工具',
         twitterDescription: '功能強大的SVG處理工具，支援即時預覽、多格式匯出、批次處理。完全免費，無需註冊。',
         
-        // 面包屑導航
-        breadcrumb: {
-            home: '首頁',
-            svgStudio: 'SVG Studio Pro'
-        },
-
         // 主要功能區域
         svgCodeInput: 'SVG 程式碼輸入',
         svgCodeLabel: 'SVG 程式碼',
@@ -148,9 +160,21 @@ const i18nData = {
         downloadICO: '下載 ICO',
         batchExportPNG: '批次匯出 PNG',
         batchExportICO: '批次匯出 ICO',
+        exportPNG: '導出 PNG',
+        exportICO: '導出 ICO',
         chromeIconPack: 'Chrome 圖示包',
         preview: '預覽',
         exportAllPacks: '一鍵導出全規格',
+        exportWeb: '導出 Web',
+        exportChrome: '導出 Chrome 擴充',
+        exportAndroid: '導出 Android',
+        exportIOS: '導出 iOS',
+        exportWindows: '導出 Windows',
+        exportMacOS: '導出 macOS',
+        exportSocial: '導出 Social',
+        selectExport: '選擇導出',
+        confirm: '確認',
+        cancel: '取消',
 
         // 狀態訊息
         realtimeUpdate: '即時更新',
@@ -162,6 +186,7 @@ const i18nData = {
         packing: '打包中...',
         batchGenerating: '批次生成中...',
         exportingAll: '導出所有規格中...',
+        exportingPack: '導出中...',
 
         // 導航選單
         'nav-home': '首頁',
@@ -203,11 +228,22 @@ const i18nData = {
         successChromePackDownload: 'Chrome 圖示包已下載 (icons.zip)',
         successBatchExport: '批次匯出成功！已生成 {count} 個尺寸的PNG檔案',
         successAllExport: '所有規格已打包下載（all-assets.zip）',
+        successPackExport: '打包完成',
         
         // 貼上功能（恢復）
         pasteReady: '準備貼上 SVG 檔案...',
         pasteFileOrCode: '貼上 SVG 檔案或程式碼...',
-        pastePrompt: '請貼上 SVG 檔案或程式碼'
+        pastePrompt: '請貼上 SVG 檔案或程式碼',
+        
+        // README 模板
+        readmeWeb: '此包包含 Web 所需圖示（favicon、apple touch、PWA）。',
+        readmeChrome: '此包包含 Chrome 擴充所需圖示尺寸。',
+        readmeAndroid: '此包包含 Android 所需 mipmap/play store/adaptive 前景圖示。',
+        readmeIOS: '此包包含 iOS 所需 iPhone/iPad/App Store 圖示。',
+        readmeWindows: '此包包含 Windows 所需多尺寸 ICO。',
+        readmeMacOS: '此包包含 macOS 多尺寸 PNG，可用 iconutil 生成 ICNS。',
+        readmeSocial: '此包包含社群頭像與分享圖（含 1200x630）。',
+        readmeFilename: '目錄說明.txt'
     },
     'en': {
         // Page title and description
@@ -218,12 +254,6 @@ const i18nData = {
         ogDescription: 'Powerful SVG processing tool with real-time preview, multi-format export, and batch processing. Completely free, no registration required.',
         twitterTitle: 'SVG Studio Pro - Professional SVG Viewer and Export Tool',
         twitterDescription: 'Powerful SVG processing tool with real-time preview, multi-format export, and batch processing. Completely free, no registration required.',
-        
-        // Breadcrumb navigation
-        breadcrumb: {
-            home: 'Home',
-            svgStudio: 'SVG Studio Pro'
-        },
         
         // Main interface text
         svgCodeInput: 'SVG Code Input',
@@ -253,9 +283,21 @@ const i18nData = {
         downloadICO: 'Download ICO',
         batchExportPNG: 'Batch Export PNG',
         batchExportICO: 'Batch Export ICO',
+        exportPNG: 'Export PNG',
+        exportICO: 'Export ICO',
         chromeIconPack: 'Chrome Icon Pack',
         preview: 'Preview',
         exportAllPacks: 'Export All Packs',
+        exportWeb: 'Export Web',
+        exportChrome: 'Export Chrome Extension',
+        exportAndroid: 'Export Android',
+        exportIOS: 'Export iOS',
+        exportWindows: 'Export Windows',
+        exportMacOS: 'Export macOS',
+        exportSocial: 'Export Social',
+        selectExport: 'Select Export',
+        confirm: 'Confirm',
+        cancel: 'Cancel',
         
         // Status text
         realtimeUpdate: 'Real-time update',
@@ -267,6 +309,7 @@ const i18nData = {
         packing: 'Packing...',
         batchGenerating: 'Batch generating...',
         exportingAll: 'Exporting all packs...',
+        exportingPack: 'Exporting...',
         
         // Navigation
         'nav-home': 'Home',
@@ -307,11 +350,22 @@ const i18nData = {
         successChromePackDownload: 'Chrome icon pack downloaded (icons.zip)',
         successBatchExport: 'Batch export successful! Generated {count} PNG files in different sizes',
         successAllExport: 'All assets packaged (all-assets.zip)',
+        successPackExport: 'Packaged',
         
         // Paste prompts (restore)
         pasteReady: 'Ready to paste SVG file...',
         pasteFileOrCode: 'Paste SVG file or code...',
-        pastePrompt: 'Please paste SVG file or code'
+        pastePrompt: 'Please paste SVG file or code',
+        
+        // README 模板
+        readmeWeb: 'This pack includes Web icons (favicon, apple touch, PWA).',
+        readmeChrome: 'This pack includes Chrome extension icon sizes.',
+        readmeAndroid: 'This pack includes Android mipmap/play store/adaptive foreground icons.',
+        readmeIOS: 'This pack includes iOS iPhone/iPad/App Store icons.',
+        readmeWindows: 'This pack includes Windows multi-size ICO.',
+        readmeMacOS: 'This pack includes macOS PNG set; use iconutil to produce ICNS.',
+        readmeSocial: 'This pack includes social avatar and share images (with 1200x630).',
+        readmeFilename: 'README.txt'
     }
 };
 
@@ -462,139 +516,45 @@ function updateLayout() {
 // 预览更新功能
 function updatePreview() {
     const svgInput = document.getElementById('svgInput').value.trim();
-    const width = parseInt(document.getElementById('widthInput').value);
-    const height = parseInt(document.getElementById('heightInput').value);
-
-    if (!svgInput) {
-        updatePreviewStatus(getText('waitingInput'), 'text-gray-400');
-        return;
-    }
-
-    if (!width || !height || width <= 0 || height <= 0) {
-        updatePreviewStatus(getText('invalidSize'), 'text-red-500');
-        return;
-    }
-
+    const width = 512;
+    const height = 512;
+    if (!svgInput) { updatePreviewStatus(getText('waitingInput'), 'text-gray-400'); return; }
+    if (!width || !height || width <= 0 || height <= 0) { updatePreviewStatus(getText('invalidSize'), 'text-red-500'); return; }
     try {
-        // 验证 SVG 代码
         const parser = new DOMParser();
         const doc = parser.parseFromString(svgInput, 'image/svg+xml');
-        const parserError = doc.querySelector('parsererror');
-
-        if (parserError) {
-            throw new Error(getText('svgFormatError'));
+        let svgElement = null;
+        const root = doc && doc.documentElement;
+        const isSvgRoot = root && (root.tagName || root.nodeName) && (root.tagName || root.nodeName).toLowerCase() === 'svg';
+        if (isSvgRoot) {
+            svgElement = root;
+        } else {
+            const alt = new DOMParser().parseFromString(svgInput, 'text/html');
+            const found = alt.querySelector && alt.querySelector('svg');
+            if (found) {
+                svgElement = found;
+            } else {
+                throw new Error(getText('svgFormatError'));
+            }
         }
-
-        // 创建新的 SVG 元素并设置尺寸
-        const svgElement = doc.documentElement;
         svgElement.setAttribute('width', width);
         svgElement.setAttribute('height', height);
-
-        // 更新预览
         const previewContainer = document.getElementById('previewContent');
-        if (!previewContainer) {
-            console.error('Preview container element not found');
-            return;
-        }
-        
+        if (!previewContainer) { console.error('Preview container element not found'); return; }
         previewContainer.innerHTML = '';
         previewContainer.appendChild(svgElement.cloneNode(true));
         previewContainer.parentElement.classList.add('has-content');
-
-        // 保存当前 SVG 用于下载
         currentSVG = new XMLSerializer().serializeToString(svgElement);
-
-        // 启用下载按钮
-        document.getElementById('downloadBtn').disabled = false;
-        document.getElementById('icoBtn').disabled = false;
-        document.getElementById('chromePackBtn').disabled = false;
-        
-        // 更新批量导出按钮状态
+        // 元素可能不存在，访问前做保护
+        const chromeBtn = document.getElementById('chromePackBtn');
+        if (chromeBtn) chromeBtn.disabled = false;
         updateExportButtonsState();
-
-        // 更新布局
         updateLayout();
-
-        // 更新状态
         updatePreviewStatus(getText('updated'), 'text-green-500');
-
     } catch (error) {
         updatePreviewStatus(getText('formatError'), 'text-red-500');
         console.error('SVG parsing error:', error.message);
     }
-}
-
-// PNG 下载功能
-function downloadPNG() {
-    if (!currentSVG) {
-        console.error('请先输入 SVG 代码');
-        return;
-    }
-
-    const width = parseInt(document.getElementById('widthInput').value);
-    const height = parseInt(document.getElementById('heightInput').value);
-
-    // 显示加载状态
-    const downloadBtn = document.getElementById('downloadBtn');
-    if (!downloadBtn) {
-        console.error('Download button element not found');
-        return;
-    }
-    const originalText = downloadBtn.innerHTML;
-    downloadBtn.innerHTML = '<div class="loading-spinner"></div><span>' + getText('generating') + '</span>';
-    downloadBtn.disabled = true;
-
-    // 创建 canvas
-    const canvas = document.createElement('canvas');
-    canvas.width = width;
-    canvas.height = height;
-    const ctx = canvas.getContext('2d');
-
-    // 使用透明背景
-    ctx.clearRect(0, 0, width, height);
-
-    // 创建 Image 对象
-    const img = new Image();
-
-    img.onload = function () {
-        try {
-            // 绘制到 canvas
-            ctx.drawImage(img, 0, 0, width, height);
-
-            // 下载
-            canvas.toBlob(function (blob) {
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `svg-export-${width}x${height}.png`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-
-                showSuccess(`PNG 文件已下载 (${width}×${height})`);
-
-                // 恢复按钮状态
-                downloadBtn.innerHTML = originalText;
-                downloadBtn.disabled = false;
-            }, 'image/png');
-        } catch (error) {
-            console.error('生成 PNG 时出错');
-            downloadBtn.innerHTML = originalText;
-            downloadBtn.disabled = false;
-        }
-    };
-
-    img.onerror = function () {
-                    console.error('转换为 PNG 时出错，请检查 SVG 代码');
-        downloadBtn.innerHTML = originalText;
-        downloadBtn.disabled = false;
-    };
-
-    // 将 SVG 转换为 data URL
-    const svgBlob = new Blob([currentSVG], { type: 'image/svg+xml;charset=utf-8' });
-    const url = URL.createObjectURL(svgBlob);
-    img.src = url;
 }
 
 // Chrome 图标打包下载功能
@@ -614,13 +574,11 @@ function downloadChromeIconPack() {
 
     // 显示加载状态
     const chromePackBtn = document.getElementById('chromePackBtn');
-    if (!chromePackBtn) {
-        console.error('Chrome pack button element not found');
-        return;
+    const originalText = chromePackBtn ? chromePackBtn.innerHTML : '';
+    if (chromePackBtn) {
+        chromePackBtn.innerHTML = '<div class="loading-spinner"></div><span>打包中...</span>';
+        chromePackBtn.disabled = true;
     }
-    const originalText = chromePackBtn.innerHTML;
-    chromePackBtn.innerHTML = '<div class="loading-spinner"></div><span>打包中...</span>';
-    chromePackBtn.disabled = true;
 
     // 创建 ZIP 文件
     const zip = new JSZip();
@@ -668,19 +626,16 @@ function downloadChromeIconPack() {
                             showSuccess('Chrome 图标包已下载 (icons.zip)');
 
                             // 恢复按钮状态
-                            chromePackBtn.innerHTML = originalText;
-                            chromePackBtn.disabled = false;
+                            if (chromePackBtn) { chromePackBtn.innerHTML = originalText; chromePackBtn.disabled = false; }
                         })
                         .catch(function (error) {
                             showError('生成 ZIP 文件时出错');
-                            chromePackBtn.innerHTML = originalText;
-                            chromePackBtn.disabled = false;
+                            if (chromePackBtn) { chromePackBtn.innerHTML = originalText; chromePackBtn.disabled = false; }
                         });
                 }
             } else {
                 showError(`生成 ${size}×${size} 图标时出错`);
-                chromePackBtn.innerHTML = originalText;
-                chromePackBtn.disabled = false;
+                if (chromePackBtn) { chromePackBtn.innerHTML = originalText; chromePackBtn.disabled = false; }
             }
         });
     });
@@ -819,24 +774,9 @@ function generatePresetGrid() {
 
 // 设置预设尺寸
 function setPresetSize(width, height, buttonElement) {
-    // 移除所有按钮的active状态
-    document.querySelectorAll('.preset-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    
-    // 添加当前按钮的active状态
+    document.querySelectorAll('.preset-btn').forEach(btn => { btn.classList.remove('active'); });
     buttonElement.classList.add('active');
-    
-    // 设置尺寸输入框的值
-    document.getElementById('widthInput').value = width;
-    document.getElementById('heightInput').value = height;
-    
-    // 如果有SVG内容，立即更新预览
-    if (currentSVG) {
-        updatePreview(false);
-    }
-    
-    // 更新布局
+    if (currentSVG) { updatePreview(false); }
     updateLayout();
 }
 
@@ -889,6 +829,8 @@ function updateExportButtonsState() {
     if (exportAllBtn) {
         exportAllBtn.disabled = !hasPreview;
     }
+    const openSelector = document.getElementById('openExportSelectorBtn');
+    if (openSelector) openSelector.disabled = !hasPreview;
 }
 
 // ICO 文件下载功能
@@ -900,10 +842,7 @@ function downloadICO() {
 
     // 显示加载状态
     const icoBtn = document.getElementById('icoBtn');
-    if (!icoBtn) {
-        console.error('ICO button element not found');
-        return;
-    }
+    if (!icoBtn) { console.warn('ICO button element not found'); return; }
     const originalText = icoBtn.innerHTML;
     icoBtn.innerHTML = '<div class="loading-spinner"></div><span>生成中...</span>';
     icoBtn.disabled = true;
@@ -1061,10 +1000,9 @@ function updatePreviewRealtime() {
             </div>
         `;
         previewContainer.parentElement.classList.remove('has-content');
-        document.getElementById('downloadBtn').disabled = true;
-        document.getElementById('icoBtn').disabled = true;
-        document.getElementById('chromePackBtn').disabled = true;
-        document.getElementById('batchExportBtn').disabled = true;
+        const d1 = document.getElementById('downloadBtn'); if (d1) d1.disabled = true;
+        const d2 = document.getElementById('icoBtn'); if (d2) d2.disabled = true;
+        const d3 = document.getElementById('chromePackBtn'); if (d3) d3.disabled = true;
         currentSVG = '';
         return;
     }
@@ -1286,26 +1224,7 @@ function showPasteIndicator(message = getText('pasteReady')) {
 }
 
 // Tab切换功能
-function switchTab(tabName) {
-    // 移除所有tab按钮的active状态
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    
-    // 隐藏所有tab内容
-    document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.remove('active');
-    });
-    
-    // 激活当前tab按钮
-    event.target.classList.add('active');
-    
-    // 显示对应的tab内容
-    const targetTab = document.getElementById(tabName + 'Tab');
-    if (targetTab) {
-        targetTab.classList.add('active');
-    }
-}
+function switchTab() { /* tabs removed */ }
 
 // 页面加载时初始化
 document.addEventListener('DOMContentLoaded', function() {
@@ -1440,17 +1359,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 文件输入处理
-    document.getElementById('fileInput').addEventListener('change', function (e) {
+    const fileInputEl = document.getElementById('fileInput');
+    let isFileDialogOpen = false;
+
+    fileInputEl.addEventListener('change', function (e) {
         const file = e.target.files[0];
         if (file) {
             handleFileUpload(file);
         }
+        // 清空值，保证选择相同文件也能再次触发 change
+        e.target.value = '';
+        // 关闭对话框状态
+        isFileDialogOpen = false;
+    });
+
+    // 防止快速重复打开文件选择框
+    fileInputEl.addEventListener('click', function (e) {
+        e.stopPropagation();
     });
 
     // 上传区域点击事件
     document.getElementById('uploadArea').addEventListener('click', function () {
-        document.getElementById('fileInput').click();
+        openFileDialogOnce();
+    });
+
+    // 当文件选择窗口关闭回到页面时重置标志
+    window.addEventListener('focus', function () {
+        isFileDialogOpen = false;
     });
 
     // 拖拽上传功能 - 支持整个窗口拖拽
@@ -1539,17 +1474,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 键盘快捷键
+    // 键盘快捷键（精简，移除下载按钮依赖）
     document.addEventListener('keydown', function (e) {
         if (e.ctrlKey || e.metaKey) {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 updatePreview();
-            } else if (e.key === 's') {
-                e.preventDefault();
-                if (!document.getElementById('downloadBtn').disabled) {
-                    downloadPNG();
-                }
             }
         }
     });
@@ -1803,128 +1733,136 @@ function generateIcnsPlaceholder(zipFolder) {
     zipFolder.file('README_ICNS.txt', readme);
 }
 
+function confirmExport(title, items) {
+    try {
+        const lines = items.map(i => `- ${i.name}: ${i.count}`);
+        return window.confirm(`${title}\n\n${lines.join('\n')}`);
+    } catch (_) { return true; }
+}
+
+function countSquareSizes(sizes) { return sizes.length; }
+
+function getAllExportSummary() {
+    const items = [];
+    // square formats
+    const squarePNG = new Set();
+    const squareWEBP = new Set();
+    const squareJPG = new Set();
+
+    const add = (arr, set) => arr.forEach(s => set.add(s));
+
+    add(EXPORT_SPEC.web.favicon.sizes, squarePNG); // png
+    add(EXPORT_SPEC.web.appleTouch.sizes, squarePNG);
+    add(EXPORT_SPEC.web.pwa.sizes, squarePNG);
+    add(EXPORT_SPEC.chromeExtension.sizes, squarePNG);
+    add(EXPORT_SPEC.android.mipmap.sizes, squarePNG);
+    add(EXPORT_SPEC.android.playStore.sizes, squarePNG);
+    add(EXPORT_SPEC.android.adaptiveIcon.sizes, squarePNG);
+    add(EXPORT_SPEC.ios.iphone.sizes, squarePNG);
+    add(EXPORT_SPEC.ios.ipad.sizes, squarePNG);
+    add(EXPORT_SPEC.ios.appStore.sizes, squarePNG);
+    add(EXPORT_SPEC.desktop.macos.sizes, squarePNG);
+    add(EXPORT_SPEC.social.avatar.sizes, squarePNG);
+    add(EXPORT_SPEC.social.share.sizes, squarePNG);
+
+    // formats per spec
+    // webp
+    EXPORT_SPEC.android.mipmap.formats.includes('webp') && add(EXPORT_SPEC.android.mipmap.sizes, squareWEBP);
+    // jpg
+    add(EXPORT_SPEC.social.avatar.sizes, squareJPG);
+    add(EXPORT_SPEC.social.share.sizes, squareJPG);
+
+    items.push({ name: 'PNG', count: squarePNG.size + 1 /*1200x630*/ });
+    items.push({ name: 'WEBP', count: squareWEBP.size });
+    items.push({ name: 'JPG', count: squareJPG.size + 1 /*1200x630*/ });
+
+    // ICO
+    let icoCount = 0;
+    if (EXPORT_SPEC.web.favicon.formats.includes('ico')) icoCount += 1; // favicon.ico
+    if (EXPORT_SPEC.desktop.windows.formats.includes('ico')) icoCount += 1; // icon.ico
+    items.push({ name: 'ICO', count: icoCount });
+
+    return items;
+}
+
 async function exportAllPacks() {
     if (!currentSVG) {
         showError(getText('errorEnterSVGFirst'));
         return;
     }
 
+    // 确认
+    const ok = confirmExport(getText('exportAllPacks'), getAllExportSummary());
+    if (!ok) return;
+
     const btn = document.getElementById('exportAllPacksBtn');
     if (!btn) return;
     const original = btn.innerHTML;
-    btn.innerHTML = `<div class="loading-spinner"></div><span>${getText('exportingAll')}</span>`;
+    btn.innerHTML = `<div class=\"loading-spinner\"></div><span>${getText('exportingAll')}</span>`;
     btn.disabled = true;
 
-    const zip = new JSZip();
+    // 分格式打包
+    const zipPNG = new JSZip();
+    const zipWEBP = new JSZip();
+    const zipJPG = new JSZip();
+    const zipICO = new JSZip();
 
     try {
+        // helper: add square export to zip
+        const addSquare = async (sizes, formats) => {
+            for (const s of sizes) {
+                if (formats.includes('png')) {
+                    const b = await renderSVGToBitmapBlob(s, 'png');
+                    zipPNG.file(`icon_${s}.png`, b);
+                }
+                if (formats.includes('webp')) {
+                    const b = await renderSVGToBitmapBlob(s, 'webp');
+                    zipWEBP.file(`icon_${s}.webp`, b);
+                }
+                if (formats.includes('jpg') || formats.includes('jpeg')) {
+                    const b = await renderSVGToBitmapBlob(s, 'jpg');
+                    zipJPG.file(`icon_${s}.jpg`, b);
+                }
+            }
+        };
+
         // WEB
-        const web = zip.folder('web');
-        // favicon ico
+        // favicon: ico + png
         if (EXPORT_SPEC.web.favicon.formats.includes('ico')) {
             const icoBlob = await generateIcoFromSizes(EXPORT_SPEC.web.favicon.sizes);
-            web.file('favicon.ico', icoBlob);
+            zipICO.file('favicon.ico', icoBlob);
         }
-        // favicon pngs
-        if (EXPORT_SPEC.web.favicon.formats.includes('png')) {
-            for (const s of EXPORT_SPEC.web.favicon.sizes) {
-                const b = await renderSVGToBitmapBlob(s, 'png');
-                web.file(`favicon-${s}x${s}.png`, b);
-            }
-        }
-        // apple touch
-        for (const s of EXPORT_SPEC.web.appleTouch.sizes) {
-            const b = await renderSVGToBitmapBlob(s, 'png');
-            web.file(`apple-touch-icon-${s}x${s}.png`, b);
-        }
-        // pwa
-        for (const s of EXPORT_SPEC.web.pwa.sizes) {
-            const b = await renderSVGToBitmapBlob(s, 'png');
-            web.file(`pwa-icon-${s}x${s}.png`, b);
-        }
+        await addSquare(EXPORT_SPEC.web.favicon.sizes, EXPORT_SPEC.web.favicon.formats);
+        await addSquare(EXPORT_SPEC.web.appleTouch.sizes, EXPORT_SPEC.web.appleTouch.formats);
+        await addSquare(EXPORT_SPEC.web.pwa.sizes, EXPORT_SPEC.web.pwa.formats);
 
         // Chrome Extension
-        const chrome = zip.folder('chrome-extension');
-        for (const s of EXPORT_SPEC.chromeExtension.sizes) {
-            const b = await renderSVGToBitmapBlob(s, 'png');
-            chrome.file(`icon_${s}.png`, b);
-        }
+        await addSquare(EXPORT_SPEC.chromeExtension.sizes, EXPORT_SPEC.chromeExtension.formats);
 
         // Android
-        const android = zip.folder('android');
-        // mipmap
-        const mipmap = android.folder('mipmap');
-        for (const s of EXPORT_SPEC.android.mipmap.sizes) {
-            const png = await renderSVGToBitmapBlob(s, 'png');
-            mipmap.file(`mipmap-${s}.png`, png);
-            if (EXPORT_SPEC.android.mipmap.formats.includes('webp')) {
-                const webp = await renderSVGToBitmapBlob(s, 'webp');
-                mipmap.file(`mipmap-${s}.webp`, webp);
-            }
-        }
-        // play store
-        for (const s of EXPORT_SPEC.android.playStore.sizes) {
-            const b = await renderSVGToBitmapBlob(s, 'png');
-            android.file(`play-store-${s}.png`, b);
-        }
-        // adaptive icon（前景尺寸为108，完整导出正方形PNG由用户再制作为XML）
-        for (const s of EXPORT_SPEC.android.adaptiveIcon.sizes) {
-            const b = await renderSVGToBitmapBlob(s, 'png');
-            android.file(`adaptive-foreground-${s}.png`, b);
-        }
+        await addSquare(EXPORT_SPEC.android.mipmap.sizes, EXPORT_SPEC.android.mipmap.formats);
+        await addSquare(EXPORT_SPEC.android.playStore.sizes, EXPORT_SPEC.android.playStore.formats);
+        await addSquare(EXPORT_SPEC.android.adaptiveIcon.sizes, EXPORT_SPEC.android.adaptiveIcon.formats);
 
         // iOS
-        const ios = zip.folder('ios');
-        const iphone = ios.folder('iphone');
-        for (const s of EXPORT_SPEC.ios.iphone.sizes) {
-            const b = await renderSVGToBitmapBlob(s, 'png');
-            iphone.file(`icon-${s}.png`, b);
-        }
-        const ipad = ios.folder('ipad');
-        for (const s of EXPORT_SPEC.ios.ipad.sizes) {
-            const b = await renderSVGToBitmapBlob(s, 'png');
-            ipad.file(`icon-${s}.png`, b);
-        }
-        for (const s of EXPORT_SPEC.ios.appStore.sizes) {
-            const b = await renderSVGToBitmapBlob(s, 'png');
-            ios.file(`app-store-${s}.png`, b);
-        }
+        await addSquare(EXPORT_SPEC.ios.iphone.sizes, EXPORT_SPEC.ios.iphone.formats);
+        await addSquare(EXPORT_SPEC.ios.ipad.sizes, EXPORT_SPEC.ios.ipad.formats);
+        await addSquare(EXPORT_SPEC.ios.appStore.sizes, EXPORT_SPEC.ios.appStore.formats);
 
         // Desktop
-        const desktop = zip.folder('desktop');
-        const windows = desktop.folder('windows');
         if (EXPORT_SPEC.desktop.windows.formats.includes('ico')) {
             const icoBlob = await generateIcoFromSizes(EXPORT_SPEC.desktop.windows.sizes);
-            windows.file('app.ico', icoBlob);
+            zipICO.file('icon.ico', icoBlob);
         }
-        const mac = desktop.folder('macos');
-        generateIcnsPlaceholder(mac);
-        for (const s of EXPORT_SPEC.desktop.macos.sizes) {
-            const b = await renderSVGToBitmapBlob(s, 'png');
-            mac.file(`icon_${s}.png`, b);
-        }
+        // macOS icns 暂不生成（不含说明文件）
+        // 若后续需要，可在此生成 icns 并另行打包
 
-        // Social
-        const social = zip.folder('social');
-        const avatar = social.folder('avatar');
-        for (const s of EXPORT_SPEC.social.avatar.sizes) {
-            const png = await renderSVGToBitmapBlob(s, 'png');
-            avatar.file(`avatar-${s}.png`, png);
-            const jpg = await renderSVGToBitmapBlob(s, 'jpg');
-            avatar.file(`avatar-${s}.jpg`, jpg);
-        }
-        const share = social.folder('share');
-        // 1080与1200按方形导出；额外提供 1200x630 的 OpenGraph 需要非等比，这里导出 1200x630 仅 PNG/JPG
-        for (const s of EXPORT_SPEC.social.share.sizes) {
-            const png = await renderSVGToBitmapBlob(s, 'png');
-            share.file(`share-${s}.png`, png);
-            const jpg = await renderSVGToBitmapBlob(s, 'jpg');
-            share.file(`share-${s}.jpg`, jpg);
-        }
-        // 额外导出 1200x630
+        // Social square
+        await addSquare(EXPORT_SPEC.social.avatar.sizes, EXPORT_SPEC.social.avatar.formats);
+        await addSquare(EXPORT_SPEC.social.share.sizes, EXPORT_SPEC.social.share.formats);
+        // 额外导出 1200x630（非等比）
         {
             const width = 1200; const height = 630;
-            // 使用画布自适应非等比：以宽为准，等比缩放并居中
             const canvas = document.createElement('canvas');
             canvas.width = width; canvas.height = height;
             const ctx = canvas.getContext('2d');
@@ -1939,19 +1877,31 @@ async function exportAllPacks() {
             const x = Math.floor((width - size) / 2);
             const y = Math.floor((height - size) / 2);
             ctx.drawImage(img, x, y, size, size);
-            await new Promise(r => canvas.toBlob(b => { if (b) share.file(`share-1200x630.png`, b); r(); }, 'image/png'));
-            await new Promise(r => canvas.toBlob(b => { if (b) share.file(`share-1200x630.jpg`, b); r(); }, 'image/jpeg'));
+            await new Promise(r => canvas.toBlob(b => { if (b) zipPNG.file(`icon_1200x630.png`, b); r(); }, 'image/png'));
+            await new Promise(r => canvas.toBlob(b => { if (b) zipJPG.file(`icon_1200x630.jpg`, b); r(); }, 'image/jpeg'));
         }
 
-        const content = await zip.generateAsync({ type: 'blob' });
-        const url = URL.createObjectURL(content);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'all-assets.zip';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+        // 依次触发下载：png/webp/jpg/ico（若为空则跳过）
+        const triggerZip = async (zip, name) => {
+            if (!zip) return;
+            const files = Object.keys(zip.files || {});
+            if (files.length === 0) return;
+            const content = await zip.generateAsync({ type: 'blob' });
+            const url = URL.createObjectURL(content);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = name;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        };
+
+        await triggerZip(zipPNG, 'holatiger-icon-png.zip');
+        await triggerZip(zipWEBP, 'holatiger-icon-webp.zip');
+        await triggerZip(zipJPG, 'holatiger-icon-jpg.zip');
+        await triggerZip(zipICO, 'holatiger-icon-ico.zip');
+
         showSuccess(getText('successAllExport'));
     } catch (e) {
         showError(e.message || '导出失败');
@@ -1959,4 +1909,390 @@ async function exportAllPacks() {
         btn.innerHTML = original;
         btn.disabled = false;
     }
+}
+
+// 轻量通知：避免缺失方法导致报错，统一用状态栏展示
+function showSuccess(message) {
+    try { console.log('[SUCCESS]', message); } catch (_) {}
+    updatePreviewStatus(message || getText('updated'), 'text-green-500');
+}
+function showError(message) {
+    try { console.error('[ERROR]', message); } catch (_) {}
+    updatePreviewStatus(message || getText('formatError'), 'text-red-500');
+}
+function showInfo(message) {
+    try { console.info('[INFO]', message); } catch (_) {}
+    updatePreviewStatus(message || getText('realtimeUpdate'), 'text-blue-500');
+}
+
+function packAddReadme(zip, lines) {
+    const filename = getText('readmeFilename');
+    const content = [
+        `Language: ${currentLanguage}`,
+        '',
+        ...lines
+    ].join('\n');
+    zip.file(filename, content);
+}
+
+async function exportWebPack() {
+    if (!currentSVG) { showError(getText('errorEnterSVGFirst')); return; }
+    const items = [];
+    let pngCount = EXPORT_SPEC.web.favicon.sizes.length + EXPORT_SPEC.web.appleTouch.sizes.length + EXPORT_SPEC.web.pwa.sizes.length;
+    let icoCount = EXPORT_SPEC.web.favicon.formats.includes('ico') ? 1 : 0;
+    items.push({ name: 'PNG', count: pngCount });
+    if (icoCount) items.push({ name: 'ICO', count: icoCount });
+    if (!confirmExport(getText('exportWeb'), items)) return;
+    const btn = document.getElementById('exportWebBtn'); if (!btn) return;
+    const org = btn.innerHTML; btn.innerHTML = `<div class="loading-spinner"></div><span>${getText('exportingPack')}</span>`; btn.disabled = true;
+    const zip = new JSZip();
+    try {
+        // favicon ico
+        if (EXPORT_SPEC.web.favicon.formats.includes('ico')) {
+            const icoBlob = await generateIcoFromSizes(EXPORT_SPEC.web.favicon.sizes);
+            zip.file('favicon.ico', icoBlob);
+        }
+        // favicon/apple/pwa png
+        for (const s of EXPORT_SPEC.web.favicon.sizes) { if (EXPORT_SPEC.web.favicon.formats.includes('png')) { zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png')); } }
+        for (const s of EXPORT_SPEC.web.appleTouch.sizes) { zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png')); }
+        for (const s of EXPORT_SPEC.web.pwa.sizes) { zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png')); }
+        packAddReadme(zip, [getText('readmeWeb')]);
+        const blob = await zip.generateAsync({type:'blob'});
+        const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='web-icons.zip'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+        showSuccess(getText('successPackExport'));
+    } catch(e){ showError(e.message);} finally { btn.innerHTML = org; btn.disabled = false; }
+}
+
+async function exportChromeExtensionPack() {
+    if (!currentSVG) { showError(getText('errorEnterSVGFirst')); return; }
+    const items = [{ name: 'PNG', count: EXPORT_SPEC.chromeExtension.sizes.length }];
+    if (!confirmExport(getText('exportChrome'), items)) return;
+    const btn = document.getElementById('exportChromeBtn'); if (!btn) return;
+    const org = btn.innerHTML; btn.innerHTML = `<div class="loading-spinner"></div><span>${getText('exportingPack')}</span>`; btn.disabled = true;
+    const zip = new JSZip();
+    try {
+        for (const s of EXPORT_SPEC.chromeExtension.sizes) { zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png')); }
+        packAddReadme(zip, [getText('readmeChrome')]);
+        const blob = await zip.generateAsync({type:'blob'});
+        const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='chrome-extension-icons.zip'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+        showSuccess(getText('successPackExport'));
+    } catch(e){ showError(e.message);} finally { btn.innerHTML = org; btn.disabled = false; }
+}
+
+async function exportAndroidPack() {
+    if (!currentSVG) { showError(getText('errorEnterSVGFirst')); return; }
+    const pngC = EXPORT_SPEC.android.mipmap.sizes.length + EXPORT_SPEC.android.playStore.sizes.length + EXPORT_SPEC.android.adaptiveIcon.sizes.length;
+    const webpC = EXPORT_SPEC.android.mipmap.formats.includes('webp') ? EXPORT_SPEC.android.mipmap.sizes.length : 0;
+    const items = [{ name: 'PNG', count: pngC }]; if (webpC) items.push({ name: 'WEBP', count: webpC });
+    if (!confirmExport(getText('exportAndroid'), items)) return;
+    const btn = document.getElementById('exportAndroidBtn'); if (!btn) return;
+    const org = btn.innerHTML; btn.innerHTML = `<div class="loading-spinner"></div><span>${getText('exportingPack')}</span>`; btn.disabled = true;
+    const zip = new JSZip();
+    try {
+        for (const s of EXPORT_SPEC.android.mipmap.sizes) {
+            zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png'));
+            if (EXPORT_SPEC.android.mipmap.formats.includes('webp')) zip.file(`icon_${s}.webp`, await renderSVGToBitmapBlob(s,'webp'));
+        }
+        for (const s of EXPORT_SPEC.android.playStore.sizes) { zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png')); }
+        for (const s of EXPORT_SPEC.android.adaptiveIcon.sizes) { zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png')); }
+        packAddReadme(zip, [getText('readmeAndroid')]);
+        const blob = await zip.generateAsync({type:'blob'});
+        const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='android-icons.zip'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+        showSuccess(getText('successPackExport'));
+    } catch(e){ showError(e.message);} finally { btn.innerHTML = org; btn.disabled = false; }
+}
+
+async function exportIOSPack() {
+    if (!currentSVG) { showError(getText('errorEnterSVGFirst')); return; }
+    const items = [{ name: 'PNG', count: EXPORT_SPEC.ios.iphone.sizes.length + EXPORT_SPEC.ios.ipad.sizes.length + EXPORT_SPEC.ios.appStore.sizes.length }];
+    if (!confirmExport(getText('exportIOS'), items)) return;
+    const btn = document.getElementById('exportIOSBtn'); if (!btn) return;
+    const org = btn.innerHTML; btn.innerHTML = `<div class="loading-spinner"></div><span>${getText('exportingPack')}</span>`; btn.disabled = true;
+    const zip = new JSZip();
+    try {
+        for (const s of EXPORT_SPEC.ios.iphone.sizes) { zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png')); }
+        for (const s of EXPORT_SPEC.ios.ipad.sizes) { zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png')); }
+        for (const s of EXPORT_SPEC.ios.appStore.sizes) { zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png')); }
+        packAddReadme(zip, [getText('readmeIOS')]);
+        const blob = await zip.generateAsync({type:'blob'});
+        const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='ios-icons.zip'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+        showSuccess(getText('successPackExport'));
+    } catch(e){ showError(e.message);} finally { btn.innerHTML = org; btn.disabled = false; }
+}
+
+async function exportWindowsPack() {
+    if (!currentSVG) { showError(getText('errorEnterSVGFirst')); return; }
+    const items = [{ name: 'ICO', count: EXPORT_SPEC.desktop.windows.formats.includes('ico') ? 1 : 0 }];
+    if (!confirmExport(getText('exportWindows'), items)) return;
+    const btn = document.getElementById('exportWindowsBtn'); if (!btn) return;
+    const org = btn.innerHTML; btn.innerHTML = `<div class="loading-spinner"></div><span>${getText('exportingPack')}</span>`; btn.disabled = true;
+    const zip = new JSZip();
+    try {
+        if (EXPORT_SPEC.desktop.windows.formats.includes('ico')) {
+            const icoBlob = await generateIcoFromSizes(EXPORT_SPEC.desktop.windows.sizes);
+            zip.file('icon.ico', icoBlob);
+        }
+        packAddReadme(zip, [getText('readmeWindows')]);
+        const blob = await zip.generateAsync({type:'blob'});
+        const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='windows-icons.zip'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+        showSuccess(getText('successPackExport'));
+    } catch(e){ showError(e.message);} finally { btn.innerHTML = org; btn.disabled = false; }
+}
+
+async function exportMacOSPack() {
+    if (!currentSVG) { showError(getText('errorEnterSVGFirst')); return; }
+    const items = [{ name: 'PNG', count: EXPORT_SPEC.desktop.macos.sizes.length }];
+    if (!confirmExport(getText('exportMacOS'), items)) return;
+    const btn = document.getElementById('exportMacOSBtn'); if (!btn) return;
+    const org = btn.innerHTML; btn.innerHTML = `<div class="loading-spinner"></div><span>${getText('exportingPack')}</span>`; btn.disabled = true;
+    const zip = new JSZip();
+    try {
+        // 先导出多尺寸 PNG；icns 可留到后续增强
+        for (const s of EXPORT_SPEC.desktop.macos.sizes) { zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png')); }
+        packAddReadme(zip, [getText('readmeMacOS')]);
+        const blob = await zip.generateAsync({type:'blob'});
+        const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='macos-icons.zip'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+        showSuccess(getText('successPackExport'));
+    } catch(e){ showError(e.message);} finally { btn.innerHTML = org; btn.disabled = false; }
+}
+
+async function exportSocialPack() {
+    if (!currentSVG) { showError(getText('errorEnterSVGFirst')); return; }
+    const items = [
+        { name: 'PNG', count: EXPORT_SPEC.social.avatar.sizes.length + EXPORT_SPEC.social.share.sizes.length + 1 },
+        { name: 'JPG', count: EXPORT_SPEC.social.avatar.sizes.length + EXPORT_SPEC.social.share.sizes.length + 1 }
+    ];
+    if (!confirmExport(getText('exportSocial'), items)) return;
+    const btn = document.getElementById('exportSocialBtn'); if (!btn) return;
+    const org = btn.innerHTML; btn.innerHTML = `<div class="loading-spinner"></div><span>${getText('exportingPack')}</span>`; btn.disabled = true;
+    const zip = new JSZip();
+    try {
+        for (const s of EXPORT_SPEC.social.avatar.sizes) {
+            zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png'));
+            zip.file(`icon_${s}.jpg`, await renderSVGToBitmapBlob(s,'jpg'));
+        }
+        for (const s of EXPORT_SPEC.social.share.sizes) {
+            zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png'));
+            zip.file(`icon_${s}.jpg`, await renderSVGToBitmapBlob(s,'jpg'));
+        }
+        // 1200x630 额外图
+        const width = 1200, height = 630; const canvas = document.createElement('canvas'); canvas.width=width; canvas.height=height; const ctx = canvas.getContext('2d'); ctx.clearRect(0,0,width,height);
+        const img = new Image(); await new Promise((res,rej)=>{ img.onload=res; img.onerror=rej; const svgBlob=new Blob([currentSVG],{type:'image/svg+xml;charset=utf-8'}); img.src=URL.createObjectURL(svgBlob); });
+        const size=Math.min(width,height), x=Math.floor((width-size)/2), y=Math.floor((height-size)/2); ctx.drawImage(img,x,y,size,size);
+        await new Promise(r=>canvas.toBlob(b=>{ if(b) zip.file('icon_1200x630.png', b); r(); }, 'image/png'));
+        await new Promise(r=>canvas.toBlob(b=>{ if(b) zip.file('icon_1200x630.jpg', b); r(); }, 'image/jpeg'));
+        packAddReadme(zip, [getText('readmeSocial')]);
+        const blob = await zip.generateAsync({type:'blob'});
+        const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='social-icons.zip'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+        showSuccess(getText('successPackExport'));
+    } catch(e){ showError(e.message);} finally { btn.innerHTML = org; btn.disabled = false; }
+}
+
+// 构建可选择的导出清单（逐文件规格）
+function buildExportItems() {
+    const items = [];
+    const add = (group, format, sizeKey, producer, fileName) => {
+        const id = `${group}|${format}|${sizeKey}|${fileName}`;
+        items.push({ id, group, format, sizeKey, fileName, producer });
+    };
+
+    // helpers
+    const sq = (s) => `${s}x${s}`;
+
+    // web
+    // favicon pngs
+    if (EXPORT_SPEC.web.favicon.formats.includes('png')) {
+        EXPORT_SPEC.web.favicon.sizes.forEach(s => add('web', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`));
+    }
+    // favicon ico (作为单独文件)
+    if (EXPORT_SPEC.web.favicon.formats.includes('ico')) {
+        add('web', 'ico', 'favicon.ico', async () => generateIcoFromSizes(EXPORT_SPEC.web.favicon.sizes), 'favicon.ico');
+    }
+    // apple touch
+    EXPORT_SPEC.web.appleTouch.sizes.forEach(s => add('web', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`));
+    // pwa
+    EXPORT_SPEC.web.pwa.sizes.forEach(s => add('web', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`));
+
+    // chrome extension
+    EXPORT_SPEC.chromeExtension.sizes.forEach(s => add('chrome', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`));
+
+    // android
+    EXPORT_SPEC.android.mipmap.sizes.forEach(s => {
+        add('android', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`);
+        if (EXPORT_SPEC.android.mipmap.formats.includes('webp')) add('android', 'webp', sq(s), () => renderSVGToBitmapBlob(s, 'webp'), `icon_${s}.webp`);
+    });
+    EXPORT_SPEC.android.playStore.sizes.forEach(s => add('android', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`));
+    EXPORT_SPEC.android.adaptiveIcon.sizes.forEach(s => add('android', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`));
+
+    // iOS
+    EXPORT_SPEC.ios.iphone.sizes.forEach(s => add('ios', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`));
+    EXPORT_SPEC.ios.ipad.sizes.forEach(s => add('ios', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`));
+    EXPORT_SPEC.ios.appStore.sizes.forEach(s => add('ios', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`));
+
+    // desktop
+    if (EXPORT_SPEC.desktop.windows.formats.includes('ico')) {
+        add('windows', 'ico', 'icon.ico', async () => generateIcoFromSizes(EXPORT_SPEC.desktop.windows.sizes), 'icon.ico');
+    }
+    EXPORT_SPEC.desktop.macos.sizes.forEach(s => add('macos', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`));
+
+    // social
+    EXPORT_SPEC.social.avatar.sizes.forEach(s => {
+        add('social', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`);
+        add('social', 'jpg', sq(s), () => renderSVGToBitmapBlob(s, 'jpg'), `icon_${s}.jpg`);
+    });
+    EXPORT_SPEC.social.share.sizes.forEach(s => {
+        add('social', 'png', sq(s), () => renderSVGToBitmapBlob(s, 'png'), `icon_${s}.png`);
+        add('social', 'jpg', sq(s), () => renderSVGToBitmapBlob(s, 'jpg'), `icon_${s}.jpg`);
+    });
+    // 1200x630 特殊项
+    const produce1200x630 = async (fmt) => {
+        const width = 1200, height = 630; const canvas = document.createElement('canvas'); canvas.width=width; canvas.height=height; const ctx = canvas.getContext('2d'); ctx.clearRect(0,0,width,height);
+        const img = new Image(); await new Promise((res,rej)=>{ img.onload=res; img.onerror=rej; const svgBlob=new Blob([currentSVG],{type:'image/svg+xml;charset=utf-8'}); img.src=URL.createObjectURL(svgBlob); });
+        const size=Math.min(width,height), x=Math.floor((width-size)/2), y=Math.floor((height-size)/2); ctx.drawImage(img,x,y,size,size);
+        return await new Promise(r=>canvas.toBlob(b=>r(b), fmt==='jpg'?'image/jpeg':'image/png'));
+    };
+    add('social', 'png', '1200x630', () => produce1200x630('png'), 'icon_1200x630.png');
+    add('social', 'jpg', '1200x630', () => produce1200x630('jpg'), 'icon_1200x630.jpg');
+
+    return items;
+}
+
+let exportItems = [];
+let selectedItemIds = new Set();
+
+function renderExportTree() {
+    const tree = document.getElementById('exportTree');
+    if (!tree) return;
+    exportItems = buildExportItems();
+    selectedItemIds = new Set(exportItems.map(i => i.id)); // 默认全选
+
+    const groupOrder = ['web','chrome','android','ios','windows','macos','social'];
+    const groupNames = {
+        web: getText('exportWeb'), chrome: getText('exportChrome'), android: getText('exportAndroid'),
+        ios: getText('exportIOS'), windows: getText('exportWindows'), macos: getText('exportMacOS'), social: getText('exportSocial')
+    };
+    const icon = (name)=>({ web:'🌐', chrome:'🧩', android:'🤖', ios:'📱', windows:'🪟', macos:'🍎', social:'📣' }[name]||'📦');
+
+    tree.innerHTML = '';
+    groupOrder.forEach(g => {
+        const groupItems = exportItems.filter(i => i.group === g);
+        if (groupItems.length === 0) return;
+        const header = document.createElement('div');
+        header.className = 'tree-row';
+        const groupId = `group-${g}`;
+        header.innerHTML = `
+            <label class="tree-item">
+                <input type="checkbox" id="${groupId}" checked>
+                <span class="tree-icon">${icon(g)}</span>
+                <span class="tree-label">${groupNames[g]}</span>
+                <span class="tree-summary">${groupItems.length} files</span>
+            </label>`;
+        tree.appendChild(header);
+
+        header.querySelector('input').addEventListener('change', (e) => {
+            const checked = e.target.checked;
+            groupItems.forEach(it => {
+                const cb = document.getElementById(it.id);
+                if (cb) { cb.checked = checked; }
+                if (checked) selectedItemIds.add(it.id); else selectedItemIds.delete(it.id);
+            });
+        });
+
+        groupItems.forEach(it => {
+            const row = document.createElement('div');
+            row.className = 'tree-row';
+            row.innerHTML = `
+                <label class="tree-item" style="padding-left:2rem;">
+                    <input type="checkbox" id="${it.id}" checked>
+                    <span class="tree-label">${it.fileName}</span>
+                    <span class="tree-summary">${it.format.toUpperCase()} · ${it.sizeKey}</span>
+                </label>`;
+            tree.appendChild(row);
+            row.querySelector('input').addEventListener('change', (e) => {
+                if (e.target.checked) selectedItemIds.add(it.id); else selectedItemIds.delete(it.id);
+            });
+        });
+    });
+}
+
+async function confirmExportSelection(){
+    closeExportModal();
+    if (selectedItemIds.size === 0) { showInfo('未选择任何文件'); return; }
+
+    const zip = new JSZip();
+    const selected = exportItems.filter(i => selectedItemIds.has(i.id));
+
+    try {
+        // 序列化生成，避免高内存峰值
+        for (const it of selected) {
+            const blob = await it.producer();
+            if (!blob) continue;
+            const folderPath = `${it.group}/`;
+            zip.file(folderPath + it.fileName, blob);
+        }
+        // 单一 zip 打包下载
+        const content = await zip.generateAsync({type:'blob'});
+        const url = URL.createObjectURL(content);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'holatiger-icons.zip';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showSuccess('已开始下载所选文件');
+    } catch (e) {
+        showError(e.message||'导出失败');
+    }
+}
+
+// 文件选择统一入口，避免双弹窗
+let isFileDialogOpen = false;
+function openFileDialogOnce() {
+    const fileInputEl = document.getElementById('fileInput');
+    if (!fileInputEl) return;
+    if (isFileDialogOpen) return;
+    isFileDialogOpen = true;
+    // 重置 value，确保相同文件也可触发 change
+    fileInputEl.value = '';
+    fileInputEl.click();
+    // 兜底：3s 后自动解锁
+    setTimeout(() => { isFileDialogOpen = false; }, 3000);
+}
+
+// 暴露给全局，便于 HTML inline 事件调用
+window.openExportModal = openExportModal;
+window.closeExportModal = closeExportModal;
+window.confirmExportSelection = confirmExportSelection;
+window.toggleExportSelection = toggleExportSelection;
+window.openFileDialogOnce = openFileDialogOnce;
+
+function openExportModal() {
+    const modal = document.getElementById('exportModal');
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    // 打开时刷新导出树
+    try { renderExportTree(); } catch (e) { /* 忽略渲染异常以免阻断打开 */ }
+}
+
+function closeExportModal() {
+    const modal = document.getElementById('exportModal');
+    if (!modal) return;
+    modal.classList.add('hidden');
+}
+
+function toggleExportSelection(selectAll) {
+    const tree = document.getElementById('exportTree');
+    if (!tree) return;
+    const inputs = tree.querySelectorAll('input[type="checkbox"]');
+    inputs.forEach(cb => {
+        cb.checked = !!selectAll;
+        const id = cb.id;
+        if (!id) return;
+        if (cb.checked) {
+            if (typeof selectedItemIds !== 'undefined' && selectedItemIds instanceof Set) selectedItemIds.add(id);
+        } else {
+            if (typeof selectedItemIds !== 'undefined' && selectedItemIds instanceof Set) selectedItemIds.delete(id);
+        }
+    });
 }

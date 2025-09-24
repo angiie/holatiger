@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <!-- Analytics Scripts -->
     <script src="/assets/js/analytics.js"></script>
@@ -23,7 +24,7 @@
 
     <!-- 结构化数据 -->
     <script type="application/ld+json" src="/assets/js/svg-studio-schema.json"></script>
-    <script type="application/ld+json" src="/assets/js/svg-studio-breadcrumb.json"></script>
+
     <!-- Open Graph 标签 -->
     <meta property="og:type" content="website">
     <meta property="og:image" content="/assets/images/social/holatiger-svg-studio-1200x630.png">
@@ -58,6 +59,7 @@
     <!-- 外部样式引用 -->
     <link rel="stylesheet" href="/assets/css/svg-studio.css">
 </head>
+
 <body>
 
     <!-- Header -->
@@ -101,16 +103,25 @@
                         <div class="upload-area" id="uploadArea">
                             <div class="upload-content">
                                 <div class="upload-icon">
-                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.89 22 5.99 22H18C19.1 22 20 21.1 20 20V8L14 2Z"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                        <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </div>
                                 <p data-i18n="uploadText">拖拽 SVG 文件到这里或</p>
-                                <button class="upload-btn" onclick="document.getElementById('fileInput').click()" data-i18n="uploadLink">点击选择文件</button>
+                                <button class="upload-btn" onclick="openFileDialogOnce()"
+                                    data-i18n="uploadLink">点击选择文件</button>
                                 <p class="upload-hint" data-i18n="uploadHint">支持 .svg 格式文件 | 支持 Ctrl+V 粘贴文件</p>
                             </div>
                             <input type="file" id="fileInput" accept=".svg" style="display: none;">
@@ -119,68 +130,48 @@
 
                         <div class="input-group">
                             <label for="svgInput" data-i18n="svgCodeLabel">SVG 代码</label>
-                            <textarea id="svgInput" placeholder="在这里粘贴你的 SVG 代码，或使用上方的文件上传..." data-i18n-placeholder="placeholder"></textarea>
+                            <textarea id="svgInput" placeholder="在这里粘贴你的 SVG 代码，或使用上方的文件上传..."
+                                data-i18n-placeholder="placeholder"></textarea>
                         </div>
                     </div>
 
-                    <!-- 导出功能Tab区域 -->
-                    <div class="export-tabs-section">
-                        <div class="tab-header">
-                            <button class="tab-btn active" onclick="switchTab('export')" data-i18n="sizeAndExport">尺寸设置与导出</button>
-                            <button class="tab-btn" onclick="switchTab('batch')" data-i18n="batchExport">批量导出</button>
-                            <span class="size-badge" id="sizeBadge">0</span>
-                        </div>
-
-                        <!-- 导出Tab内容 -->
-                        <div class="tab-content active" id="exportTab">
-                            <div class="size-inputs">
-                                <div class="input-group">
-                                    <label for="widthInput" data-i18n="widthLabel">宽度 (px)</label>
-                                    <input type="number" id="widthInput" value="512" min="1" max="2048">
-                                </div>
-                                <div class="input-group">
-                                    <label for="heightInput" data-i18n="heightLabel">高度 (px)</label>
-                                    <input type="number" id="heightInput" value="512" min="1" max="2048">
-                                </div>
+                    <!-- 自定义尺寸 -->
+                    <div class="custom-size">
+                        <div class="size-inputs">
+                            <div class="input-group">
+                                <label for="widthInput" data-i18n="widthLabel">宽度 (px)</label>
+                                <input type="number" id="widthInput" value="512" min="1" max="4096">
                             </div>
-
-                            <!-- 预设尺寸选择器 -->
-                            <div class="preset-sizes">
-                                <h4 data-i18n="presetSizes">预设尺寸</h4>
-                                <div class="preset-grid" id="presetGrid">
-                                    <!-- 预设尺寸按钮将通过 JavaScript 动态生成 -->
-                                </div>
-                            </div>
-
-                            <div class="export-buttons">
-                                <button class="btn btn-primary" id="downloadBtn" onclick="downloadPNG()" data-i18n="downloadPNG" disabled>下载 PNG</button>
-                                <button class="btn btn-secondary" id="icoBtn" onclick="downloadICO()" data-i18n="downloadICO" disabled>下载 ICO</button>
-                                <button class="btn btn-accent" id="exportAllPacksBtn" onclick="exportAllPacks()" data-i18n="exportAllPacks" disabled>一键导出全规格</button>
+                            <div class="input-group">
+                                <label for="heightInput" data-i18n="heightLabel">高度 (px)</label>
+                                <input type="number" id="heightInput" value="512" min="1" max="4096">
                             </div>
                         </div>
+                    </div>
 
-                        <!-- 批量导出Tab内容 -->
-                        <div class="tab-content" id="batchTab">
-                            <div class="batch-section">
-                                <div class="batch-header">
-                                    <h4 data-i18n="batchExportSizes">批量导出尺寸选择</h4>
-                                    <div class="batch-controls">
-                                        <button class="btn btn-small" onclick="selectAllSizes()" data-i18n="selectAll">全选</button>
-                                        <button class="btn btn-small" onclick="clearAllSizes()" data-i18n="clearAll">清空</button>
-                                    </div>
-                                </div>
-                                <div class="size-grid" id="sizeGrid">
-                                    <!-- 尺寸选项将通过 JavaScript 动态生成 -->
-                                </div>
-                                <div class="selected-info">
-                                    <span id="selectedCount" data-i18n="selectedSizesCount">已选择 0 个尺寸</span>
-                                </div>
-                                <div class="batch-buttons">
-                                    <button class="btn btn-primary" id="batchExportBtn" onclick="batchExportPNG()" data-i18n="batchExportPNG" disabled>批量导出 PNG</button>
-                                    <button class="btn btn-secondary" id="batchExportIcoBtn" onclick="batchExportICO()" data-i18n="batchExportICO" disabled>批量导出 ICO</button>
-                                    <button class="btn btn-accent" id="chromePackBtn" onclick="downloadChromeIconPack()" data-i18n="chromeIconPack" disabled>Chrome 图标包</button>
-                                </div>
+                    <!-- 批量导出（合并区） -->
+                    <div class="tab-content active">
+                        <div class="batch-header">
+                            <h4 data-i18n="batchExportSizes">批量导出尺寸选择</h4>
+                            <div class="batch-controls">
+                                <button class="btn btn-small" onclick="selectAllSizes()"
+                                    data-i18n="selectAll">全选</button>
+                                <button class="btn btn-small" onclick="clearAllSizes()" data-i18n="clearAll">清空</button>
                             </div>
+                        </div>
+                        <div class="size-grid" id="sizeGrid">
+                            <!-- 尺寸选项将通过 JavaScript 动态生成 -->
+                        </div>
+                        <div class="selected-info">
+                            <span id="selectedCount" data-i18n="selectedSizesCount">已选择 0 个尺寸</span>
+                        </div>
+                        <div class="batch-buttons">
+                            <button class="btn btn-primary" id="batchExportBtn" onclick="batchExportPNG()"
+                                data-i18n="exportPNG" disabled>导出 PNG</button>
+                            <button class="btn btn-secondary" id="batchExportIcoBtn" onclick="batchExportICO()"
+                                data-i18n="exportICO" disabled>导出 ICO</button>
+                            <button class="btn btn-accent" id="openExportSelectorBtn" onclick="openExportModal()"
+                                data-i18n="selectExport" disabled>一键导出</button>
                         </div>
                     </div>
                 </div>
@@ -191,7 +182,8 @@
                         <h3 data-i18n="preview">预览</h3>
                         <div class="preview-container">
                             <div class="preview-content" id="previewContent">
-                                <div class="preview-placeholder" data-i18n="previewPlaceholder">在左侧输入 SVG 代码，预览将自动更新</div>
+                                <div class="preview-placeholder" data-i18n="previewPlaceholder">在左侧输入 SVG 代码，预览将自动更新
+                                </div>
                             </div>
                             <div class="preview-info">
                                 <span class="file-size" id="fileSize"></span>
@@ -219,8 +211,10 @@
                     <div class="footer-links">
                         <h4>相关资源</h4>
                         <ul>
-                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank" rel="noopener">SVG 文档 (MDN)</a></li>
-                            <li><a href="https://www.w3.org/Graphics/SVG/" target="_blank" rel="noopener">W3C SVG 规范</a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG" target="_blank"
+                                    rel="noopener">SVG 文档 (MDN)</a></li>
+                            <li><a href="https://www.w3.org/Graphics/SVG/" target="_blank" rel="noopener">W3C SVG 规范</a>
+                            </li>
                             <li><a href="https://svgontheweb.com/" target="_blank" rel="noopener">SVG 最佳实践</a></li>
                             <li><a href="https://github.com/svg/svgo" target="_blank" rel="noopener">SVGO 优化工具</a></li>
                         </ul>
@@ -242,7 +236,26 @@
     <!-- 粘贴指示器 -->
     <div class="paste-indicator" id="pasteIndicator" data-i18n="pasteIndicator">准备粘贴 SVG 文件...</div>
 
+    <!-- 导出选择模态框 -->
+    <div id="exportModal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeExportModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 data-i18n="selectExport">选择导出</h4>
+                <button class="modal-close" onclick="closeExportModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="exportTree"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeExportModal()" data-i18n="cancel">取消</button>
+                <button class="btn btn-primary" id="confirmExportBtn" onclick="confirmExportSelection()" data-i18n="confirm">确认导出</button>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript 引用 -->
     <script src="/assets/js/svg-studio.js"></script>
 </body>
-</html> 
+
+</html>
