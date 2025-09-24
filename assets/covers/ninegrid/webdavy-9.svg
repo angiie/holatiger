@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#EFF6FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <!-- Row 1: Cover + login + detail -->
+  <image xlink:href="../png/webdavy-cover.png" x="30" y="30" width="340" height="340"/>
+  <image xlink:href="../../images/webdavy/screenshot/zh/login-page.jpg" x="370" y="30" width="340" height="340"/>
+  <image xlink:href="../../images/webdavy/screenshot/zh/detail-page.jpg" x="710" y="30" width="340" height="340"/>
+
+  <!-- Row 2: feature card + brand + icon card -->
+  <rect x="30" y="370" width="340" height="340" rx="24" fill="#ffffff" opacity="0.9"/>
+  <g transform="translate(60,400)">
+    <image xlink:href="../../images/webdavy/svg-export-40x40.png" x="0" y="0" width="64" height="64"/>
+    <text x="90" y="46" font-family="Inter, system-ui" font-size="36" font-weight="700" fill="#111827">WebDavy</text>
+    <text x="0" y="110" font-family="Inter, system-ui" font-size="26" fill="#374151">浏览/上传/下载/新建</text>
+    <text x="0" y="150" font-family="Inter, system-ui" font-size="26" fill="#374151">配一次即用 · 兼容主流服务</text>
+  </g>
+  <rect x="370" y="370" width="340" height="340" rx="24" fill="#ffffff" opacity="0.85"/>
+  <g transform="translate(400,400)">
+    <image xlink:href="../../images/icons/icon_64x64.png" x="0" y="0" width="64" height="64"/>
+    <text x="90" y="46" font-family="Inter, system-ui" font-size="34" font-weight="700" fill="#111827">HolaTiger</text>
+    <text x="0" y="110" font-family="Inter, system-ui" font-size="24" fill="#374151">#WebDavy #WebDAV #文件同步</text>
+  </g>
+  <rect x="710" y="370" width="340" height="340" rx="24" fill="#ffffff" opacity="0.85"/>
+  <g transform="translate(740,400)">
+    <text x="0" y="42" font-family="Inter, system-ui" font-size="34" font-weight="700" fill="#111827">打开就用</text>
+    <text x="0" y="90" font-family="Inter, system-ui" font-size="24" fill="#374151">无需切客户端 直接管理文件</text>
+    <text x="0" y="130" font-family="Inter, system-ui" font-size="24" fill="#374151">兼容 Nextcloud / OwnCloud / IIS</text>
+  </g>
+
+  <!-- Row 3: CTA + blank + logo -->
+  <rect x="30" y="710" width="340" height="340" rx="24" fill="#0284C7"/>
+  <text x="60" y="840" font-family="Inter, system-ui" font-size="42" font-weight="800" fill="#ffffff">小红书搜</text>
+  <text x="60" y="890" font-family="Inter, system-ui" font-size="38" font-weight="800" fill="#ffffff">“WebDavy WebDAV 扩展”</text>
+  <rect x="370" y="710" width="340" height="340" rx="24" fill="#ffffff" opacity="0.75"/>
+  <text x="400" y="880" font-family="Inter, system-ui" font-size="30" fill="#374151">评论写你的服务端 名称 我回连接小贴士</text>
+  <rect x="710" y="710" width="340" height="340" rx="24" fill="#ffffff" opacity="0.85"/>
+  <g transform="translate(740,740)">
+    <image xlink:href="../../images/icons/icon_256x256.png" x="0" y="0" width="128" height="128"/>
+    <text x="0" y="170" font-family="Inter, system-ui" font-size="28" fill="#374151">虎啦 HolaTiger · 个人开发者</text>
+  </g>
+</svg> 

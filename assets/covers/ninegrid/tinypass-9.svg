@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EEF2FF"/>
+      <stop offset="100%" stop-color="#DBEAFE"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <!-- Row 1: Cover + Generator + History -->
+  <image xlink:href="../png/tinypass-cover.png" x="30" y="30" width="340" height="340"/>
+  <image xlink:href="../../images/tinypass/screenshot/zh/store-screenshot-1280x800-generator.png" x="370" y="30" width="340" height="340"/>
+  <image xlink:href="../../images/tinypass/screenshot/zh/store-screenshot-1280x800-history.png" x="710" y="30" width="340" height="340"/>
+
+  <!-- Row 2: Trash + Brand card + Icon card -->
+  <image xlink:href="../../images/tinypass/screenshot/zh/store-screenshot-1280x800-trash.png" x="30" y="370" width="340" height="340"/>
+  <rect x="370" y="370" width="340" height="340" rx="24" fill="#ffffff" opacity="0.85"/>
+  <g transform="translate(400,400)">
+    <image xlink:href="../../images/tinypass/svg-export-40x40.png" x="0" y="0" width="64" height="64"/>
+    <text x="90" y="48" font-family="Inter, system-ui" font-size="36" font-weight="800" fill="#111827">TinyPass</text>
+    <text x="0" y="110" font-family="Inter, system-ui" font-size="26" fill="#374151">离线生成 · 一键复制</text>
+    <text x="0" y="150" font-family="Inter, system-ui" font-size="26" fill="#374151">100条历史 · 30天回收站</text>
+  </g>
+  <rect x="710" y="370" width="340" height="340" rx="24" fill="#ffffff" opacity="0.9"/>
+  <g transform="translate(740,400)">
+    <image xlink:href="../../images/icons/icon_64x64.png" x="0" y="0" width="64" height="64"/>
+    <text x="90" y="46" font-family="Inter, system-ui" font-size="34" font-weight="700" fill="#111827">HolaTiger</text>
+    <text x="0" y="110" font-family="Inter, system-ui" font-size="24" fill="#374151">#TinyPass #密码安全 #离线工具</text>
+  </g>
+
+  <!-- Row 3: CTA card + Blank + Logo -->
+  <rect x="30" y="710" width="340" height="340" rx="24" fill="#1D4ED8"/>
+  <text x="60" y="840" font-family="Inter, system-ui" font-size="42" font-weight="800" fill="#ffffff">小红书搜</text>
+  <text x="60" y="890" font-family="Inter, system-ui" font-size="38" font-weight="800" fill="#ffffff">“TinyPass 密码生成”</text>
+  <rect x="370" y="710" width="340" height="340" rx="24" fill="#ffffff" opacity="0.75"/>
+  <text x="400" y="880" font-family="Inter, system-ui" font-size="30" fill="#374151">评论回“要模板” 获取进阶参数</text>
+  <rect x="710" y="710" width="340" height="340" rx="24" fill="#ffffff" opacity="0.85"/>
+  <g transform="translate(740,740)">
+    <image xlink:href="../../images/icons/icon_256x256.png" x="0" y="0" width="128" height="128"/>
+    <text x="0" y="170" font-family="Inter, system-ui" font-size="28" fill="#374151">虎啦 HolaTiger · 个人开发者</text>
+  </g>
+</svg> 

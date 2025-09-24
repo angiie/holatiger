@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFEDD5"/>
+      <stop offset="100%" stop-color="#FDBA74"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+
+  <!-- Grid (3x3 each 340x340 with 30px gap) -->
+  <!-- Row 1 -->
+  <image xlink:href="../png/holatiger-overview-cover.png" x="30" y="30" width="340" height="340"/>
+  <image xlink:href="../png/holatiger-overview-cover.png" x="370" y="30" width="340" height="340"/>
+  <image xlink:href="../png/holatiger-overview-cover.png" x="710" y="30" width="340" height="340"/>
+
+  <!-- Row 2 (brand focus) -->
+  <rect x="30" y="370" width="340" height="340" rx="24" fill="#ffffff" opacity="0.8"/>
+  <g transform="translate(50,400)">
+    <image xlink:href="../../images/icons/icon_256x256.png" x="0" y="0" width="128" height="128"/>
+    <text x="0" y="180" font-family="Inter, system-ui" font-size="40" font-weight="800" fill="#111827">虎啦 HolaTiger</text>
+    <text x="0" y="230" font-family="Inter, system-ui" font-size="26" fill="#374151">小工具 · 大能量</text>
+  </g>
+  <image xlink:href="../png/holatiger-overview-cover.png" x="370" y="370" width="340" height="340"/>
+  <image xlink:href="../png/holatiger-overview-cover.png" x="710" y="370" width="340" height="340"/>
+
+  <!-- Row 3 (apps icons) -->
+  <rect x="30" y="710" width="340" height="340" rx="24" fill="#ffffff" opacity="0.9"/>
+  <g transform="translate(60,740)">
+    <image xlink:href="../../images/tinypass/svg-export-40x40.png" x="0" y="0" width="64" height="64"/>
+    <text x="80" y="46" font-family="Inter, system-ui" font-size="36" font-weight="700" fill="#111827">TinyPass</text>
+    <text x="0" y="110" font-family="Inter, system-ui" font-size="24" fill="#374151">离线强密码生成</text>
+  </g>
+
+  <rect x="370" y="710" width="340" height="340" rx="24" fill="#ffffff" opacity="0.9"/>
+  <g transform="translate(400,740)">
+    <image xlink:href="../../images/webdavy/svg-export-40x40.png" x="0" y="0" width="64" height="64"/>
+    <text x="80" y="46" font-family="Inter, system-ui" font-size="36" font-weight="700" fill="#111827">WebDavy</text>
+    <text x="0" y="110" font-family="Inter, system-ui" font-size="24" fill="#374151">浏览器直连 WebDAV</text>
+  </g>
+
+  <rect x="710" y="710" width="340" height="340" rx="24" fill="#ffffff" opacity="0.9"/>
+  <g transform="translate(740,740)">
+    <image xlink:href="../../images/icons/icon_64x64.png" x="0" y="0" width="64" height="64"/>
+    <text x="80" y="46" font-family="Inter, system-ui" font-size="36" font-weight="700" fill="#111827">SVG Studio</text>
+    <text x="0" y="110" font-family="Inter, system-ui" font-size="24" fill="#374151">SVG 多尺寸导出</text>
+  </g>
+</svg> 
