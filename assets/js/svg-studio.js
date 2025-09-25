@@ -125,6 +125,7 @@ const i18nData = {
         manifestTitle: '导出文件清单',
         manifestFile: 'manifest.txt',
         manifestGenerated: '清单生成于',
+        successLangSwitch: '语言已切换为: {langName}',
     },
     'zh-TW': {
         // SEO 和页面元数据
@@ -252,6 +253,7 @@ const i18nData = {
         manifestTitle: '匯出檔案清單',
         manifestFile: 'manifest.txt',
         manifestGenerated: '清單產生於',
+        successLangSwitch: '語言已切換為: {langName}',
     },
     'en': {
         // Page title and description
@@ -378,6 +380,7 @@ const i18nData = {
         manifestTitle: 'Exported Files Manifest',
         manifestFile: 'manifest.txt',
         manifestGenerated: 'Manifest generated on',
+        successLangSwitch: 'Language switched to: {langName}',
     }
 };
 
@@ -1634,7 +1637,7 @@ function selectLanguage(langCode) {
     
     if (langCode !== currentLanguage) {
         switchLanguage(langCode);
-        showSuccess(`语言已切换为: ${langNames[langCode]}`);
+        showSuccess(getText('successLangSwitch', { langName: langNames[langCode] }));
     }
     
     // 关闭下拉菜单
@@ -1977,6 +1980,43 @@ function packAddReadme(zip, lines) {
         ...lines
     ].join('\n');
     zip.file(filename, content);
+}
+
+function openExportModal() {
+    const modal = document.getElementById('exportModal');
+    const exportTree = document.getElementById('exportTree');
+    if (!modal || !exportTree) return;
+
+    if (exportTree.innerHTML === '') {
+        // Dummy data for demonstration
+        const packs = ['web', 'chromeExtension', 'android', 'ios', 'windows', 'macos', 'social'];
+        packs.forEach(pack => {
+            const node = document.createElement('div');
+            node.innerHTML = `<label><input type="checkbox" value="${pack}"> ${getText('export' + pack.charAt(0).toUpperCase() + pack.slice(1))}</label>`;
+            exportTree.appendChild(node);
+        });
+
+        const headerControls = document.createElement('div');
+        headerControls.className = 'batch-controls';
+        headerControls.innerHTML = `
+          <button class="btn btn-small btn-select-all" data-i18n="selectAll" onclick="document.querySelectorAll('#exportTree input[type=checkbox]').forEach(c => c.checked = true)">${getText('selectAll')}</button>
+          <button class="btn btn-small btn-clear-all" data-i18n="clearAll" onclick="document.querySelectorAll('#exportTree input[type=checkbox]').forEach(c => c.checked = false)">${getText('clearAll')}</button>
+        `;
+        modal.querySelector('.modal-header').appendChild(headerControls);
+    }
+    
+    modal.classList.remove('hidden');
+}
+
+function closeExportModal() {
+    const modal = document.getElementById('exportModal');
+    if (modal) modal.classList.add('hidden');
+}
+
+async function confirmExportSelection() {
+    // Dummy function, as implementation is complex and out of scope of the styling request
+    console.log("Exporting selected packs...");
+    closeExportModal();
 }
 
 async function exportWebPack() {

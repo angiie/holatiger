@@ -1351,6 +1351,17 @@ body {
     border-radius: var(--radius-sm);
 }
 
+.btn-select-all {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-clear-all {
+    background-color: var(--surface-elevated);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+}
+
 .batch-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
