@@ -43,13 +43,13 @@ const i18nData = {
         chromeIconPack: 'Chrome 图标包',
         preview: '预览',
         exportAllPacks: '一键导出全规格',
-        exportWeb: '导出 Web',
-        exportChrome: '导出 Chrome 扩展',
-        exportAndroid: '导出 Android',
-        exportIOS: '导出 iOS',
-        exportWindows: '导出 Windows',
-        exportMacOS: '导出 macOS',
-        exportSocial: '导出 Social',
+        exportWeb: 'Web',
+        exportChrome: 'Chrome 扩展',
+        exportAndroid: 'Android',
+        exportIOS: 'iOS',
+        exportWindows: 'Windows',
+        exportMacOS: 'macOS',
+        exportSocial: 'Social',
         selectExport: '选择导出',
         confirm: '确认',
         cancel: '取消',
@@ -120,7 +120,11 @@ const i18nData = {
         readmeWindows: '此包包含 Windows 所需多尺寸 ICO。',
         readmeMacOS: '此包包含 macOS 多尺寸 PNG，可用 iconutil 生成 ICNS。',
         readmeSocial: '此包包含社交头像与分享图（含 1200x630）。',
-        readmeFilename: '目录说明.txt'
+        readmeFilename: '目录说明.txt',
+
+        manifestTitle: '导出文件清单',
+        manifestFile: 'manifest.txt',
+        manifestGenerated: '清单生成于',
     },
     'zh-TW': {
         // SEO 和页面元数据
@@ -165,13 +169,13 @@ const i18nData = {
         chromeIconPack: 'Chrome 圖示包',
         preview: '預覽',
         exportAllPacks: '一鍵導出全規格',
-        exportWeb: '導出 Web',
-        exportChrome: '導出 Chrome 擴充',
-        exportAndroid: '導出 Android',
-        exportIOS: '導出 iOS',
-        exportWindows: '導出 Windows',
-        exportMacOS: '導出 macOS',
-        exportSocial: '導出 Social',
+        exportWeb: 'Web',
+        exportChrome: 'Chrome 擴充',
+        exportAndroid: 'Android',
+        exportIOS: 'iOS',
+        exportWindows: 'Windows',
+        exportMacOS: 'macOS',
+        exportSocial: 'Social',
         selectExport: '選擇導出',
         confirm: '確認',
         cancel: '取消',
@@ -243,7 +247,11 @@ const i18nData = {
         readmeWindows: '此包包含 Windows 所需多尺寸 ICO。',
         readmeMacOS: '此包包含 macOS 多尺寸 PNG，可用 iconutil 生成 ICNS。',
         readmeSocial: '此包包含社群頭像與分享圖（含 1200x630）。',
-        readmeFilename: '目錄說明.txt'
+        readmeFilename: '目錄說明.txt',
+
+        manifestTitle: '匯出檔案清單',
+        manifestFile: 'manifest.txt',
+        manifestGenerated: '清單產生於',
     },
     'en': {
         // Page title and description
@@ -288,13 +296,13 @@ const i18nData = {
         chromeIconPack: 'Chrome Icon Pack',
         preview: 'Preview',
         exportAllPacks: 'Export All Packs',
-        exportWeb: 'Export Web',
-        exportChrome: 'Export Chrome Extension',
-        exportAndroid: 'Export Android',
-        exportIOS: 'Export iOS',
-        exportWindows: 'Export Windows',
-        exportMacOS: 'Export macOS',
-        exportSocial: 'Export Social',
+        exportWeb: 'Web',
+        exportChrome: 'Chrome Extension',
+        exportAndroid: 'Android',
+        exportIOS: 'iOS',
+        exportWindows: 'Windows',
+        exportMacOS: 'macOS',
+        exportSocial: 'Social',
         selectExport: 'Select Export',
         confirm: 'Confirm',
         cancel: 'Cancel',
@@ -365,7 +373,11 @@ const i18nData = {
         readmeWindows: 'This pack includes Windows multi-size ICO.',
         readmeMacOS: 'This pack includes macOS PNG set; use iconutil to produce ICNS.',
         readmeSocial: 'This pack includes social avatar and share images (with 1200x630).',
-        readmeFilename: 'README.txt'
+        readmeFilename: 'README.txt',
+
+        manifestTitle: 'Exported Files Manifest',
+        manifestFile: 'manifest.txt',
+        manifestGenerated: 'Manifest generated on',
     }
 };
 
@@ -1017,6 +1029,30 @@ function updatePreviewRealtime() {
     }, 100);
 }
 
+function generateManifestFile(files) {
+    const now = new Date().toLocaleString();
+
+    const generateTree = (title, fileList) => {
+        let tree = `${title}\n============================\n`;
+        tree += `${i18nData[currentLanguage]['manifestGenerated']} ${now}\n\n`;
+        fileList.forEach((file, index) => {
+            const isLast = index === fileList.length - 1;
+            tree += `${isLast ? '└──' : '├──'} ${file}\n`;
+        });
+        return tree;
+    };
+
+    const en_files = files.map(f => f.replace(getText('readmeFilename', {lang: 'zh-CN'}), i18nData['en']['readmeFilename']));
+    const zh_TW_files = files.map(f => f.replace(getText('readmeFilename', {lang: 'zh-CN'}), i18nData['zh-TW']['readmeFilename']));
+
+    const en_tree = generateTree(i18nData['en']['manifestTitle'], en_files);
+    const zh_CN_tree = generateTree(i18nData['zh-CN']['manifestTitle'], files);
+    const zh_TW_tree = generateTree(i18nData['zh-TW']['manifestTitle'], zh_TW_files);
+
+
+    return `${en_tree}\n\n${zh_CN_tree}\n\n${zh_TW_tree}`;
+}
+
 // 批量导出PNG功能
 function batchExportPNG() {
     if (!currentSVG) {
@@ -1065,6 +1101,10 @@ function batchExportPNG() {
 
                     if (completedCount === totalCount) {
                         // 所有图片生成完成，创建ZIP文件
+                        const fileList = selectedSizes.map(size => `icon_${size}x${size}.png`);
+                        const manifestContent = generateManifestFile(fileList);
+                        zip.file(getText('manifestFile'), manifestContent);
+
                         zip.generateAsync({ type: 'blob' }).then(function (content) {
                             const a = document.createElement('a');
                             a.href = URL.createObjectURL(content);
@@ -1153,6 +1193,10 @@ function batchExportICO() {
                     icoBatchBtn.innerHTML = `<div class="loading-spinner"></div><span>生成中... (${completedCount}/${totalCount})</span>`;
 
                     if (completedCount === totalCount) {
+                        const fileList = selectedSizes.map(size => `icon_${size}x${size}.ico`);
+                        const manifestContent = generateManifestFile(fileList);
+                        zip.file(getText('manifestFile'), manifestContent);
+
                         zip.generateAsync({ type: 'blob' }).then(function (content) {
                             const a = document.createElement('a');
                             a.href = URL.createObjectURL(content);
@@ -1958,6 +2002,11 @@ async function exportWebPack() {
         for (const s of EXPORT_SPEC.web.pwa.sizes) { zip.file(`icon_${s}.png`, await renderSVGToBitmapBlob(s,'png')); }
         packAddReadme(zip, [getText('readmeWeb')]);
         const blob = await zip.generateAsync({type:'blob'});
+
+        const fileList = Object.keys(zip.files);
+        const manifestContent = generateManifestFile(fileList);
+        zip.file(getText('manifestFile'), manifestContent);
+
         const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='web-icons.zip'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
         showSuccess(getText('successPackExport'));
     } catch(e){ showError(e.message);} finally { btn.innerHTML = org; btn.disabled = false; }

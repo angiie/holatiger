@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:css": "tailwindcss -i ./src/assets/css/tw-src.css -o ./src/assets/css/tw.css --minify",
-    "dev:css": "tailwindcss -i ./src/assets/css/tw-src.css -o ./src/assets/css/tw.css --watch",
+    "build:css": "tailwindcss -i ./assets/css/tw-src.css -o ./assets/css/tw.css --minify",
+    "dev:css": "tailwindcss -i ./assets/css/tw-src.css -o ./assets/css/tw.css --watch",
     "serve": "python3 -m http.server 8000",
     "export:covers": "node scripts/export-covers.mjs",
     "export:covers:pw": "node scripts/export-covers-playwright.mjs",
@@ -17,9 +17,12 @@
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "daisyui": "^4.12.24",
+    "playwright": "^1.47.2",
     "postcss": "^8.5.6",
-    "tailwindcss": "^3.4.17",
     "puppeteer": "^22.13.1",
-    "playwright": "^1.47.2"
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001743"
   }
 }
