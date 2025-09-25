@@ -2174,6 +2174,62 @@ function renderExportTree() {
     const icon = (name)=>({ web:'🌐', chrome:'🧩', android:'🤖', ios:'📱', windows:'🪟', macos:'🍎', social:'📣' }[name]||'📦');
 
     tree.innerHTML = '';
+
+    // 工具条：按场景批量选择
+    const toolbar = document.createElement('div');
+    toolbar.className = 'group-toolbar';
+    const groupTogglesHtml = groupOrder.map(g => `
+        <label class="group-toggle" style="margin-right:.75rem;display:inline-flex;align-items:center;gap:.25rem;">
+            <input type="checkbox" class="group-toggle-input" data-group="${g}" checked>
+            <span>${groupNames[g]}</span>
+        </label>
+    `).join('');
+    const actionsHtml = `
+        <button type="button" class="btn btn-small" id="groupSelectAll" style="margin-left:1rem;">${getText('selectAll')||'全选'}</button>
+        <button type="button" class="btn btn-small" id="groupClearAll" style="margin-left:.5rem;">${getText('clearAll')||'清空'}</button>
+    `;
+    toolbar.innerHTML = `<div style="display:flex;flex-wrap:wrap;align-items:center;gap:.25rem;margin:0 0 .5rem 0;">${groupTogglesHtml}${actionsHtml}</div>`;
+    tree.appendChild(toolbar);
+
+    const applyGroupToggle = (group, checked) => {
+        const groupItems = exportItems.filter(i => i.group === group);
+        groupItems.forEach(it => {
+            const cb = document.getElementById(it.id);
+            if (cb) { cb.checked = checked; }
+            if (checked) selectedItemIds.add(it.id); else selectedItemIds.delete(it.id);
+        });
+        updateSelectedCount && updateSelectedCount();
+    };
+
+    toolbar.querySelectorAll('.group-toggle-input').forEach(input => {
+        input.addEventListener('change', (e) => {
+            const g = e.target.getAttribute('data-group');
+            const checked = e.target.checked;
+            applyGroupToggle(g, checked);
+            // 同步组标题复选框
+            const headerCb = document.getElementById(`group-${g}`);
+            if (headerCb) headerCb.checked = checked;
+        });
+    });
+    const btnAll = toolbar.querySelector('#groupSelectAll');
+    if (btnAll) btnAll.addEventListener('click', () => {
+        toolbar.querySelectorAll('.group-toggle-input').forEach(i => { i.checked = true; });
+        groupOrder.forEach(g => applyGroupToggle(g, true));
+        groupOrder.forEach(g => { const headerCb = document.getElementById(`group-${g}`); if (headerCb) headerCb.checked = true; });
+    });
+    const btnClear = toolbar.querySelector('#groupClearAll');
+    if (btnClear) btnClear.addEventListener('click', () => {
+        toolbar.querySelectorAll('.group-toggle-input').forEach(i => { i.checked = false; });
+        groupOrder.forEach(g => applyGroupToggle(g, false));
+        groupOrder.forEach(g => { const headerCb = document.getElementById(`group-${g}`); if (headerCb) headerCb.checked = false; });
+    });
+
+    const updateSelectedCount = () => {
+        // 若页面有已选择数量展示，则更新
+        const info = document.getElementById('selectedCount');
+        if (info) info.textContent = (getText('selectedSizesCount')||'已选择 {n} 个尺寸').replace('{n}', String(selectedItemIds.size));
+    };
+
     groupOrder.forEach(g => {
         const groupItems = exportItems.filter(i => i.group === g);
         if (groupItems.length === 0) return;
@@ -2196,6 +2252,10 @@ function renderExportTree() {
                 if (cb) { cb.checked = checked; }
                 if (checked) selectedItemIds.add(it.id); else selectedItemIds.delete(it.id);
             });
+            // 同步工具条对应场景开关
+            const toggle = toolbar.querySelector(`.group-toggle-input[data-group="${g}"]`);
+            if (toggle) toggle.checked = checked;
+            updateSelectedCount();
         });
 
         groupItems.forEach(it => {
@@ -2210,6 +2270,7 @@ function renderExportTree() {
             tree.appendChild(row);
             row.querySelector('input').addEventListener('change', (e) => {
                 if (e.target.checked) selectedItemIds.add(it.id); else selectedItemIds.delete(it.id);
+                updateSelectedCount();
             });
         });
     });
