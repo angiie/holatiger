@@ -572,89 +572,6 @@ function updatePreview() {
     }
 }
 
-// Chrome 图标打包下载功能
-function downloadChromeIconPack() {
-    if (!currentSVG) {
-        showError('请先输入 SVG 代码');
-        return;
-    }
-
-    // Chrome 扩展图标规格
-    const iconSizes = [
-        { size: 16, description: '浏览器工具栏图标' },
-        { size: 32, description: '扩展管理页面图标' },
-        { size: 48, description: '扩展详情页面图标' },
-        { size: 128, description: 'Chrome网上应用店图标' }
-    ];
-
-    // 显示加载状态
-    const chromePackBtn = document.getElementById('chromePackBtn');
-    const originalText = chromePackBtn ? chromePackBtn.innerHTML : '';
-    if (chromePackBtn) {
-        chromePackBtn.innerHTML = '<div class="loading-spinner"></div><span>打包中...</span>';
-        chromePackBtn.disabled = true;
-    }
-
-    // 创建 ZIP 文件
-    const zip = new JSZip();
-    let completedIcons = 0;
-
-    // 生成每个尺寸的图标
-    iconSizes.forEach(({ size, description }) => {
-        generateIconPNG(size, (blob) => {
-            if (blob) {
-                zip.file(`icon_${size}x${size}.png`, blob);
-                completedIcons++;
-
-                // 所有图标生成完成后，创建并下载 ZIP
-                if (completedIcons === iconSizes.length) {
-                    // 添加说明文件
-                    const readmeContent = `Chrome 扩展图标包\n\n` +
-                        `包含以下图标文件：\n` +
-                        `- icon_16x16.png: 16×16 像素，用于浏览器工具栏，需要简洁清晰\n` +
-                        `- icon_32x32.png: 32×32 像素，用于扩展管理页面\n` +
-                        `- icon_48x48.png: 48×48 像素，用于扩展详情页面\n` +
-                        `- icon_128x128.png: 128×128 像素，用于Chrome网上应用店，需要最高质量\n\n` +
-                        `使用方法：\n` +
-                        `在 manifest.json 中配置：\n` +
-                        `"icons": {\n` +
-                        `  "16": "icon_16x16.png",\n` +
-                        `  "32": "icon_32x32.png",\n` +
-                        `  "48": "icon_48x48.png",\n` +
-                        `  "128": "icon_128x128.png"\n` +
-                        `}`;
-                    
-                    zip.file('README.txt', readmeContent);
-
-                    // 生成并下载 ZIP 文件
-                    zip.generateAsync({ type: 'blob' })
-                        .then(function (content) {
-                            const url = URL.createObjectURL(content);
-                            const a = document.createElement('a');
-                            a.href = url;
-                            a.download = 'icons.zip';
-                            document.body.appendChild(a);
-                            a.click();
-                            document.body.removeChild(a);
-                            URL.revokeObjectURL(url);
-
-                            showSuccess('Chrome 图标包已下载 (icons.zip)');
-
-                            // 恢复按钮状态
-                            if (chromePackBtn) { chromePackBtn.innerHTML = originalText; chromePackBtn.disabled = false; }
-                        })
-                        .catch(function (error) {
-                            showError('生成 ZIP 文件时出错');
-                            if (chromePackBtn) { chromePackBtn.innerHTML = originalText; chromePackBtn.disabled = false; }
-                        });
-                }
-            } else {
-                showError(`生成 ${size}×${size} 图标时出错`);
-                if (chromePackBtn) { chromePackBtn.innerHTML = originalText; chromePackBtn.disabled = false; }
-            }
-        });
-    });
-}
 
 // 生成指定尺寸的 PNG 图标
 function generateIconPNG(size, callback) {
@@ -787,34 +704,6 @@ function generatePresetGrid() {
     });
 }
 
-// 设置预设尺寸
-function setPresetSize(width, height, buttonElement) {
-    document.querySelectorAll('.preset-btn').forEach(btn => { btn.classList.remove('active'); });
-    buttonElement.classList.add('active');
-    if (currentSVG) { updatePreview(false); }
-    updateLayout();
-}
-
-// 更新预设按钮状态
-function updatePresetButtonsState() {
-    const width = parseInt(document.getElementById('widthInput').value);
-    const height = parseInt(document.getElementById('heightInput').value);
-    
-    // 移除所有按钮的active状态
-    document.querySelectorAll('.preset-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    
-    // 如果当前尺寸匹配某个预设，高亮对应按钮
-    if (width === height) {
-        const matchingBtn = Array.from(document.querySelectorAll('.preset-btn')).find(btn => {
-            return btn.textContent === `${width}×${height}`;
-        });
-        if (matchingBtn) {
-            matchingBtn.classList.add('active');
-        }
-    }
-}
 
 function initializeTabs() {
     // 生成尺寸网格
