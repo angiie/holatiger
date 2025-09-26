@@ -74,6 +74,41 @@
   .brand-icon { @apply w-8 h-8 rounded-md bg-gradient-to-tr from-indigo-600 to-violet-600 text-white grid place-items-center shadow-sm; }
   .brand-title { @apply text-lg font-bold text-slate-900 dark:text-white; }
   .brand-subtitle { @apply text-xs px-1.5 py-0.5 rounded bg-indigo-600/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20; }
+  .header-right { @apply flex items-center gap-2; }
+  .language-selector { @apply relative; }
+  .language-btn { @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm border border-slate-200/70 dark:border-slate-700/60 bg-white/70 dark:bg-slate-800/70 text-slate-600 dark:text-slate-300 hover:bg-slate-100/60 dark:hover:bg-slate-700/60; }
+  .language-dropdown { @apply absolute right-0 mt-2 w-40 rounded-md border border-slate-200/70 dark:border-slate-700/60 bg-white/90 dark:bg-slate-800/90 shadow-lg p-1 hidden; }
+  .language-selector.open .language-dropdown { @apply block; }
+  .language-option { @apply px-3 py-2 rounded text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100/60 dark:hover:bg-slate-700/60 cursor-pointer; }
+  .app-container { @apply min-h-screen py-8 px-4; }
+  .main-card { @apply max-w-[1500px] mx-auto rounded-2xl border border-slate-200/40 dark:border-slate-700/40 bg-white/50 dark:bg-slate-900/40 shadow-2xl backdrop-blur-md; }
+  .content { @apply grid grid-cols-1 lg:grid-cols-[1fr,420px] gap-6 p-6; }
+  .left-panel, .right-panel { @apply rounded-xl border border-slate-200/40 dark:border-slate-700/40 bg-white/70 dark:bg-slate-800/70 p-4 shadow-sm; }
+  .preview-section h3 { @apply text-base font-semibold text-slate-800 dark:text-slate-100; }
+  .preview-container { @apply rounded-xl border-2 border-dashed border-slate-300/70 dark:border-slate-600/70 min-h-[300px] overflow-hidden; }
+  .input-group label { @apply text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400; }
+  .input-group input, .input-group textarea { @apply w-full rounded-lg border-2 border-slate-300/70 dark:border-slate-600/70 bg-white/70 dark:bg-slate-900/40 text-slate-800 dark:text-slate-100 p-3 focus:outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 transition; }
+  .input-group textarea { @apply h-52 font-mono text-sm; }
+  .upload-area { @apply border-2 border-dashed rounded-xl p-8 text-center bg-white/70 dark:bg-slate-900/40 hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition; }
+  .upload-btn { @apply underline text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300; }
+  .upload-hint { @apply text-xs text-slate-500 dark:text-slate-400; }
+  .tab-header { @apply flex items-center gap-2 mb-3; }
+  .tab-btn { @apply px-3 py-1.5 rounded-md text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100/60 dark:hover:bg-slate-700/60; }
+  .tab-btn.active { @apply bg-indigo-600/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20; }
+  .size-badge { @apply inline-flex items-center justify-center text-xs font-semibold rounded-full px-2.5 py-0.5 bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200; }
+  .btn { @apply inline-flex items-center justify-center rounded-lg px-3.5 py-2 text-sm font-medium border transition-all; }
+  .btn-primary { @apply border-transparent bg-gradient-to-tr from-indigo-600 to-violet-600 text-white shadow-sm hover:shadow-indigo-500/25 hover:-translate-y-0.5; }
+  .btn-secondary { @apply border-slate-300/70 dark:border-slate-600/70 bg-white/70 dark:bg-slate-800/70 text-slate-700 dark:text-slate-200 hover:bg-slate-100/60 dark:hover:bg-slate-700/60; }
+  .btn-accent { @apply border-transparent bg-emerald-600 text-white hover:bg-emerald-500; }
+  .btn-small, .btn.btn-small { @apply px-2.5 py-1.5 text-xs; }
+  .status-indicator { @apply text-xs text-slate-500 dark:text-slate-400; }
+  .app-footer { @apply border-t border-slate-200/30 dark:border-slate-800/30 mt-10; }
+  .footer-container { @apply max-w-[1500px] mx-auto px-4 py-6 text-sm text-slate-500 dark:text-slate-400; }
+  .header-container { @apply max-w-[1400px] mx-auto px-4 h-14 flex items-center justify-between; }
+  .brand { @apply flex items-center gap-2; }
+  .brand-icon { @apply w-8 h-8 rounded-md bg-gradient-to-tr from-indigo-600 to-violet-600 text-white grid place-items-center shadow-sm; }
+  .brand-title { @apply text-lg font-bold text-slate-900 dark:text-white; }
+  .brand-subtitle { @apply text-xs px-1.5 py-0.5 rounded bg-indigo-600/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20; }
 
   .language-selector { @apply relative; }
   .language-btn { @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm border border-slate-200/70 dark:border-slate-700/60 bg-white/70 dark:bg-slate-800/70 text-slate-600 dark:text-slate-300 hover:bg-slate-100/60 dark:hover:bg-slate-700/60; }
