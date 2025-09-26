@@ -1,0 +1,10 @@
+- Brand/Generic
+  - HolaTiger, browser utilities, Chrome extensions, productivity tools, privacy-friendly, local-first, online tools, indie developer
+- TinyPass (password generation)
+  - password generator, secure passwords, random password generator, strong password generator, offline password generator, Chrome password extension, password security, password manager alternative
+- WebDavy (WebDAV)
+  - WebDAV client, Chrome WebDAV extension, browser file sync, connect cloud storage, Nextcloud WebDAV, OwnCloud WebDAV, remote file management, web file manager
+- SVG Studio (SVG conversion)
+  - SVG converter, SVG to PNG, SVG to ICO, SVG to WebP, batch SVG export, online SVG viewer, icon pack generator, app icon generator
+- Intent modifiers (US-en)
+  - best, free, offline, secure, tutorial, how to, compare, for Chrome, for Windows, for Mac, no signup
