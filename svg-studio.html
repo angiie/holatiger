@@ -58,48 +58,88 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
     <!-- 外部样式引用 -->
+    <link rel="stylesheet" href="/assets/css/tw.css" />
+    <link rel="stylesheet" href="/assets/css/product-detail.css" />
     <link rel="stylesheet" href="/assets/css/svg-studio.css">
+    <script src="/assets/js/i18n.js"></script>
 </head>
 
-<body class="svg-studio">
+<body class="v1-professional">
 
     <!-- Header -->
-    <header class="app-header">
-        <div class="header-container">
-            <div class="header-left">
-                <div class="brand">
-                    <div class="brand-icon">🎨</div>
-                    <h1 class="brand-title">SVG Studio</h1>
-                    <span class="brand-subtitle">Pro</span>
-                </div>
-            </div>
-            <div class="header-right">
-                <div class="language-selector" id="languageSelector">
-                    <button class="language-btn" id="languageToggle" title="选择语言">
-                        <span class="current-lang" id="currentLangDisplay">简体中文</span>
-                        <span class="dropdown-arrow">▼</span>
-                    </button>
-                    <div class="language-dropdown" id="languageDropdown">
-                        <div class="language-option" data-lang="zh-CN">
-                            <span class="lang-name">简体中文</span>
-                        </div>
-                        <div class="language-option" data-lang="zh-TW">
-                            <span class="lang-name">繁體中文</span>
-                        </div>
-                        <div class="language-option" data-lang="en">
-                            <span class="lang-name">English</span>
-                        </div>
+    <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a class="logo-v1" href="https://holatiger.com/">
+                <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+                <span class="logo-text">虎啦</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+                    <a href="./index.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+                    <a href="./index.html#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+                    <a href="./index.html#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+                    <a href="./index.html#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+                </nav>
+                
+                <!-- 语言选择器 -->
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class="lang-switcher-btn">
+                        <i data-lucide="globe" class="w-4 h-4"></i>
+                        <span id="current-lang" data-i18n="lang.current">简体</span>
+                        <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-200"></i>
                     </div>
+                    <ul tabindex="0" class="lang-dropdown-menu">
+                        <li><a onclick="switchLanguage('zh')" class="lang-option" data-lang="zh">
+                            <span class="lang-text">简体</span>
+                        </a></li>
+                        <li><a onclick="switchLanguage('zh-tw')" class="lang-option" data-lang="zh-tw">
+                            <span class="lang-text">繁體</span>
+                        </a></li>
+                        <li><a onclick="switchLanguage('en')" class="lang-option" data-lang="en">
+                            <span class="lang-text">EN</span>
+                        </a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </header>
 
-    <div class="app-container">
-        <div class="main-card">
-            <div class="content">
-                <!-- 左侧内容区域 -->
-                <div class="left-panel">
+    <main>
+        <!-- 产品详情 Hero -->
+        <section class="product-hero py-12 px-6">
+            <div class="max-w-4xl mx-auto relative z-10">
+                <div class="flex items-center gap-6 mb-8 fade-in-up">
+                    <!-- 产品图标 -->
+                    <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center shadow-md flex-shrink-0">
+                        <span class="text-3xl">🎨</span>
+                    </div>
+                    
+                    <!-- 产品标题和版本 -->
+                    <div>
+                        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                            <span class="gradient-text">SVG Studio</span>
+                            <span class="text-blue-600 text-2xl ml-2">Pro</span>
+                        </h1>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">
+                            在线工具
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 产品简介 -->
+                <div class="fade-in-up" style="animation-delay: 0.2s;">
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        专业的SVG查看器和导出工具，支持实时预览、多格式导出(PNG/ICO/WebP/JPG)、批量处理、Chrome图标包生成。简洁高效，完全免费。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="app-container">
+            <div class="main-card">
+                <div class="content">
+                    <!-- 左侧内容区域 -->
+                    <div class="left-panel">
                     <div class="input-section">
                         <div class="upload-area" id="uploadArea">
                             <div class="upload-content">
@@ -179,27 +219,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="app-footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <div class="footer-brand">
-                        <span class="footer-logo">🎨</span>
-                        <span class="footer-title">SVG Studio Pro</span>
-                    </div>
-                    <p class="footer-description">专业的SVG处理工具，让创作更简单</p>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="footer-copyright">
-                <p>&copy; 2025 SVG Studio Pro. All rights reserved.</p>
-            </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-200 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-gray-500" data-i18n="footer.copyright">© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量</p>
         </div>
     </footer>
 
@@ -226,7 +254,33 @@
 
     <!-- JavaScript 引用 -->
     <script src="/assets/js/svg-studio.js"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            // 设置年份
+            const yearEl = document.getElementById('year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            const elements = document.querySelectorAll('.fade-in-up');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(30px)';
+                    el.style.animation = `fadeInUp 0.8s ease-out ${index * 0.2}s forwards`;
+                }, 100);
+            });
+
+            // 初始化 Lucide 图标
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            
+            // 初始化语言
+            if (typeof i18n !== 'undefined') {
+                i18n.init();
+            }
+        });
+    </script>
 </body>
 
 </html>
