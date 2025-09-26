@@ -1,0 +1,30 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="400" fill="#f8f9fa"/>
+  
+  <!-- 标题栏 -->
+  <rect x="0" y="0" width="800" height="60" fill="#2c3e50"/>
+  <text x="20" y="35" font-family="Arial, sans-serif" font-size="18" fill="white" font-weight="bold">SVG Studio - 主界面</text>
+  
+  <!-- 工具栏 -->
+  <rect x="0" y="60" width="800" height="40" fill="#34495e"/>
+  <rect x="10" y="70" width="60" height="20" fill="#3498db" rx="3"/>
+  <text x="40" y="82" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">新建</text>
+  
+  <rect x="80" y="70" width="60" height="20" fill="#e74c3c" rx="3"/>
+  <text x="110" y="82" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">保存</text>
+  
+  <!-- 画布区域 -->
+  <rect x="20" y="120" width="560" height="260" fill="white" stroke="#bdc3c7" stroke-width="2"/>
+  <text x="300" y="250" font-family="Arial, sans-serif" font-size="16" fill="#7f8c8d" text-anchor="middle">SVG 画布区域</text>
+  
+  <!-- 属性面板 -->
+  <rect x="600" y="120" width="180" height="260" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="690" y="140" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50" text-anchor="middle" font-weight="bold">属性面板</text>
+  
+  <!-- 图层列表 -->
+  <rect x="610" y="160" width="160" height="80" fill="white" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="690" y="180" font-family="Arial, sans-serif" font-size="10" fill="#34495e" text-anchor="middle">图层 1</text>
+  <text x="690" y="200" font-family="Arial, sans-serif" font-size="10" fill="#34495e" text-anchor="middle">图层 2</text>
+  <text x="690" y="220" font-family="Arial, sans-serif" font-size="10" fill="#34495e" text-anchor="middle">背景</text>
+</svg>

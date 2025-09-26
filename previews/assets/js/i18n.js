@@ -43,25 +43,29 @@ class I18nManager {
    */
   async loadLanguage(lang) {
     if (this.loadedLanguages.has(lang)) {
+      console.log(`Language ${lang} already loaded`);
       return this.translations[lang];
     }
 
     try {
-      const response = await fetch(`/assets/i18n/${lang}.json`);
+      console.log(`Loading language pack for ${lang}...`);
+      const response = await fetch(`./assets/i18n/${lang}.json`);
       if (!response.ok) {
-        throw new Error(`Failed to load language pack: ${lang}`);
+        throw new Error(`Failed to load language pack: ${lang}, status: ${response.status}`);
       }
       
       const translations = await response.json();
+      console.log(`Successfully loaded ${Object.keys(translations).length} translations for ${lang}`);
       this.translations[lang] = translations;
       this.loadedLanguages.add(lang);
       
       return translations;
     } catch (error) {
-      console.warn(`Failed to load language pack for ${lang}:`, error);
+      console.error(`Failed to load language pack for ${lang}:`, error);
       
       // 如果加载失败，使用默认的中文翻译
       if (lang !== 'zh' && !this.loadedLanguages.has('zh')) {
+        console.log('Falling back to Chinese translations...');
         return this.loadLanguage('zh');
       }
       
@@ -76,12 +80,25 @@ class I18nManager {
     const currentTranslations = this.translations[this.currentLanguage] || {};
     const fallbackTranslations = this.translations['zh'] || {};
     
-    const translation = currentTranslations[key] || fallbackTranslations[key] || key;
+    // 支持点号分隔的嵌套键访问
+    const getNestedValue = (obj, path) => {
+      return path.split('.').reduce((current, key) => {
+        return current && current[key] !== undefined ? current[key] : null;
+      }, obj);
+    };
     
-    // 替换参数
-    return translation.replace(/\{(\w+)\}/g, (match, paramKey) => {
-      return params[paramKey] || match;
+    let text = getNestedValue(currentTranslations, key) || 
+               getNestedValue(fallbackTranslations, key) || 
+               currentTranslations[key] || 
+               fallbackTranslations[key] || 
+               key;
+    
+    // 参数替换
+    Object.keys(params).forEach(param => {
+      text = text.replace(new RegExp(`{{${param}}}`, 'g'), params[param]);
     });
+    
+    return text;
   }
 
   /**
@@ -116,7 +133,7 @@ class I18nManager {
       }
       
       const text = this.t(key, parsedParams);
-      if (text !== key) element.innerHTML = text;
+      element.innerHTML = text;
     });
     
     // 更新页面标题
@@ -132,9 +149,6 @@ class I18nManager {
     
     // 更新meta描述
     this.updateMetaDescription();
-    
-    // 更新图片路径
-    this.updateImagePaths();
   }
 
   /**
@@ -164,31 +178,6 @@ class I18nManager {
         metaDesc.setAttribute('content', this.t(descKey));
       }
     }
-  }
-
-  /**
-   * 更新图片路径
-   */
-  updateImagePaths() {
-    // 获取当前语言对应的图片文件夹名
-    const langMap = {
-      'zh': 'zh',
-      'zh-tw': 'zh',  // 繁体中文使用简体中文的图片
-      'en': 'en'
-    };
-    
-    const imageLang = langMap[this.currentLanguage] || 'zh';
-    
-    // 更新截图图片路径
-    const screenshots = document.querySelectorAll('img[src*="/screenshot/"]');
-    screenshots.forEach(img => {
-      const src = img.getAttribute('src');
-      if (src) {
-        // 替换路径中的语言部分
-        const newSrc = src.replace(/\/screenshot\/[^\/]+\//, `/screenshot/${imageLang}/`);
-        img.setAttribute('src', newSrc);
-      }
-    });
   }
 
   /**

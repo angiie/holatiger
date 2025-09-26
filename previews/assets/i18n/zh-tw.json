@@ -55,7 +55,7 @@
   "tinypass.usage4.title": "個人賬號",
   "tinypass.usage4.desc": "管理個人各類賬號的密碼安全",
   
-  "footer.copyright": "© {year} 虎啦 (HolaTiger) - 小工具，大能量",
+  "footer.copyright": "© {{year}} 虎啦 (HolaTiger) - 小工具，大能量",
   "carousel.prev": "上一張",
   "carousel.next": "下一張",
   "carousel.slide": "切換到第{index}張",
@@ -89,69 +89,106 @@
   "about.title": "關於我",
   "about.desc": "我是 <strong class=\"text-orange-600\">angiie</strong>，全棧個人開發者，熱愛把小想法變成能落地的效率工具。這裡會持續更新 Chrome 擴展與 Web 工具，歡迎收藏與反饋。",
 
-  "webdavy.guide.title": "快速上手指南",
-  "webdavy.guide.subtitle": "3 步開始使用 WebDavy",
-  "webdavy.step1.title": "安裝擴展",
-  "webdavy.step1.desc": "從 Chrome Web Store 安裝 WebDavy 擴展，無需註冊或登錄",
-  "webdavy.step2.title": "配置連接",
-  "webdavy.step2.desc": "輸入 WebDAV 服務器地址、用戶名和密碼，保存連接配置",
-  "webdavy.step3.title": "管理文件",
-  "webdavy.step3.desc": "瀏覽、上傳、下載文件，創建文件夾，享受便捷的文件管理體驗",
-  "webdavy.faq.title": "常見問題",
-  "webdavy.faq.subtitle": "解答您關於 WebDavy 的疑問",
-  "webdavy.faq1.question": "WebDavy 支持哪些 WebDAV 服務？",
-  "webdavy.faq1.answer": "WebDavy 支持所有標準的 WebDAV 服務，包括 NextCloud、OwnCloud、Apache、Nginx、IIS 等。只要服務器支持 WebDAV 協議，就可以使用 WebDavy 連接。",
-  "webdavy.faq2.question": "連接信息是否安全？",
-  "webdavy.faq2.answer": "所有連接配置都加密存儲在您的瀏覽器本地，我們不會收集或傳輸您的任何連接信息。建議使用 HTTPS 連接以確保數據傳輸安全。",
-  "webdavy.faq3.question": "支持哪些文件操作？",
-  "webdavy.faq3.answer": "WebDavy 支持完整的文件管理功能：瀏覽文件夾、上傳文件、下載文件、創建文件夾、刪除文件/文件夾、重命名等操作。",
-  "webdavy.faq4.question": "如何配置 NextCloud 連接？",
-  "webdavy.faq4.answer": "在 NextCloud 中，WebDAV 地址通常是：https://your-domain.com/remote.php/dav/files/username/。使用您的 NextCloud 用戶名和密碼進行連接。",
-  "webdavy.requirements.title": "系統要求",
-  "webdavy.req1.title": "Chrome 瀏覽器",
-  "webdavy.req1.desc": "版本 88 或更高",
-  "webdavy.req2.title": "存儲空間",
-  "webdavy.req2.desc": "< 2MB",
-  "webdavy.req3.title": "網絡連接",
-  "webdavy.req3.desc": "需要訪問 WebDAV 服務器",
-  "webdavy.support.title": "獲取支持",
-  "webdavy.support1.title": "郵件支持",
-  "webdavy.support1.desc": "support@holatiger.com",
-  "webdavy.support2.title": "問題反饋",
-  "webdavy.support2.desc": "Chrome Web Store 評論",
-  "webdavy.support3.title": "更多信息",
-  "webdavy.support3.desc": "訪問 holatiger.com",
-
-  "tinypass.guide.title": "快速上手指南",
-  "tinypass.guide.subtitle": "3 步開始使用 TinyPass",
-  "tinypass.step1.title": "安裝擴展",
-  "tinypass.step1.desc": "從 Chrome Web Store 安裝 TinyPass 擴展，無需註冊或登錄",
-  "tinypass.step2.title": "設置參數",
-  "tinypass.step2.desc": "根據需要調整密碼長度、字符集等參數，或使用默認設置",
-  "tinypass.step3.title": "生成使用",
-  "tinypass.step3.desc": "點擊生成按鈕，一鍵複製密碼到剪貼板，直接粘貼使用",
-  "tinypass.faq.title": "常見問題",
-  "tinypass.faq.subtitle": "解答您關於 TinyPass 的疑問",
-  "tinypass.faq1.question": "TinyPass 是否安全？會不會泄露我的密碼？",
-  "tinypass.faq1.answer": "TinyPass 完全在本地運行，不需要聯網，所有密碼生成和存儲都在您的瀏覽器本地完成，我們無法訪問您的任何數據，確保隱私安全。",
-  "tinypass.faq2.question": "歷史記錄會保存多久？",
-  "tinypass.faq2.answer": "TinyPass 會保存最近 100 條密碼記錄，刪除的密碼會在回收站保留 30 天。您可以隨時手動清空歷史記錄或回收站。",
-  "tinypass.faq3.question": "支持哪些瀏覽器？",
-  "tinypass.faq3.answer": "目前 TinyPass 專為 Chrome 瀏覽器設計，支持 Chrome 88 及以上版本。我們計劃在未來支持更多基於 Chromium 的瀏覽器。",
-  "tinypass.faq4.question": "如何自定義密碼規則？",
-  "tinypass.faq4.answer": "在擴展界面中，您可以調整密碼長度（6-32位），選擇包含的字符類型（大小寫字母、數字、符號），還可以排除易混淆字符。",
-  "tinypass.requirements.title": "系統要求",
-  "tinypass.req1.title": "Chrome 瀏覽器",
-  "tinypass.req1.desc": "版本 88 或更高",
-  "tinypass.req2.title": "存儲空間",
-  "tinypass.req2.desc": "< 1MB",
-  "tinypass.req3.title": "權限要求",
-  "tinypass.req3.desc": "僅需存儲權限",
-  "tinypass.support.title": "獲取支持",
-  "tinypass.support1.title": "郵件支持",
-  "tinypass.support1.desc": "support@holatiger.com",
-  "tinypass.support2.title": "問題反饋",
-  "tinypass.support2.desc": "Chrome Web Store 評論",
-  "tinypass.support3.title": "更多信息",
-  "tinypass.support3.desc": "訪問 holatiger.com"
+  "svg-studio": {
+    "badge": "專業 SVG 工具",
+    "title": "SVG Studio",
+    "subtitle": "SVG 轉換器",
+    "description": "專業的 SVG 查看器和導出工具，支持實時預覽、多格式導出，讓您的設計工作更高效。",
+    "landing": {
+      "badge": "專業 SVG 工具",
+      "title": "SVG Studio",
+      "subtitle": "SVG 轉換器",
+      "description": "專業的 SVG 查看器和導出工具，支持實時預覽、多格式導出，讓您的設計工作更高效。"
+    },
+    "overview": {
+      "badge": "產品概述",
+      "title": "為什麼選擇 SVG Studio？",
+      "card": {
+        "title": "專業工具，簡單易用",
+        "description": "專業的 SVG 查看器和導出工具，支持實時預覽、多格式導出(PNG/ICO/WebP/JPG)、批量處理、Chrome圖標包生成。簡潔高效，完全免費。"
+      },
+      "features": {
+        "free": "免費使用",
+        "no-signup": "無需註冊",
+        "browser": "瀏覽器運行"
+      },
+      "stats": {
+        "efficient": {
+          "title": "高效處理",
+          "desc": "批量轉換節省時間"
+        },
+        "quality": {
+          "title": "質量保證",
+          "desc": "保持原始圖像質量"
+        }
+      }
+    },
+    "features": {
+      "badge": "核心功能",
+      "title": "強大的功能特性",
+      "subtitle": "專為設計師和開發者打造的專業 SVG 工具，讓您的工作流程更加高效",
+      "preview": {
+        "title": "實時預覽",
+        "desc": "即時查看 SVG 文件效果，支持縮放、旋轉等多種預覽模式，讓您快速驗證設計效果"
+      },
+      "export": {
+        "title": "多格式導出",
+        "desc": "支持導出為 PNG、ICO、WebP、JPG 等多種格式，滿足不同場景的使用需求"
+      },
+      "batch": {
+        "title": "批量處理",
+        "desc": "一次性處理多個 SVG 文件，大幅提升工作效率，節省寶貴時間"
+      },
+      "chrome": {
+        "title": "Chrome 圖標包",
+        "desc": "專為 Chrome 擴展開發者設計，自動生成符合規範的圖標包，簡化開發流程"
+      }
+    },
+    "screenshots": {
+      "badge": "產品截圖",
+      "title": "界面預覽",
+      "subtitle": "簡潔直觀的用戶界面，輕鬆上手",
+      "main": {
+        "title": "主界面",
+        "desc": "清晰的文件管理和預覽界面"
+      },
+      "export": {
+        "title": "導出設置",
+        "desc": "靈活的導出選項和格式設置"
+      }
+    },
+    "use-cases": {
+      "badge": "使用場景",
+      "title": "應用場景",
+      "subtitle": "無論您是設計師、開發者還是內容創作者，SVG Studio 都能滿足您的需求",
+      "web": {
+        "title": "網頁設計",
+        "desc": "為網站創建高質量的圖標和圖形，確保在不同設備上完美顯示"
+      },
+      "mobile": {
+        "title": "移動應用",
+        "desc": "為 iOS 和 Android 應用生成各種尺寸的圖標，滿足應用商店要求"
+      },
+      "extension": {
+        "title": "瀏覽器擴展",
+        "desc": "快速生成 Chrome 擴展所需的完整圖標包，簡化開發流程"
+      }
+    },
+    "faq": {
+      "badge": "常見問題",
+      "title": "常見問題",
+      "q1": {
+        "question": "SVG Studio 是免費的嗎？",
+        "answer": "是的，SVG Studio 完全免費。您可以使用所有功能，無需註冊或付費，也沒有使用限制。"
+      },
+      "q2": {
+        "question": "是否支持離線使用？",
+        "answer": "是的，SVG Studio 完全在您的瀏覽器中運行，無需聯網。所有處理都在本地完成，確保您的文件隱私和安全。"
+      },
+      "q3": {
+        "question": "支持哪些輸出格式？",
+        "answer": "SVG Studio 支持導出為多種格式，包括 PNG、ICO、WebP、JPG，還可以生成 Chrome 擴展圖標包。我們會根據用戶反饋添加更多格式。"
+      }
+    }
+  }
 }

@@ -2342,20 +2342,3 @@
         background-position: 0% 50%;
     }
 }
-
-/* 移除 landing 页按钮文案的下划线（span 本身或位于链接内时） */
-[data-i18n="btn.try-tool"],
-[data-i18n="hero.btn2"],
- a [data-i18n="btn.try-tool"],
- a [data-i18n="hero.btn2"] {
-    text-decoration: none !important;
-    border-bottom: none !important;
-}
-
-/* 强化按钮可见性（防止外部样式冲突导致按钮不可见） */
-.svg-studio .btn {
-    display: inline-flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-

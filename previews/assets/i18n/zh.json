@@ -55,7 +55,7 @@
   "tinypass.usage4.title": "个人账号",
   "tinypass.usage4.desc": "管理个人各类账号的密码安全",
   
-  "footer.copyright": "© {year} 虎啦 (HolaTiger) - 小工具，大能量",
+  "footer.copyright": "© {{year}} 虎啦 (HolaTiger) - 小工具，大能量",
   "carousel.prev": "上一张",
   "carousel.next": "下一张",
   "carousel.slide": "切换到第{index}张",
@@ -323,6 +323,108 @@
     "q3": {
       "question": "支持哪些输出格式？",
       "answer": "目前支持导出为 PNG、ICO、WebP、JPG 等主流格式，并且可以自定义输出尺寸和质量设置。"
+    }
+  },
+  "svg-studio": {
+    "badge": "专业 SVG 工具",
+    "title": "SVG Studio",
+    "subtitle": "SVG 转换器",
+    "description": "专业的 SVG 查看器和导出工具，支持实时预览、多格式导出，让您的设计工作更高效。",
+    "landing": {
+      "badge": "专业 SVG 工具",
+      "title": "SVG Studio",
+      "subtitle": "SVG 转换器",
+      "description": "专业的 SVG 查看器和导出工具，支持实时预览、多格式导出，让您的设计工作更高效。"
+    },
+    "overview": {
+      "badge": "产品概述",
+      "title": "为什么选择 SVG Studio？",
+      "card": {
+        "title": "专业工具，简单易用",
+        "description": "专业的 SVG 查看器和导出工具，支持实时预览、多格式导出(PNG/ICO/WebP/JPG)、批量处理、Chrome图标包生成。简洁高效，完全免费。"
+      },
+      "features": {
+        "free": "免费使用",
+        "no-signup": "无需注册",
+        "browser": "浏览器运行"
+      },
+      "stats": {
+        "efficient": {
+          "title": "高效处理",
+          "desc": "批量转换节省时间"
+        },
+        "quality": {
+          "title": "质量保证",
+          "desc": "保持原始图像质量"
+        }
+      }
+    },
+    "features": {
+      "badge": "核心功能",
+      "title": "强大的功能特性",
+      "subtitle": "专为设计师和开发者打造的专业 SVG 工具，让您的工作流程更加高效",
+      "preview": {
+        "title": "实时预览",
+        "desc": "即时查看 SVG 文件效果，支持缩放、旋转等多种预览模式，让您快速验证设计效果"
+      },
+      "export": {
+        "title": "多格式导出",
+        "desc": "支持导出为 PNG、ICO、WebP、JPG 等多种格式，满足不同场景的使用需求"
+      },
+      "batch": {
+        "title": "批量处理",
+        "desc": "一次性处理多个 SVG 文件，大幅提升工作效率，节省宝贵时间"
+      },
+      "chrome": {
+        "title": "Chrome 图标包",
+        "desc": "专为 Chrome 扩展开发者设计，自动生成符合规范的图标包，简化开发流程"
+      }
+    },
+    "screenshots": {
+      "badge": "产品截图",
+      "title": "界面预览",
+      "subtitle": "简洁直观的用户界面，轻松上手",
+      "main": {
+        "title": "主界面",
+        "desc": "清晰的文件管理和预览界面"
+      },
+      "export": {
+        "title": "导出设置",
+        "desc": "灵活的导出选项和格式设置"
+      }
+    },
+    "use-cases": {
+      "badge": "使用场景",
+      "title": "应用场景",
+      "subtitle": "无论您是设计师、开发者还是内容创作者，SVG Studio 都能满足您的需求",
+      "web": {
+        "title": "网页设计",
+        "desc": "为网站创建高质量的图标和图形，确保在不同设备上完美显示"
+      },
+      "mobile": {
+        "title": "移动应用",
+        "desc": "为 iOS 和 Android 应用生成各种尺寸的图标，满足应用商店要求"
+      },
+      "extension": {
+        "title": "浏览器扩展",
+        "desc": "快速生成 Chrome 扩展所需的完整图标包，简化开发流程"
+      }
+    },
+    "faq": {
+      "badge": "常见问题",
+      "title": "常见问题",
+      "q1": {
+        "question": "SVG Studio 是免费的吗？",
+        "answer": "是的，SVG Studio 完全免费。您可以使用所有功能，无需注册或付费，也没有使用限制。"
+      },
+      "q2": {
+        "question": "是否支持离线使用？",
+        "answer": "是的，SVG Studio 完全在您的浏览器中运行，无需联网。所有处理都在本地完成，确保您的文件隐私和安全。"
+      },
+      "q3": {
+        "question": "支持哪些输出格式？",
+        "answer": "SVG Studio 支持导出为多种格式，包括 PNG、ICO、WebP、JPG，还可以生成 Chrome 扩展图标包。我们会根据用户反馈添加更多格式。"
+      }
     }
   }
 }
