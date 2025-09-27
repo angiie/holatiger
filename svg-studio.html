@@ -61,7 +61,6 @@
     <link rel="stylesheet" href="/assets/css/tw.css" />
     <link rel="stylesheet" href="/assets/css/product-detail.css" />
     <link rel="stylesheet" href="/assets/css/svg-studio.css">
-    <script src="/assets/js/i18n.js"></script>
 </head>
 
 <body class="v1-professional">
@@ -89,13 +88,13 @@
                         <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-200"></i>
                     </div>
                     <ul tabindex="0" class="lang-dropdown-menu">
-                        <li><a onclick="switchLanguage('zh')" class="lang-option" data-lang="zh">
+                        <li><a onclick="window.ReactI18n && ReactI18n.changeLanguage('zh')" class="lang-option" data-lang="zh">
                             <span class="lang-text">简体</span>
                         </a></li>
-                        <li><a onclick="switchLanguage('zh-tw')" class="lang-option" data-lang="zh-tw">
+                        <li><a onclick="window.ReactI18n && ReactI18n.changeLanguage('zh-tw')" class="lang-option" data-lang="zh-tw">
                             <span class="lang-text">繁體</span>
                         </a></li>
-                        <li><a onclick="switchLanguage('en')" class="lang-option" data-lang="en">
+                        <li><a onclick="window.ReactI18n && ReactI18n.changeLanguage('en')" class="lang-option" data-lang="en">
                             <span class="lang-text">EN</span>
                         </a></li>
                     </ul>
@@ -254,6 +253,14 @@
 
     <!-- JavaScript 引用 -->
     <script src="/assets/js/svg-studio.js"></script>
+    <!-- React + i18next UMD -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/i18next@23.11.5/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-http-backend@2.5.2/i18nextHttpBackend.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector@7.2.0/i18nextBrowserLanguageDetector.min.js"></script>
+    <script src="https://unpkg.com/react-i18next@13.5.0/dist/umd/react-i18next.min.js"></script>
+    <script src="/assets/js/react-i18n/init.js"></script>
     <script>
         // 页面加载动画
         window.addEventListener('load', function() {
