@@ -10,6 +10,7 @@
     "serve": "python3 -m http.server 8000",
     "export:covers": "node scripts/export-covers.mjs",
     "export:covers:pw": "node scripts/export-covers-playwright.mjs",
+    "icons:svg-studio": "node scripts/gen-svg-studio-icons.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -24,6 +25,7 @@
     "tailwindcss": "^3.4.17"
   },
   "dependencies": {
-    "caniuse-lite": "^1.0.30001743"
+    "caniuse-lite": "^1.0.30001743",
+    "sharp": "^0.33.5"
   }
 }

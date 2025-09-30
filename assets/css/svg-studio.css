@@ -1644,6 +1644,21 @@
     filter: drop-shadow(0 2px 4px rgba(139, 92, 246, 0.3));
 }
 
+/* Added: Image logo sizing to handle large source images gracefully */
+.svg-studio .brand-logo {
+    height: 32px;
+    max-height: 36px;
+    width: auto;
+    display: block;
+}
+
+.svg-studio .footer-logo-img {
+    height: 20px;
+    max-height: 24px;
+    width: auto;
+    display: block;
+}
+
 .svg-studio .brand-title {
     font-size: 1.5rem;
     font-weight: 700;
