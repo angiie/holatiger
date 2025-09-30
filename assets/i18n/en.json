@@ -1,12 +1,12 @@
 {
   "title.webdavy": "WebDavy - HolaTiger",
   "title.tinypass": "TinyPass - HolaTiger",
-  
+
   "nav.home": "Home",
   "nav.extensions": "Extensions",
   "nav.tools": "Tools",
   "nav.about": "About",
-  
+
   "webdavy.version": "Version 1.1.0",
   "webdavy.description": "WebDavy is a Chrome browser extension based on the WebDAV protocol that allows you to manage remote file servers without leaving your browser. Whether it's personal cloud storage or enterprise file servers, WebDavy provides a convenient file management experience with support for uploading, downloading, browsing, and organizing files.",
   "webdavy.status.development": "🚧 In Development",
@@ -22,7 +22,7 @@
   "webdavy.screenshots.subtitle": "Get a visual overview of WebDavy's interface and functionality",
   "webdavy.servers.title": "Supported WebDAV Servers",
   "webdavy.servers.subtitle": "Compatible with mainstream WebDAV services for different use cases",
-  
+
   "tinypass.version": "Version 1.0.24",
   "tinypass.description": "TinyPass is a random password generator designed specifically for Chrome browsers, running completely locally without requiring internet connection or login. It helps users generate strong passwords to protect account security, saying goodbye to weak passwords like \"123456\" and making password management simple and secure.",
   "tinypass.button.install": "🚀 Install Now",
@@ -43,22 +43,6 @@
   "tinypass.feature6.desc": "Intuitive user interface, simple operation, even beginners can get started quickly",
   "tinypass.screenshots.title": "Product Screenshots",
   "tinypass.screenshots.subtitle": "Get a visual overview of TinyPass's interface and functionality",
-  "tinypass.usage.title": "Use Cases",
-  "tinypass.usage.subtitle": "Suitable for various scenarios requiring strong passwords",
-  "tinypass.usage1.title": "Website Registration",
-  "tinypass.usage1.desc": "Generate strong passwords for newly registered website accounts",
-  "tinypass.usage2.title": "Password Updates",
-  "tinypass.usage2.desc": "Regularly update passwords for important accounts",
-  "tinypass.usage3.title": "Enterprise Applications",
-  "tinypass.usage3.desc": "Generate secure passwords for internal enterprise systems",
-  "tinypass.usage4.title": "Personal Accounts",
-  "tinypass.usage4.desc": "Manage password security for various personal accounts",
-  
-  "footer.copyright": "© {year} HolaTiger - Small Tools, Big Power",
-  "carousel.prev": "Previous",
-  "carousel.next": "Next",
-  "carousel.slide": "Go to slide {index}",
-  "lang.current": "EN",
 
   "title": "HolaTiger - Small Tools, Big Power",
   "logo.text": "HolaTiger",
@@ -86,5 +70,12 @@
   "btn.try-tool": "Try Tool",
 
   "about.title": "About Me",
-  "about.desc": "I'm <strong class=\"text-orange-600\">angiie</strong>, a full-stack indie developer who loves turning small ideas into practical productivity tools. This site will keep updating Chrome extensions and web tools. You're welcome to star and give feedback." 
+  "about.desc": "I'm <strong class=\"text-orange-600\">angiie</strong>, a full-stack indie developer who loves turning small ideas into practical productivity tools. This site will keep updating Chrome extensions and web tools. You're welcome to star and give feedback.",
+
+  "carousel.prev": "Previous",
+  "carousel.next": "Next",
+  "carousel.slide": "Go to slide {index}",
+  "lang.current": "EN",
+
+  "footer.copyright": "© {year} HolaTiger - Small Tools, Big Power"
 }

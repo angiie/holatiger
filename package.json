@@ -4,25 +4,53 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "build:css": "tailwindcss -i ./assets/css/tw-src.css -o ./assets/css/tw.css --minify",
     "dev:css": "tailwindcss -i ./assets/css/tw-src.css -o ./assets/css/tw.css --watch",
     "serve": "python3 -m http.server 8000",
     "export:covers": "node scripts/export-covers.mjs",
     "export:covers:pw": "node scripts/export-covers-playwright.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .ts,.tsx src --fix",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit",
+    "analyze": "vite build && open dist/stats.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^24.5.2",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@typescript-eslint/parser": "^8.44.1",
+    "@vitejs/plugin-react": "^5.0.4",
     "autoprefixer": "^10.4.21",
     "daisyui": "^4.12.24",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "playwright": "^1.47.2",
     "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
     "puppeteer": "^22.13.1",
-    "tailwindcss": "^3.4.17"
+    "rollup-plugin-visualizer": "^6.0.3",
+    "tailwindcss": "^3.4.17",
+    "terser": "^5.44.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7"
   },
   "dependencies": {
-    "caniuse-lite": "^1.0.30001743"
+    "@types/react": "^19.1.15",
+    "@types/react-dom": "^19.1.9",
+    "caniuse-lite": "^1.0.30001743",
+    "i18next": "^25.5.2",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-i18next": "^16.0.0"
   }
 }
