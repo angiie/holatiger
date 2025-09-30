@@ -5,37 +5,28 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [
     react({
-      // 启用 React 快速刷新
       fastRefresh: true,
-      // 启用 JSX 运行时
       jsxRuntime: 'automatic',
     }),
   ],
   root: '.',
   
-  // 构建配置
   build: {
     outDir: 'dist',
     sourcemap: true,
-    minify: 'terser',
+    minify: 'esbuild', // 改用esbuild，更稳定
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
         'svg-studio': resolve(__dirname, 'svg-studio.html'),
         'webdavy': resolve(__dirname, 'webdavy.html'),
         'tinypass': resolve(__dirname, 'tinypass.html'),
-        'test-i18n': resolve(__dirname, 'test-i18n.html'),
-        'faq-test': resolve(__dirname, 'faq-test.html'),
-        'layout-test': resolve(__dirname, 'layout-test.html'),
-        'component-test': resolve(__dirname, 'component-test.html'),
       },
       output: {
-        // 代码分割
         manualChunks: {
           vendor: ['react', 'react-dom'],
           i18n: ['i18next', 'react-i18next', 'i18next-browser-languagedetector'],
         },
-        // 资源文件命名
         assetFileNames: (assetInfo) => {
           const info = assetInfo.name?.split('.') || []
           const ext = info[info.length - 1]
@@ -50,38 +41,29 @@ export default defineConfig({
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js',
       },
-    },
-    // 压缩配置
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
+      external: [
+        '/assets/js/analytics.js',
+        '/assets/js/main.js', 
+        '/assets/js/i18n.js',
+        '/assets/js/index-inline.js',
+        '/assets/js/svg-studio.js',
+        '/assets/js/carousel.js',
+        '../assets/js/carousel.js'
+      ],
     },
   },
   
-  // 开发服务器配置
   server: {
     port: 3000,
     open: true,
     cors: true,
-    // 代理配置（如果需要）
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8080',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
   },
   
-  // 预览服务器配置
   preview: {
     port: 4173,
     open: true,
   },
   
-  // 路径别名
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
@@ -94,7 +76,6 @@ export default defineConfig({
     },
   },
   
-  // CSS 配置
   css: {
     devSourcemap: true,
     preprocessorOptions: {
@@ -104,12 +85,10 @@ export default defineConfig({
     },
   },
   
-  // 环境变量配置
   define: {
     __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
   },
   
-  // 优化配置
   optimizeDeps: {
     include: ['react', 'react-dom', 'i18next', 'react-i18next'],
   },
