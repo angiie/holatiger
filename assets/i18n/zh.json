@@ -1,12 +1,12 @@
 {
   "title.webdavy": "WebDavy - 虎啦",
   "title.tinypass": "TinyPass - 虎啦",
-  
+
   "nav.home": "首页",
   "nav.extensions": "浏览器扩展",
   "nav.tools": "在线工具",
   "nav.about": "关于我",
-  
+
   "webdavy.version": "版本 1.1.0",
   "webdavy.description": "WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。",
   "webdavy.status.development": "🚧 开发中",
@@ -22,7 +22,7 @@
   "webdavy.screenshots.subtitle": "直观了解 WebDavy 的界面和功能",
   "webdavy.servers.title": "支持的WebDAV服务器",
   "webdavy.servers.subtitle": "兼容主流WebDAV服务，满足不同使用场景",
-  
+
   "tinypass.version": "版本 1.0.24",
   "tinypass.description": "TinyPass 是一款专为Chrome浏览器设计的随机密码生成工具，完全在本地运行，无需联网或登录。它帮助用户生成强密码，保护账号安全，告别\"123456\"等弱密码，让密码管理变得简单又安心。",
   "tinypass.button.install": "🚀 立即安装",
@@ -43,22 +43,6 @@
   "tinypass.feature6.desc": "直观的用户界面，操作简单，新手也能快速上手",
   "tinypass.screenshots.title": "产品截图",
   "tinypass.screenshots.subtitle": "直观了解 TinyPass 的界面和功能",
-  "tinypass.usage.title": "使用场景",
-  "tinypass.usage.subtitle": "适用于各种需要强密码的场景",
-  "tinypass.usage1.title": "网站注册",
-  "tinypass.usage1.desc": "为新注册的网站账号生成强密码",
-  "tinypass.usage2.title": "密码更新",
-  "tinypass.usage2.desc": "定期更新重要账号的密码",
-  "tinypass.usage3.title": "企业应用",
-  "tinypass.usage3.desc": "为企业内部系统生成安全密码",
-  "tinypass.usage4.title": "个人账号",
-  "tinypass.usage4.desc": "管理个人各类账号的密码安全",
-  
-  "footer.copyright": "© {year} 虎啦 (HolaTiger) - 小工具，大能量",
-  "carousel.prev": "上一张",
-  "carousel.next": "下一张",
-  "carousel.slide": "切换到第{index}张",
-  "lang.current": "简体",
 
   "title": "虎啦 - 小工具，大能量",
   "logo.text": "虎啦",
@@ -86,5 +70,12 @@
   "btn.try-tool": "试用工具",
 
   "about.title": "关于我",
-  "about.desc": "我是 <strong class=\"text-orange-600\">angiie</strong>，全栈个人开发者，热爱把小想法变成能落地的效率工具。这里会持续更新 Chrome 扩展与 Web 工具，欢迎收藏与反馈。"
+  "about.desc": "我是 <strong class=\"text-orange-600\">angiie</strong>，全栈个人开发者，热爱把小想法变成能落地的效率工具。这里会持续更新 Chrome 扩展与 Web 工具，欢迎收藏与反馈。",
+
+  "carousel.prev": "上一张",
+  "carousel.next": "下一张",
+  "carousel.slide": "切换到第{index}张",
+  "lang.current": "简体",
+
+  "footer.copyright": "© {year} 虎啦 (HolaTiger) - 小工具，大能量"
 }
