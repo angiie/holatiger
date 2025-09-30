@@ -1,3 +1,24 @@
+
+// === language helpers (injected safely at top) ===
+function normalizeContentLang(lang) {
+  const l = String(lang || '').toLowerCase();
+  if (l === 'zh' || l === 'zh-cn') return 'zh-CN';
+  if (l === 'zh-tw' || l === 'zh-hk' || l === 'zh-hant') return 'zh-TW';
+  if (l.startsWith('en')) return 'en';
+  if (l.startsWith('fr')) return 'fr';
+  if (l.startsWith('es')) return 'es';
+  if (l.startsWith('ar')) return 'ar';
+  return 'zh-CN';
+}
+function displayNameOfLang(lang) {
+  const map = { 'zh-CN': '简体中文', 'zh-TW': '繁體中文', 'en': 'English', 'fr': 'Français', 'es': 'Español', 'ar': 'العربية' };
+  return map[lang] || lang;
+}
+function htmlLangCode(lang) {
+  const map = { 'zh-CN': 'zh-CN', 'zh-TW': 'zh-TW', 'en': 'en', 'fr': 'fr', 'es': 'es', 'ar': 'ar' };
+  return map[lang] || 'zh-CN';
+}
+// === end helpers ===
 // 语言数据结构
 const i18nData = {
     'zh-CN': {
@@ -11,6 +32,7 @@ const i18nData = {
         twitterDescription: '功能强大的SVG处理工具，支持实时预览、多格式导出、批量处理。完全免费，无需注册。',
         
         // 主要界面文本
+
         svgCodeInput: 'SVG 代码输入',
         svgCodeLabel: 'SVG 代码',
         uploadText: '拖拽 SVG 文件到这里或',
@@ -255,6 +277,306 @@ const i18nData = {
         manifestGenerated: '清單產生於',
         successLangSwitch: '語言已切換為: {langName}',
     },
+    'fr': {
+        title: 'SVG Studio Pro - Visionneuse et outil d’export SVG',
+        description: 'Visionneuse SVG professionnelle avec aperçu en temps réel, export multi-formats (PNG/ICO/WebP/JPG), traitement par lots et génération de packs d’icônes Chrome. Simple, efficace et gratuit.',
+        keywords: 'visionneuse SVG,éditeur SVG,SVG vers PNG,SVG vers ICO,création d’icônes,graphiques vectoriels,outil en ligne,outil gratuit,icônes Chrome,export par lots',
+        ogTitle: 'SVG Studio Pro - Visionneuse et export SVG professionnels',
+        ogDescription: 'Outil puissant de traitement SVG avec aperçu en temps réel, export multi-formats et traitement par lots. Gratuit, sans inscription.',
+        twitterTitle: 'SVG Studio Pro - Visionneuse et export SVG',
+        twitterDescription: 'Outil puissant de traitement SVG avec aperçu en temps réel et export multi-formats.',
+        svgCodeInput: 'Saisie du code SVG',
+        svgCodeLabel: 'Code SVG',
+        uploadText: 'Glissez des fichiers SVG ici ou',
+        uploadLink: 'cliquez pour sélectionner des fichiers',
+        uploadHint: 'Prise en charge des fichiers .svg | Prise en charge du collage Ctrl+V (Mac : Cmd+V)',
+        dragDropHint: '💡 Astuce : vous pouvez aussi déposer des fichiers SVG n’importe où sur la page',
+        placeholder: 'Collez votre code SVG ici, ou utilisez l’envoi de fichier ci‑dessus',
+        widthLabel: 'Largeur (px)',
+        heightLabel: 'Hauteur (px)',
+        batchExportSizes: 'Sélection des tailles d’export par lots',
+        selectAll: 'Tout sélectionner',
+        clearAll: 'Tout effacer',
+        selectedSizesCount: '{count} tailles sélectionnées',
+        sizeAndExport: 'Paramètres de taille et export',
+        batchExport: 'Export par lots',
+        downloadPNG: 'Télécharger PNG',
+        downloadICO: 'Télécharger ICO',
+        batchExportPNG: 'Export PNG par lots',
+        batchExportICO: 'Export ICO par lots',
+        exportPNG: 'Exporter en PNG',
+        exportICO: 'Exporter en ICO',
+        chromeIconPack: 'Pack d’icônes Chrome',
+        preview: 'Aperçu',
+        exportAllPacks: 'Exporter tous les packs',
+        exportWeb: 'Web',
+        exportChrome: 'Extension Chrome',
+        exportAndroid: 'Android',
+        exportIOS: 'iOS',
+        exportWindows: 'Windows',
+        exportMacOS: 'macOS',
+        exportSocial: 'Social',
+        confirm: 'Confirmer',
+        cancel: 'Annuler',
+        realtimeUpdate: 'Mise à jour en temps réel',
+        waitingInput: 'En attente de saisie',
+        invalidSize: 'Taille invalide',
+        formatError: 'Erreur de format',
+        updated: 'Mis à jour',
+        generating: 'Génération...',
+        packing: 'Compression...',
+        batchGenerating: 'Génération par lots...',
+        exportingAll: 'Export de tous les packs...',
+        exportingPack: 'Export en cours...',
+        'nav-home': 'Accueil',
+        'nav-tools': 'Outils',
+        'nav-viewer': 'Visionneuse SVG',
+        'nav-converter': 'Convertisseur',
+        'nav-batch': 'Traitement par lots',
+        'nav-about': 'À propos',
+        'nav-docs': 'Documentation',
+        'nav-start': 'Commencer',
+        previewPlaceholder: 'Entrez le code SVG à gauche, l’aperçu se mettra à jour automatiquement',
+        updatingPreview: 'Mise à jour de l’aperçu...',
+        inputting: 'Saisie en cours...',
+        presetSizes: 'Tailles prédéfinies',
+        errorEnterSVG: 'Veuillez entrer du code SVG',
+        errorValidSize: 'Veuillez entrer une largeur et une hauteur valides',
+        errorSVGFormat: 'Erreur de format du code SVG',
+        errorInvalidSVG: 'Code SVG invalide',
+        errorEnterSVGFirst: 'Veuillez d’abord entrer le code SVG',
+        errorSelectSize: 'Veuillez sélectionner au moins une taille d’export',
+        errorValidSVGFile: 'Veuillez sélectionner un fichier SVG valide',
+        errorFileRead: 'Échec de lecture du fichier, réessayez',
+        errorDragSVG: 'Veuillez déposer des fichiers au format SVG',
+        errorNetworkTimeout: 'Délai de requête dépassé, vérifiez la connexion',
+        successPreviewUpdate: 'Aperçu mis à jour !',
+        successPNGDownload: 'Fichier PNG téléchargé ({size})',
+        successFileUpload: 'Fichier "{name}" envoyé avec succès !',
+        successFilePaste: 'Fichier collé : {name}',
+        successSVGPaste: 'Code SVG collé',
+        successDragUpload: 'Fichier déposé : {name}',
+        successICODownload: 'Fichier ICO téléchargé ! Contient 16x16, 32x32, 48x48, 256x256',
+        successChromePackDownload: 'Pack d’icônes Chrome téléchargé (icons.zip)',
+        successBatchExport: 'Export par lots réussi ! {count} PNG générés',
+        successAllExport: 'Toutes les ressources empaquetées (all-assets.zip)',
+        successPackExport: 'Compression terminée',
+        pasteReady: 'Prêt à coller un fichier SVG...',
+        pasteFileOrCode: 'Collez un fichier ou code SVG...',
+        pastePrompt: 'Veuillez coller un fichier ou code SVG',
+        readmeWeb: 'Ce pack inclut les icônes Web (favicon, apple touch, PWA).',
+        readmeChrome: 'Ce pack inclut les tailles d’icônes pour extensions Chrome.',
+        readmeAndroid: 'Ce pack inclut les icônes Android (mipmap/play store/adaptive).',
+        readmeIOS: 'Ce pack inclut les icônes iOS (iPhone/iPad/App Store).',
+        readmeWindows: 'Ce pack inclut un ICO multi‑tailles pour Windows.',
+        readmeMacOS: 'Ce pack inclut des PNG macOS ; utilisez iconutil pour produire un ICNS.',
+        readmeSocial: 'Ce pack inclut avatar et images de partage (1200x630).',
+        readmeFilename: 'README.txt',
+        manifestTitle: 'Liste des fichiers exportés',
+        manifestFile: 'manifest.txt',
+        manifestGenerated: 'Liste générée le',
+        successLangSwitch: 'Langue basculée : {langName}',
+    },
+    'es': {
+        title: 'SVG Studio Pro - Visor y herramienta de exportación SVG',
+        description: 'Visor SVG profesional con vista previa en tiempo real, exportación multiformato (PNG/ICO/WebP/JPG), procesamiento por lotes y generación de paquetes de iconos de Chrome. Simple, eficiente y gratis.',
+        keywords: 'visor SVG,editor SVG,SVG a PNG,SVG a ICO,creador de iconos,gráficos vectoriales,herramienta online,herramienta gratuita,iconos Chrome,exportación por lotes',
+        ogTitle: 'SVG Studio Pro - Visor y exportación SVG profesionales',
+        ogDescription: 'Herramienta potente para SVG con vista previa en tiempo real, export multiformato y lotes. Gratis, sin registro.',
+        twitterTitle: 'SVG Studio Pro - Visor y exportación SVG',
+        twitterDescription: 'Herramienta potente con vista previa y exportación multiformato.',
+        svgCodeInput: 'Entrada de código SVG',
+        svgCodeLabel: 'Código SVG',
+        uploadText: 'Arrastra archivos SVG aquí o',
+        uploadLink: 'haz clic para seleccionar archivos',
+        uploadHint: 'Soporta archivos .svg | Soporta pegar con Ctrl+V (Mac: Cmd+V)',
+        dragDropHint: '💡 Consejo: también puedes soltar archivos SVG en cualquier lugar de la página',
+        placeholder: 'Pega tu código SVG aquí, o usa la carga de archivos arriba...',
+        widthLabel: 'Ancho (px)',
+        heightLabel: 'Alto (px)',
+        batchExportSizes: 'Selección de tamaños para exportación por lotes',
+        selectAll: 'Seleccionar todo',
+        clearAll: 'Limpiar',
+        selectedSizesCount: '{count} tamaños seleccionados',
+        sizeAndExport: 'Tamaños y exportación',
+        batchExport: 'Exportación por lotes',
+        downloadPNG: 'Descargar PNG',
+        downloadICO: 'Descargar ICO',
+        batchExportPNG: 'Exportar PNG por lotes',
+        batchExportICO: 'Exportar ICO por lotes',
+        exportPNG: 'Exportar PNG',
+        exportICO: 'Exportar ICO',
+        chromeIconPack: 'Paquete de iconos de Chrome',
+        preview: 'Vista previa',
+        exportAllPacks: 'Exportar todos los paquetes',
+        exportWeb: 'Web',
+        exportChrome: 'Extensión Chrome',
+        exportAndroid: 'Android',
+        exportIOS: 'iOS',
+        exportWindows: 'Windows',
+        exportMacOS: 'macOS',
+        exportSocial: 'Social',
+        confirm: 'Confirmar',
+        cancel: 'Cancelar',
+        realtimeUpdate: 'Actualización en tiempo real',
+        waitingInput: 'Esperando entrada',
+        invalidSize: 'Tamaño inválido',
+        formatError: 'Error de formato',
+        updated: 'Actualizado',
+        generating: 'Generando...',
+        packing: 'Comprimiendo...',
+        batchGenerating: 'Generando por lotes...',
+        exportingAll: 'Exportando todos los paquetes...',
+        exportingPack: 'Exportando...',
+        'nav-home': 'Inicio',
+        'nav-tools': 'Herramientas',
+        'nav-viewer': 'Visor SVG',
+        'nav-converter': 'Convertidor de formato',
+        'nav-batch': 'Procesamiento por lotes',
+        'nav-about': 'Acerca de',
+        'nav-docs': 'Documentación',
+        'nav-start': 'Empezar',
+        previewPlaceholder: 'Introduce el código SVG a la izquierda; la vista previa se actualizará automáticamente',
+        updatingPreview: 'Actualizando vista previa...',
+        inputting: 'Escribiendo...',
+        presetSizes: 'Tamaños predefinidos',
+        errorEnterSVG: 'Por favor, introduce código SVG',
+        errorValidSize: 'Introduce ancho y alto válidos',
+        errorSVGFormat: 'Error de formato de código SVG',
+        errorInvalidSVG: 'Código SVG inválido',
+        errorEnterSVGFirst: 'Introduce primero el código SVG',
+        errorSelectSize: 'Selecciona al menos un tamaño de exportación',
+        errorValidSVGFile: 'Selecciona un archivo SVG válido',
+        errorFileRead: 'Fallo al leer el archivo, prueba de nuevo',
+        errorDragSVG: 'Por favor, arrastra archivos en formato SVG',
+        errorNetworkTimeout: 'Tiempo de espera agotado, verifica la conexión',
+        successPreviewUpdate: '¡Vista previa actualizada!',
+        successPNGDownload: 'Archivo PNG descargado ({size})',
+        successFileUpload: 'Archivo "{name}" subido con éxito',
+        successFilePaste: 'Archivo pegado: {name}',
+        successSVGPaste: 'Código SVG pegado',
+        successDragUpload: 'Arrastre subido: {name}',
+        successICODownload: 'Archivo ICO descargado (16x16, 32x32, 48x48, 256x256)',
+        successChromePackDownload: 'Paquete de iconos de Chrome descargado (icons.zip)',
+        successBatchExport: 'Exportación por lotes exitosa: {count} PNG generados',
+        successAllExport: 'Todos los recursos empaquetados (all-assets.zip)',
+        successPackExport: 'Paquete listo',
+        pasteReady: 'Listo para pegar archivo SVG...',
+        pasteFileOrCode: 'Pega archivo o código SVG...',
+        pastePrompt: 'Por favor, pega archivo o código SVG',
+        readmeWeb: 'Este pack incluye iconos Web (favicon, apple touch, PWA).',
+        readmeChrome: 'Este pack incluye tamaños de iconos para extensiones de Chrome.',
+        readmeAndroid: 'Este pack incluye mipmap/play store/adaptive de Android.',
+        readmeIOS: 'Este pack incluye iconos de iOS (iPhone/iPad/App Store).',
+        readmeWindows: 'Este pack incluye ICO multitamño para Windows.',
+        readmeMacOS: 'Este pack incluye PNG para macOS; usa iconutil para producir ICNS.',
+        readmeSocial: 'Este pack incluye avatar e imágenes de compartición (1200x630).',
+        readmeFilename: 'README.txt',
+        manifestTitle: 'Listado de archivos exportados',
+        manifestFile: 'manifest.txt',
+        manifestGenerated: 'Listado generado el',
+        successLangSwitch: 'Idioma cambiado: {langName}',
+    },
+    'ar': {
+        title: 'SVG Studio Pro - عارض وأداة تصدير SVG',
+        description: 'عارض SVG احترافي مع معاينة فورية، وتصدير بعدة صيغ (PNG/ICO/WebP/JPG)، ومعالجة دفعية، وتوليد حزمة أيقونات Chrome. بسيط وفعّال ومجاني بالكامل.',
+        keywords: 'عارض SVG,محرر SVG,SVG إلى PNG,SVG إلى ICO,صناعة الأيقونات,رسومات متجهة,أداة عبر الإنترنت,أداة مجانية,أيقونات Chrome,تصدير دفعي',
+        ogTitle: 'SVG Studio Pro - عارض وتصدير SVG احترافي',
+        ogDescription: 'أداة قوية لمعالجة SVG مع معاينة فورية وتصدير متعدد الصيغ ومعالجة دفعية. مجاني بدون تسجيل.',
+        twitterTitle: 'SVG Studio Pro - عارض وتصدير SVG',
+        twitterDescription: 'أداة قوية مع معاينة فورية وتصدير متعدد الصيغ.',
+        svgCodeInput: 'إدخال كود SVG',
+        svgCodeLabel: 'كود SVG',
+        uploadText: 'اسحب ملفات SVG هنا أو',
+        uploadLink: 'انقر لاختيار ملفات',
+        uploadHint: 'يدعم ملفات بصيغة .svg | يدعم اللصق بـ Ctrl+V (ماك: Cmd+V)',
+        dragDropHint: '💡 تلميح: يمكنك أيضًا إفلات ملفات SVG في أي مكان بالصفحة',
+        placeholder: 'الصق كود SVG هنا، أو استخدم رفع الملفات بالأعلى...',
+        widthLabel: 'العرض (px)',
+        heightLabel: 'الارتفاع (px)',
+        batchExportSizes: 'اختيار أحجام التصدير الدفعي',
+        selectAll: 'تحديد الكل',
+        clearAll: 'مسح الكل',
+        selectedSizesCount: 'تم تحديد {count} من الأحجام',
+        sizeAndExport: 'إعدادات الحجم والتصدير',
+        batchExport: 'تصدير دفعي',
+        downloadPNG: 'تنزيل PNG',
+        downloadICO: 'تنزيل ICO',
+        batchExportPNG: 'تصدير PNG دفعي',
+        batchExportICO: 'تصدير ICO دفعي',
+        exportPNG: 'تصدير PNG',
+        exportICO: 'تصدير ICO',
+        chromeIconPack: 'حزمة أيقونات Chrome',
+        preview: 'معاينة',
+        exportAllPacks: 'تصدير جميع الحزم',
+        exportWeb: 'ويب',
+        exportChrome: 'امتداد Chrome',
+        exportAndroid: 'أندرويد',
+        exportIOS: 'iOS',
+        exportWindows: 'ويندوز',
+        exportMacOS: 'ماك',
+        exportSocial: 'شبكات اجتماعية',
+        confirm: 'تأكيد',
+        cancel: 'إلغاء',
+        realtimeUpdate: 'تحديث فوري',
+        waitingInput: 'بانتظار الإدخال',
+        invalidSize: 'حجم غير صالح',
+        formatError: 'خطأ في التنسيق',
+        updated: 'تم التحديث',
+        generating: 'جارٍ التوليد...',
+        packing: 'جارٍ الضغط...',
+        batchGenerating: 'جارٍ التوليد دفعيًا...',
+        exportingAll: 'جارٍ تصدير جميع الحزم...',
+        exportingPack: 'جارٍ التصدير...',
+        'nav-home': 'الرئيسية',
+        'nav-tools': 'الأدوات',
+        'nav-viewer': 'عارض SVG',
+        'nav-converter': 'محول الصيغ',
+        'nav-batch': 'معالجة دفعية',
+        'nav-about': 'نبذة',
+        'nav-docs': 'توثيق',
+        'nav-start': 'ابدأ',
+        previewPlaceholder: 'أدخل كود SVG في اليسار، سيتم تحديث المعاينة تلقائيًا',
+        updatingPreview: 'جارٍ تحديث المعاينة...',
+        inputting: 'جارٍ الإدخال...',
+        presetSizes: 'أحجام جاهزة',
+        errorEnterSVG: 'الرجاء إدخال كود SVG',
+        errorValidSize: 'أدخل عرضًا وارتفاعًا صالحين',
+        errorSVGFormat: 'خطأ في تنسيق كود SVG',
+        errorInvalidSVG: 'كود SVG غير صالح',
+        errorEnterSVGFirst: 'أدخل كود SVG أولًا',
+        errorSelectSize: 'اختر حجم تصدير واحد على الأقل',
+        errorValidSVGFile: 'اختر ملف SVG صالحًا',
+        errorFileRead: 'فشل قراءة الملف، حاول مجددًا',
+        errorDragSVG: 'الرجاء إفلات ملفات بصيغة SVG',
+        errorNetworkTimeout: 'انتهى وقت الطلب، تحقق من الاتصال',
+        successPreviewUpdate: 'تم تحديث المعاينة بنجاح!',
+        successPNGDownload: 'تم تنزيل ملف PNG ({size})',
+        successFileUpload: 'تم رفع الملف "{name}" بنجاح!',
+        successFilePaste: 'تم لصق الملف: {name}',
+        successSVGPaste: 'تم لصق كود SVG',
+        successDragUpload: 'تم رفع بالسحب: {name}',
+        successICODownload: 'تم تنزيل ملف ICO! يحتوي على 16x16 و 32x32 و 48x48 و 256x256',
+        successChromePackDownload: 'تم تنزيل حزمة أيقونات Chrome (icons.zip)',
+        successBatchExport: 'تصدير دفعي ناجح! تم توليد {count} ملف PNG بأحجام مختلفة',
+        successAllExport: 'تم حزم جميع الموارد (all-assets.zip)',
+        successPackExport: 'اكتمل الحزم',
+        pasteReady: 'جاهز للصق ملف SVG...',
+        pasteFileOrCode: 'الصق ملف أو كود SVG...',
+        pastePrompt: 'الرجاء لصق ملف أو كود SVG',
+        readmeWeb: 'تتضمن هذه الحزمة أيقونات الويب (favicon و apple touch و PWA).',
+        readmeChrome: 'تتضمن هذه الحزمة أحجام أيقونات امتداد Chrome.',
+        readmeAndroid: 'تتضمن هذه الحزمة أيقونات Android (mipmap/play store/adaptive).',
+        readmeIOS: 'تتضمن هذه الحزمة أيقونات iOS (iPhone/iPad/App Store).',
+        readmeWindows: 'تتضمن هذه الحزمة ICO متعدد الأحجام لـ Windows.',
+        readmeMacOS: 'تتضمن هذه الحزمة PNG لـ macOS؛ استخدم iconutil لإنتاج ICNS.',
+        readmeSocial: 'تتضمن هذه الحزمة صورة الملف الشخصي وصور المشاركة (1200x630).',
+        readmeFilename: 'README.txt',
+        manifestTitle: 'قائمة الملفات المُصدّرة',
+        manifestFile: 'manifest.txt',
+        manifestGenerated: 'تم إنشاء القائمة بتاريخ',
+        successLangSwitch: 'تم تبديل اللغة إلى: {langName}',
+    },
     'en': {
         // Page title and description
         title: 'SVG Studio Pro - SVG Viewer and Export Tool',
@@ -384,18 +706,19 @@ const i18nData = {
     }
 };
 
+
+
 // 当前语言
+let uiLanguage = "zh-CN";
 let currentLanguage = 'zh-CN';
 
 // 获取文本的函数
 function getText(key, params = {}) {
-    let text = i18nData[currentLanguage][key] || i18nData['zh-CN'][key] || key;
-    
-    // 替换参数
+    const pack = i18nData[currentLanguage] || i18nData['en'] || i18nData['zh-CN'];
+    let text = (pack && pack[key]) || (i18nData['en'] && i18nData['en'][key]) || (i18nData['zh-CN'] && i18nData['zh-CN'][key]) || key;
     Object.keys(params).forEach(param => {
         text = text.replace(new RegExp(`\\{${param}\\}`, 'g'), params[param]);
     });
-    
     return text;
 }
 
@@ -414,7 +737,8 @@ function detectBrowserLanguage() {
 
 // 切换语言
 function switchLanguage(lang) {
-    currentLanguage = lang;
+    uiLanguage = lang;
+    currentLanguage = normalizeContentLang(lang);
     localStorage.setItem('svgstudio_language', lang);
     updateAllTexts();
     updatePageTitle();
@@ -426,7 +750,8 @@ function switchLanguage(lang) {
 // 更新页面标题
 function updatePageTitle() {
     document.title = getText('title');
-    document.documentElement.lang = currentLanguage;
+    document.documentElement.lang = htmlLangCode(uiLanguage);
+    document.documentElement.dir = (htmlLangCode(uiLanguage) === 'ar') ? 'rtl' : 'ltr';
     
     // 更新SEO meta标签
     updateMetaTag('name', 'description', getText('description'));
@@ -479,25 +804,14 @@ function updateAllTexts() {
 
 // 初始化语言
 function initLanguage() {
-    // 优先使用本地存储的语言设置
-    const savedLang = localStorage.getItem('svgstudio_language');
-    if (savedLang && i18nData[savedLang]) {
-        currentLanguage = savedLang;
-    } else {
-        // 否则根据浏览器语言自动检测
-        currentLanguage = detectBrowserLanguage();
-    }
-    
+    const savedLangRaw = localStorage.getItem('svgstudio_language');
+    const normalized = savedLangRaw ? normalizeContentLang(savedLangRaw) : detectBrowserLanguage();
+    currentLanguage = normalized;
+    uiLanguage = normalized;
     updatePageTitle();
-    
-    // 设置语言切换按钮状态
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    const activeBtn = document.querySelector(`[onclick="switchLanguage('${currentLanguage}')"]`);
-    if (activeBtn) {
-        activeBtn.classList.add('active');
-    }
+    document.querySelectorAll('.lang-btn').forEach(btn => { btn.classList.remove('active'); });
+    const activeBtn = document.querySelector(`[data-lang="${currentLanguage}"]`);
+    if (activeBtn) { activeBtn.classList.add('active'); }
 }
 
 // 主要功能变量
@@ -1521,7 +1835,10 @@ function selectLanguage(langCode) {
     const langNames = {
         'zh-CN': '简体中文',
         'zh-TW': '繁體中文',
-        'en': 'English'
+        'en': 'English',
+        'fr': 'Français',
+        'es': 'Español',
+        'ar': 'العربية'
     };
     
     if (langCode !== currentLanguage) {
@@ -1544,7 +1861,10 @@ function updateLanguageDisplay() {
     const langNames = {
         'zh-CN': '简体中文',
         'zh-TW': '繁體中文',
-        'en': 'English'
+        'en': 'English',
+        'fr': 'Français',
+        'es': 'Español',
+        'ar': 'العربية'
     };
     
     // 更新当前语言显示

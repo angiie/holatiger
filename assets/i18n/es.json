@@ -1,0 +1,74 @@
+{
+  "title": "HolaTiger - Pequeñas herramientas, gran poder",
+  "logo.text": "HolaTiger",
+
+  "nav.home": "Inicio",
+  "nav.extensions": "Extensiones",
+  "nav.tools": "Herramientas",
+  "nav.about": "Acerca de",
+
+  "extensions.title": "Extensiones del navegador",
+  "extensions.subtitle": "Mejora tu navegador para un uso diario más eficiente",
+  "extensions.badge": "Extensión de Chrome",
+
+  "tools.title": "Herramientas Web",
+  "tools.subtitle": "Sin instalación, utilízalas al instante en el navegador",
+  "tools.badge": "Herramienta Web",
+  "svg-studio.desc": "Una herramienta sencilla para convertir SVG con vista previa en vivo.",
+
+  "tinypass.desc": "Un generador de contraseñas simple y potente con múltiples opciones.",
+  "webdavy.desc": "Una herramienta WebDAV ligera que simplifica la sincronización y gestión de archivos.",
+
+  "status.published": "Publicado",
+  "status.available": "Disponible",
+  "btn.install": "Instalar",
+  "btn.try-tool": "Probar",
+
+  "hero.badge": "🚀 Actualizaciones continuas",
+  "hero.title": "Pequeñas herramientas, gran poder.",
+  "hero.subtitle1": "Colección de extensiones y herramientas web ligeras y prácticas",
+  "hero.subtitle2": "Mejora tu flujo de trabajo fácilmente",
+  "hero.btn1": "🔧 Ver extensiones",
+  "hero.btn2": "🛠️ Explorar herramientas",
+
+  "carousel.prev": "Anterior",
+  "carousel.next": "Siguiente",
+  "carousel.slide": "Ir a la diapositiva {index}",
+
+  "lang.current": "Español",
+
+  "title.webdavy": "WebDavy - HolaTiger",
+  "title.tinypass": "TinyPass - HolaTiger",
+
+  "webdavy.version": "Versión 1.1.0",
+  "webdavy.description": "WebDavy es una extensión de Chrome basada en el protocolo WebDAV que te permite gestionar servidores de archivos remotos sin salir del navegador. Ya sea almacenamiento en la nube personal o servidores empresariales, WebDavy ofrece una experiencia de gestión práctica con soporte para subir, descargar, navegar y organizar archivos.",
+  "webdavy.button.install": "🚀 Instalar ahora",
+  "webdavy.button.more": "📖 Ver más",
+  "webdavy.features.title": "Características del producto",
+  "webdavy.features.subtitle": "Conoce las funciones clave y ventajas",
+  "webdavy.feature1.title": "Conexión WebDAV con un clic",
+  "webdavy.feature1.desc": "Soporta servicios WebDAV como NextCloud, OwnCloud, etc., con almacenamiento seguro de configuración",
+  "webdavy.feature2.title": "Gestión completa de archivos",
+  "webdavy.feature2.desc": "Navega, sube, descarga, crea y elimina carpetas directamente en el navegador",
+  "webdavy.screenshots.title": "Capturas de pantalla",
+  "webdavy.screenshots.subtitle": "Vista general de la interfaz y funciones de WebDavy",
+  "webdavy.servers.title": "Servidores WebDAV compatibles",
+  "webdavy.servers.subtitle": "Compatible con servicios WebDAV comunes para diferentes escenarios",
+
+  "tinypass.version": "Versión 1.0.24",
+  "tinypass.description": "TinyPass es un generador de contraseñas aleatorias diseñado para Chrome, que funciona completamente de forma local sin conexión a Internet ni inicio de sesión. Ayuda a crear contraseñas seguras para proteger tus cuentas y simplificar la gestión de contraseñas.",
+  "tinypass.button.install": "🚀 Instalar ahora",
+  "tinypass.button.more": "📖 Ver más",
+  "tinypass.features.title": "Características del producto",
+  "tinypass.features.subtitle": "Conoce las funciones clave y ventajas",
+  "tinypass.feature1.title": "Generación segura local",
+  "tinypass.feature1.desc": "Funcionamiento sin conexión, sin registro ni conexión. Generación y almacenamiento totalmente local para proteger la privacidad",
+  "tinypass.feature2.title": "Configuración inteligente",
+  "tinypass.feature2.desc": "Longitud de 6-32 caracteres, combinaciones de conjuntos de caracteres, evita caracteres ambiguos",
+  "tinypass.feature3.title": "Gestión conveniente",
+  "tinypass.feature3.desc": "Copia con un clic, 100 registros históricos, papelera de 30 días para recuperar fácilmente",
+  "tinypass.screenshots.title": "Capturas de pantalla",
+  "tinypass.screenshots.subtitle": "Vista general de la interfaz y funciones de TinyPass",
+
+  "footer.copyright": "© {year} HolaTiger - Pequeñas herramientas, gran poder"
+}
