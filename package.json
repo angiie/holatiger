@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "node scripts/build-static.mjs",
     "build:css": "tailwindcss -i ./assets/css/tw-src.css -o ./assets/css/tw.css --minify",
     "dev:css": "tailwindcss -i ./assets/css/tw-src.css -o ./assets/css/tw.css --watch",
     "serve": "python3 -m http.server 8000",
