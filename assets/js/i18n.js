@@ -21,13 +21,21 @@ class I18nManager {
    */
   setLanguage(lang) {
     localStorage.setItem('language', lang);
-    const langMap = {
-      'zh': 'zh-CN',
-      'zh-tw': 'zh-TW',
-      'en': 'en'
-    };
-    document.documentElement.lang = langMap[lang] || 'zh-CN';
-    this.currentLanguage = lang;
+    const norm = (l) => {
+      const s = String(l || '').toLowerCase();
+      if (s === 'zh' || s === 'zh-cn') return 'zh';
+      if (['zh-tw','zh-hk','zh-hant'].includes(s)) return 'zh-tw';
+      if (s.startsWith('en')) return 'en';
+      if (s.startsWith('fr')) return 'fr';
+      if (s.startsWith('es')) return 'es';
+      if (s.startsWith('ar')) return 'ar';
+      return 'zh';
+    }
+    const normalized = norm(lang);
+    const htmlLangMap = { 'zh': 'zh-CN', 'zh-tw': 'zh-TW', 'en': 'en', 'fr': 'fr', 'es': 'es', 'ar': 'ar' };
+    document.documentElement.lang = htmlLangMap[normalized] || 'zh-CN';
+    document.documentElement.dir = normalized === 'ar' ? 'rtl' : 'ltr';
+    this.currentLanguage = normalized;
   }
 
   /**
@@ -82,13 +90,14 @@ class I18nManager {
   async switchLanguage(lang) {
     // 先加载语言包
     await this.loadLanguage(lang);
-    
     this.setLanguage(lang);
     this.updateContent();
     this.updateLanguageSelector();
     
     // 触发语言切换事件
-    window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang } }));
+    window.dispatchEvent(new CustomEvent('languageChanged', {
+      detail: { language: lang }
+    }));
   }
 
   /**
@@ -116,6 +125,7 @@ class I18nManager {
     if (titleKey) {
       document.title = this.t(titleKey);
     }
+    
     // 首页等无特定titleKey时，直接使用通用的 title 键
     const directTitle = this.t('title');
     if (directTitle && directTitle !== 'title') {
@@ -161,7 +171,9 @@ class I18nManager {
     const langOptions = document.querySelectorAll('.lang-option');
     
     if (currentLangElement) {
-      currentLangElement.textContent = this.t('lang.current');
+      const map = { 'zh': '简体', 'zh-tw': '繁體', 'en': 'EN', 'fr': 'Français', 'es': 'Español', 'ar': 'العربية' };
+      const fallback = this.t('lang.current');
+      currentLangElement.textContent = map[this.currentLanguage] || fallback;
     }
     
     // 更新选项状态
@@ -181,7 +193,6 @@ class I18nManager {
   async init() {
     // 加载当前语言包
     await this.loadLanguage(this.currentLanguage);
-    
     this.updateContent();
     this.updateLanguageSelector();
     
