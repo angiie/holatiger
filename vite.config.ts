@@ -14,7 +14,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
-    minify: 'esbuild', // 改用esbuild，更稳定
+    minify: 'esbuild',
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
@@ -41,15 +41,6 @@ export default defineConfig({
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js',
       },
-      external: [
-        '/assets/js/analytics.js',
-        '/assets/js/main.js', 
-        '/assets/js/i18n.js',
-        '/assets/js/index-inline.js',
-        '/assets/js/svg-studio.js',
-        '/assets/js/carousel.js',
-        '../assets/js/carousel.js'
-      ],
     },
   },
   
