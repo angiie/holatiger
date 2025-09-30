@@ -42,6 +42,23 @@ jobs:
           echo "Copying dist to .vercel/output for prebuilt deployment"
           mkdir -p .vercel/output/static
           cp -r dist/* .vercel/output/static/
+          
+          # Create config.json for Vercel
+          cat > .vercel/output/config.json << 'CONFIG'
+          {
+            "version": 3,
+            "buildCommand": "npm run build",
+            "outputDirectory": "dist",
+            "installCommand": "npm install",
+            "framework": null,
+            "rewrites": [
+              {
+                "source": "/(.*)",
+                "destination": "/$1"
+              }
+            ]
+          }
+          CONFIG
 
       - name: Verify build output
         run: |
@@ -51,6 +68,8 @@ jobs:
           ls -la .vercel/output/static/assets/js/
           echo "Checking if HTML contains language options:"
           grep -c "Français\|Español\|العربية" .vercel/output/static/index.html || echo "Language options not found"
+          echo "Checking config.json:"
+          cat .vercel/output/config.json
 
       - name: Deploy to Vercel (Production)
         run: |
