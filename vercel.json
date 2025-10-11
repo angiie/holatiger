@@ -20,6 +20,76 @@
       "source": "/svg-studio/",
       "destination": "/svg-studio.html",
       "permanent": true
+    },
+    {
+      "source": "/tinypass",
+      "destination": "/tinypass.html",
+      "permanent": true
+    },
+    {
+      "source": "/tinypass/",
+      "destination": "/tinypass.html",
+      "permanent": true
+    },
+    {
+      "source": "/webdavy",
+      "destination": "/webdavy.html",
+      "permanent": true
+    },
+    {
+      "source": "/webdavy/",
+      "destination": "/webdavy.html",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.html",
+      "permanent": true
+    },
+    {
+      "source": "/faq/",
+      "destination": "/faq.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/blog.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/svg-to-png-workflow",
+      "destination": "/blog-svg-to-png-workflow.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/svg-to-png-workflow/",
+      "destination": "/blog-svg-to-png-workflow.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tinypass-password-guide",
+      "destination": "/blog-tinypass-password-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/tinypass-password-guide/",
+      "destination": "/blog-tinypass-password-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/webdav-chrome-setup",
+      "destination": "/blog-webdav-chrome-setup.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/webdav-chrome-setup/",
+      "destination": "/blog-webdav-chrome-setup.html",
+      "permanent": true
     }
   ],
   "headers": [
