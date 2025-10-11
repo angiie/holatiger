@@ -21,6 +21,11 @@ export default defineConfig({
         'svg-studio': resolve(__dirname, 'svg-studio.html'),
         'webdavy': resolve(__dirname, 'webdavy.html'),
         'tinypass': resolve(__dirname, 'tinypass.html'),
+        'faq': resolve(__dirname, 'faq.html'),
+        'blog': resolve(__dirname, 'blog.html'),
+        'blog-svg-to-png-workflow': resolve(__dirname, 'blog-svg-to-png-workflow.html'),
+        'blog-tinypass-password-guide': resolve(__dirname, 'blog-tinypass-password-guide.html'),
+        'blog-webdav-chrome-setup': resolve(__dirname, 'blog-webdav-chrome-setup.html'),
       },
       output: {
         manualChunks: {
