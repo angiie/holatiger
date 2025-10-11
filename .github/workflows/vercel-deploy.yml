@@ -58,27 +58,12 @@ jobs:
                 "permanent": true
               },
               {
-                "source": "/svg-studio/",
-                "destination": "/svg-studio.html",
-                "permanent": true
-              },
-              {
                 "source": "/tinypass",
                 "destination": "/tinypass.html",
                 "permanent": true
               },
               {
-                "source": "/tinypass/",
-                "destination": "/tinypass.html",
-                "permanent": true
-              },
-              {
                 "source": "/webdavy",
-                "destination": "/webdavy.html",
-                "permanent": true
-              },
-              {
-                "source": "/webdavy/",
                 "destination": "/webdavy.html",
                 "permanent": true
               },
@@ -93,17 +78,7 @@ jobs:
                 "permanent": true
               },
               {
-                "source": "/blog/",
-                "destination": "/blog.html",
-                "permanent": true
-              },
-              {
                 "source": "/svg-to-png-workflow",
-                "destination": "/blog-svg-to-png-workflow.html",
-                "permanent": true
-              },
-              {
-                "source": "/svg-to-png-workflow/",
                 "destination": "/blog-svg-to-png-workflow.html",
                 "permanent": true
               },
@@ -113,17 +88,7 @@ jobs:
                 "permanent": true
               },
               {
-                "source": "/tinypass-password-guide/",
-                "destination": "/blog-tinypass-password-guide.html",
-                "permanent": true
-              },
-              {
                 "source": "/webdav-chrome-setup",
-                "destination": "/blog-webdav-chrome-setup.html",
-                "permanent": true
-              },
-              {
-                "source": "/webdav-chrome-setup/",
                 "destination": "/blog-webdav-chrome-setup.html",
                 "permanent": true
               }
