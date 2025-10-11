@@ -66,4 +66,4 @@ npm run serve
 ### Web工具
 1. **SVG Studio** ✅ 可用
    - SVG转换工具，支持多种格式输出和实时预览功能
-   - [在线使用](./src/tools/svg-studio)
+   - [在线使用](./src/tools/svg-studio)# Trigger deployment Sat Oct 11 14:45:16 CST 2025
