@@ -19,9 +19,55 @@
   <link rel="stylesheet" href="/assets/css/tw.css" />
 </head>
 <body class="v1-professional">
-  <main class="container py-10">
+  <main class="container py-10 prose">
     <h1 class="text-3xl font-bold mb-6">在 Chrome 中连接 WebDAV：常见云服务一站式配置</h1>
-    <p class="text-gray-600">占位正文：依据 docs，将整理连接步骤、参数样例与常见问题。</p>
+    <p class="text-gray-600">本文为开发者与进阶用户整理了在浏览器中连接 WebDAV 的通用步骤与参数要点，并给出 Nextcloud/OwnCloud 的示例路径与排错清单。</p>
+
+    <h2>WebDavy 基本流程</h2>
+    <ol>
+      <li>准备服务器地址（HTTPS 优先）与账号密码</li>
+      <li>在扩展中填写 WebDAV URL、用户名、密码</li>
+      <li>测试连接，成功后进行文件列表/上传下载</li>
+    </ol>
+
+    <h2>常见服务连接示例</h2>
+    <h3>Nextcloud</h3>
+    <pre><code>https://your-domain.com/remote.php/dav/files/&lt;username&gt;/</code></pre>
+    <ul>
+      <li>用户名：你的 Nextcloud 登录名</li>
+      <li>密码：建议使用应用专用密码</li>
+    </ul>
+
+    <h3>OwnCloud</h3>
+    <pre><code>https://your-domain.com/remote.php/webdav/</code></pre>
+    <ul>
+      <li>用户名/密码：与 OwnCloud 账户一致</li>
+      <li>若开启 2FA，使用专用令牌</li>
+    </ul>
+
+    <h2>HTTPS 与证书</h2>
+    <ul>
+      <li>尽量使用 HTTPS，避免明文凭据泄露</li>
+      <li>自签证书需在系统/浏览器信任，否则可能连接失败</li>
+    </ul>
+
+    <h2>常见错误与排查</h2>
+    <ul>
+      <li>401 未授权：检查用户名/密码/应用密码是否正确</li>
+      <li>404 路径错误：确认服务路径后缀（如 /dav/files/username/）</li>
+      <li>405 不允许：确认请求方法与服务器允许的动词</li>
+      <li>连接超时：检查防火墙/端口与反向代理配置</li>
+    </ul>
+
+    <h2>最佳实践</h2>
+    <ul>
+      <li>先用桌面客户端或 curl 验证 URL 与凭据，再填入扩展</li>
+      <li>为每台设备设置不同专用密码，便于撤销</li>
+      <li>限制权限：只授予所需目录的读写权限</li>
+    </ul>
+
+    <h2>安全提示</h2>
+    <p>避免在公共网络明文传输；关闭未使用的 WebDAV 方法；定期轮换密码与访问令牌。</p>
   </main>
 </body>
 </html>

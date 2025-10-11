@@ -19,9 +19,40 @@
   <link rel="stylesheet" href="/assets/css/tw.css" />
 </head>
 <body class="v1-professional">
-  <main class="container py-10">
+  <main class="container py-10 prose">
     <h1 class="text-3xl font-bold mb-6">SVG 转 PNG/WebP：设计师与前端的高效工作流</h1>
-    <p class="text-gray-600">占位正文：依据 docs，将补充批量导出、尺寸选择与最佳实践。</p>
+    <p class="text-gray-600">本文介绍如何使用 SVG Studio 将 SVG 快速导出为 PNG/WebP 等格式，并一次生成多尺寸图标包，适配浏览器与移动端需求。</p>
+
+    <h2>准备与导入</h2>
+    <ul>
+      <li>准备干净的 SVG（移除冗余样式与未用图层）</li>
+      <li>在工具左侧粘贴 SVG 代码或拖拽文件导入</li>
+    </ul>
+
+    <h2>尺寸与格式</h2>
+    <ul>
+      <li>常用尺寸：16/32/48/64/128/256/512</li>
+      <li>WebP：更小体积，适合预览与分享图</li>
+      <li>PNG：通用无损格式，适配大多数平台</li>
+    </ul>
+
+    <h2>批量导出</h2>
+    <ol>
+      <li>选择需导出的尺寸集合</li>
+      <li>勾选导出格式（PNG/ICO/WebP）</li>
+      <li>执行导出并下载压缩包</li>
+    </ol>
+
+    <h2>最佳实践</h2>
+    <ul>
+      <li>确保 SVG 视窗与画布边界正确，避免导出被裁切</li>
+      <li>在高对比度背景下检查边缘与透明度</li>
+      <li>为社交分享准备 1200×630 的封面图</li>
+    </ul>
+
+    <h2>常见问题</h2>
+    <p><strong>Q：</strong>导出模糊？<br/><strong>A：</strong>确认像素尺寸足够，避免浏览器缩放渲染；必要时提高导出尺寸。</p>
+    <p><strong>Q：</strong>颜色不一致？<br/><strong>A：</strong>检查 SVG 中的滤镜与混合模式；尽量使用标准 fill/stroke。</p>
   </main>
 </body>
 </html>
