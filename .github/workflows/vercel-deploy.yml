@@ -43,60 +43,50 @@ jobs:
           mkdir -p .vercel/output/static
           cp -r dist/* .vercel/output/static/
           
-          # Create config.json for Vercel
+          # Create config.json for Vercel Build Output API v3
           cat > .vercel/output/config.json << 'CONFIG'
           {
             "version": 3,
-            "buildCommand": "npm run build",
-            "outputDirectory": "dist",
-            "installCommand": "npm install",
-            "framework": null,
-            "redirects": [
+            "routes": [
               {
-                "source": "/svg-studio",
-                "destination": "/svg-studio.html",
-                "permanent": true
+                "src": "/svg-studio",
+                "dest": "/svg-studio.html",
+                "status": 301
               },
               {
-                "source": "/tinypass",
-                "destination": "/tinypass.html",
-                "permanent": true
+                "src": "/tinypass",
+                "dest": "/tinypass.html",
+                "status": 301
               },
               {
-                "source": "/webdavy",
-                "destination": "/webdavy.html",
-                "permanent": true
+                "src": "/webdavy",
+                "dest": "/webdavy.html",
+                "status": 301
               },
               {
-                "source": "/faq",
-                "destination": "/faq.html",
-                "permanent": true
+                "src": "/faq",
+                "dest": "/faq.html",
+                "status": 301
               },
               {
-                "source": "/blog",
-                "destination": "/blog.html",
-                "permanent": true
+                "src": "/blog",
+                "dest": "/blog.html",
+                "status": 301
               },
               {
-                "source": "/svg-to-png-workflow",
-                "destination": "/blog-svg-to-png-workflow.html",
-                "permanent": true
+                "src": "/svg-to-png-workflow",
+                "dest": "/blog-svg-to-png-workflow.html",
+                "status": 301
               },
               {
-                "source": "/tinypass-password-guide",
-                "destination": "/blog-tinypass-password-guide.html",
-                "permanent": true
+                "src": "/tinypass-password-guide",
+                "dest": "/blog-tinypass-password-guide.html",
+                "status": 301
               },
               {
-                "source": "/webdav-chrome-setup",
-                "destination": "/blog-webdav-chrome-setup.html",
-                "permanent": true
-              }
-            ],
-            "rewrites": [
-              {
-                "source": "/(.*)",
-                "destination": "/$1"
+                "src": "/webdav-chrome-setup",
+                "dest": "/blog-webdav-chrome-setup.html",
+                "status": 301
               }
             ]
           }
