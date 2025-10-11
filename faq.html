@@ -23,7 +23,43 @@
   <script type="application/ld+json">{
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": []
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "TinyPass 是否离线生成？数据会被收集吗？",
+        "acceptedAnswer": {"@type":"Answer","text":"TinyPass 支持本地离线生成强密码，不上传到服务器。本站不采集可识别个人信息，仅记录匿名聚合访问与按钮点击，用于改进体验。"}
+      },
+      {
+        "@type": "Question",
+        "name": "如何在 Chrome 安装或更新 TinyPass？",
+        "acceptedAnswer": {"@type":"Answer","text":"在浏览器扩展商店安装后，浏览器会自动推送更新。若遇到更新异常，可在扩展管理页手动检查更新。"}
+      },
+      {
+        "@type": "Question",
+        "name": "WebDavy 如何配置常见 WebDAV 服务？",
+        "acceptedAnswer": {"@type":"Answer","text":"按照服务提供的 WebDAV 地址、用户名与密码填写，常见如 Nextcloud/OwnCloud。建议先在桌面客户端验证连接，再在扩展中填写相同参数。"}
+      },
+      {
+        "@type": "Question",
+        "name": "SVG Studio 如何批量导出 PNG/ICO/WebP？",
+        "acceptedAnswer": {"@type":"Answer","text":"在左侧选择批量导出尺寸，启用相应格式后执行导出，可一次生成多尺寸图标包（如 PNG/ICO），预览区会实时更新效果。"}
+      },
+      {
+        "@type": "Question",
+        "name": "如何切换站点语言？SEO/分享信息是否同步？",
+        "acceptedAnswer": {"@type":"Answer","text":"通过右上语言切换器选择 zh/zh-tw/en。切换后页面文本与关键 meta（标题/描述/OG/Twitter）会同步更新，保证分享与索引一致性。"}
+      },
+      {
+        "@type": "Question",
+        "name": "如何反馈问题或建议？",
+        "acceptedAnswer": {"@type":"Answer","text":"可在页面底部的社交链接联系作者，或通过仓库/邮件反馈（不含敏感信息）。请附带复现步骤与截图以便定位。"}
+      },
+      {
+        "@type": "Question",
+        "name": "站点是否使用 Cookie 或跟踪个人信息？",
+        "acceptedAnswer": {"@type":"Answer","text":"本站仅使用必要的匿名统计，不收集或存储可识别个人信息（PII）。"}
+      }
+    ]
   }</script>
 </head>
 <body class="v1-professional">
@@ -43,7 +79,36 @@
 
   <main class="container py-10">
     <h1 class="text-3xl font-bold mb-6">常见问题（FAQ）</h1>
-    <p class="text-gray-600 mb-10">内容将根据 docs 中的功能与指南补充完善。</p>
+    <section class="space-y-6">
+      <details open>
+        <summary class="font-semibold">TinyPass 是否离线生成？数据会被收集吗？</summary>
+        <p class="text-gray-700">TinyPass 支持本地离线生成强密码，不上传到服务器。本站不采集可识别个人信息，仅记录匿名聚合访问与按钮点击，用于改进体验。</p>
+      </details>
+      <details>
+        <summary class="font-semibold">如何在 Chrome 安装或更新 TinyPass？</summary>
+        <p class="text-gray-700">在浏览器扩展商店安装后，浏览器会自动推送更新。若遇到更新异常，可在扩展管理页手动检查更新。</p>
+      </details>
+      <details>
+        <summary class="font-semibold">WebDavy 如何配置常见 WebDAV 服务？</summary>
+        <p class="text-gray-700">根据服务的 WebDAV 地址、用户名与密码填写，常见如 Nextcloud/OwnCloud。建议先在桌面客户端验证连接，再在扩展中填写相同参数。</p>
+      </details>
+      <details>
+        <summary class="font-semibold">SVG Studio 如何批量导出 PNG/ICO/WebP？</summary>
+        <p class="text-gray-700">在左侧选择批量导出尺寸，启用相应格式后执行导出，可一次生成多尺寸图标包（如 PNG/ICO），预览区会实时更新效果。</p>
+      </details>
+      <details>
+        <summary class="font-semibold">如何切换站点语言？SEO/分享信息是否同步？</summary>
+        <p class="text-gray-700">通过右上语言切换器选择 zh/zh-tw/en。切换后页面文本与关键 meta（标题/描述/OG/Twitter）会同步更新。</p>
+      </details>
+      <details>
+        <summary class="font-semibold">如何反馈问题或建议？</summary>
+        <p class="text-gray-700">可在页面底部的社交链接联系作者，或通过仓库/邮件反馈（不含敏感信息）。请附带复现步骤与截图以便定位。</p>
+      </details>
+      <details>
+        <summary class="font-semibold">站点是否使用 Cookie 或跟踪个人信息？</summary>
+        <p class="text-gray-700">本站仅使用必要的匿名统计，不收集或存储可识别个人信息（PII）。</p>
+      </details>
+    </section>
   </main>
 
   <footer class="py-12 px-6 border-t border-gray-200 bg-white">
