@@ -60,6 +60,30 @@ button:hover {
     background-color: transparent; /* 设置背景为透明 */
 }
 
+.history-container {
+    margin-top: 20px;
+}
+
+.history-container h3 {
+    margin-bottom: 10px;
+}
+
+#historyList {
+    list-style: none;
+    padding: 0;
+}
+
+#historyList li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+#historyList li:hover {
+    background-color: #f0f0f0;
+}
+
 #previewCanvas {
     border: 1px solid #ccc;
     max-width: 100%;

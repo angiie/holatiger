@@ -20,6 +20,7 @@
         <div class="input-group">
             <label for="fontColorInput">Font Color:</label>
             <input type="color" id="fontColorInput" value="#000000">
+            <span id="fontColorValue">#000000</span>
         </div>
 
         <div class="input-group">
@@ -29,12 +30,25 @@
                 <option value="Verdana">Verdana</option>
                 <option value="Georgia">Georgia</option>
                 <option value="Times New Roman">Times New Roman</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Lucida Console">Lucida Console</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Impact">Impact</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
                 <option value="Courier New">Courier New</option>
             </select>
         </div>
         <div class="preview-container">
-            <canvas id="previewCanvas"></canvas>
-        </div>
+        <canvas id="previewCanvas"></canvas>
+    </div>
+
+    <div class="history-container">
+        <h3>History</h3>
+        <ul id="historyList"></ul>
+    </div>
         <button id="generateBtn">Generate and Download PNG</button>
     </div>
     <script src="assets/js/text-to-png.js"></script>
