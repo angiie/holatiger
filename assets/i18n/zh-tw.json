@@ -15,6 +15,7 @@
   "tools.subtitle": "無需安裝，打開即用的線上工具集合",
   "tools.badge": "Web 工具",
   "svg-studio.desc": "簡單易用的 SVG 轉換工具，支援多種格式輸出與即時預覽功能。",
+  "text-to-png.desc": "快速將文字轉換為PNG圖片，支援自訂字型、顏色和樣式設定。",
 
   "tinypass.desc": "一個簡單而強大的密碼產生工具，支援多種複雜度設定與自訂規則。",
   "webdavy.desc": "輕量化的 WebDAV 連線工具，簡化檔案同步與管理流程。",

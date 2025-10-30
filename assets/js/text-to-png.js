@@ -62,20 +62,61 @@ function createRainbowGradient(ctx, width, height) {
     return gradient;
 }
 
+/**
+ * 绘制多行文本
+ * @param {CanvasRenderingContext2D} ctx - Canvas上下文
+ * @param {string} text - 要绘制的文本
+ * @param {number} x - X坐标
+ * @param {number} y - Y坐标
+ * @param {number} lineHeight - 行高
+ */
+function drawMultilineText(ctx, text, x, y, lineHeight) {
+    const lines = text.split('\n');
+    const startY = y - ((lines.length - 1) * lineHeight) / 2;
+    
+    lines.forEach((line, index) => {
+        const lineY = startY + (index * lineHeight);
+        ctx.fillText(line, x, lineY);
+    });
+}
+
+/**
+ * 计算多行文本的尺寸
+ * @param {CanvasRenderingContext2D} ctx - Canvas上下文
+ * @param {string} text - 文本内容
+ * @param {number} lineHeight - 行高
+ * @returns {Object} 包含width和height的对象
+ */
+function measureMultilineText(ctx, text, lineHeight) {
+    const lines = text.split('\n');
+    let maxWidth = 0;
+    
+    lines.forEach(line => {
+        const metrics = ctx.measureText(line);
+        maxWidth = Math.max(maxWidth, metrics.width);
+    });
+    
+    const height = lines.length * lineHeight;
+    return { width: maxWidth, height: height };
+}
+
 function updatePreview() {
     const text = textInput.value;
-    const fontSize = fontSizeInput.value;
+    const fontSize = parseInt(fontSizeInput.value);
     const fontColor = fontColorInput.value;
     const fontFamily = fontFamilyInput.value;
     const useRainbow = rainbowColorInput.checked;
 
     // Set font for measurement
     ctx.font = `${fontSize}px ${fontFamily}`;
+    
+    // Calculate line height (typically 1.2 times font size)
+    const lineHeight = fontSize * 1.2;
 
-    // Set canvas dimensions based on text length and font size
-    const textMetrics = ctx.measureText(text);
-    previewCanvas.width = textMetrics.width + 40; // Add some padding
-    previewCanvas.height = fontSize * 1.5; // Adjust height based on font size
+    // Calculate canvas dimensions based on multiline text
+    const textDimensions = measureMultilineText(ctx, text, lineHeight);
+    previewCanvas.width = Math.max(textDimensions.width + 40, 200); // Add padding, minimum width
+    previewCanvas.height = Math.max(textDimensions.height + 40, fontSize * 1.5); // Add padding
 
     // Clear canvas
     ctx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
@@ -92,8 +133,8 @@ function updatePreview() {
         ctx.fillStyle = fontColor;
     }
 
-    // Draw text
-    ctx.fillText(text, previewCanvas.width / 2, previewCanvas.height / 2);
+    // Draw multiline text
+    drawMultilineText(ctx, text, previewCanvas.width / 2, previewCanvas.height / 2, lineHeight);
 }
 
 textInput.addEventListener('input', updatePreview);

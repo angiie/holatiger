@@ -66,6 +66,7 @@
   "tools.subtitle": "No installation required, use instantly in your browser",
   "tools.badge": "Web Tool",
   "svg-studio.desc": "An easy-to-use SVG conversion tool with multiple output formats and live preview.",
+  "text-to-png.desc": "Quickly convert text to PNG images with customizable fonts, colors, and style settings.",
   "status.available": "Available",
   "btn.try-tool": "Try Tool",
 

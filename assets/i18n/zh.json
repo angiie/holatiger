@@ -66,6 +66,7 @@
   "tools.subtitle": "无需安装，打开即用的在线工具集合",
   "tools.badge": "Web工具",
   "svg-studio.desc": "简单易用的SVG转换工具，支持多种格式输出和实时预览功能。",
+  "text-to-png.desc": "快速将文本转换为PNG图片，支持自定义字体、颜色和样式设置。",
   "status.available": "可用",
   "btn.try-tool": "试用工具",
 

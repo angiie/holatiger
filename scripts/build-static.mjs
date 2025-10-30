@@ -23,6 +23,7 @@ console.log('📄 复制HTML文件...');
 const htmlFiles = [
   'index.html', 
   'svg-studio.html', 
+  'text-to-png.html',
   'tinypass.html', 
   'webdavy.html',
   'faq.html',

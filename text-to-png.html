@@ -1,64 +1,352 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text to PNG Generator</title>
-    <link rel="stylesheet" href="assets/css/text-to-png.css">
+  <!-- Analytics Scripts -->
+  <script src="/assets/js/analytics.js" charset="utf-8"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- SEO 基础标签 -->
+  <title data-i18n="title.text-to-png">文本转PNG生成器 - 在线文字转图片工具 | HolaTiger</title>
+  <meta name="description" content="免费在线文本转PNG图片生成器，支持自定义字体、颜色、大小，彩虹渐变效果。简单易用，即时预览，一键下载高质量PNG图片。" />
+  <meta name="keywords" content="文本转PNG,文字转图片,在线图片生成器,PNG生成器,文字设计,图片制作,免费工具,HolaTiger" />
+  <meta name="author" content="HolaTiger" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="zh-CN" />
+  <link rel="canonical" href="https://holatiger.com/text-to-png.html" />
+
+  <!-- Hreflang 标签 -->
+  <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/text-to-png.html" />
+  <link rel="alternate" hreflang="zh-TW" href="https://holatiger.com/text-to-png.html?lang=zh-TW" />
+  <link rel="alternate" hreflang="en" href="https://holatiger.com/text-to-png.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://holatiger.com/text-to-png.html" />
+
+  <!-- Open Graph 标签 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="文本转PNG生成器 - 在线文字转图片工具 | HolaTiger" />
+  <meta property="og:description" content="免费在线文本转PNG图片生成器，支持自定义字体、颜色、大小，彩虹渐变效果。简单易用，即时预览，一键下载高质量PNG图片。" />
+  <meta property="og:url" content="https://holatiger.com/text-to-png.html" />
+  <meta property="og:image" content="/assets/images/social/holatiger-text-to-png-1200x630.png" />
+  <meta property="og:site_name" content="HolaTiger" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter 卡片标签 -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="文本转PNG生成器 - 在线文字转图片工具 | HolaTiger" />
+  <meta name="twitter:description" content="免费在线文本转PNG图片生成器，支持自定义字体、颜色、大小，彩虹渐变效果。简单易用，即时预览，一键下载高质量PNG图片。" />
+  <meta name="twitter:image" content="/assets/images/social/holatiger-text-to-png-1200x630.png" />
+
+  <!-- 移动端优化 -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="文本转PNG" />
+
+  <!-- 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "文本转PNG生成器",
+    "description": "免费在线文本转PNG图片生成器，支持自定义字体、颜色、大小",
+    "applicationCategory": "GraphicsApplication",
+    "operatingSystem": "Web",
+    "image": "https://holatiger.com/assets/images/social/holatiger-text-to-png-1200x630.png",
+    "url": "https://holatiger.com/text-to-png.html",
+    "author": {
+      "@type": "Organization",
+      "name": "HolaTiger"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+  
+  <!-- Favicon配置 -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/images/icons/icon_16x16.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png">
+  <link rel="icon" type="image/x-icon" sizes="48x48" href="/assets/images/icons/icon_48x48.ico">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/icons/icon_64x64.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/images/icons/icon_128x128.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/icon_256x256.png">
+  
+  <!-- 样式文件 -->
+  <link rel="stylesheet" href="/assets/css/tw.css" />
+  <link rel="stylesheet" href="/assets/css/product-detail.css" />
+  <link rel="stylesheet" href="/assets/css/text-to-png.css" />
+  
+  <!-- 脚本文件 -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="/assets/js/i18n.js"></script>
+  <script>window.addEventListener('load',function(){ if(window.i18n && typeof window.i18n.init==='function'){ window.i18n.init(); }});</script>
 </head>
-<body>
-    <div class="container">
-        <h1>Text to PNG Generator</h1>
-        <div class="input-group">
-            <label for="textInput">Text:</label>
-            <input type="text" id="textInput" value="Hello, World!">
-        </div>
-        <div class="input-group">
-            <label for="fontSizeInput">Font Size:</label>
-            <input type="number" id="fontSizeInput" value="48">
-        </div>
-        <div class="input-group">
-            <label for="fontColorInput">Font Color:</label>
-            <input type="color" id="fontColorInput" value="#000000">
-            <span id="fontColorValue">#000000</span>
-        </div>
 
-        <div class="input-group">
-            <label>
-                <input type="checkbox" id="rainbowColorInput">
-                Use Rainbow Color
-            </label>
-            <button type="button" id="refreshRainbowBtn" style="margin-left: 10px; padding: 5px 10px; font-size: 12px;">🎨 New Rainbow</button>
+<body class="v1-professional">
+  <!-- Header -->
+  <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <a class="logo-v1" href="https://holatiger.com/">
+        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <span class="logo-text">虎啦</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+          <a href="./index.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="./index.html#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="./index.html#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="./index.html#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        </nav>
+        
+        <!-- Language Selector -->
+        <div class="dropdown dropdown-end">
+          <div tabindex="0" role="button" class="btn btn-ghost btn-sm">
+            <i data-lucide="globe" class="w-4 h-4"></i>
+            <span class="hidden sm:inline" data-i18n="lang.current">中文</span>
+          </div>
+          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-32">
+            <li><a href="?lang=zh" data-i18n="lang.zh">简体中文</a></li>
+            <li><a href="?lang=zh-TW" data-i18n="lang.zh-tw">繁體中文</a></li>
+            <li><a href="?lang=en" data-i18n="lang.en">English</a></li>
+          </ul>
         </div>
+        
+        <!-- Mobile Menu Button -->
+        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden border-t border-orange-100 bg-white/90 backdrop-blur-sm">
+      <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
+        <a href="./index.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+        <a href="./index.html#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="./index.html#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+        <a href="./index.html#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+      </nav>
+    </div>
+  </header>
 
-        <div class="input-group">
-            <label for="fontFamilyInput">Font Family:</label>
-            <select id="fontFamilyInput">
+  <!-- Main Content -->
+  <main class="container mx-auto px-6 py-12">
+    <!-- Hero Section -->
+    <section class="text-center mb-12 fade-in-up">
+      <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-6" data-i18n="text-to-png.title">
+        文本转PNG生成器
+      </h1>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto" data-i18n="text-to-png.subtitle">
+        免费在线文本转PNG图片生成器，支持自定义字体、颜色、大小，彩虹渐变效果。简单易用，即时预览，一键下载高质量PNG图片。
+      </p>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-2xl shadow-xl p-8 border border-orange-100">
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Controls -->
+          <div class="space-y-6">
+            <div class="input-group">
+              <label for="textInput" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="text-to-png.text-label">文本内容:</label>
+              <textarea 
+                id="textInput" 
+                rows="3" 
+                placeholder="Hello, World!" 
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
+                data-i18n-placeholder="text-to-png.text-placeholder"
+              >Hello, World!</textarea>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="input-group">
+                <label for="fontSizeInput" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="text-to-png.font-size-label">字体大小:</label>
+                <input 
+                  type="number" 
+                  id="fontSizeInput" 
+                  value="48" 
+                  min="12" 
+                  max="200"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                >
+              </div>
+
+              <div class="input-group">
+                <label for="fontColorInput" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="text-to-png.font-color-label">字体颜色:</label>
+                <div class="flex items-center gap-2">
+                  <input 
+                    type="color" 
+                    id="fontColorInput" 
+                    value="#000000"
+                    class="w-12 h-12 border border-gray-300 rounded-lg cursor-pointer"
+                  >
+                  <span id="fontColorValue" class="text-sm text-gray-600 font-mono">#000000</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <div class="flex items-center justify-between mb-2">
+                <label class="flex items-center gap-2 text-sm font-medium text-gray-700">
+                  <input type="checkbox" id="rainbowColorInput" class="checkbox checkbox-sm checkbox-primary">
+                  <span data-i18n="text-to-png.rainbow-label">使用彩虹渐变</span>
+                </label>
+                <button 
+                  type="button" 
+                  id="refreshRainbowBtn" 
+                  class="btn btn-sm btn-outline btn-primary"
+                  data-i18n="text-to-png.new-rainbow"
+                >
+                  🎨 新渐变
+                </button>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="fontFamilyInput" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="text-to-png.font-family-label">字体:</label>
+              <select 
+                id="fontFamilyInput"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              >
                 <option value="Arial">Arial</option>
                 <option value="Verdana">Verdana</option>
                 <option value="Georgia">Georgia</option>
                 <option value="Times New Roman">Times New Roman</option>
-                <option value="Verdana">Verdana</option>
-                <option value="Georgia">Georgia</option>
                 <option value="Courier New">Courier New</option>
                 <option value="Lucida Console">Lucida Console</option>
                 <option value="Tahoma">Tahoma</option>
                 <option value="Trebuchet MS">Trebuchet MS</option>
                 <option value="Impact">Impact</option>
                 <option value="Comic Sans MS">Comic Sans MS</option>
-                <option value="Courier New">Courier New</option>
-            </select>
-        </div>
-        <div class="preview-container">
-        <canvas id="previewCanvas"></canvas>
-    </div>
+              </select>
+            </div>
 
-    <div class="history-container">
-        <h3>History</h3>
-        <ul id="historyList"></ul>
+            <button 
+              id="generateBtn" 
+              class="w-full btn btn-primary btn-lg pulse-glow"
+              data-i18n="text-to-png.generate-btn"
+            >
+              <i data-lucide="download" class="w-5 h-5"></i>
+              生成并下载PNG
+            </button>
+          </div>
+
+          <!-- Preview -->
+          <div class="space-y-6">
+            <div class="preview-container">
+              <h3 class="text-lg font-semibold text-gray-800 mb-4" data-i18n="text-to-png.preview-title">实时预览</h3>
+              <div class="bg-gray-50 rounded-lg p-4 border-2 border-dashed border-gray-300 min-h-[200px] flex items-center justify-center">
+                <canvas id="previewCanvas" class="max-w-full max-h-full"></canvas>
+              </div>
+            </div>
+
+            <div class="history-container">
+              <h3 class="text-lg font-semibold text-gray-800 mb-4" data-i18n="text-to-png.history-title">历史记录</h3>
+              <div class="max-h-48 overflow-y-auto">
+                <ul id="historyList" class="space-y-2"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="mt-16">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4" data-i18n="text-to-png.features-title">功能特色</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="text-to-png.features-subtitle">
+          强大的文本转图片功能，满足您的各种设计需求
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-orange-100">
+          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="type" class="w-8 h-8 text-orange-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2" data-i18n="text-to-png.feature1-title">自定义字体</h3>
+          <p class="text-gray-600" data-i18n="text-to-png.feature1-desc">支持多种字体选择，打造个性化文字效果</p>
+        </div>
+        
+        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-orange-100">
+          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="palette" class="w-8 h-8 text-orange-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2" data-i18n="text-to-png.feature2-title">彩虹渐变</h3>
+          <p class="text-gray-600" data-i18n="text-to-png.feature2-desc">独特的彩虹渐变效果，让文字更加生动</p>
+        </div>
+        
+        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-orange-100">
+          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="eye" class="w-8 h-8 text-orange-600"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-2" data-i18n="text-to-png.feature3-title">实时预览</h3>
+          <p class="text-gray-600" data-i18n="text-to-png.feature3-desc">即时预览效果，所见即所得的设计体验</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-50 border-t border-gray-200 mt-20">
+    <div class="container mx-auto px-6 py-12">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+            <span class="text-xl font-bold text-gray-800">虎啦 HolaTiger</span>
+          </div>
+          <p class="text-gray-600 mb-4" data-i18n="footer.description">
+            轻量、实用、开箱即用的浏览器扩展与在线工具集合
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-4" data-i18n="footer.tools">在线工具</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li><a href="/svg-studio.html" class="hover:text-orange-500 transition-colors">SVG Studio</a></li>
+            <li><a href="/text-to-png.html" class="hover:text-orange-500 transition-colors">文本转PNG</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold text-gray-800 mb-4" data-i18n="footer.extensions">浏览器扩展</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li><a href="/tinypass.html" class="hover:text-orange-500 transition-colors">TinyPass</a></li>
+            <li><a href="/webdavy.html" class="hover:text-orange-500 transition-colors">WebDavy</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
+        <p>&copy; 2024 HolaTiger. All rights reserved.</p>
+      </div>
     </div>
-        <button id="generateBtn">Generate and Download PNG</button>
-    </div>
-    <script src="assets/js/text-to-png.js"></script>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/assets/js/text-to-png.js"></script>
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.querySelector('.mobile-menu').classList.toggle('hidden');
+    });
+    
+    // Initialize Lucide icons
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  </script>
 </body>
 </html>
