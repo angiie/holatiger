@@ -85,64 +85,57 @@
   <!-- 脚本文件 -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
   <script src="/assets/js/i18n.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.i18n && typeof window.i18n.init === 'function') {
-        window.i18n.init();
-      }
-    });
-  </script>
+  <script>window.addEventListener('load',function(){ if(window.i18n && typeof window.i18n.init==='function'){ window.i18n.init(); }});</script>
 </head>
 
 <body class="v1-professional">
   <!-- Header -->
-  <header class="site-header-v1" id="top">
-    <div class="container nav-v1">
-      <a class="logo-v1" href="./index.html">
+  <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <a class="logo-v1" href="https://holatiger.com/">
         <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
-        <span class="logo-text" data-i18n="logo.text">虎啦</span>
+        <span class="logo-text">虎啦</span>
       </a>
       <div class="flex items-center gap-6">
-        <nav class="nav-links-v1">
-          <a href="./index.html#home" data-i18n="nav.home">首页</a>
-          <a href="./index.html#extensions" data-i18n="nav.extensions">浏览器扩展</a>
-          <a href="./index.html#tools" data-i18n="nav.tools">在线工具</a>
-          <a href="./index.html#about" data-i18n="nav.about">关于我</a>
+        <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+          <a href="./index.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="./index.html#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="./index.html#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="./index.html#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
         </nav>
-        <nav class="nav-links-v1">
-          <a href="/faq">FAQ</a>
-        <a href="/blog">博客</a>
-        </nav>
-
-        <!-- 语言选择器 -->
+        
+        <!-- Language Selector -->
         <div class="dropdown dropdown-end">
-          <div tabindex="0" role="button" class="lang-switcher-btn">
+          <div tabindex="0" role="button" class="btn btn-ghost btn-sm">
             <i data-lucide="globe" class="w-4 h-4"></i>
-            <span id="current-lang">中文</span>
-            <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-200"></i>
+            <span class="hidden sm:inline" data-i18n="lang.current">中文</span>
           </div>
-          <ul tabindex="0" class="lang-dropdown-menu">
-            <li><a onclick="switchLanguage('zh')" class="lang-option" data-lang="zh">
-                <span class="lang-text">简体</span>
-              </a></li>
-            <li><a onclick="switchLanguage('zh-tw')" class="lang-option" data-lang="zh-tw">
-                <span class="lang-text">繁體</span>
-              </a></li>
-            <li><a onclick="switchLanguage('en')" class="lang-option" data-lang="en">
-                <span class="lang-text">EN</span>
-              </a></li>
-            <li><a onclick="switchLanguage('fr')" class="lang-option" data-lang="fr">
-                <span class="lang-text">Français</span>
-              </a></li>
-            <li><a onclick="switchLanguage('es')" class="lang-option" data-lang="es">
-                <span class="lang-text">Español</span>
-              </a></li>
-            <li><a onclick="switchLanguage('ar')" class="lang-option" data-lang="ar">
-                <span class="lang-text">العربية</span>
-              </a></li>
+          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-32">
+            <li><a href="?lang=zh" data-i18n="lang.zh">简体中文</a></li>
+            <li><a href="?lang=zh-TW" data-i18n="lang.zh-tw">繁體中文</a></li>
+            <li><a href="?lang=en" data-i18n="lang.en">English</a></li>
           </ul>
         </div>
+        
+        <!-- Mobile Menu Button -->
+        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
       </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden border-t border-orange-100 bg-white/90 backdrop-blur-sm">
+      <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
+        <a href="./index.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+        <a href="./index.html#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="./index.html#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+        <a href="./index.html#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+      </nav>
     </div>
   </header>
 
@@ -203,7 +196,7 @@
             </div>
 
             <div class="flex items-center mb-6">
-              <label class="flex items-center gap-1 cursor-pointer">
+              <label class="flex items-center gap-2 cursor-pointer">
                 <input type="checkbox" id="rainbowColorInput" class="checkbox checkbox-sm checkbox-primary">
                 <span class="text-sm font-medium text-gray-700" data-i18n="text-to-png.rainbow-label">使用彩虹渐变</span>
               </label>
@@ -276,25 +269,25 @@
       </div>
       
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-orange-100 transition-transform transform hover:scale-105">
-          <div class="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-            <i data-lucide="font" class="w-10 h-10 text-white"></i>
+        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-orange-100">
+          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="type" class="w-8 h-8 text-orange-600"></i>
           </div>
           <h3 class="text-xl font-semibold text-gray-800 mb-2" data-i18n="text-to-png.feature1-title">自定义字体</h3>
           <p class="text-gray-600" data-i18n="text-to-png.feature1-desc">支持多种字体选择，打造个性化文字效果</p>
         </div>
         
-        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-orange-100 transition-transform transform hover:scale-105">
-          <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-            <i data-lucide="paintbrush" class="w-10 h-10 text-white"></i>
+        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-orange-100">
+          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="palette" class="w-8 h-8 text-orange-600"></i>
           </div>
           <h3 class="text-xl font-semibold text-gray-800 mb-2" data-i18n="text-to-png.feature2-title">彩虹渐变</h3>
           <p class="text-gray-600" data-i18n="text-to-png.feature2-desc">独特的彩虹渐变效果，让文字更加生动</p>
         </div>
         
-        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-orange-100 transition-transform transform hover:scale-105">
-          <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-            <i data-lucide="monitor-play" class="w-10 h-10 text-white"></i>
+        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-orange-100">
+          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="eye" class="w-8 h-8 text-orange-600"></i>
           </div>
           <h3 class="text-xl font-semibold text-gray-800 mb-2" data-i18n="text-to-png.feature3-title">实时预览</h3>
           <p class="text-gray-600" data-i18n="text-to-png.feature3-desc">即时预览效果，所见即所得的设计体验</p>
@@ -320,22 +313,22 @@
         <div>
           <h3 class="font-semibold text-gray-800 mb-4" data-i18n="footer.tools">在线工具</h3>
           <ul class="space-y-2 text-gray-600">
-            <li><a href="/svg-studio.html" class="hover:text-orange-500 transition-colors no-underline">SVG Studio</a></li>
-            <li><a href="/text-to-png.html" class="hover:text-orange-500 transition-colors no-underline">文本转PNG</a></li>
+            <li><a href="/svg-studio.html" class="hover:text-orange-500 transition-colors">SVG Studio</a></li>
+            <li><a href="/text-to-png.html" class="hover:text-orange-500 transition-colors">文本转PNG</a></li>
           </ul>
         </div>
         
         <div>
           <h3 class="font-semibold text-gray-800 mb-4" data-i18n="footer.extensions">浏览器扩展</h3>
           <ul class="space-y-2 text-gray-600">
-            <li><a href="/tinypass.html" class="hover:text-orange-500 transition-colors no-underline">TinyPass</a></li>
-            <li><a href="/webdavy.html" class="hover:text-orange-500 transition-colors no-underline">WebDavy</a></li>
+            <li><a href="/tinypass.html" class="hover:text-orange-500 transition-colors">TinyPass</a></li>
+            <li><a href="/webdavy.html" class="hover:text-orange-500 transition-colors">WebDavy</a></li>
           </ul>
         </div>
       </div>
       
       <div class="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
-        <p data-i18n="footer.copyright">&copy; 2024 HolaTiger. All rights reserved.</p>
+        <p>&copy; 2024 HolaTiger. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -343,6 +336,11 @@
   <!-- Scripts -->
   <script src="/assets/js/text-to-png.js"></script>
   <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.querySelector('.mobile-menu').classList.toggle('hidden');
+    });
+    
     // Initialize Lucide icons
     if (typeof lucide !== 'undefined') {
       lucide.createIcons();

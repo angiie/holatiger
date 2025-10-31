@@ -968,7 +968,7 @@ function updateSelectedSizes() {
 }
 
 // 统一的尺寸配置
-const COMMON_SIZES = [16, 24, 32, 48, 64, 128, 256, 512];
+const COMMON_SIZES = [16, 24, 32, 48, 64, 128, 256, 512, 1024];
 
 // 生成尺寸网格
 function generateSizeGrid() {
@@ -1259,15 +1259,50 @@ function generateManifestFile(files) {
     return `${en_tree}\n\n${zh_CN_tree}\n\n${zh_TW_tree}`;
 }
 
+// 单张PNG下载功能
+function downloadSinglePNG(size) {
+    if (!currentSVG) {
+        showError(getText('errorEnterSVGFirst'));
+        return;
+    }
+
+    const batchBtn = document.getElementById('batchExportBtn');
+    const originalText = batchBtn.innerHTML;
+    batchBtn.innerHTML = `<div class="loading-spinner"></div><span>${getText('generating')}</span>`;
+    batchBtn.disabled = true;
+
+    generateIconPNG(size, function(blob) {
+        if (blob) {
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = `icon_${size}x${size}.png`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            showSuccess(getText('successPNGDownload', {size: `${size}x${size}`}));
+        } else {
+            showError(`生成 ${size}x${size} 图片失败`);
+        }
+        batchBtn.innerHTML = originalText;
+        batchBtn.disabled = false;
+    });
+}
+
 // 批量导出PNG功能
 function batchExportPNG() {
     if (!currentSVG) {
-        showError('请先输入 SVG 代码并预览');
+        showError(getText('errorEnterSVGFirst'));
         return;
     }
 
     if (selectedSizes.length === 0) {
-        showError('请至少选择一个导出尺寸');
+        showError(getText('errorSelectSize'));
+        return;
+    }
+
+    // 如果只选择了一个尺寸，直接下载
+    if (selectedSizes.length === 1) {
+        downloadSinglePNG(selectedSizes[0]);
         return;
     }
 
@@ -1278,7 +1313,7 @@ function batchExportPNG() {
         return;
     }
     const originalText = batchBtn.innerHTML;
-    batchBtn.innerHTML = '<div class="loading-spinner"></div><span>批量生成中...</span>';
+    batchBtn.innerHTML = `<div class="loading-spinner"></div><span>${getText('batchGenerating')}</span>`;
     batchBtn.disabled = true;
 
     // 创建ZIP文件
@@ -1287,66 +1322,48 @@ function batchExportPNG() {
     const totalCount = selectedSizes.length;
 
     selectedSizes.forEach(size => {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = size;
-        canvas.height = size;
+        generateIconPNG(size, function (blob) {
+            if (blob) {
+                zip.file(`icon_${size}x${size}.png`, blob);
+                completedCount++;
 
-        const img = new Image();
-        img.onload = function () {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                // 更新进度
+                batchBtn.innerHTML = `<div class="loading-spinner"></div><span>${getText('generating')} (${completedCount}/${totalCount})</span>`;
 
-            canvas.toBlob(function (blob) {
-                if (blob) {
-                    zip.file(`icon_${size}x${size}.png`, blob);
-                    completedCount++;
+                if (completedCount === totalCount) {
+                    // 所有图片生成完成，创建ZIP文件
+                    const fileList = selectedSizes.map(s => `icon_${s}x${s}.png`);
+                    const manifestContent = generateManifestFile(fileList);
+                    zip.file(getText('manifestFile'), manifestContent);
 
-                    // 更新进度
-                    batchBtn.innerHTML = `<div class="loading-spinner"></div><span>生成中... (${completedCount}/${totalCount})</span>`;
+                    zip.generateAsync({ type: 'blob' }).then(function (content) {
+                        const a = document.createElement('a');
+                        a.href = URL.createObjectURL(content);
+                        a.download = 'icons_batch.zip';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
 
-                    if (completedCount === totalCount) {
-                        // 所有图片生成完成，创建ZIP文件
-                        const fileList = selectedSizes.map(size => `icon_${size}x${size}.png`);
-                        const manifestContent = generateManifestFile(fileList);
-                        zip.file(getText('manifestFile'), manifestContent);
+                        // 恢复按钮状态
+                        batchBtn.innerHTML = originalText;
+                        batchBtn.disabled = false;
 
-                        zip.generateAsync({ type: 'blob' }).then(function (content) {
-                            const a = document.createElement('a');
-                            a.href = URL.createObjectURL(content);
-                            a.download = 'icons_batch.zip';
-                            document.body.appendChild(a);
-                            a.click();
-                            document.body.removeChild(a);
-
-                            // 恢复按钮状态
-                            batchBtn.innerHTML = originalText;
-                            batchBtn.disabled = false;
-
-                            showSuccess(`批量导出成功！已生成 ${totalCount} 个尺寸的PNG文件`);
-                        }).catch(function (error) {
-                            batchBtn.innerHTML = originalText;
-                            batchBtn.disabled = false;
-                            showError('ZIP文件生成失败: ' + error.message);
-                        });
-                    }
-                } else {
-                    batchBtn.innerHTML = originalText;
-                    batchBtn.disabled = false;
-                    showError(`生成 ${size}x${size} 图片失败`);
+                        showSuccess(getText('successBatchExport', {count: totalCount}));
+                    }).catch(function (error) {
+                        batchBtn.innerHTML = originalText;
+                        batchBtn.disabled = false;
+                        showError('ZIP文件生成失败: ' + error.message);
+                    });
                 }
-            }, 'image/png');
-        };
-
-        img.onerror = function () {
-            batchBtn.innerHTML = originalText;
-            batchBtn.disabled = false;
-            showError(`加载 ${size}x${size} 图片失败`);
-        };
-
-        const svgBlob = new Blob([currentSVG], { type: 'image/svg+xml;charset=utf-8' });
-        const url = URL.createObjectURL(svgBlob);
-        img.src = url;
+            } else {
+                completedCount++; // 即使失败也增加计数，以避免卡住
+                if (completedCount === totalCount) {
+                     batchBtn.innerHTML = originalText;
+                     batchBtn.disabled = false;
+                     showError(`部分图片生成失败，请重试`);
+                }
+            }
+        });
     });
 }
 
