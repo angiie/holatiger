@@ -7,6 +7,7 @@
   "nav.tools": "Tools",
   "nav.about": "About",
   "nav.blog": "Blog",
+  "nav.faq": "FAQ",
 
   "webdavy.version": "Version 1.1.0",
   "webdavy.description": "WebDavy is a Chrome browser extension based on the WebDAV protocol that allows you to manage remote file servers without leaving your browser. Whether it's personal cloud storage or enterprise file servers, WebDavy provides a convenient file management experience with support for uploading, downloading, browsing, and organizing files.",

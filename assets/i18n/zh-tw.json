@@ -6,6 +6,8 @@
   "nav.extensions": "瀏覽器擴展",
   "nav.tools": "線上工具",
   "nav.about": "關於我",
+  "nav.blog": "部落格",
+  "nav.faq": "常見問題",
 
   "extensions.title": "瀏覽器擴展",
   "extensions.subtitle": "增強你的瀏覽器功能，讓日常操作更加高效便捷",

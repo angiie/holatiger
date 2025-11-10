@@ -75,6 +75,11 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default', className = '' }) 
     )
   }
 
+  /**
+   * 渲染导航栏（含 i18n）：
+   * - default/product 变体：返回站点导航链接
+   * - 包含 首页/扩展/工具/关于/博客
+   */
   const renderNavigation = () => {
     if (variant === 'tool') {
       return null
@@ -84,7 +89,9 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default', className = '' }) 
       { key: 'nav.home', href: variant === 'product' ? './index.html' : '#home' },
       { key: 'nav.extensions', href: variant === 'product' ? './index.html#extensions' : '#extensions' },
       { key: 'nav.tools', href: variant === 'product' ? './index.html#tools' : '#tools' },
-      { key: 'nav.about', href: variant === 'product' ? './index.html#about' : '#about' }
+      { key: 'nav.about', href: variant === 'product' ? './index.html#about' : '#about' },
+      // 博客导航：统一指向 /blog（Vercel 重定向到 blog.html），使用 i18n 文案
+      { key: 'nav.blog', href: '/blog' }
     ]
 
     return (

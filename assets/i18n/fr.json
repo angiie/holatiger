@@ -6,6 +6,8 @@
   "nav.extensions": "Extensions",
   "nav.tools": "Outils",
   "nav.about": "À propos",
+  "nav.blog": "Blog",
+  "nav.faq": "FAQ",
 
   "extensions.title": "Extensions de navigateur",
   "extensions.subtitle": "Améliorez votre navigateur pour des actions quotidiennes plus efficaces",

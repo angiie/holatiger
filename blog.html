@@ -20,24 +20,25 @@
   <meta name="twitter:description" content="HolaTiger 博客：密码安全、WebDAV 使用指南、SVG 设计与导出技巧等主题。" />
   <meta name="twitter:image" content="/assets/images/social/blog-1200x630.png" />
   <link rel="stylesheet" href="/assets/css/tw.css" />
+  <script src="/assets/js/i18n.js"></script>
 </head>
 <body class="v1-professional">
   <header class="site-header-v1" id="top">
     <div class="container nav-v1">
       <a class="logo-v1" href="/">
         <img src="/assets/images/icons/icon_64x64.png" alt="HolaTiger Logo" class="w-8 h-8" />
-        <span class="logo-text">HolaTiger</span>
+        <span class="logo-text" data-i18n="logo.text">HolaTiger</span>
       </a>
       <nav class="nav-links-v1">
-        <a href="/index.html#extensions">浏览器扩展</a>
-        <a href="/index.html#tools">在线工具</a>
-        <a href="/faq.html">FAQ</a>
+        <a href="/index.html#extensions" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/index.html#tools" data-i18n="nav.tools">在线工具</a>
+        <a href="/faq.html" data-i18n="nav.faq">FAQ</a>
       </nav>
     </div>
   </header>
 
   <main class="container py-10">
-    <h1 class="text-3xl font-bold mb-6">博客</h1>
+    <h1 class="text-3xl font-bold mb-6" data-i18n="nav.blog">博客</h1>
     <p class="text-gray-600 mb-8">主题方向依据 docs：密码安全、WebDAV、SVG 工具与设计。</p>
     <ul class="space-y-4">
       <li>
@@ -57,9 +58,8 @@
 
   <footer class="py-12 px-6 border-t border-gray-200 bg-white">
     <div class="max-w-6xl mx-auto text-center">
-      <p class="text-gray-500 text-lg">© <span id="year"></span> HolaTiger - 小工具，大能量</p>
+      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© {year} HolaTiger - 小工具，大能量</p>
     </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
 </body>
 </html>

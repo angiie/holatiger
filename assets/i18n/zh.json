@@ -7,6 +7,7 @@
   "nav.tools": "在线工具",
   "nav.about": "关于我",
   "nav.blog": "博客",
+  "nav.faq": "常见问题",
 
   "webdavy.version": "版本 1.1.0",
   "webdavy.description": "WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。",
