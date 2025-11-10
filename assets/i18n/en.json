@@ -63,6 +63,11 @@
   "webdavy.desc": "A lightweight WebDAV connection tool that simplifies file syncing and management.",
   "status.published": "Published",
   "btn.install": "Install",
+  "tinypass.name": "TinyPass",
+  "webdavy.name": "WebDavy",
+  "svg-studio.name": "SVG Studio",
+  "text-to-png.name": "Text to PNG",
+  "handytulip.name": "HandyTulip",
 
   "tools.title": "Web Tools",
   "tools.subtitle": "No installation required, use instantly in your browser",
@@ -75,6 +80,12 @@
 
   "about.title": "About Me",
   "about.desc": "I'm <strong class=\"text-orange-600\">angiie</strong>. My daughter was born in the Year of the Tiger; our family loves tiger motifs, and even our dog is called \"Tiger\" (he's the fifth one, so the name stuck). \"Hola\" comes from my ongoing Spanish learning — it's the friendly Spanish greeting I like. This site will keep updating Chrome extensions and web tools. Feel free to bookmark and send feedback.",
+
+  "blog.subtitle": "Topics: password security, WebDAV configuration, and SVG workflows.",
+  "blog.handyTulip": "HandyTulip Technical Implementation",
+  "blog.tinyPass": "Practical Guide: Generate Strong Passwords with TinyPass",
+  "blog.webDav": "Connect WebDAV in Chrome: Unified Setup for Common Services",
+  "blog.svgToPng": "SVG to PNG/WebP: Efficient Workflow for Designers and Frontend",
 
   "carousel.prev": "Previous",
   "carousel.next": "Next",

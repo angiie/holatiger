@@ -13,7 +13,26 @@ class I18nManager {
    * 获取当前语言
    */
   getCurrentLanguage() {
-    return localStorage.getItem('language') || 'zh';
+    // 支持通过 URL 参数 ?lang=xx 临时指定语言，并进行规范化
+    // 若无参数，则从 localStorage 读取并做规范化，避免 'zh-CN' / 'fr-FR' 等导致加载失败
+    const norm = (l) => {
+      const s = String(l || '').toLowerCase();
+      if (s === 'zh' || s === 'zh-cn') return 'zh';
+      if (['zh-tw','zh-hk','zh-hant'].includes(s)) return 'zh-tw';
+      if (s.startsWith('en')) return 'en';
+      if (s.startsWith('fr')) return 'fr';
+      if (s.startsWith('es')) return 'es';
+      if (s.startsWith('ar')) return 'ar';
+      return 'zh';
+    }
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    if (urlLang) {
+      // 同步写入 localStorage，保证后续页面一致性
+      const normalized = norm(urlLang);
+      localStorage.setItem('language', normalized);
+      return normalized;
+    }
+    return norm(localStorage.getItem('language') || 'zh');
   }
 
   /**

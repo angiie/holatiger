@@ -40,5 +40,6 @@
   "carousel.slide": "切換到第{index}張",
 
   "lang.current": "繁體",
+  "about.desc": "我是 <strong class=\"text-orange-600\">angiie</strong>。我女兒是虎年出生，我們全家都很喜歡老虎的圖騰，甚至我們的狗也叫「老虎」（排行老五，所以就叫這個了）。hola 是因為我剛好也在學西班牙語，這是西班牙的問候語。這裡會持續更新 Chrome 擴展與 Web 工具，歡迎收藏與反饋。",
   "footer.copyright": "© {year} 虎啦 (HolaTiger) - 小工具，大能量"
 }

@@ -17,6 +17,8 @@
   "tools.subtitle": "Sin instalación, utilízalas al instante en el navegador",
   "tools.badge": "Herramienta Web",
   "svg-studio.desc": "Una herramienta sencilla para convertir SVG con vista previa en vivo.",
+  "text-to-png.desc": "Convierte texto a imágenes PNG rápidamente con estilos personalizables.",
+  "handytulip.desc": "Planta tulipanes con gestos frente a la cámara, animaciones CSS.",
 
   "tinypass.desc": "Un generador de contraseñas simple y potente con múltiples opciones.",
   "webdavy.desc": "Una herramienta WebDAV ligera que simplifica la sincronización y gestión de archivos.",
@@ -24,6 +26,11 @@
   "status.published": "Publicado",
   "status.available": "Disponible",
   "btn.install": "Instalar",
+  "tinypass.name": "TinyPass",
+  "webdavy.name": "WebDavy",
+  "svg-studio.name": "SVG Studio",
+  "text-to-png.name": "Text to PNG",
+  "handytulip.name": "HandyTulip",
   "btn.try-tool": "Probar",
   "btn.email": "Correo",
 
@@ -72,6 +79,14 @@
   "tinypass.feature3.desc": "Copia con un clic, 100 registros históricos, papelera de 30 días para recuperar fácilmente",
   "tinypass.screenshots.title": "Capturas de pantalla",
   "tinypass.screenshots.subtitle": "Vista general de la interfaz y funciones de TinyPass",
+
+  "about.desc": "Soy <strong class=\"text-orange-600\">angiie</strong>. Mi hija nació en el Año del Tigre; a nuestra familia le encantan los diseños de tigre, e incluso nuestro perro se llama \"Tiger\" (es el quinto, así que el nombre se quedó). \"Hola\" viene de mi aprendizaje de español — es el saludo amistoso que me gusta. Este sitio seguirá actualizando extensiones de Chrome y herramientas web. Siéntete libre de guardar en favoritos y enviar comentarios.",
+
+  "blog.subtitle": "Temas: seguridad de contraseñas, configuración de WebDAV y flujos de trabajo SVG.",
+  "blog.handyTulip": "Implementación técnica de HandyTulip",
+  "blog.tinyPass": "Guía práctica: generar contraseñas fuertes con TinyPass",
+  "blog.webDav": "Conectar WebDAV en Chrome: configuración unificada de servicios comunes",
+  "blog.svgToPng": "De SVG a PNG/WebP: flujo de trabajo eficiente para diseñadores y frontend",
 
   "footer.copyright": "© {year} HolaTiger - Pequeñas herramientas, gran poder"
 }

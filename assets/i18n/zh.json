@@ -63,6 +63,11 @@
   "webdavy.desc": "轻量化的WebDAV连接工具，简化文件同步和管理流程。",
   "status.published": "已发布",
   "btn.install": "安装扩展",
+  "tinypass.name": "TinyPass",
+  "webdavy.name": "WebDavy",
+  "svg-studio.name": "SVG Studio",
+  "text-to-png.name": "Text to PNG",
+  "handytulip.name": "HandyTulip",
 
   "tools.title": "在线工具",
   "tools.subtitle": "无需安装，打开即用的在线工具集合",

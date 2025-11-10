@@ -17,6 +17,8 @@
   "tools.subtitle": "Sans installation, utilisable immédiatement dans le navigateur",
   "tools.badge": "Outil Web",
   "svg-studio.desc": "Un outil de conversion SVG simple avec prévisualisation en direct.",
+  "text-to-png.desc": "Convertissez rapidement du texte en images PNG avec styles personnalisables.",
+  "handytulip.desc": "Plantez des tulipes avec des gestes devant la caméra, animations CSS.",
 
   "tinypass.desc": "Un générateur de mots de passe simple et puissant avec de multiples options.",
   "webdavy.desc": "Un outil WebDAV léger qui simplifie la synchronisation et la gestion des fichiers.",
@@ -24,6 +26,11 @@
   "status.published": "Publié",
   "status.available": "Disponible",
   "btn.install": "Installer",
+  "tinypass.name": "TinyPass",
+  "webdavy.name": "WebDavy",
+  "svg-studio.name": "SVG Studio",
+  "text-to-png.name": "Text to PNG",
+  "handytulip.name": "HandyTulip",
   "btn.try-tool": "Essayer",
   "btn.email": "E-mail",
 
@@ -72,6 +79,14 @@
   "tinypass.feature3.desc": "Copie en un clic, 100 historiques, corbeille de 30 jours pour récupérer facilement",
   "tinypass.screenshots.title": "Captures d'écran",
   "tinypass.screenshots.subtitle": "Aperçu de l'interface et des fonctionnalités de TinyPass",
+
+  "about.desc": "Je suis <strong class=\"text-orange-600\">angiie</strong>. Ma fille est née l'Année du Tigre ; notre famille adore les motifs de tigre, et même notre chien s'appelle \"Tiger\" (c'est le cinquième, donc le nom est resté). \"Hola\" vient de mon apprentissage de l'espagnol — c'est la salutation amicale que j'aime. Ce site continuera à mettre à jour des extensions Chrome et des outils web. N'hésitez pas à mettre en favoris et à envoyer des commentaires.",
+
+  "blog.subtitle": "Thèmes : sécurité des mots de passe, configuration WebDAV et flux de travail SVG.",
+  "blog.handyTulip": "Implémentation technique de HandyTulip",
+  "blog.tinyPass": "Guide pratique : générer des mots de passe robustes avec TinyPass",
+  "blog.webDav": "Connecter WebDAV dans Chrome : configuration unifiée des services courants",
+  "blog.svgToPng": "De SVG à PNG/WebP : flux de travail efficace pour designers et devs",
 
   "footer.copyright": "© {year} HolaTiger - Des outils simples, grande puissance"
 }
