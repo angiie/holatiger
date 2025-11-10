@@ -143,6 +143,7 @@ class I18nManager {
     const path = window.location.pathname;
     if (path.includes('webdavy')) return 'title.webdavy';
     if (path.includes('tinypass')) return 'title.tinypass';
+    if (path.toLowerCase().includes('handytulip')) return 'title.handytulip';
     return null;
   }
 
@@ -156,6 +157,7 @@ class I18nManager {
       let descKey = '';
       if (path.includes('webdavy')) descKey = 'webdavy.description';
       if (path.includes('tinypass')) descKey = 'tinypass.description';
+      if (path.toLowerCase().includes('handytulip')) descKey = 'handytulip.description';
       
       if (descKey) {
         metaDesc.setAttribute('content', this.t(descKey));

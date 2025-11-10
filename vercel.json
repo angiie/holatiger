@@ -51,6 +51,28 @@
       "destination": "/blog-webdav-chrome-setup.html",
       "permanent": true
     }
+    ,
+    {
+      "source": "/handytulip-implementation",
+      "destination": "/blog-handy-tulip-implementation.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog-handy-tulip-implementation",
+      "destination": "/blog-handy-tulip-implementation.html",
+      "permanent": true
+    }
+    ,
+    {
+      "source": "/handytulip",
+      "destination": "/HandyTulip.html",
+      "permanent": true
+    },
+    {
+      "source": "/handytulip.html",
+      "destination": "/HandyTulip.html",
+      "permanent": true
+    }
   ],
   "headers": [
     {

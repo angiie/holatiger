@@ -6,6 +6,7 @@
   "nav.extensions": "Extensions",
   "nav.tools": "Tools",
   "nav.about": "About",
+  "nav.blog": "Blog",
 
   "webdavy.version": "Version 1.1.0",
   "webdavy.description": "WebDavy is a Chrome browser extension based on the WebDAV protocol that allows you to manage remote file servers without leaving your browser. Whether it's personal cloud storage or enterprise file servers, WebDavy provides a convenient file management experience with support for uploading, downloading, browsing, and organizing files.",
@@ -79,4 +80,14 @@
   "lang.current": "EN",
 
   "footer.copyright": "© {year} HolaTiger - Small Tools, Big Power"
+  ,
+  "handytulip.desc": "Plant tulips with camera gestures, generating CSS animations.",
+  "title.handytulip": "HandyTulip - HolaTiger",
+  "handytulip.description": "A playful web tool: enable your camera and plant tulips with hand gestures. Pure CSS animation, lightweight, no installation required.",
+  "handytulip.tips.title": "Quick Tips",
+  "handytulip.tips.camera": "Please allow camera access to enable gesture recognition.",
+  "handytulip.tips.play": "Basics: show your open palm to preview position, pinch to plant a tulip. Move to adjust placement; near the ground area works best.",
+  "handytulip.tips.close": "Got it"
+  ,
+  "handytulip.tips.handopen": "Put your hand in front of the camera: hold still and spread your five fingers to plant a tulip at that position 🌷"
 }

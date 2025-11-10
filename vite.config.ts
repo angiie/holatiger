@@ -26,6 +26,7 @@ export default defineConfig({
         'blog-svg-to-png-workflow': resolve(__dirname, 'blog-svg-to-png-workflow.html'),
         'blog-tinypass-password-guide': resolve(__dirname, 'blog-tinypass-password-guide.html'),
         'blog-webdav-chrome-setup': resolve(__dirname, 'blog-webdav-chrome-setup.html'),
+        'blog-handy-tulip-implementation': resolve(__dirname, 'blog-handy-tulip-implementation.html'),
       },
       output: {
         manualChunks: {

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>手势种花 HandyTulip 的技术实现 - HolaTiger 博客</title>
+  <meta name="description" content="基于浏览器实时手势识别的互动小应用：摄像头采集、MediaPipe 手势模型、稳定性判定与分阶段动画种花。" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://holatiger.com/blog-handy-tulip-implementation.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="手势种花 HandyTulip 的技术实现" />
+  <meta property="og:description" content="浏览器端实时手势识别与分阶段动画的工程实现。" />
+  <meta property="og:url" content="https://holatiger.com/blog-handy-tulip-implementation.html" />
+  <meta property="og:image" content="/assets/images/social/blog-1200x630.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="手势种花 HandyTulip 的技术实现" />
+  <meta name="twitter:description" content="浏览器端实时手势识别与分阶段动画的工程实现。" />
+  <meta name="twitter:image" content="/assets/images/social/blog-1200x630.png" />
+  <link rel="stylesheet" href="/assets/css/tw.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>
+    // 初始化 mermaid（暗色主题）
+    // 用于渲染下方的技术流程图，提升可读性
+    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+  </script>
+</head>
+<body class="v1-professional">
+  <main class="container py-10 prose">
+    <h1 class="text-3xl font-bold mb-6">手势种花 HandyTulip 的技术实现</h1>
+    <p class="text-gray-600">本文介绍 <a href="/HandyTulip.html">HandyTulip</a> 的核心实现思路：摄像头采集、手势模型推理、稳定性判定与分阶段动画种花，确保在浏览器端实现流畅互动。</p>
+
+    <h2>技术流程（Mermaid）</h2>
+    <pre class="mermaid">
+flowchart TD
+  A[用户打开页面<br/>User opens page] --> B[请求摄像头权限<br/>Request camera permission]
+  B --> C[采集视频流<br/>Capture video stream]
+  C --> D[加载/初始化手势模型<br/>Init HandLandmarker]
+  D --> E[逐帧推理手势关键点<br/>Infer hand landmarks]
+  E --> F[稳定性判定<br/>Stability check]
+  F --> G{触发条件满足？<br/>Trigger satisfied?}
+  G -- 否/No --> E
+  G -- 是/Yes --> H[种花：生成 DOM 与动画<br/>Plant tulip DOM + animation]
+  H --> I[分阶段成长/凋谢<br/>Stage growth/decay]
+  I --> J[清理与重置<br/>Cleanup + reset]
+    </pre>
+
+    <h2>关键模块拆解</h2>
+    <ul>
+      <li><strong>权限与采集：</strong>通过 <code>getUserMedia</code> 获取视频流，设置分辨率以兼顾清晰度与性能。</li>
+      <li><strong>模型加载：</strong>使用 MediaPipe 手势模型（HandLandmarker）在浏览器端推理，避免后端依赖。</li>
+      <li><strong>稳定性判定：</strong>对连续若干帧的关键点进行抖动过滤，确保非误触发。</li>
+      <li><strong>触发与动画：</strong>满足手势条件后插入花朵 DOM，使用 CSS 动画分阶段展示成长与凋谢。</li>
+      <li><strong>状态与清理：</strong>在动画结束后清理节点并复位状态，准备下一次交互。</li>
+    </ul>
+
+    <h2>实现要点与经验</h2>
+    <ul>
+      <li><strong>性能：</strong>控制推理帧率与动画复杂度，优先保持交互顺滑。</li>
+      <li><strong>兼容性：</strong>在移动端与桌面端测试，适当降级（如关闭高开销效果）。</li>
+      <li><strong>可维护：</strong>模块化拆分识别、判定、渲染，避免耦合。</li>
+      <li><strong>用户提示：</strong>使用可关闭的中英双语提示（基于 <code>localStorage</code>），减少打扰。</li>
+    </ul>
+
+    <h2>相关链接</h2>
+    <ul>
+      <li><a href="/HandyTulip.html">HandyTulip 互动页面</a></li>
+      <li><a href="/blog">博客索引</a></li>
+    </ul>
+  </main>
+</body>
+</html>

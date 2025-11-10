@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>手势种花 — CSS 郁金香</title>
+<style>
+  :root{
+    --bg: #0b0d10;
+    --ground: #061018;
+    --stem: #2d7a3e;
+    --leaf: #236033;
+    --petal1: #ff5d8f;
+    --petal2: #ff8fb3;
+    --petal3: #ff2d6a;
+    /* 经典郁金香（橙黄配色与更细茎叶） */
+    --classic-stem: #2e7d32;
+    --classic-leaf: #2a6a36;
+    --tulip-orange1: #ff9d2e;
+    --tulip-orange2: #ff7a1a;
+    --tulip-orange3: #ffc15c;
+  }
+  html,body{height:100%; margin:0; background:var(--bg); font-family:system-ui, sans-serif; color:#fff}
+  #app{
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+  }
+
+  /* 视频和 canvas 隐藏（或可设置低不透明度用于调试） */
+  video#webcam {
+    position:absolute;
+    left:0; top:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    transform: scaleX(-1); /* 镜像，和用户期望一致 */
+    opacity:0; /* 隐藏摄像头 */
+    pointer-events:none;
+  }
+  canvas#debug {
+    position:absolute;
+    left:0; top:0;
+    width:100%; height:100%;
+    pointer-events:none;
+    mix-blend-mode:screen;
+    /* 为了与镜像视频对齐，同时镜像调试画布 */
+    transform: scaleX(-1);
+    opacity:0.6; /* 显示指尖/手掌标记 */
+  }
+
+  /* 地面 */
+  .ground {
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:12vh;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.15)), var(--ground);
+    box-shadow: 0 -8px 30px rgba(0,0,0,0.7) inset;
+    z-index:5;
+  }
+
+  /* 容器放花（绝对定位）  */
+  .garden {
+    position:absolute;
+    left:0; top:0;
+    width:100%; height:100%;
+    pointer-events:none;
+    z-index:10;
+  }
+
+  /* 单朵花的容器 */
+  .flower {
+    position:absolute;
+    bottom:calc(12vh - 4px); /* 从地面之上开始生长 */
+    width:80px;
+    height:0; /* 初始高度为 0，通过动画增长 stem，用 transform 控制 */
+    transform-origin: bottom center;
+    pointer-events:none;
+  }
+
+  /* 抓取状态：允许通过 top/left 跟随手部位置 */
+  .flower.picked {
+    bottom:auto;
+  }
+
+  /* 茎（使用伪元素） */
+  .flower .stem {
+    position:absolute;
+    left:50%;
+    transform: translateX(-50%) rotate(var(--stem-bend, 0deg));
+    bottom:0;
+    width:6px;
+    height: var(--stem-h, 0px);
+    background: linear-gradient(180deg, var(--stem), #1b5b2f);
+    border-radius: 6px;
+    transform-origin: bottom center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  }
+  /* 经典郁金香：细茎更高、两侧长叶、闭合花苞 */
+  .flower.tulip-classic .stem{
+    width:5px;
+    background: linear-gradient(180deg, var(--classic-stem), #1c5a2b);
+  }
+  .flower.tulip-classic .leaf-left,
+  .flower.tulip-classic .leaf-right{
+    bottom:10%;
+    opacity:0.96;
+    background: linear-gradient(135deg, var(--classic-leaf), #1f6b3a);
+  }
+  .flower.tulip-classic .leaf-left{
+    left:calc(50% - 16px);
+    width: var(--leafL-w, 26px); height: var(--leafL-h, 124px);
+    border-radius: 50% 40% 20% 80% / 80% 40% 60% 30%;
+    transform-origin: left bottom;
+    transform: rotate(var(--leafL-rot, -6deg)) translateX(var(--leafL-tx, -10px)) scale(var(--leafL-scale, 0.96));
+  }
+  .flower.tulip-classic .leaf-right{
+    left:calc(50% + 6px);
+    width: var(--leafR-w, 24px); height: var(--leafR-h, 164px);
+    border-radius: 40% 60% 80% 20% / 30% 60% 80% 40%;
+    transform-origin: right bottom;
+    transform: rotate(var(--leafR-rot, 8deg)) translateX(var(--leafR-tx, 6px)) scale(var(--leafR-scale, 1.0));
+  }
+  .flower.tulip-classic .bulb{
+    /* 使花苞跟随茎顶：--stem-h 为茎高度（像素） */
+    left: calc(50% + var(--stem-tip-x, 0px));
+    bottom: calc(var(--stem-tip-y, var(--stem-h, 120px)) - 6px);
+    width: var(--bulb-w, 32px); height: var(--bulb-h, 56px);
+    transform-origin: center bottom;
+    transform: translateX(-50%) scale(var(--bulb-scale, 1));
+  }
+  .flower.tulip-classic .bud-left,
+  .flower.tulip-classic .bud-right{
+    position:absolute;
+    bottom:0; width:26px; height:56px;
+    transform-origin: bottom center;
+    border-radius: 60% 60% 40% 40% / 70% 70% 40% 40%;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+  }
+  .flower.tulip-classic .bud-left{
+    left:50%; transform: translateX(-78%) rotate(-8deg) scale(1.0);
+    background: linear-gradient(180deg, var(--tulip-orange2), var(--tulip-orange3));
+  }
+  .flower.tulip-classic .bud-right{
+    left:50%; transform: translateX(-22%) rotate(8deg) scale(1.0);
+    background: linear-gradient(180deg, var(--tulip-orange1), var(--tulip-orange2));
+  }
+  .flower.tulip-classic .bud-base{
+    position:absolute;
+    left:50%; bottom:2px;
+    transform: translateX(-50%);
+    width:10px; height:10px; border-radius:50%;
+    background: radial-gradient(circle at 40% 40%, #ff8fb3, #ff5d8f);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+  .flower.tulip-classic .center{ display:none; }
+
+  /* 叶子（伪元素） */
+  .flower .leaf-left,
+  .flower .leaf-right{
+    position:absolute;
+    bottom:8%;
+    width:34px;
+    height:18px;
+    background: linear-gradient(135deg, var(--leaf), #1f6b3a);
+    border-radius: 50% 20% 60% 40%;
+    opacity:0.95;
+  }
+  .flower .leaf-left{
+    left:calc(50% - 22px);
+    transform-origin: left center;
+    transform: rotate(-30deg) translateX(-12px) scale(0.1);
+    box-shadow: -4px 3px 6px rgba(0,0,0,0.2);
+  }
+  .flower .leaf-right{
+    left:calc(50% + 6px);
+    transform-origin: right center;
+    transform: rotate(30deg) translateX(12px) scale(0.1);
+    box-shadow: 4px 3px 6px rgba(0,0,0,0.2);
+  }
+
+  /* 花苞（用多个伪元素组成较真实的花瓣层） */
+  .flower .bulb {
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom: calc(12% + 0px);
+    width: 28px;
+    height: 28px;
+    transform-origin: center bottom;
+  }
+
+  /* 三个层次的瓣（用伪元素实现） */
+  .bulb .petal {
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform-origin: bottom center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50% 50% 40% 40%;
+    background: radial-gradient(circle at 30% 30%, var(--petal2), var(--petal1));
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    transform: translateX(-50%) scale(0.2) rotate(0deg);
+    opacity:0.95;
+  }
+  .bulb .petal.p1{ transform: translateX(-50%) scale(0.22) rotate(0deg); }
+  .bulb .petal.p2{ transform: translateX(-50%) scale(0.2) rotate(28deg); background: linear-gradient(180deg, var(--petal1), var(--petal2)); }
+  .bulb .petal.p3{ transform: translateX(-50%) scale(0.18) rotate(-28deg); background: linear-gradient(180deg, var(--petal3), var(--petal1)); }
+  /* 扩展花瓣至 5 片，以便最终盛开更饱满 */
+  .bulb .petal.p4{ transform: translateX(-50%) scale(0.16) rotate(52deg); background: linear-gradient(180deg, var(--petal2), var(--petal3)); }
+  .bulb .petal.p5{ transform: translateX(-50%) scale(0.16) rotate(-52deg); background: linear-gradient(180deg, var(--petal2), var(--petal3)); }
+
+  /* 中心小球（花心） */
+  .bulb .center{
+    position:absolute;
+    left:50%;
+    bottom:8px;
+    transform:translateX(-50%) scale(0.2);
+    width:10px; height:10px;
+    border-radius:50%;
+    background: linear-gradient(180deg,#fff2,#ffd1c8);
+    box-shadow: 0 0 8px rgba(255,220,220,0.15) inset;
+    opacity:0;
+  }
+
+  /* 动画：茎从地里长出 */
+  @keyframes stemGrow {
+    0% { height: 0px; }
+    100%{ height: var(--stem-h, 120px); }
+  }
+  /* 叶张开 */
+  @keyframes leafOpenLeft {
+    0% { transform: rotate(-30deg) translateX(-12px) scale(0.1); opacity:0; }
+    60% { transform: rotate(-18deg) translateX(-6px) scale(0.85); opacity:1; }
+    100%{ transform: rotate(-10deg) translateX(-2px) scale(1); opacity:1; }
+  }
+  @keyframes leafOpenRight {
+    0% { transform: rotate(30deg) translateX(12px) scale(0.1); opacity:0; }
+    60% { transform: rotate(18deg) translateX(6px) scale(0.85); opacity:1; }
+    100%{ transform: rotate(10deg) translateX(2px) scale(1); opacity:1; }
+  }
+  /* 花苞生长 */
+  @keyframes budGrow {
+    0% { transform: translateX(-50%) scale(0.2) translateY(18px); opacity:0; }
+    70%{ transform: translateX(-50%) scale(0.95) translateY(0); opacity:1; }
+    100%{ transform: translateX(-50%) scale(1) translateY(0); opacity:1; }
+  }
+  /* 花瓣开 */
+  @keyframes bloom {
+    0% {
+      transform: translateX(-50%) scale(0.6) rotate(0deg) translateY(6px);
+      opacity:0.9;
+      filter: blur(1.6px);
+    }
+    40% {
+      transform: translateX(-50%) scale(1.05) rotate(0deg) translateY(-6px);
+      filter: blur(0.6px);
+    }
+    100% {
+      transform: translateX(-50%) scale(1.0) rotate(0deg) translateY(-12px);
+      opacity:1;
+      filter: none;
+    }
+  }
+
+  /* 将动画组合到类上 */
+  .growing .stem {
+    animation: stemGrow 900ms ease-out forwards;
+  }
+  .growing .leaf-left { animation: leafOpenLeft 800ms cubic-bezier(.2,.9,.2,1) forwards; }
+  .growing .leaf-right{ animation: leafOpenRight 800ms cubic-bezier(.2,.9,.2,1) forwards; }
+  .growing .petal { animation: budGrow 700ms cubic-bezier(.2,.9,.2,1) forwards; }
+  .bloom .petal.p1 { animation: bloom 600ms ease-out 0ms forwards; }
+  .bloom .petal.p2 { animation: bloom 600ms ease-out 80ms forwards; transform-origin: 50% 80%; }
+  .bloom .petal.p3 { animation: bloom 600ms ease-out 140ms forwards; transform-origin: 50% 80%; }
+  .bloom .center { animation: bloom 600ms ease-out 180ms forwards; }
+
+  /* 阶段控制：stage1 仅有茎；stage2 出花苞；stage3 展叶；stage4 开花 */
+  .flower.tulip-classic.stage1 .leaf-left,
+  .flower.tulip-classic.stage1 .leaf-right,
+  .flower.tulip-classic.stage1 .bud-left,
+  .flower.tulip-classic.stage1 .bud-right,
+  .flower.tulip-classic.stage1 .bud-base,
+  .flower.tulip-classic.stage1 .petal{ opacity:0; transform: translateY(12px) scale(0.1); }
+
+  /* 阶段2/3：花瓣隐藏，等待最终开花 */
+  .flower.tulip-classic.stage2 .petal,
+  .flower.tulip-classic.stage3 .petal{ display:none; }
+
+  /* 第二阶段：让花苞显现（保持叶子低缩） */
+  .flower.tulip-classic.stage2 .bud-left{ opacity:1; transform: translateX(-78%) rotate(-8deg) scale(1.0); }
+  .flower.tulip-classic.stage2 .bud-right{ opacity:1; transform: translateX(-22%) rotate(8deg) scale(1.0); }
+  .flower.tulip-classic.stage2 .bud-base{ opacity:1; transform: translateX(-50%) scale(1); }
+
+  /* 第三阶段：展开两片叶子到最终形态（使用过渡而非动画类，避免回退） */
+  .flower.tulip-classic.stage3 .leaf-left{
+    transform: rotate(var(--leafL-rot, -10deg)) translateX(var(--leafL-tx, -2px)) scale(var(--leafL-scaleFinal, 1));
+    opacity:1;
+    transition: transform 600ms ease, opacity 600ms ease;
+  }
+  .flower.tulip-classic.stage3 .leaf-right{
+    transform: rotate(var(--leafR-rot, 10deg)) translateX(var(--leafR-tx, 2px)) scale(var(--leafR-scaleFinal, 1));
+    opacity:1;
+    transition: transform 600ms ease, opacity 600ms ease;
+  }
+
+  /* 第四阶段：开花（沿用 bloom 动画） */
+  .flower.tulip-classic.stage4 { /* 占位：可用于整朵轻微漂浮 */ }
+  .flower.tulip-classic.stage4 .center{ opacity:1; }
+
+  /* 轻微摆动 */
+  .bloom { animation: float 6s ease-in-out infinite; }
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50%{ transform: translateY(-4px); }
+    100%{ transform: translateY(0px); }
+  }
+
+  /* 停留识别闪点 */
+  .recognize-dot{
+    position: fixed;
+    width:10px; height:10px; border-radius:50%;
+    background: radial-gradient(circle at 50% 50%, #fff, #ffd1c8);
+    box-shadow: 0 0 14px rgba(255,200,200,0.9);
+    pointer-events:none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    animation: dotFlash 600ms ease-out forwards;
+  }
+  @keyframes dotFlash{
+    0% { opacity:0; transform: translate(-50%, -50%) scale(0.5); }
+    50%{ opacity:1; transform: translate(-50%, -50%) scale(1.4); }
+    100%{ opacity:0; transform: translate(-50%, -50%) scale(0.8); }
+  }
+
+  /* 开花光环效果 */
+  .bulb .halo{
+    position:absolute; left:50%; bottom:6px; transform: translateX(-50%) scale(0.9);
+    width:76px; height:76px; border-radius:50%; display:none;
+    background: radial-gradient(circle, rgba(255,255,255,0.65) 10%, rgba(255,255,255,0) 60%);
+    filter: blur(2px);
+    opacity:0;
+  }
+  @keyframes haloPulse{
+    0% { opacity:0; transform: translateX(-50%) scale(0.6); }
+    50%{ opacity:0.85; transform: translateX(-50%) scale(1.08); }
+    100%{ opacity:0; transform: translateX(-50%) scale(1.28); }
+  }
+  .flower.tulip-classic.stage4 .halo{ display:block; animation: haloPulse 1200ms ease-out; }
+
+  /* 提示文本 */
+  .hint{
+    position:absolute;
+    left:16px; top:16px;
+    z-index:20;
+    font-size:14px; color:#cfd8e3b3;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding:8px 12px; border-radius:10px;
+    backdrop-filter: blur(6px);
+    pointer-events: auto;
+  }
+  .hint .close-btn{
+    position:absolute; right:6px; top:6px;
+    width:22px; height:22px; border-radius:6px;
+    appearance:none; border:none; background:transparent; color:#cfd8e3; cursor:pointer;
+    line-height:22px; font-size:16px; padding:0;
+  }
+  .hint .close-btn:hover{ background: rgba(255,255,255,0.08); }
+  
+
+</style>
+</head>
+<body>
+<div id="app">
+  <video id="webcam" autoplay playsinline></video>
+  <canvas id="debug"></canvas>
+
+  <div class="garden" id="garden"></div>
+  <div class="ground"></div>
+
+  <div class="hint" id="handytulip-hint">
+    <button class="close-btn" id="handytulip-hint-close" aria-label="Close">×</button>
+    <span class="hint-zh">把手伸到镜头前：<strong>停留</strong>并张开五指可在该位置种下郁金香 🌷</span>
+    <span class="hint-en" style="display:none;">Put your hand in front of the camera: <strong>hold still</strong> and spread your five fingers to plant a tulip at that position 🌷</span>
+  </div>
+</div>
+
+<script type="module">
+  import { HandLandmarker, FilesetResolver } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest";
+
+  const video = document.getElementById('webcam');
+  const debug = document.getElementById('debug');
+  const dbgCtx = debug.getContext?.('2d');
+  const garden = document.getElementById('garden');
+
+  let handLandmarker = null;
+  let lastHandPos = null;
+  let stableFrames = 0;
+  let lastPlantTime = 0;
+  let lastPickTime = 0;
+  let pickedFlower = null;
+  let activeFlower = null; // 当前按阶段推进的花
+  const PLANT_COOLDOWN = 800; // ms
+  const PICK_COOLDOWN = 600; // ms
+  const STABLE_THRESHOLD = 0.015; // normalized distance
+  const STABLE_FRAMES_REQUIRED = 16;
+
+  /**
+   * 生成一套随机配色，用于每朵花的 CSS 变量。
+   * 返回 { petal1, petal2, petal3, leaf, stem }。
+   */
+  function randomPalette(){
+    const palettes = [
+      { petal1:'#ff6b6b', petal2:'#ff8e8e', petal3:'#ff4d6d', leaf:'#2f7d49', stem:'#2a6b45' },
+      { petal1:'#f7b267', petal2:'#f79d65', petal3:'#f4845f', leaf:'#2e8b57', stem:'#2a5f3b' },
+      { petal1:'#c06c84', petal2:'#f67280', petal3:'#f8b195', leaf:'#3a7f5d', stem:'#316d4e' },
+      { petal1:'#ffd166', petal2:'#fdae61', petal3:'#f9c74f', leaf:'#2e8b57', stem:'#256d3a' },
+      { petal1:'#9b5de5', petal2:'#f15bb5', petal3:'#fee440', leaf:'#2f8e5b', stem:'#27764a' }
+    ];
+    return palettes[Math.floor(Math.random()*palettes.length)];
+  }
+
+  /**
+   * 在稳定触发时显示一个闪点标记于视口位置。
+   */
+  function flashRecognizeDot(center){
+    const vp = normToViewport(center.x, center.y);
+    const dot = document.createElement('div');
+    dot.className = 'recognize-dot';
+    dot.style.left = vp.x + 'px';
+    dot.style.top = vp.y + 'px';
+    document.body.appendChild(dot);
+    setTimeout(()=>{ dot.remove(); }, 620);
+  }
+
+  // 安全封装：在不同环境下获取摄像头流
+  /**
+   * 以兼容方式获取摄像头媒体流。
+   * 优先使用 navigator.mediaDevices.getUserMedia，
+   * 退化到旧的 webkit/moz 接口；检测非安全上下文给出明确提示。
+   */
+  async function getUserMediaSafe(constraints){
+    const isSecure = location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    const md = navigator.mediaDevices;
+    if (md && typeof md.getUserMedia === 'function'){
+      return await md.getUserMedia(constraints);
+    }
+    const legacy = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+    if (legacy){
+      return await new Promise((resolve, reject)=>{
+        try { legacy.call(navigator, constraints, resolve, reject); } catch(e){ reject(e); }
+      });
+    }
+    const reason = isSecure ? '当前浏览器未提供摄像头 API。' : '请使用 https 或 localhost 打开页面。';
+    throw new Error('摄像头不可用：' + reason);
+  }
+
+  // 初始化摄像头和模型
+  async function init() {
+    const vision = await FilesetResolver.forVisionTasks(
+      "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm"
+    );
+    handLandmarker = await HandLandmarker.createFromOptions(vision, {
+      baseOptions: {
+        modelAssetPath: `https://storage.googleapis.com/mediapipe-assets/hand_landmarker.task`
+      },
+      runningMode: "VIDEO",
+      numHands: 1
+    });
+
+    try {
+      const stream = await getUserMediaSafe({ video: { width:1280, height:720 } });
+      video.srcObject = stream;
+      await video.play();
+    } catch (err) {
+      console.error(err);
+      // 显示友好提示覆盖层
+      const overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);color:#fff;font:500 14px/1.6 system-ui;z-index:9999;';
+      overlay.textContent = '无法访问摄像头：' + (err && err.message ? err.message : '未知错误');
+      document.body.appendChild(overlay);
+      // 继续运行不依赖摄像头的演示（手动测试可用）
+      requestAnimationFrame(()=>{});
+      return; // 退出初始化，避免后续依赖视频尺寸的逻辑报错
+    }
+
+    // 使 canvas 与视频尺寸一致
+    debug.width = video.videoWidth;
+    debug.height = video.videoHeight;
+
+    initHint();
+    requestAnimationFrame(loop);
+    // 演示：在页面中央种一朵经典形态郁金香
+    setTimeout(()=>{ if (typeof plantTulipClassic === 'function') { plantTulipClassic(0.5, 0.68); } }, 600);
+  }
+
+  // 计算手中心（平均关键点）
+  function handCenter(landmarks) {
+    let x = 0, y = 0;
+    for (let i=0;i<landmarks.length;i++){ x += landmarks[i].x; y += landmarks[i].y; }
+    return { x: x/landmarks.length, y: y/landmarks.length };
+  }
+
+  /**
+   * 计算虚拟手掌中心点（归一化坐标）
+   * 策略：取腕和五指的 MCP 关节点 [0,1,5,9,13,17] 的平均值。
+   * 返回 {x,y}，范围 0..1。
+   */
+  function palmCenter(landmarks){
+    const idxs = [0,1,5,9,13,17];
+    let x = 0, y = 0;
+    for (const i of idxs){ x += landmarks[i].x; y += landmarks[i].y; }
+    const n = idxs.length;
+    return { x: x/n, y: y/n };
+  }
+
+  /**
+   * 计算掌心圈：中心为 palmCenter，半径为掌心到 MCP 节点的平均距离的比例。
+   * 返回 { centerNorm:{x,y}, radiusNorm }，均为归一化坐标（0..1）。
+   */
+  function palmAreaNorm(landmarks){
+    const c = palmCenter(landmarks);
+    const idxs = [1,5,9,13,17];
+    let sum = 0;
+    for (const i of idxs){ sum += Math.hypot(landmarks[i].x - c.x, landmarks[i].y - c.y); }
+    const avg = sum / idxs.length;
+    const radiusNorm = Math.min(0.25, avg * 0.85); // 上限避免过大
+    return { centerNorm: c, radiusNorm };
+  }
+
+  /**
+   * 归一化坐标映射到视口坐标（考虑镜像）：x 映射为 (1-x)*viewportWidth。
+   */
+  function normToViewport(xNorm, yNorm){
+    return {
+      x: (1 - xNorm) * window.innerWidth,
+      y: yNorm * window.innerHeight
+    };
+  }
+
+  /**
+   * 获取五指指尖归一化坐标数组。
+   */
+  function fingerTips(landmarks){
+    const ids = [4,8,12,16,20];
+    return ids.map(i=>({ x: landmarks[i].x, y: landmarks[i].y }));
+  }
+
+  /**
+   * 计算捏合中点（拇指与食指指尖中点）。
+   */
+  function pinchMidpoint(landmarks){
+    const a = landmarks[4], b = landmarks[8];
+    return { x: (a.x+b.x)/2, y: (a.y+b.y)/2 };
+  }
+
+  /**
+   * 单调链法计算凸包（输入/输出均为点数组，点对象含 x,y）。
+   */
+  function convexHull(points){
+    const pts = points.slice().sort((p,q)=> p.x===q.x ? p.y-q.y : p.x-q.x);
+    if (pts.length<=1) return pts;
+    const cross = (o,a,b)=> (a.x-o.x)*(b.y-o.y) - (a.y-o.y)*(b.x-o.x);
+    const lower=[]; for (const p of pts){ while(lower.length>=2 && cross(lower[lower.length-2], lower[lower.length-1], p) <= 0) lower.pop(); lower.push(p); }
+    const upper=[]; for (let i=pts.length-1;i>=0;i--){ const p=pts[i]; while(upper.length>=2 && cross(upper[upper.length-2], upper[upper.length-1], p) <= 0) upper.pop(); upper.push(p); }
+    upper.pop(); lower.pop();
+    return lower.concat(upper);
+  }
+
+  /**
+   * 点在多边形内判定（射线法）。输入点与 polygon 须为同一坐标系。
+   */
+  function pointInPolygon(point, polygon){
+    let inside = false;
+    for (let i=0,j=polygon.length-1;i<polygon.length;j=i++){
+      const xi = polygon[i].x, yi = polygon[i].y;
+      const xj = polygon[j].x, yj = polygon[j].y;
+      const intersect = ((yi>point.y)!=(yj>point.y)) && (point.x < (xj - xi) * (point.y - yi) / (yj - yi + 1e-9) + xi);
+      if (intersect) inside = !inside;
+    }
+    return inside;
+  }
+
+  /**
+   * 尝试在“五指指尖凸包覆盖范围”内寻找最近的花朵（以捏合中点为参考）。
+   * 命中返回该花元素，否则返回 null。
+   */
+  function findFlowerWithinFingerCoverage(landmarks){
+    const tips = fingerTips(landmarks);
+    // 映射到视口坐标
+    const tipsVP = tips.map(t=> normToViewport(t.x, t.y));
+    const hull = convexHull(tipsVP);
+    const mid = pinchMidpoint(landmarks);
+    const midVP = normToViewport(mid.x, mid.y);
+
+    const flowers = Array.from(garden.querySelectorAll('.flower'));
+    let best = null, bestDist = Infinity;
+    for (const f of flowers){
+      const bulb = f.querySelector('.bulb');
+      if (!bulb) continue;
+      const rect = bulb.getBoundingClientRect();
+      const c = { x: rect.left + rect.width/2, y: rect.top + rect.height/2 };
+      if (pointInPolygon(c, hull)){
+        const d = Math.hypot(c.x - midVP.x, c.y - midVP.y);
+        if (d < bestDist){ bestDist = d; best = f; }
+      }
+    }
+    return best;
+  }
+
+  /**
+   * 设定抓取的花朵，并进入跟随状态。
+   */
+  function pickFlower(f){
+    if (!f) return;
+    pickedFlower = f;
+    f.classList.remove('growing');
+    f.classList.remove('bloom');
+    f.classList.add('picked');
+    f.style.willChange = 'top,left';
+  }
+
+  /**
+   * 根据锚点归一化坐标更新抓取花朵的位置（跟随手）。
+   */
+  function updatePickedFlowerPosition(anchorNorm){
+    if (!pickedFlower) return;
+    const vp = normToViewport(anchorNorm.x, anchorNorm.y);
+    const width = pickedFlower.offsetWidth || 86;
+    const left = Math.max(0, Math.min(window.innerWidth - width, vp.x - width/2));
+    const top = Math.max(0, Math.min(window.innerHeight - 120, vp.y - 60));
+    pickedFlower.style.left = left + 'px';
+    pickedFlower.style.top = top + 'px';
+  }
+
+  /**
+   * 释放抓取（保留当前位置）。
+   */
+  function releasePickedFlower(){
+    if (!pickedFlower) return;
+    pickedFlower.classList.remove('picked');
+    pickedFlower.style.willChange = '';
+    pickedFlower = null;
+  }
+
+  function normDist(a,b){
+    return Math.hypot(a.x-b.x, a.y-b.y);
+  }
+
+  // 辅助：判断手指是否张开（针对四指）
+  function fingerExtended(landmarks, tipIdx, pipIdx){
+    // 基本启发式：如果指尖在 pip 之上（y 更小），则认为伸直（摄像头镜像时 y 方向不变）
+    return landmarks[tipIdx].y < landmarks[pipIdx].y;
+  }
+  function thumbExtended(landmarks){
+    // 判断拇指：向右/左张开: 以拇指指尖与腕（0）在 x 上的距离为依据
+    const tip = landmarks[4], ip = landmarks[3], mcp = landmarks[2], wrist = landmarks[0];
+    return Math.abs(tip.x - wrist.x) > 0.07; // 启发式
+  }
+
+  function fiveFingersOpen(landmarks){
+    // 需要 4 指张开 + 拇指较张开
+    const idxs = [
+      [8,6],  // index tip,pip
+      [12,10],// middle
+      [16,14],// ring
+      [20,18] // pinky
+    ];
+    let ok = true;
+    for (const [t,p] of idxs){
+      if (!fingerExtended(landmarks, t, p)) { ok = false; break; }
+    }
+    return ok && thumbExtended(landmarks);
+  }
+
+  /**
+   * 在调试画布上绘制五指指尖与手掌中心的标记。
+   * 颜色区分不同手指，便于观察。
+   */
+  function drawFingerAndPalmMarkers(ctx, landmarks){
+    if (!ctx) return;
+    const W = debug.width, H = debug.height;
+
+    // 指尖索引与颜色
+    const tips = [
+      {i:4,  label:'拇', color:'#ffd166'},
+      {i:8,  label:'食', color:'#06d6a0'},
+      {i:12, label:'中', color:'#118ab2'},
+      {i:16, label:'无', color:'#ef476f'},
+      {i:20, label:'小', color:'#a78bfa'}
+    ];
+
+    ctx.save();
+    ctx.lineWidth = 2;
+    for (const t of tips){
+      const pt = landmarks[t.i];
+      const x = pt.x * W, y = pt.y * H;
+      ctx.fillStyle = t.color;
+      ctx.strokeStyle = t.color + 'cc';
+      // 圆点
+      ctx.beginPath();
+      ctx.arc(x, y, 6, 0, Math.PI*2);
+      ctx.fill();
+      // 标签
+      ctx.font = '12px system-ui';
+      ctx.fillStyle = '#ffffff';
+      ctx.strokeStyle = 'rgba(0,0,0,0.35)';
+      ctx.lineWidth = 3;
+      ctx.strokeText(t.label, x+8, y-8);
+      ctx.fillText(t.label, x+8, y-8);
+    }
+
+    // 手掌中心
+    const palm = palmCenter(landmarks);
+    const px = palm.x * W, py = palm.y * H;
+    ctx.fillStyle = '#00e5ff';
+    ctx.beginPath();
+    ctx.arc(px, py, 8, 0, Math.PI*2);
+    ctx.fill();
+    ctx.font = '12px system-ui';
+    ctx.fillStyle = '#ffffff';
+    ctx.strokeStyle = 'rgba(0,0,0,0.35)';
+    ctx.lineWidth = 3;
+    ctx.strokeText('掌', px+10, py-10);
+    ctx.fillText('掌', px+10, py-10);
+
+    // 掌心圈（可视化摘取范围）
+    const area = palmAreaNorm(landmarks);
+    const rPx = Math.min(W, H) * area.radiusNorm;
+    ctx.strokeStyle = '#00e5ff88';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(area.centerNorm.x * W, area.centerNorm.y * H, rPx, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // 创建花朵元素（xNorm = 0..1 用于水平位置，targetYNorm 用于高度相对地面）
+  /**
+   * 种下郁金香：xNorm 控制水平位置，targetYNorm 控制目标高度（相对地面）。
+   * 为满足“稍微高一点”的需求，在计算茎高度时加入小幅提升。
+   */
+  function plantTulip(xNorm, targetYNorm){
+    const now = Date.now();
+    if (now - lastPlantTime < PLANT_COOLDOWN) return;
+    lastPlantTime = now;
+
+    const flower = document.createElement('div');
+    flower.className = 'flower growing';
+    // 宽度可根据需求调整
+    const width = 86;
+    flower.style.width = width + 'px';
+
+    // 将 xNorm 转为绝对位置（镜像修正，因为视频做了镜像）
+    const viewportWidth = window.innerWidth;
+    const leftPx = Math.max(20, Math.min(viewportWidth - width - 20, (1 - xNorm) * viewportWidth - width/2));
+    flower.style.left = leftPx + 'px';
+
+    // 计算 target height（--target-height），以 stem 的高度百分比表示（相对花容器 height）
+    // 为了让花长到接近手的高度，我们把 target height 根据 targetYNorm 取值
+    // targetYNorm: 0 (top) .. 1 (bottom). 我们希望花生长到离地面一定高度: smaller targetYNorm (手高) => taller stem
+    const maxStemPercent = 78; // 最大高度（%）略微提高上限
+    const minStemPercent = 26; // 最小高度（%）
+    const stemBoost = 6;      // 额外提升（%），让郁金香稍微高一点
+    // invert targetYNorm so that higher hand yields longer stem
+    const t = 1 - targetYNorm;
+    let stemPercent = Math.round(minStemPercent + (maxStemPercent - minStemPercent) * Math.min(1, Math.max(0, t)));
+    stemPercent = Math.min(maxStemPercent, stemPercent + stemBoost);
+    // 百分比用于动画，同时换算像素高度以定位花苞在茎顶
+    flower.style.setProperty('--target-height', stemPercent + '%');
+    const stemHpx = Math.round((stemPercent / 100) * window.innerHeight);
+    flower.style.setProperty('--stem-h', stemHpx + 'px');
+
+    // 构建 DOM
+    const stem = document.createElement('div'); stem.className = 'stem';
+    const leafL = document.createElement('div'); leafL.className = 'leaf-left';
+    const leafR = document.createElement('div'); leafR.className = 'leaf-right';
+    const bulb = document.createElement('div'); bulb.className = 'bulb';
+
+    // 3 petals
+    const p1 = document.createElement('div'); p1.className = 'petal p1';
+    const p2 = document.createElement('div'); p2.className = 'petal p2';
+    const p3 = document.createElement('div'); p3.className = 'petal p3';
+    const center = document.createElement('div'); center.className = 'center';
+
+    bulb.appendChild(p1); bulb.appendChild(p2); bulb.appendChild(p3); bulb.appendChild(center);
+
+    flower.appendChild(stem);
+    flower.appendChild(leafL);
+    flower.appendChild(leafR);
+    flower.appendChild(bulb);
+
+    garden.appendChild(flower);
+
+    // 在生长完成后（动画时间），把类从 growing 切换为 bloom（盛开）或保留等待手势触发开花
+    setTimeout(()=>{
+      flower.classList.remove('growing');
+      // 自动微微展开叶子但保持花苞状态
+    }, 1000);
+
+    // 返回对该 DOM 的引用以便后续开花
+    return flower;
+  }
+  /**
+   * 种下经典形态郁金香（闭合花苞、细长叶、橙黄配色）。
+   * xNorm 控制水平位置，targetYNorm 控制高度。
+   */
+  function plantTulipClassic(xNorm, targetYNorm){
+    const now = Date.now();
+    if (now - lastPlantTime < PLANT_COOLDOWN) return;
+    lastPlantTime = now;
+
+    const flower = document.createElement('div');
+    flower.className = 'flower growing tulip-classic';
+    const width = Math.round(74 + Math.random()*20); // 74..94 随机容器宽度
+    flower.style.width = width + 'px';
+
+    const viewportWidth = window.innerWidth;
+    const leftPx = Math.max(20, Math.min(viewportWidth - width - 20, (1 - xNorm) * viewportWidth - width/2));
+    flower.style.left = leftPx + 'px';
+
+    const maxStemPercent = 82; // 更高的上限
+    const minStemPercent = 28;
+    const stemBoost = 8;
+    const t = 1 - targetYNorm;
+    let stemPercent = Math.round(minStemPercent + (maxStemPercent - minStemPercent) * Math.min(1, Math.max(0, t)));
+    // 随机高度微调，保证花高不完全一致
+    const jitter = (Math.random()*8 - 4); // ±4%
+    stemPercent = Math.min(maxStemPercent, Math.max(minStemPercent, stemPercent + stemBoost + jitter));
+    flower.style.setProperty('--target-height', stemPercent + '%');
+    // 计算像素高度并写入 --stem-h，用于茎与花苞定位（最高不超过屏幕 2/3）
+    let stemHpx = Math.round((stemPercent / 100) * window.innerHeight);
+    const stemMax = Math.round(window.innerHeight * 0.66);
+    stemHpx = Math.min(stemHpx, stemMax);
+    flower.style.setProperty('--stem-h', stemHpx + 'px');
+    // 为茎设置轻微弯曲角度
+    const bend = (Math.random()*12 - 6); // -6..6 度
+    const bendDeg = bend.toFixed(1) + 'deg';
+    flower.style.setProperty('--stem-bend', bendDeg);
+    // 计算茎顶在容器坐标系下的位移
+    const rad = bend * Math.PI / 180;
+    const tipX = Math.sin(rad) * stemHpx;
+    const tipY = Math.cos(rad) * stemHpx;
+    flower.style.setProperty('--stem-tip-x', tipX.toFixed(1) + 'px');
+    flower.style.setProperty('--stem-tip-y', tipY.toFixed(1) + 'px');
+    // 随机配色：写入每朵花的变量
+    const pal = randomPalette();
+    flower.style.setProperty('--petal1', pal.petal1);
+    flower.style.setProperty('--petal2', pal.petal2);
+    flower.style.setProperty('--petal3', pal.petal3);
+    flower.style.setProperty('--classic-leaf', pal.leaf);
+    flower.style.setProperty('--classic-stem', pal.stem);
+
+    // 叶子形态随机：大小、角度、位移与缩放
+    const leafLw = Math.round(22 + Math.random()*12);
+    const leafRw = Math.round(22 + Math.random()*12);
+    const leafLh = Math.round(110 + Math.random()*80);
+    const leafRh = Math.round(130 + Math.random()*90);
+    const leafLRot = (-(4 + Math.random()*10)).toFixed(1) + 'deg'; // -4..-14
+    const leafRRot = ((6 + Math.random()*10)).toFixed(1) + 'deg';  // 6..16
+    const leafLTx = (-12 + Math.random()*10).toFixed(1) + 'px';    // -12..-2
+    const leafRTx = (2 + Math.random()*10).toFixed(1) + 'px';      // 2..12
+    const leafLScale = (0.92 + Math.random()*0.16).toFixed(2);
+    const leafRScale = (0.92 + Math.random()*0.18).toFixed(2);
+    flower.style.setProperty('--leafL-w', leafLw + 'px');
+    flower.style.setProperty('--leafR-w', leafRw + 'px');
+    flower.style.setProperty('--leafL-h', leafLh + 'px');
+    flower.style.setProperty('--leafR-h', leafRh + 'px');
+    flower.style.setProperty('--leafL-rot', leafLRot);
+    flower.style.setProperty('--leafR-rot', leafRRot);
+    flower.style.setProperty('--leafL-tx', leafLTx);
+    flower.style.setProperty('--leafR-tx', leafRTx);
+    flower.style.setProperty('--leafL-scale', leafLScale);
+    flower.style.setProperty('--leafR-scale', leafRScale);
+    flower.style.setProperty('--leafL-scaleFinal', 1);
+    flower.style.setProperty('--leafR-scaleFinal', 1);
+
+    // 花大小随机：通过 bulb 整体缩放实现
+    const bulbScale = (0.85 + Math.random()*0.45).toFixed(2);
+    flower.style.setProperty('--bulb-scale', bulbScale);
+
+    const stem = document.createElement('div'); stem.className = 'stem';
+    const leafL = document.createElement('div'); leafL.className = 'leaf-left';
+    const leafR = document.createElement('div'); leafR.className = 'leaf-right';
+    const bulb = document.createElement('div'); bulb.className = 'bulb';
+
+    const budLeft = document.createElement('div'); budLeft.className = 'bud-left';
+    const budRight = document.createElement('div'); budRight.className = 'bud-right';
+    const budBase = document.createElement('div'); budBase.className = 'bud-base';
+    // 额外加入 5 片花瓣，便于最终开花更饱满
+    const p1 = document.createElement('div'); p1.className = 'petal p1';
+    const p2 = document.createElement('div'); p2.className = 'petal p2';
+    const p3 = document.createElement('div'); p3.className = 'petal p3';
+    const p4 = document.createElement('div'); p4.className = 'petal p4';
+    const p5 = document.createElement('div'); p5.className = 'petal p5';
+    const center = document.createElement('div'); center.className = 'center';
+    const halo = document.createElement('div'); halo.className = 'halo';
+
+    bulb.appendChild(budLeft);
+    bulb.appendChild(budRight);
+    bulb.appendChild(budBase);
+    bulb.appendChild(p1);
+    bulb.appendChild(p2);
+    bulb.appendChild(p3);
+    bulb.appendChild(p4);
+    bulb.appendChild(p5);
+    bulb.appendChild(center);
+    bulb.appendChild(halo);
+
+    flower.appendChild(stem);
+    flower.appendChild(leafL);
+    flower.appendChild(leafR);
+    flower.appendChild(bulb);
+    garden.appendChild(flower);
+
+    // 初始阶段：仅显示茎
+    setStage(flower, 1);
+    activeFlower = flower;
+    return flower;
+  }
+
+  /**
+   * 设置花朵阶段：
+   * 1=茎，2=花苞，3=两片叶子，4=开花
+   * 将类切换为 stageX，并在阶段 1/2 给予短暂的“growing”以平滑过渡。
+   */
+  function setStage(flower, stage){
+    if (!flower) return;
+    flower.dataset.stage = String(stage);
+    flower.classList.remove('stage1','stage2','stage3','stage4','bloom');
+    flower.classList.add('stage'+stage);
+    // 阶段性补充动画（避免属性回退的问题，茎已用 --stem-h 固化）
+    if (stage === 1 || stage === 2){
+      flower.classList.add('growing');
+      setTimeout(()=>{ flower?.classList.remove('growing'); }, stage === 1 ? 900 : 700);
+    }
+    if (stage === 4){
+      flower.classList.add('bloom');
+    }
+  }
+
+  /**
+   * 摘除掌心范围内的花（捏合触发）。
+   * 计算掌心圈在视口的中心与半径，命中则对命中的花做淡出并移除。
+   * 返回是否摘除了至少一朵。
+   */
+  function tryPickWithinPalmArea(landmarks){
+    const now = Date.now();
+    if (now - lastPickTime < PICK_COOLDOWN) return false;
+
+    const area = palmAreaNorm(landmarks);
+    const centerVP = normToViewport(area.centerNorm.x, area.centerNorm.y);
+    const radiusPx = area.radiusNorm * Math.min(window.innerWidth, window.innerHeight) * 0.9;
+
+    const items = Array.from(garden.querySelectorAll('.flower'));
+    let removed = false;
+    for (const f of items){
+      const bulb = f.querySelector('.bulb');
+      if (!bulb) continue;
+      const rect = bulb.getBoundingClientRect();
+      const cx = rect.left + rect.width/2;
+      const cy = rect.top + rect.height/2;
+      const d = Math.hypot(cx - centerVP.x, cy - centerVP.y);
+      if (d <= radiusPx){
+        // 淡出动画后移除
+        f.style.transition = 'opacity 180ms ease, transform 180ms ease';
+        f.style.opacity = '0';
+        f.style.transform = 'translateY(12px) scale(0.92)';
+        setTimeout(()=>{
+          if (f.parentNode === garden) garden.removeChild(f);
+        }, 190);
+        removed = true;
+      }
+    }
+
+    if (removed) lastPickTime = now;
+    return removed;
+  }
+
+  // 把已存在的最近一朵花开花（或指定 index）
+  function bloomLatest(){
+    const items = garden.querySelectorAll('.flower');
+    if (!items || items.length === 0) return;
+    const f = items[items.length-1];
+    f.classList.add('bloom');
+    // 确保长度/大小平衡
+    setTimeout(()=>{ /* 可用于播放音效 */ }, 10);
+  }
+
+  // 主循环：检测手势并控制植物生长/种植/开花
+  async function loop() {
+    if (!handLandmarker) { requestAnimationFrame(loop); return; }
+
+    const now = performance.now();
+    const result = handLandmarker.detectForVideo(video, now);
+
+    // 清 debug canvas
+    if (dbgCtx) {
+      dbgCtx.clearRect(0,0,debug.width,debug.height);
+      // optional: draw mirror video for debug
+      // dbgCtx.drawImage(video, 0, 0, debug.width, debug.height);
+    }
+
+    if (result && result.landmarks && result.landmarks.length > 0){
+      const landmarks = result.landmarks[0];
+      const center = handCenter(landmarks); // normalized 0..1
+
+      // 稳定检测（用于“停留”）
+      if (lastHandPos && normDist(center, lastHandPos) < STABLE_THRESHOLD) {
+        stableFrames++;
+      } else {
+        stableFrames = 0;
+      }
+      lastHandPos = center;
+
+      // 可视化指尖与手掌中心
+      drawFingerAndPalmMarkers(dbgCtx, landmarks);
+
+      // 判断五指张开
+      const five = fiveFingersOpen(landmarks);
+
+      // 当停留足够帧并且五指张开：按照“茎→花苞→叶子→开花”推进阶段
+      if (stableFrames >= STABLE_FRAMES_REQUIRED && five) {
+        // 显示闪点标记当前识别位置
+        flashRecognizeDot(center);
+        const stageNow = activeFlower && activeFlower.dataset ? parseInt(activeFlower.dataset.stage || '0', 10) : 0;
+        if (!activeFlower || !document.contains(activeFlower) || stageNow >= 4) {
+          // 种下一朵新花并进入阶段1
+          activeFlower = plantTulipClassic(center.x, center.y);
+          setStage(activeFlower, 1);
+        } else {
+          // 推进到下一阶段
+          const nextStage = Math.min(stageNow + 1, 4);
+          setStage(activeFlower, nextStage);
+        }
+        stableFrames = 0; // reset 以避免连续跳多阶段
+      }
+
+      // 判断 OK 手势或握拳等来开花（这里举例：当五指张开 -> 双击式开花会显得怪）
+      // 为了演示，我们检测“食指与拇指接近”为开花触发（pinch）
+      const thumbTip = landmarks[4], indexTip = landmarks[8];
+      const pinchDist = Math.hypot(thumbTip.x-indexTip.x, thumbTip.y-indexTip.y);
+      const pinchActive = pinchDist < 0.04;
+      if (pinchActive) {
+        // 若尚未抓取，先试图在指尖凸包范围抓取一朵花
+        if (!pickedFlower){
+          const candidate = findFlowerWithinFingerCoverage(landmarks);
+          if (candidate){
+            pickFlower(candidate);
+          } else {
+            // 若无候选，则保留原逻辑：优先尝试掌心摘除，否则开花
+            const removed = tryPickWithinPalmArea(landmarks);
+            if (!removed) bloomLatest();
+          }
+        }
+        // 跟随捏合中点位置
+        const anchor = pinchMidpoint(landmarks);
+        updatePickedFlowerPosition(anchor);
+      } else {
+        // 捏合结束，释放抓取
+        if (pickedFlower){
+          releasePickedFlower();
+        }
+      }
+
+      // 另：也可以在检测到“三指向上”等特定手势时开花
+    } else {
+      // 无手时清除稳定计数
+      stableFrames = 0;
+      lastHandPos = null;
+    }
+
+    requestAnimationFrame(loop);
+  }
+
+  // 启动
+  init().catch(e=>{ console.error(e); alert('无法初始化手势模型或摄像头：' + e.message) });
+
+  // 响应窗口大小变化，调整 canvas & 已有花的位置（简单策略）
+  window.addEventListener('resize', ()=>{
+    debug.width = video.videoWidth;
+    debug.height = video.videoHeight;
+    // 可选择重排花朵位置（此示例简单不做复杂重排）
+  });
+
+  // 可选：快捷键帮助（用于演示在不联网/摄像头时测试）
+  window.addEventListener('keydown', (e)=>{
+    if (e.key === 'p') {
+      // 手动在中间种经典郁金香（便于测试）
+      plantTulipClassic(0.5, 0.68);
+    } else if (e.key === 'b') {
+      bloomLatest();
+    }
+  });
+
+  // 初始化提示的语言与可关闭行为
+  function initHint(){
+    const hint = document.getElementById('handytulip-hint');
+    const zh = hint?.querySelector('.hint-zh');
+    const en = hint?.querySelector('.hint-en');
+    const closeBtn = document.getElementById('handytulip-hint-close');
+    const lang = (localStorage.getItem('language') || 'zh').toLowerCase();
+    const closed = localStorage.getItem('handytulip_hint_closed') === '1';
+    if (closed && hint) { hint.style.display = 'none'; return; }
+    if (en && zh) {
+      if (lang.startsWith('en')) { en.style.display = 'inline'; zh.style.display = 'none'; }
+      else { zh.style.display = 'inline'; en.style.display = 'none'; }
+    }
+    closeBtn?.addEventListener('click', ()=>{
+      if (hint) hint.style.display = 'none';
+      localStorage.setItem('handytulip_hint_closed','1');
+    });
+  }
+
+</script>
+</body>
+</html>

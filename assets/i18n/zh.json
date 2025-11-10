@@ -6,6 +6,7 @@
   "nav.extensions": "浏览器扩展",
   "nav.tools": "在线工具",
   "nav.about": "关于我",
+  "nav.blog": "博客",
 
   "webdavy.version": "版本 1.1.0",
   "webdavy.description": "WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。",
@@ -71,12 +72,21 @@
   "btn.try-tool": "试用工具",
 
   "about.title": "关于我",
-  "about.desc": "我是 <strong class=\"text-orange-600\">angiie</strong>，全栈个人开发者，热爱把小想法变成能落地的效率工具。这里会持续更新 Chrome 扩展与 Web 工具，欢迎收藏与反馈。",
+  "about.desc": "我是 <strong class=\"text-orange-600\">angiie</strong>。我的女儿是虎年出生，我们全家都很喜欢老虎的图腾，甚至我们的狗也叫\"老虎\"（排行老五，所以取这个名字）。Hola 的由来是我正在学习西班牙语。这里会持续更新 Chrome 扩展与 Web 工具，欢迎收藏与反馈。",
 
   "carousel.prev": "上一张",
   "carousel.next": "下一张",
   "carousel.slide": "切换到第{index}张",
   "lang.current": "简体",
 
-  "footer.copyright": "© {year} 虎啦 (HolaTiger) - 小工具，大能量"
+  "footer.copyright": "© {year} 虎啦 (HolaTiger) - 小工具，大能量",
+  "handytulip.desc": "用摄像头手势种花，生成 CSS 郁金香动画。",
+  "title.handytulip": "HandyTulip - 虎啦",
+  "handytulip.description": "一个趣味 Web 工具：打开摄像头，通过手势即可在屏幕上种郁金香。纯 CSS 动画实现，轻量且无需安装。",
+  "handytulip.tips.title": "使用须知",
+  "handytulip.tips.camera": "请允许摄像头权限以进行手势识别。",
+  "handytulip.tips.play": "基础玩法：伸出手掌预览位置，捏合手势即可种下一朵郁金香。移动手势可调整位置，在地面区域效果更佳。",
+  "handytulip.tips.close": "我已了解"
+  ,
+  "handytulip.tips.handopen": "把手伸到镜头前：停留并张开五指可在该位置种下郁金香 🌷"
 }
