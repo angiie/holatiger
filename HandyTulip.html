@@ -323,6 +323,11 @@
   .bloom .petal.p2 { animation: bloom 600ms ease-out 80ms forwards; transform-origin: 50% 80%; }
   .bloom .petal.p3 { animation: bloom 600ms ease-out 140ms forwards; transform-origin: 50% 80%; }
   .bloom .center { animation: bloom 600ms ease-out 180ms forwards; }
+  /* 快速开花：缩短动画时长，满足 push 快开需求 */
+  .bloom-fast .petal.p1 { animation: bloom 300ms ease-out 0ms forwards; }
+  .bloom-fast .petal.p2 { animation: bloom 300ms ease-out 60ms forwards; transform-origin: 50% 80%; }
+  .bloom-fast .petal.p3 { animation: bloom 300ms ease-out 110ms forwards; transform-origin: 50% 80%; }
+  .bloom-fast .center { animation: bloom 300ms ease-out 140ms forwards; }
 
   /* 阶段控制：stage1 仅有茎；stage2 出花苞；stage3 展叶；stage4 开花 */
   .flower.tulip-classic.stage1 .leaf-left,
@@ -695,6 +700,70 @@
     return Math.hypot(a.x-b.x, a.y-b.y);
   }
 
+  /**
+   * 计算最近的花朵：基于掌心中心在视口的坐标，取 bulb 中心最近者。
+   * 返回最近的 .flower 元素或 null。
+   */
+  function nearestFlowerToViewport(vp){
+    const items = Array.from(garden.querySelectorAll('.flower'));
+    if (!items.length) return null;
+    let best = null, bestD = Infinity;
+    for (const f of items){
+      const bulb = f.querySelector('.bulb');
+      if (!bulb) continue;
+      const rect = bulb.getBoundingClientRect();
+      const cx = rect.left + rect.width/2;
+      const cy = rect.top + rect.height/2;
+      const d = Math.hypot(cx - vp.x, cy - vp.y);
+      if (d < bestD){ bestD = d; best = f; }
+    }
+    return best;
+  }
+
+  /**
+   * 快速开花：将阶段切到 4，并用 bloom-fast 覆盖默认开花动画时长。
+   */
+  function openFlowerFast(flower){
+    if (!flower) return;
+    setStage(flower, 4);
+    // 替换为快速开花动画
+    flower.classList.remove('bloom');
+    flower.classList.add('bloom-fast');
+  }
+
+  /**
+   * 闭合花朵：退回到阶段 3（叶片展开，花瓣隐藏）。
+   */
+  function closeFlower(flower){
+    if (!flower) return;
+    flower.classList.remove('bloom','bloom-fast');
+    setStage(flower, 3);
+  }
+
+  // 手势状态检测相关参数（以掌心圈半径变化为近远代理）
+  let lastPalmRadius = null;
+  const PUSH_DELTA = 0.015; // 半径增大阈值：靠近摄像头视为 push
+  const PULL_DELTA = 0.015; // 半径减小阈值：远离摄像头视为 pull
+  let lastGestureTS = 0;
+  const GESTURE_COOLDOWN = 240; // ms，避免抖动频繁触发
+
+  /**
+   * 基于 palmAreaNorm 半径的变化判断 push/pull/idle。
+   * 返回 'push' | 'pull' | 'idle'。
+   */
+  function detectPushPullIdle(landmarks){
+    const area = palmAreaNorm(landmarks);
+    const r = area.radiusNorm;
+    let state = 'idle';
+    if (lastPalmRadius != null){
+      const dr = r - lastPalmRadius;
+      if (dr > PUSH_DELTA) state = 'push';
+      else if (dr < -PULL_DELTA) state = 'pull';
+    }
+    lastPalmRadius = r;
+    return state;
+  }
+
   // 辅助：判断手指是否张开（针对四指）
   function fingerExtended(landmarks, tipIdx, pipIdx){
     // 基本启发式：如果指尖在 pip 之上（y 更小），则认为伸直（摄像头镜像时 y 方向不变）
@@ -975,7 +1044,7 @@
   function setStage(flower, stage){
     if (!flower) return;
     flower.dataset.stage = String(stage);
-    flower.classList.remove('stage1','stage2','stage3','stage4','bloom');
+    flower.classList.remove('stage1','stage2','stage3','stage4','bloom','bloom-fast');
     flower.classList.add('stage'+stage);
     // 阶段性补充动画（避免属性回退的问题，茎已用 --stem-h 固化）
     if (stage === 1 || stage === 2){
@@ -1108,6 +1177,28 @@
         // 捏合结束，释放抓取
         if (pickedFlower){
           releasePickedFlower();
+        }
+      }
+
+      // push/pull/idle：基于掌心半径变化控制最近的花开合
+      // 避免与捏合拖拽冲突，仅在未抓取状态下触发
+      if (!pickedFlower){
+        const nowTS = Date.now();
+        if (nowTS - lastGestureTS > GESTURE_COOLDOWN){
+          const state = detectPushPullIdle(landmarks);
+          if (state !== 'idle'){
+            const vp = normToViewport(palmCenter(landmarks).x, palmCenter(landmarks).y);
+            let target = nearestFlowerToViewport(vp);
+            // 若当前无花，push 时就地种下并开花；pull 无花则忽略
+            if (!target && state === 'push'){
+              target = plantTulipClassic(palmCenter(landmarks).x, palmCenter(landmarks).y);
+            }
+            if (target){
+              if (state === 'push') openFlowerFast(target);
+              else if (state === 'pull') closeFlower(target);
+              lastGestureTS = nowTS;
+            }
+          }
         }
       }
 

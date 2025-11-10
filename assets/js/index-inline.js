@@ -15,6 +15,8 @@ window.addEventListener('load', function() {
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
   }
+
+  setupObfuscatedEmailClick();
 });
 
 const heroSection = document.querySelector('.hero-interactive');
@@ -95,3 +97,47 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   window.addEventListener('load', initLanguage);
   window.switchLanguage = switchLanguage;
 })();
+
+/**
+ * 绑定邮箱图标点击事件
+ * 原理：读取元素的 data-email（如 onlyangiie#gmail.com），将 # 替换为 @，并跳转到 mailto
+ */
+function setupObfuscatedEmailClick() {
+  try {
+    const emailElements = document.querySelectorAll('[data-email]');
+    emailElements.forEach((el) => {
+      const handler = function (e) {
+        e.preventDefault();
+        const obfuscated = (el.getAttribute('data-email') || '').trim();
+        if (!obfuscated) return;
+        const decoded = obfuscated.replace('#', '@');
+        const mailto = `mailto:${decoded}`;
+
+        // 先将 href 设置为 mailto，增强兼容性
+        el.setAttribute('href', mailto);
+
+        try {
+          // 首选使用 assign，避免部分环境阻止 location.href
+          window.location.assign(mailto);
+        } catch (_) {
+          try {
+            // 退化为打开自身窗口
+            window.open(mailto, '_self');
+          } catch (__){ /* ignore */ }
+          // 最后兜底：创建临时 <a> 并触发点击
+          const a = document.createElement('a');
+          a.href = mailto;
+          a.style.display = 'none';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }
+      };
+      // 使用捕获阶段，确保先阻止默认并触发 mailto
+      el.addEventListener('click', handler, { capture: true });
+    });
+  } catch (err) {
+    // 安静失败以避免影响其他功能
+    if (console && console.warn) console.warn('setupObfuscatedEmailClick failed:', err);
+  }
+}

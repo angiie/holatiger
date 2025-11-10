@@ -71,9 +71,10 @@
   "text-to-png.desc": "快速将文本转换为PNG图片，支持自定义字体、颜色和样式设置。",
   "status.available": "可用",
   "btn.try-tool": "试用工具",
+  "btn.email": "邮箱",
 
   "about.title": "关于我",
-  "about.desc": "我是 <strong class=\"text-orange-600\">angiie</strong>。我的女儿是虎年出生，我们全家都很喜欢老虎的图腾，甚至我们的狗也叫\"老虎\"（排行老五，所以取这个名字）。Hola 的由来是我正在学习西班牙语。这里会持续更新 Chrome 扩展与 Web 工具，欢迎收藏与反馈。",
+  "about.desc": "我是 <strong class=\"text-orange-600\">angiie</strong>。我的女儿是虎年出生，我们全家都很喜欢老虎的图腾，甚至我们的狗也叫\"老虎\"（排行老五，所以就叫这个了）。hola 是因为我刚好也在学西班牙语，这是西班牙的问候语。这里会持续更新 Chrome 扩展与 Web 工具，欢迎收藏与反馈。",
 
   "carousel.prev": "上一张",
   "carousel.next": "下一张",

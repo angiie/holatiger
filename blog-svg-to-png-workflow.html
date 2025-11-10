@@ -54,5 +54,13 @@
     <p><strong>Q：</strong>导出模糊？<br/><strong>A：</strong>确认像素尺寸足够，避免浏览器缩放渲染；必要时提高导出尺寸。</p>
     <p><strong>Q：</strong>颜色不一致？<br/><strong>A：</strong>检查 SVG 中的滤镜与混合模式；尽量使用标准 fill/stroke。</p>
   </main>
+  <script src="/assets/js/i18n.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      if (window.i18n && typeof window.i18n.init === 'function') {
+        window.i18n.init();
+      }
+    });
+  </script>
 </body>
 </html>

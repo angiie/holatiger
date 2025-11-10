@@ -71,9 +71,10 @@
   "text-to-png.desc": "Quickly convert text to PNG images with customizable fonts, colors, and style settings.",
   "status.available": "Available",
   "btn.try-tool": "Try Tool",
+  "btn.email": "Email",
 
   "about.title": "About Me",
-  "about.desc": "I'm <strong class=\"text-orange-600\">angiie</strong>, a full-stack indie developer who loves turning small ideas into practical productivity tools. This site will keep updating Chrome extensions and web tools. You're welcome to star and give feedback.",
+  "about.desc": "I'm <strong class=\"text-orange-600\">angiie</strong>. My daughter was born in the Year of the Tiger; our family loves tiger motifs, and even our dog is called \"Tiger\" (he's the fifth one, so the name stuck). \"Hola\" comes from my ongoing Spanish learning — it's the friendly Spanish greeting I like. This site will keep updating Chrome extensions and web tools. Feel free to bookmark and send feedback.",
 
   "carousel.prev": "Previous",
   "carousel.next": "Next",
