@@ -109,4 +109,9 @@
       ]
     }
   ]
+  ,
+  "rewrites": [
+    { "source": "/handytulip.html", "destination": "/HandyTulip.html" },
+    { "source": "/handytulip", "destination": "/HandyTulip.html" }
+  ]
 }
