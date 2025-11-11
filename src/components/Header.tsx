@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default', className = '' }) 
       case 'tool':
         return "header-container"
       default:
-        return "container nav-v1"
+        return "nav-v1"
     }
   }
 
@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default', className = '' }) 
 
     return (
       <a className={getLogoClasses()} href={variant === 'product' ? 'https://holatiger.com/' : '#home'}>
-        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" className="w-8 h-8" />
+        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" className="logo-icon" />
         <span className="logo-text">{t('logo.text', '虎啦')}</span>
       </a>
     )

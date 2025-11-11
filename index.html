@@ -1,105 +1,171 @@
-<!doctype html>
-<html lang="zh-CN" data-theme="light">
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HolaTiger 虎啦 - 个人工具集合</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="轻量、实用、开箱即用的浏览器扩展与在线工具集合。密码生成器、WebDAV工具、SVG转换等实用工具。" />
+    <meta name="keywords" content="浏览器扩展,在线工具,密码生成器,WebDAV,SVG转换,实用工具" />
+    <meta name="author" content="HolaTiger" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://holatiger.com/" />
+    <meta property="og:title" content="HolaTiger 虎啦 - 个人工具集合" />
+    <meta property="og:description" content="轻量、实用、开箱即用的浏览器扩展与在线工具集合。" />
+    <meta property="og:image" content="/assets/images/social/holatiger-svg-studio-1200x630.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://holatiger.com/" />
+    <meta property="twitter:title" content="HolaTiger 虎啦 - 个人工具集合" />
+    <meta property="twitter:description" content="轻量、实用、开箱即用的浏览器扩展与在线工具集合。" />
+    <meta property="twitter:image" content="/assets/images/social/holatiger-svg-studio-1200x630.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/images/icons/icon_16x16.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png">
+    <link rel="icon" type="image/x-icon" sizes="48x48" href="/assets/images/icons/icon_48x48.ico">
+    <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/icons/icon_64x64.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="/assets/images/icons/icon_128x128.png">
+    <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/icon_256x256.png">
+    
+    <!-- Language Alternates -->
+    <link rel="alternate" href="https://holatiger.com/" hreflang="zh-CN" />
+    <link rel="alternate" href="https://holatiger.com/?lang=zh-TW" hreflang="zh-TW" />
+    <link rel="alternate" href="https://holatiger.com/?lang=en" hreflang="en" />
+    <link rel="alternate" href="https://holatiger.com/" hreflang="x-default" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "HolaTiger",
+        "url": "https://holatiger.com/",
+        "inLanguage": "zh-CN"
+      }
+    </script>
 
-<head>
-  <!-- Analytics Scripts -->
-  <script src="/assets/js/analytics.js" charset="utf-8"></script>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="虎啦（HolaTiger）：轻量、实用、开箱即用的浏览器扩展与在线工具集合，为你的工作流程增添便利。" />
-  <meta name="keywords" content="Chrome 扩展, 浏览器插件, 在线工具, 密码生成器, WebDAV, TinyPass, WebDavy, HolaTiger" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://holatiger.com/" />
-  <meta property="og:title" content="HolaTiger 虎啦 - 个人工具集合 | 密码生成器·WebDAV·SVG转换" />
-  <meta property="og:description" content="轻量、实用、开箱即用的浏览器扩展与在线工具集合。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://holatiger.com/" />
-  <meta property="og:image" content="/assets/images/social/holatiger-svg-studio-1200x630.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="HolaTiger 虎啦 - 个人工具集合 | 密码生成器·WebDAV·SVG转换" />
-  <meta name="twitter:description" content="轻量、实用、开箱即用的浏览器扩展与在线工具集合。" />
-  <meta property="og:image" content="/assets/images/social/holatiger-svg-studio-1200x630.png" />
-  <meta name="twitter:image" content="/assets/images/social/holatiger-svg-studio-1200x630.png" />
-  <title data-i18n="title">HolaTiger 虎啦 - 个人工具集合 | 密码生成器·WebDAV·SVG转换</title>
-  
-  <!-- Favicon配置 -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/images/icons/icon_16x16.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png">
-  <link rel="icon" type="image/x-icon" sizes="48x48" href="/assets/images/icons/icon_48x48.ico">
-  <link rel="icon" type="image/png" sizes="64x64" href="/assets/images/icons/icon_64x64.png">
-  <link rel="icon" type="image/png" sizes="128x128" href="/assets/images/icons/icon_128x128.png">
-  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/icon_256x256.png">
-  <link rel="stylesheet" href="/assets/css/tw.css" />
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
-  <script src="/assets/js/main.js" defer></script>
-  <script src="/assets/js/i18n.js"></script>
-  <script>window.addEventListener('load',function(){ if(window.i18n && typeof window.i18n.init==='function'){ window.i18n.init(); }});</script>
-  <link rel="alternate" href="https://holatiger.com/" hreflang="zh-CN" />
-  <link rel="alternate" href="https://holatiger.com/?lang=zh-TW" hreflang="zh-TW" />
-  <link rel="alternate" href="https://holatiger.com/?lang=en" hreflang="en" />
-  <link rel="alternate" href="https://holatiger.com/" hreflang="x-default" />
-  <link rel="stylesheet" href="/assets/css/index-inline.css" />
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"HolaTiger","url":"https://holatiger.com/","inLanguage":"zh-CN"}</script>
-</head>
-
-<body class="v1-professional">
-  <!-- Header -->
-  <header class="site-header-v1" id="top">
-    <div class="container nav-v1">
-      <a class="logo-v1" href="#home">
-        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
-        <span class="logo-text" data-i18n="logo.text">虎啦</span>
-      </a>
-      <div class="flex items-center gap-6">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/tw.css" />
+    
+    <!-- i18n -->
+    <script src="/assets/js/i18n.js"></script>
+    <script>window.addEventListener('load',function(){ if(window.i18n && typeof window.i18n.init==='function'){ window.i18n.init(); }});</script>
+    
+    <!-- 语言切换器脚本 -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const langOptions = document.querySelectorAll('.lang-option');
+        const currentLangSpan = document.querySelector('.current-lang');
+        const dropdown = document.querySelector('.dropdown');
+        
+        // 初始化当前语言显示
+        function initCurrentLanguage() {
+          if (window.i18n && window.i18n.currentLanguage) {
+            const currentLang = window.i18n.currentLanguage;
+            const langMap = {
+              'zh-CN': '🇨🇳 简体中文',
+              'zh-TW': '🇹🇼 繁體中文', 
+              'en': '🇺🇸 English',
+              'fr': '🇫🇷 Français',
+              'es': '🇪🇸 Español',
+              'ar': '🇸🇦 العربية'
+            };
+            currentLangSpan.textContent = langMap[currentLang] || '🇨🇳 简体中文';
+            
+            // 更新激活状态
+            langOptions.forEach(opt => {
+              opt.classList.remove('active');
+              if (opt.getAttribute('data-lang') === currentLang) {
+                opt.classList.add('active');
+              }
+            });
+          }
+        }
+        
+        // 语言切换功能
+        langOptions.forEach(option => {
+          option.addEventListener('click', function(e) {
+            e.preventDefault();
+            const langCode = this.getAttribute('data-lang');
+            
+            // 更新当前语言显示
+            currentLangSpan.textContent = this.textContent;
+            
+            // 更新激活状态
+            langOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            
+            // 切换i18n语言
+            if (window.i18n && typeof window.i18n.switchLanguage === 'function') {
+              window.i18n.switchLanguage(langCode);
+            } else if (window.switchLanguage) {
+              window.switchLanguage(langCode);
+            }
+          });
+        });
+        
+        // 点击外部关闭下拉菜单
+        document.addEventListener('click', function(e) {
+          if (dropdown && !dropdown.contains(e.target)) {
+            dropdown.blur();
+          }
+        });
+        
+        // 监听语言切换事件
+        window.addEventListener('languageChanged', function(e) {
+          initCurrentLanguage();
+        });
+        
+        // 初始化
+        setTimeout(initCurrentLanguage, 100);
+      });
+    </script>
+  </head>
+  <body class="v1-professional">
+    <!-- Header -->
+    <header class="site-header-v1" id="top">
+      <div class="container nav-v1">
+        <a class="logo-v1" href="/">
+          <img src="/assets/images/icons/icon_64x64.png" alt="HolaTiger Logo" class="w-8 h-8" />
+          <span class="logo-text" data-i18n="logo.text">HolaTiger</span>
+        </a>
         <nav class="nav-links-v1">
           <a href="#home" data-i18n="nav.home">首页</a>
           <a href="#extensions" data-i18n="nav.extensions">浏览器扩展</a>
           <a href="#tools" data-i18n="nav.tools">在线工具</a>
           <a href="#about" data-i18n="nav.about">关于我</a>
+          <a href="/faq.html" data-i18n="nav.faq">常见问题</a>
+          <a href="/blog.html" data-i18n="nav.blog">博客</a>
         </nav>
-        <nav class="nav-links-v1">
-          <a href="/faq" data-i18n="nav.faq">FAQ</a>
-          <a href="/blog" data-i18n="nav.blog">博客</a>
-        </nav>
-
-        <!-- 语言选择器 -->
-        <div class="dropdown dropdown-end">
-          <div tabindex="0" role="button" class="lang-switcher-btn">
-            <i data-lucide="globe" class="w-4 h-4"></i>
-            <span id="current-lang">中文</span>
-            <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-200"></i>
-          </div>
-          <ul tabindex="0" class="lang-dropdown-menu">
-            <li><a onclick="switchLanguage('zh')" class="lang-option" data-lang="zh">
-                <span class="lang-text">简体</span>
-              </a></li>
-            <li><a onclick="switchLanguage('zh-tw')" class="lang-option" data-lang="zh-tw">
-                <span class="lang-text">繁體</span>
-              </a></li>
-            <li><a onclick="switchLanguage('en')" class="lang-option" data-lang="en">
-                <span class="lang-text">EN</span>
-              </a></li>
-            <li><a onclick="switchLanguage('fr')" class="lang-option" data-lang="fr">
-                <span class="lang-text">Français</span>
-              </a></li>
-            <li><a onclick="switchLanguage('es')" class="lang-option" data-lang="es">
-                <span class="lang-text">Español</span>
-              </a></li>
-            <li><a onclick="switchLanguage('ar')" class="lang-option" data-lang="ar">
-                <span class="lang-text">العربية</span>
-              </a></li>
+        
+        <!-- 语言切换器 -->
+        <div class="dropdown" tabindex="0">
+          <button class="lang-switcher-btn" aria-label="切换语言">
+            <span class="current-lang">🇨🇳 简体中文</span>
+            <span class="chevron-down">▼</span>
+          </button>
+          <ul class="lang-dropdown-menu">
+            <li><a href="#" class="lang-option active" data-lang="zh-CN">🇨🇳 简体中文</a></li>
+            <li><a href="#" class="lang-option" data-lang="zh-TW">🇹🇼 繁體中文</a></li>
+            <li><a href="#" class="lang-option" data-lang="en">🇺🇸 English</a></li>
+            <li><a href="#" class="lang-option" data-lang="fr">🇫🇷 Français</a></li>
+            <li><a href="#" class="lang-option" data-lang="es">🇪🇸 Español</a></li>
+            <li><a href="#" class="lang-option" data-lang="ar">🇸🇦 العربية</a></li>
           </ul>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main>
-    <!-- Hero - 互动增强版 -->
+    <!-- Hero Section -->
     <section id="home" class="hero-interactive relative py-16 px-6 overflow-hidden">
-
       <!-- 粒子背景 -->
       <div class="particles">
         <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
@@ -112,287 +178,292 @@
         <div class="particle" style="left: 80%; animation-delay: 1.5s;"></div>
         <div class="particle" style="left: 90%; animation-delay: 2.5s;"></div>
       </div>
+      
+      <!-- 浮动装饰元素 -->
+      <div class="absolute top-1/4 left-1/4 w-16 h-16 bg-orange-200/30 rounded-full blur-xl animate-pulse"></div>
+      <div class="absolute top-1/3 right-1/4 w-12 h-12 bg-red-200/30 rounded-full blur-lg animate-pulse" style="animation-delay: 1s;"></div>
+      <div class="absolute bottom-1/4 left-1/3 w-20 h-20 bg-yellow-200/30 rounded-full blur-2xl animate-pulse" style="animation-delay: 2s;"></div>
 
       <!-- 背景装饰 -->
-      <div
-        class="absolute inset-0 bg-gradient-to-r from-orange-100/20 to-red-100/20 rounded-full blur-3xl transform -translate-y-1/2 scale-150">
-      </div>
+      <div class="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-red-50/20 to-yellow-50/30"></div>
+      <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-200/20 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute top-1/3 right-1/4 w-48 h-48 bg-red-200/20 rounded-full blur-2xl animate-float" style="animation-delay: 1s;"></div>
+      <div class="absolute bottom-1/4 left-1/3 w-56 h-56 bg-yellow-200/20 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
 
       <div class="max-w-5xl mx-auto text-center relative z-10">
         <!-- 状态徽章 -->
-        <div
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-100 text-orange-700 text-sm font-medium mb-8 shadow-lg border border-orange-200 fade-in-up"
-          style="animation-delay: 0.2s;">
-          <span class="w-2 h-2 bg-orange-500 rounded-full "></span>
+        <div class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-orange-100 text-orange-700 text-sm font-medium mb-8 shadow-lg border border-orange-200 fade-in-up" style="animation-delay: 0.2s;">
+          <span class="w-2 h-2 bg-orange-500 rounded-full"></span>
           <span data-i18n="hero.badge">🚀 持续更新中</span>
         </div>
 
-        <!-- 主标题 - 打字机效果 -->
-        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight fade-in-up"
-          style="animation-delay: 0.4s;">
+        <!-- 主标题 -->
+        <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight fade-in-up" style="animation-delay: 0.4s;">
           <span class="gradient-text typewriter" data-i18n="hero.title">小工具，大能量。</span>
         </h1>
 
         <!-- 副标题 -->
-        <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed fade-in-up"
-          style="animation-delay: 0.6s;">
+        <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed fade-in-up" style="animation-delay: 0.6s;">
           <span data-i18n="hero.subtitle1">轻量、实用、开箱即用的浏览器扩展与在线工具集合</span><br />
           <span class="text-orange-600 font-semibold" data-i18n="hero.subtitle2">为你的工作流程增添便利</span>
         </p>
 
         <!-- 按钮组 -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up" style="animation-delay: 0.8s;">
-          <a href="#extensions"
-            class="px-8 py-3 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md border border-orange-500"
-            style="text-decoration: none !important;">
+          <a href="#extensions" class="px-8 py-3 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md border border-orange-500">
             <span data-i18n="hero.btn1">🔧 查看扩展</span>
           </a>
-          <a href="#tools"
-            class="px-8 py-3 border-2 border-orange-500 bg-white text-orange-600 rounded-xl font-semibold hover:bg-orange-50 hover:border-orange-600 transition-all duration-300 shadow-md"
-            style="text-decoration: none !important;">
+          <a href="#tools" class="px-8 py-3 border-2 border-orange-500 bg-white text-orange-600 rounded-xl font-semibold hover:bg-orange-50 hover:border-orange-600 transition-all duration-300 shadow-md">
             <span data-i18n="hero.btn2">🛠️ 探索工具</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Chrome扩展区域 -->
+    <!-- Extensions Section -->
     <section id="extensions" class="py-12 px-6">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-10">
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">
             🧩 Chrome Extensions
           </div>
           <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="extensions.title">浏览器扩展</h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto" data-i18n="extensions.subtitle">增强你的浏览器功能，让日常操作更加高效便捷</p>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto" data-i18n="extensions.subtitle">
+            增强你的浏览器功能，让日常操作更加高效便捷
+          </p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <!-- TinyPass -->
-          <div
-            class="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
-            <a href="/tinypass" class="flex items-center gap-4 mb-5 no-underline"
-              style="text-decoration:none !important; color: inherit;">
-              <div
-                class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center shadow-sm">
-                <img src="/assets/images/tinypass/svg-export-40x40.png" alt="TinyPass" class="w-8 h-8">
+          <div class="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
+            <a href="/tinypass" class="flex items-center gap-4 mb-5 no-underline" style="text-decoration: none !important; color: inherit;">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center shadow-sm">
+                <img src="/assets/images/tinypass/svg-export-40x40.png" alt="TinyPass" class="w-8 h-8" />
               </div>
               <div>
-                <h3 class="font-bold text-gray-900 text-lg" data-i18n="tinypass.name">TinyPass</h3>
-                <span class="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full font-medium"
-                  data-i18n="extensions.badge">Chrome扩展</span>
+                <h3 class="font-bold text-gray-900 text-lg">TinyPass</h3>
+                <span class="text-sm px-3 py-1 rounded-full font-medium text-blue-600 bg-blue-50">
+                  Chrome扩展
+                </span>
               </div>
             </a>
+            
             <p class="text-gray-600 mb-5 leading-relaxed line-clamp-3" data-i18n="tinypass.desc">
-              一个简单而强大的密码生成工具，支持多种复杂度设置和自定义规则。</p>
+              一个简单而强大的密码生成工具，支持多种复杂度设置和自定义规则。
+            </p>
+            
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2 text-sm text-gray-500">
-                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
                 <span data-i18n="status.published">已发布</span>
               </div>
-              <a href="/tinypass"
-                class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm shadow-sm no-underline"
-                style="background-color: #2563eb !important; color: white !important; text-decoration: none !important;"
-                data-i18n="btn.install">安装扩展</a>
+              <a href="/tinypass" class="inline-flex items-center px-4 py-2 text-white rounded-lg transition-colors font-medium text-sm shadow-sm no-underline bg-blue-600 hover:bg-blue-700" style="text-decoration: none !important; color: white !important;">
+                <span data-i18n="btn.install">安装扩展</span>
+              </a>
             </div>
           </div>
 
           <!-- WebDavy -->
-          <div
-            class="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
-            <a href="/webdavy"
-              class="flex items-center gap-4 mb-5 no-underline"
-              style="text-decoration:none !important; color: inherit;">
-              <div
-                class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center shadow-sm">
-                <img src="/assets/images/webdavy/svg-export-40x40.png" alt="WebDavy" class="w-8 h-8">
+          <div class="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
+            <a href="/webdavy" class="flex items-center gap-4 mb-5 no-underline" style="text-decoration: none !important; color: inherit;">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center shadow-sm">
+                <img src="/assets/images/webdavy/svg-export-40x40.png" alt="WebDavy" class="w-8 h-8" />
               </div>
               <div>
-                <h3 class="font-bold text-gray-900 text-lg" data-i18n="webdavy.name">WebDavy</h3>
-                <span class="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full font-medium"
-                  data-i18n="extensions.badge">Chrome扩展</span>
+                <h3 class="font-bold text-gray-900 text-lg">WebDavy</h3>
+                <span class="text-sm px-3 py-1 rounded-full font-medium text-blue-600 bg-blue-50">
+                  Chrome扩展
+                </span>
               </div>
             </a>
+            
             <p class="text-gray-600 mb-5 leading-relaxed line-clamp-3" data-i18n="webdavy.desc">
-              轻量化的WebDAV连接工具，简化文件同步和管理流程。</p>
+              轻量化的WebDAV连接工具，简化文件同步和管理流程。
+            </p>
+            
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2 text-sm text-gray-500">
-                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
                 <span data-i18n="status.published">已发布</span>
               </div>
-              <a href="https://chromewebstore.google.com/detail/webdavy/inaeglkgfmnkncalphgpkendfjndjmid" target="_blank"
-                class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm shadow-sm no-underline"
-                style="background-color: #2563eb !important; color: white !important; text-decoration: none !important;"
-                data-i18n="btn.install">安装扩展</a>
+              <a href="/webdavy" class="inline-flex items-center px-4 py-2 text-white rounded-lg transition-colors font-medium text-sm shadow-sm no-underline bg-blue-600 hover:bg-blue-700" style="text-decoration: none !important; color: white !important;">
+                <span data-i18n="btn.install">安装扩展</span>
+              </a>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Web工具区域 -->
-    <section id="tools" class="py-12 px-6 bg-gradient-to-br from-orange-50/50 to-red-50/50">
+    <!-- Tools Section -->
+    <section id="tools" class="py-12 px-6 bg-gray-50">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-10">
-          <div
-            class="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium mb-4">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-4">
             🛠️ Web Tools
           </div>
           <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="tools.title">在线工具</h2>
-          <p class="text-gray-600 text-lg max-w-2xl mx-auto" data-i18n="tools.subtitle">无需安装，打开即用的在线工具集合</p>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto" data-i18n="tools.subtitle">
+            简单易用的在线工具，无需安装即可使用
+          </p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <!-- SVG Studio -->
-          <div
-            class="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
-            <a href="/svg-studio.html" class="flex items-center gap-4 mb-5 no-underline" style="text-decoration:none !important; color: inherit;">
-              <div
-                class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center shadow-sm">
-                <img src="/assets/images/svg-studio/edited_image_1 (1).png" alt="SVG Studio Pro Logo" class="w-8 h-8 object-contain">
+          <div class="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
+            <a href="/svg-studio" class="flex items-center gap-4 mb-5 no-underline" style="text-decoration: none !important; color: inherit;">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center shadow-sm">
+                <span class="text-2xl">🎨</span>
               </div>
               <div>
-                <h3 class="font-bold text-gray-900 text-lg" data-i18n="svg-studio.name">SVG Studio</h3>
-                <span class="text-sm text-purple-600 bg-purple-50 px-3 py-1 rounded-full font-medium"
-                  data-i18n="tools.badge">Web工具</span>
+                <h3 class="font-bold text-gray-900 text-lg">SVG Studio</h3>
+                <span class="text-sm px-3 py-1 rounded-full font-medium text-green-600 bg-green-50">
+                  在线工具
+                </span>
               </div>
             </a>
-            <p class="text-gray-600 mb-4 leading-relaxed" data-i18n="svg-studio.desc">简单易用的SVG转换工具，支持多种格式输出和实时预览功能。</p>
+            
+            <p class="text-gray-600 mb-5 leading-relaxed line-clamp-3" data-i18n="tools.svg-studio.desc">
+              专业的SVG编辑和转换工具，支持多种格式转换和优化。
+            </p>
+            
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2 text-sm text-gray-500">
-                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                <span data-i18n="status.available">可用</span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                <span data-i18n="status.published">已发布</span>
               </div>
-              <a href="/svg-studio.html"
-                class="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm shadow-sm no-underline"
-                style="background-color: #9333ea !important; color: white !important; text-decoration: none !important;"
-                data-i18n="btn.try-tool">试用工具</a>
+              <a href="/svg-studio" class="inline-flex items-center px-4 py-2 text-white rounded-lg transition-colors font-medium text-sm shadow-sm no-underline bg-green-600 hover:bg-green-700" style="text-decoration: none !important; color: white !important;">
+                <span data-i18n="btn.use">使用工具</span>
+              </a>
             </div>
           </div>
 
           <!-- Text to PNG -->
-          <div
-            class="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
-            <a href="/text-to-png.html" class="flex items-center gap-4 mb-5 no-underline" style="text-decoration:none !important; color: inherit;">
-              <div
-                class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center shadow-sm">
-                <i data-lucide="type" class="w-8 h-8 text-orange-600"></i>
+          <div class="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
+            <a href="/text-to-png" class="flex items-center gap-4 mb-5 no-underline" style="text-decoration: none !important; color: inherit;">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center shadow-sm">
+                <span class="text-2xl">📝</span>
               </div>
               <div>
-                <h3 class="font-bold text-gray-900 text-lg" data-i18n="text-to-png.name">Text to PNG</h3>
-                <span class="text-sm text-orange-600 bg-orange-50 px-3 py-1 rounded-full font-medium"
-                  data-i18n="tools.badge">Web工具</span>
+                <h3 class="font-bold text-gray-900 text-lg">Text to PNG</h3>
+                <span class="text-sm px-3 py-1 rounded-full font-medium text-green-600 bg-green-50">
+                  在线工具
+                </span>
               </div>
             </a>
-            <p class="text-gray-600 mb-4 leading-relaxed" data-i18n="text-to-png.desc">快速将文本转换为PNG图片，支持自定义字体、颜色和样式设置。</p>
+            
+            <p class="text-gray-600 mb-5 leading-relaxed line-clamp-3" data-i18n="tools.text-to-png.desc">
+              将文本内容快速转换为PNG图片，支持自定义样式和字体。
+            </p>
+            
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2 text-sm text-gray-500">
-                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                <span data-i18n="status.available">可用</span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                <span data-i18n="status.published">已发布</span>
               </div>
-              <a href="/text-to-png.html"
-                class="inline-flex items-center px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors font-medium text-sm shadow-sm no-underline"
-                style="background-color: #ea580c !important; color: white !important; text-decoration: none !important;"
-                data-i18n="btn.try-tool">试用工具</a>
+              <a href="/text-to-png" class="inline-flex items-center px-4 py-2 text-white rounded-lg transition-colors font-medium text-sm shadow-sm no-underline bg-green-600 hover:bg-green-700" style="text-decoration: none !important; color: white !important;">
+                <span data-i18n="btn.use">使用工具</span>
+              </a>
             </div>
           </div>
 
           <!-- HandyTulip -->
-          <div
-            class="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
-            <a href="/handytulip.html" class="flex items-center gap-4 mb-5 no-underline" style="text-decoration:none !important; color: inherit;">
-              <div
-                class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-100 to-red-100 flex items-center justify-center shadow-sm">
-                <i data-lucide="flower-2" class="w-8 h-8 text-pink-600"></i>
+          <div class="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
+            <a href="/handytulip" class="flex items-center gap-4 mb-5 no-underline" style="text-decoration: none !important; color: inherit;">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center shadow-sm">
+                <span class="text-2xl">🌷</span>
               </div>
               <div>
-                <h3 class="font-bold text-gray-900 text-lg" data-i18n="handytulip.name">HandyTulip</h3>
-                <span class="text-sm text-pink-600 bg-pink-50 px-3 py-1 rounded-full font-medium"
-                  data-i18n="tools.badge">Web工具</span>
+                <h3 class="font-bold text-gray-900 text-lg">HandyTulip</h3>
+                <span class="text-sm px-3 py-1 rounded-full font-medium text-green-600 bg-green-50">
+                  在线工具
+                </span>
               </div>
             </a>
-            <p class="text-gray-600 mb-4 leading-relaxed" data-i18n="handytulip.desc">用摄像头手势种花，生成 CSS 郁金香动画。</p>
+            
+            <p class="text-gray-600 mb-5 leading-relaxed line-clamp-3" data-i18n="tools.handytulip.desc">
+              便捷的在线工具集合，提供多种实用的小工具。
+            </p>
+            
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2 text-sm text-gray-500">
-                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                <span data-i18n="status.available">可用</span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                <span data-i18n="status.published">已发布</span>
               </div>
-              <a href="/HandyTulip.html"
-                class="inline-flex items-center px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors font-medium text-sm shadow-sm no-underline"
-                style="background-color: #db2777 !important; color: white !important; text-decoration: none !important;"
-                data-i18n="btn.try-tool">试用工具</a>
+              <a href="/handytulip" class="inline-flex items-center px-4 py-2 text-white rounded-lg transition-colors font-medium text-sm shadow-sm no-underline bg-green-600 hover:bg-green-700" style="text-decoration: none !important; color: white !important;">
+                <span data-i18n="btn.use">使用工具</span>
+              </a>
             </div>
           </div>
-
-
         </div>
       </div>
     </section>
 
-    <!-- About Me -->
-    <section id="about" class="section-v1 about-v1">
-      <div class="container about-container-v1">
-        <div class="about-avatar-v1">
-          <img src="/assets/images/icons/avatar.jpeg" alt="angiie" width="100" height="100">
+    <!-- About Section -->
+    <section id="about" class="py-16 px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-medium mb-4">
+            👤 About Me
+          </div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="about.title">关于我</h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto" data-i18n="about.subtitle">
+            分享我的创作和学习过程
+          </p>
         </div>
-        <div class="about-text-v1">
-          <h2 data-i18n="about.title">About Me</h2>
-          <p data-i18n="about.desc">我是 <strong class="text-orange-600">angiie</strong>，全栈个人开发者，热爱把小想法变成能落地的效率工具。这里会持续更新
-            Chrome 扩展与 Web 工具，欢迎收藏与反馈。</p>
-          <div class="social-links-v1">
-            <a href="https://github.com/angiie" target="_blank"
-              class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-medium text-sm shadow-sm"
-              style="text-decoration: none !important;">
-              <i data-lucide="github" class="w-4 h-4"></i>
-              GitHub
-            </a>
-            <a href="https://x.com/angiie_smart" target="_blank"
-              class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors font-medium text-sm shadow-sm"
-              style="text-decoration: none !important;">
-              <i data-lucide="twitter" class="w-4 h-4"></i>
-              Twitter
-            </a>
-            <a href="https://instagram.com/angiie_inside" target="_blank"
-              class="inline-flex items-center gap-2 px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition-colors font-medium text-sm shadow-sm"
-              style="text-decoration: none !important;">
-              <i data-lucide="instagram" class="w-4 h-4"></i>
-              Instagram
-            </a>
-            <a href="#" id="email-link" data-email="onlyangiie#gmail.com"
-               class="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium text-sm shadow-sm"
-               style="text-decoration: none !important;">
-               <i data-lucide="mail" class="w-4 h-4"></i>
-               <span data-i18n="btn.email">邮箱</span>
-            </a>
+
+        <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+          <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="about.heading">
+                你好，我是虎啦！
+              </h3>
+              <p class="text-gray-600 mb-4 leading-relaxed" data-i18n="about.description1">
+                一个热爱技术和设计的开发者，专注于创建简单实用的工具。
+              </p>
+              <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="about.description2">
+                我相信好的工具应该简单易用，能够真正解决用户的问题。
+              </p>
+              <p class="text-gray-600 leading-relaxed" data-i18n="about.description3">
+                来自西班牙语的学习，Chrome扩展的灵感。
+              </p>
+            </div>
+            
+            <div class="text-center">
+              <div class="w-32 h-32 bg-gradient-to-br from-orange-100 to-red-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                <span class="text-4xl">🐯</span>
+              </div>
+              <h4 class="text-lg font-semibold text-gray-900 mb-4" data-i18n="about.connect">
+                联系我
+              </h4>
+              <div class="flex justify-center gap-4">
+                <a href="https://github.com/holatiger" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-orange-100 hover:text-orange-700 transition-colors">
+                  <span>🐙</span>
+                  <span>GitHub</span>
+                </a>
+                <a href="https://twitter.com/holatiger" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-orange-100 hover:text-orange-700 transition-colors">
+                  <span>🐦</span>
+                  <span>Twitter</span>
+                </a>
+                <a href="mailto:hi@holatiger.com" class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-orange-100 hover:text-orange-700 transition-colors">
+                  <span>📧</span>
+                  <span>Email</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer class="py-12 px-6 border-t border-gray-200 bg-white">
-    <div class="max-w-6xl mx-auto text-center">
-      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量</p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-200 bg-white">
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© {year} HolaTiger - 小工具，大能量</p>
+      </div>
+    </footer>
 
-  <script src="/assets/js/index-inline.js"></script>
-  <script>
-    window.indexTranslations = {
-      'zh': { 'nav.blog': '博客' },
-      'en': { 'nav.blog': 'Blog' },
-      'zh-tw': { 'nav.blog': '部落格' },
-      'es': { 'nav.blog': 'Blog' },
-      'fr': { 'nav.blog': 'Blog' }
-    };
-  </script>
-  <script>
-    window.addEventListener('load', function(){ if (window.i18n && typeof i18n.init==='function') i18n.init(); });
-  </script>
-
-</body>
-
+    <!-- JavaScript -->
+    <script src="/assets/js/main.js"></script>
+  </body>
 </html>

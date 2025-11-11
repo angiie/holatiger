@@ -48,6 +48,9 @@ export default defineConfig({
         entryFileNames: 'assets/js/[name]-[hash].js',
       },
     },
+    // 添加对assets目录的静态资源处理
+    assetsInlineLimit: 0, // 不内联任何资源
+    assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.svg', '**/*.gif', '**/*.ico'],
   },
   
   server: {

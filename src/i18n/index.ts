@@ -53,13 +53,13 @@ const resources = {
 }
 
 // const applyDirectionByLang (deprecated) = (lang: string) => {
-  const rtlLangs = new Set(['ar'])
-  const isRTL = rtlLangs.has(lang)
-  const html = document.documentElement
-  html.dir = isRTL ? 'rtl' : 'ltr'
-  // 可选：为 body 添加标记，便于样式覆盖
-  html.setAttribute('data-dir', html.dir)
-}
+//   const rtlLangs = new Set(['ar'])
+//   const isRTL = rtlLangs.has(lang)
+//   const html = document.documentElement
+//   html.dir = isRTL ? 'rtl' : 'ltr'
+//   // 可选：为 body 添加标记，便于样式覆盖
+//   html.setAttribute('data-dir', html.dir)
+// }
 
 i18n
   .use(LanguageDetector)

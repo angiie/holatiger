@@ -59,7 +59,7 @@ const Footer: React.FC<FooterProps> = ({ variant = 'default', className = '' }) 
       <footer className={`${getFooterClasses()} ${className}`}>
         <div className={getContainerClasses()}>
           <p className={variant === 'default' ? "text-gray-500 text-lg" : "text-gray-500"}>
-            {t('footer.copyright', `© ${currentYear} 虎啦 (HolaTiger) - 小工具，大能量`)}
+            {t('footer.copyright', { year: currentYear, defaultValue: `© ${currentYear} 虎啦 (HolaTiger) - 小工具，大能量` })}
           </p>
         </div>
       </footer>

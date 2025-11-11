@@ -25,7 +25,20 @@
     "tailwindcss": "^3.4.17"
   },
   "dependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^5.1.0",
     "caniuse-lite": "^1.0.30001743",
-    "sharp": "^0.33.5"
+    "i18next": "^25.6.1",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "lucide-react": "^0.553.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-i18next": "^16.2.4",
+    "react-router-dom": "^7.9.5",
+    "sharp": "^0.33.5",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2"
   }
 }

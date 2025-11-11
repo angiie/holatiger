@@ -1,17 +1,20 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import TestI18n from '@/pages/TestI18n'
-import '@/i18n'
+import { createRoot } from 'react-dom/client'
+import App from './App'
+import './styles/globals.css'
 
-// 导入样式
-import '@assets/css/tw.css'
+// 获取根元素
+const container = document.getElementById('root')
+if (!container) {
+  throw new Error('Root element not found')
+}
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-)
+// 创建React根节点
+const root = createRoot(container)
 
+// 渲染应用
 root.render(
   <React.StrictMode>
-    <TestI18n />
+    <App />
   </React.StrictMode>
 )
