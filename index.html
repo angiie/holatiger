@@ -39,6 +39,9 @@
     <link rel="alternate" href="https://holatiger.com/" hreflang="zh-CN" />
     <link rel="alternate" href="https://holatiger.com/?lang=zh-TW" hreflang="zh-TW" />
     <link rel="alternate" href="https://holatiger.com/?lang=en" hreflang="en" />
+    <link rel="alternate" href="https://holatiger.com/?lang=fr" hreflang="fr" />
+    <link rel="alternate" href="https://holatiger.com/?lang=es" hreflang="es" />
+    <link rel="alternate" href="https://holatiger.com/?lang=ar" hreflang="ar" />
     <link rel="alternate" href="https://holatiger.com/" hreflang="x-default" />
     
     <!-- Structured Data -->
@@ -78,7 +81,7 @@
               'es': '🇪🇸 Español',
               'ar': '🇸🇦 العربية'
             };
-            currentLangSpan.textContent = langMap[currentLang] || '🇨🇳 简体中文';
+            if (currentLangSpan) { currentLangSpan.textContent = langMap[currentLang] || '🇨🇳 简体中文'; }
             
             // 更新激活状态
             langOptions.forEach(opt => {
@@ -97,7 +100,7 @@
             const langCode = this.getAttribute('data-lang');
             
             // 更新当前语言显示
-            currentLangSpan.textContent = this.textContent;
+            if (currentLangSpan) { currentLangSpan.textContent = this.textContent; }
             
             // 更新激活状态
             langOptions.forEach(opt => opt.classList.remove('active'));
@@ -146,21 +149,15 @@
           <a href="/blog.html" data-i18n="nav.blog">博客</a>
         </nav>
         
-        <!-- 语言切换器 -->
-        <div class="dropdown" tabindex="0">
-          <button class="lang-switcher-btn" aria-label="切换语言">
-            <span class="current-lang">🇨🇳 简体中文</span>
-            <span class="chevron-down">▼</span>
-          </button>
-          <ul class="lang-dropdown-menu">
-            <li><a href="#" class="lang-option active" data-lang="zh-CN">🇨🇳 简体中文</a></li>
-            <li><a href="#" class="lang-option" data-lang="zh-TW">🇹🇼 繁體中文</a></li>
-            <li><a href="#" class="lang-option" data-lang="en">🇺🇸 English</a></li>
-            <li><a href="#" class="lang-option" data-lang="fr">🇫🇷 Français</a></li>
-            <li><a href="#" class="lang-option" data-lang="es">🇪🇸 Español</a></li>
-            <li><a href="#" class="lang-option" data-lang="ar">🇸🇦 العربية</a></li>
-          </ul>
-        </div>
+        <!-- 语言选择器 -->
+        <select id="language-select" aria-label="选择语言" class="px-3 py-1 rounded-md border border-gray-300 text-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="zh-CN">简体中文</option>
+          <option value="zh-TW">繁體中文</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="ar">العربية</option>
+        </select>
       </div>
     </header>
 

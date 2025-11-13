@@ -68,13 +68,13 @@
     <div class="container nav-v1">
       <a class="logo-v1" href="/">
         <img src="/assets/images/icons/icon_64x64.png" alt="HolaTiger Logo" class="w-8 h-8" />
-        <span class="logo-text">HolaTiger</span>
+        <span class="logo-text" data-i18n="logo.text">HolaTiger</span>
       </a>
       <nav class="nav-links-v1">
         <a href="/index.html#extensions" data-i18n="nav.extensions">浏览器扩展</a>
         <a href="/index.html#tools" data-i18n="nav.tools">在线工具</a>
         <a href="/faq.html" aria-current="page" data-i18n="nav.faq">FAQ</a>
-        <a href="/blog" data-i18n="nav.blog">博客</a>
+        <a href="/blog.html" data-i18n="nav.blog">博客</a>
       </nav>
     </div>
   </header>
@@ -119,5 +119,6 @@
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+  <script>window.addEventListener('load',function(){ if(window.i18n && typeof window.i18n.init==='function'){ window.i18n.init(); }});</script>
 </body>
 </html>

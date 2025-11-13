@@ -63,9 +63,8 @@ function closeMenu(){
 
 // 5) Hero区域鼠标跟随光效
 (function heroMouseFollow() {
-  const hero = document.querySelector('.hero-v1');
+  const hero = document.querySelector('.hero-interactive') || document.querySelector('.hero-v1');
   if (!hero) return;
-
   hero.addEventListener('mousemove', (e) => {
     const rect = hero.getBoundingClientRect();
     const x = e.clientX - rect.left;

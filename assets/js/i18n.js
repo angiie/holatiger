@@ -13,46 +13,42 @@ class I18nManager {
    * 获取当前语言
    */
   getCurrentLanguage() {
-    // 支持通过 URL 参数 ?lang=xx 临时指定语言，并进行规范化
-    // 若无参数，则从 localStorage 读取并做规范化，避免 'zh-CN' / 'fr-FR' 等导致加载失败
-    const norm = (l) => {
+    const toNorm = (l) => {
       const s = String(l || '').toLowerCase();
-      if (s === 'zh' || s === 'zh-cn') return 'zh';
-      if (['zh-tw','zh-hk','zh-hant'].includes(s)) return 'zh-tw';
+      if (s === 'zh' || s === 'zh-cn') return 'zh-CN';
+      if (['zh-tw','zh-hk','zh-hant'].includes(s)) return 'zh-TW';
       if (s.startsWith('en')) return 'en';
       if (s.startsWith('fr')) return 'fr';
       if (s.startsWith('es')) return 'es';
       if (s.startsWith('ar')) return 'ar';
-      return 'zh';
+      return 'zh-CN';
     }
     const urlLang = new URLSearchParams(window.location.search).get('lang');
     if (urlLang) {
-      // 同步写入 localStorage，保证后续页面一致性
-      const normalized = norm(urlLang);
-      localStorage.setItem('language', normalized);
+      const normalized = toNorm(urlLang);
+      try { localStorage.setItem('language', normalized); } catch {}
       return normalized;
     }
-    return norm(localStorage.getItem('language') || 'zh');
+    return toNorm(localStorage.getItem('language') || 'zh-CN');
   }
 
   /**
    * 设置语言
    */
   setLanguage(lang) {
-    localStorage.setItem('language', lang);
-    const norm = (l) => {
+    const toNorm = (l) => {
       const s = String(l || '').toLowerCase();
-      if (s === 'zh' || s === 'zh-cn') return 'zh';
-      if (['zh-tw','zh-hk','zh-hant'].includes(s)) return 'zh-tw';
+      if (s === 'zh' || s === 'zh-cn') return 'zh-CN';
+      if (['zh-tw','zh-hk','zh-hant'].includes(s)) return 'zh-TW';
       if (s.startsWith('en')) return 'en';
       if (s.startsWith('fr')) return 'fr';
       if (s.startsWith('es')) return 'es';
       if (s.startsWith('ar')) return 'ar';
-      return 'zh';
+      return 'zh-CN';
     }
-    const normalized = norm(lang);
-    const htmlLangMap = { 'zh': 'zh-CN', 'zh-tw': 'zh-TW', 'en': 'en', 'fr': 'fr', 'es': 'es', 'ar': 'ar' };
-    document.documentElement.lang = htmlLangMap[normalized] || 'zh-CN';
+    const normalized = toNorm(lang);
+    try { localStorage.setItem('language', normalized); } catch {}
+    document.documentElement.lang = normalized;
     document.documentElement.dir = normalized === 'ar' ? 'rtl' : 'ltr';
     this.currentLanguage = normalized;
   }
@@ -61,29 +57,40 @@ class I18nManager {
    * 加载语言包
    */
   async loadLanguage(lang) {
-    if (this.loadedLanguages.has(lang)) {
-      return this.translations[lang];
+    const toNorm = (l) => {
+      const s = String(l || '').toLowerCase();
+      if (s === 'zh' || s === 'zh-cn') return 'zh-CN';
+      if (['zh-tw','zh-hk','zh-hant'].includes(s)) return 'zh-TW';
+      if (s.startsWith('en')) return 'en';
+      if (s.startsWith('fr')) return 'fr';
+      if (s.startsWith('es')) return 'es';
+      if (s.startsWith('ar')) return 'ar';
+      return 'zh-CN';
     }
-
+    const toResource = (norm) => {
+      if (norm === 'zh-CN') return 'zh';
+      if (norm === 'zh-TW') return 'zh-tw';
+      return norm;
+    }
+    const normalized = toNorm(lang);
+    if (this.loadedLanguages.has(normalized)) {
+      return this.translations[normalized];
+    }
     try {
-      const response = await fetch(`/assets/i18n/${lang}.json`);
+      const resCode = toResource(normalized);
+      const response = await fetch(`/assets/i18n/${resCode}.json`);
       if (!response.ok) {
-        throw new Error(`Failed to load language pack: ${lang}`);
+        throw new Error(`Failed to load language pack: ${normalized}`);
       }
-      
       const translations = await response.json();
-      this.translations[lang] = translations;
-      this.loadedLanguages.add(lang);
-      
+      this.translations[normalized] = translations;
+      this.loadedLanguages.add(normalized);
       return translations;
     } catch (error) {
       console.warn(`Failed to load language pack for ${lang}:`, error);
-      
-      // 如果加载失败，使用默认的中文翻译
-      if (lang !== 'zh' && !this.loadedLanguages.has('zh')) {
-        return this.loadLanguage('zh');
+      if (normalized !== 'zh-CN' && !this.loadedLanguages.has('zh-CN')) {
+        return this.loadLanguage('zh-CN');
       }
-      
       return {};
     }
   }
@@ -93,7 +100,7 @@ class I18nManager {
    */
   t(key, params = {}) {
     const currentTranslations = this.translations[this.currentLanguage] || {};
-    const fallbackTranslations = this.translations['zh'] || {};
+    const fallbackTranslations = this.translations['zh-CN'] || {};
     
     const translation = currentTranslations[key] || fallbackTranslations[key] || key;
     
@@ -190,11 +197,15 @@ class I18nManager {
   updateLanguageSelector() {
     const currentLangElement = document.getElementById('current-lang');
     const langOptions = document.querySelectorAll('.lang-option');
+    const selectEl = document.getElementById('language-select');
     
     if (currentLangElement) {
-      const map = { 'zh': '简体', 'zh-tw': '繁體', 'en': 'EN', 'fr': 'Français', 'es': 'Español', 'ar': 'العربية' };
+      const map = { 'zh-CN': '简体', 'zh-TW': '繁體', 'en': 'EN', 'fr': 'Français', 'es': 'Español', 'ar': 'العربية' };
       const fallback = this.t('lang.current');
       currentLangElement.textContent = map[this.currentLanguage] || fallback;
+    }
+    if (selectEl && 'value' in selectEl) {
+      try { selectEl.value = this.currentLanguage; } catch {}
     }
     
     // 更新选项状态
@@ -216,6 +227,14 @@ class I18nManager {
     await this.loadLanguage(this.currentLanguage);
     this.updateContent();
     this.updateLanguageSelector();
+    const selectEl = document.getElementById('language-select');
+    if (selectEl && !selectEl.getAttribute('data-i18n-bound')) {
+      selectEl.addEventListener('change', (e) => {
+        const v = e.target && e.target.value ? e.target.value : this.currentLanguage;
+        this.switchLanguage(v);
+      });
+      selectEl.setAttribute('data-i18n-bound', '1');
+    }
     
     // 监听DOM变化，自动翻译新添加的元素
     const observer = new MutationObserver((mutations) => {

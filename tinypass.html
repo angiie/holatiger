@@ -38,7 +38,7 @@
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
       <a class="logo-v1" href="https://holatiger.com/">
         <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
-        <span class="logo-text">虎啦</span>
+        <span class="logo-text" data-i18n="logo.text">虎啦</span>
       </a>
       <div class="flex items-center gap-6">
         <nav class="nav-links-v1 hidden md:flex items-center gap-6">
@@ -46,38 +46,19 @@
             <a href="./index.html#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
             <a href="./index.html#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
             <a href="./index.html#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
-            <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
-            <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+            <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+            <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
         </nav>
         
         <!-- 语言选择器 -->
-        <div class="dropdown dropdown-end">
-          <div tabindex="0" role="button" class="lang-switcher-btn">
-            <i data-lucide="globe" class="w-4 h-4"></i>
-            <span id="current-lang" data-i18n="lang.current">简体</span>
-            <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-200"></i>
-          </div>
-          <ul tabindex="0" class="lang-dropdown-menu">
-            <li><a onclick="switchLanguage('zh')" class="lang-option" data-lang="zh">
-                <span class="lang-text">简体</span>
-              </a></li>
-            <li><a onclick="switchLanguage('zh-tw')" class="lang-option" data-lang="zh-tw">
-                <span class="lang-text">繁體</span>
-              </a></li>
-            <li><a onclick="switchLanguage('en')" class="lang-option" data-lang="en">
-                <span class="lang-text">EN</span>
-              </a></li>
-            <li><a onclick="switchLanguage('fr')" class="lang-option" data-lang="fr">
-                <span class="lang-text">Français</span>
-              </a></li>
-            <li><a onclick="switchLanguage('es')" class="lang-option" data-lang="es">
-                <span class="lang-text">Español</span>
-              </a></li>
-            <li><a onclick="switchLanguage('ar')" class="lang-option" data-lang="ar">
-                <span class="lang-text">العربية</span>
-              </a></li>
-          </ul>
-        </div>
+        <select id="language-select" aria-label="选择语言" class="px-3 py-1 rounded-md border border-gray-300 text-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="zh-CN">简体中文</option>
+          <option value="zh-TW">繁體中文</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="ar">العربية</option>
+        </select>
       </div>
     </div>
   </header>
