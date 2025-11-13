@@ -2,6 +2,7 @@ const textInput = document.getElementById('textInput');
 const fontSizeInput = document.getElementById('fontSizeInput');
 const fontColorInput = document.getElementById('fontColorInput');
 const fontColorValue = document.getElementById('fontColorValue');
+const fontColorTextInput = document.getElementById('fontColorTextInput');
 const rainbowColorInput = document.getElementById('rainbowColorInput');
 const refreshRainbowBtn = document.getElementById('refreshRainbowBtn');
 const historyList = document.getElementById('historyList');
@@ -103,7 +104,8 @@ function measureMultilineText(ctx, text, lineHeight) {
 function updatePreview() {
     const text = textInput.value;
     const fontSize = parseInt(fontSizeInput.value);
-    const fontColor = fontColorInput.value;
+    const fontColorText = fontColorTextInput && fontColorTextInput.value ? fontColorTextInput.value.trim() : '';
+    const fontColor = /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(fontColorText) ? fontColorText : fontColorInput.value;
     const fontFamily = fontFamilyInput.value;
     const useRainbow = rainbowColorInput.checked;
 
@@ -135,12 +137,18 @@ function updatePreview() {
 
     // Draw multiline text
     drawMultilineText(ctx, text, previewCanvas.width / 2, previewCanvas.height / 2, lineHeight);
+
+    const sizeEl = document.getElementById('canvasSize');
+    if (sizeEl) {
+        sizeEl.textContent = `${previewCanvas.width} × ${previewCanvas.height}`;
+    }
 }
 
 textInput.addEventListener('input', updatePreview);
 fontSizeInput.addEventListener('input', updatePreview);
 fontColorInput.addEventListener('input', () => {
     fontColorValue.textContent = fontColorInput.value;
+    if (fontColorTextInput) fontColorTextInput.value = fontColorInput.value;
     updatePreview();
 });
 rainbowColorInput.addEventListener('change', updatePreview);
@@ -197,7 +205,14 @@ function loadHistory() {
 }
 
 window.addEventListener('load', loadHistory);
-fontFamilyInput.addEventListener('change', updatePreview);
+fontFamilyInput.addEventListener('change', () => {
+    const f = fontFamilyInput.value;
+    if (document.fonts && document.fonts.load) {
+        document.fonts.load(`16px ${f}`).then(updatePreview).catch(updatePreview);
+    } else {
+        updatePreview();
+    }
+});
 
 
 document.getElementById('generateBtn').addEventListener('click', function() {
@@ -209,4 +224,18 @@ document.getElementById('generateBtn').addEventListener('click', function() {
 });
 
 // Initial preview update
-updatePreview();
+if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(updatePreview);
+} else {
+    updatePreview();
+}
+if (fontColorTextInput) {
+    fontColorTextInput.addEventListener('input', () => {
+        const v = fontColorTextInput.value.trim();
+        if (/^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/.test(v)) {
+            fontColorValue.textContent = v;
+            fontColorInput.value = v;
+            updatePreview();
+        }
+    });
+}
