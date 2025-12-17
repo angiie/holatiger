@@ -33,6 +33,8 @@ const htmlFiles = [
   'blog-webdav-chrome-setup.html'
   , 'HandyTulip.html'
   , 'blog-handy-tulip-implementation.html'
+  , 'lexa.html'
+  , 'blog-lexa-launch.html'
 ];
 htmlFiles.forEach(file => {
   if (existsSync(file)) {
