@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>揭秘 Gemini AI 去水印原理：基于数学的反向 Alpha 混合算法 - HolaTiger 博客</title>
+  <meta name="description" content="深入解析 Gemini 图片水印的原理，以及如何使用纯浏览器端工具通过数学反向求解无损移除水印。" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://holatiger.com/blog-gemini-watermark-remover.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="揭秘 Gemini AI 去水印原理：基于数学的反向 Alpha 混合算法" />
+  <meta property="og:description" content="深入解析 Gemini 图片水印的原理，以及如何使用纯浏览器端工具通过数学反向求解无损移除水印。" />
+  <meta property="og:url" content="https://holatiger.com/blog-gemini-watermark-remover.html" />
+  <meta property="og:image" content="/assets/images/social/blog-1200x630.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="揭秘 Gemini AI 去水印原理：基于数学的反向 Alpha 混合算法" />
+  <meta name="twitter:description" content="深入解析 Gemini 图片水印的原理，以及如何使用纯浏览器端工具通过数学反向求解无损移除水印。" />
+  <meta name="twitter:image" content="/assets/images/social/blog-1200x630.png" />
+  <link rel="stylesheet" href="/assets/css/tw.css" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="v1-professional">
+  <header class="site-header-v1" id="top">
+    <div class="container nav-v1">
+      <a class="logo-v1" href="/">
+        <img src="/assets/images/icons/icon_64x64.png" alt="HolaTiger Logo" class="w-8 h-8" />
+        <span class="logo-text" data-i18n="logo.text">HolaTiger</span>
+      </a>
+      <nav class="nav-links-v1">
+        <a href="/index.html#extensions" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/index.html#tools" data-i18n="nav.tools">在线工具</a>
+        <a href="/faq.html" data-i18n="nav.faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container py-10 prose lg:prose-xl mx-auto">
+    <h1 class="text-3xl md:text-4xl font-bold mb-6">揭秘 Gemini AI 去水印原理：基于数学的反向 Alpha 混合算法</h1>
+    
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8">
+      <p class="m-0 text-blue-700"><strong>太长不看版：</strong> Gemini 的可见水印（右下角 Logo）是通过简单的 Alpha 混合叠加的。因为我们知道 Logo 的形状和位置，可以通过数学公式反向计算出原始像素值，从而实现<strong>无损还原</strong>。</p>
+      <p class="mt-2"><a href="/banana/" class="text-blue-600 font-bold hover:underline">👉 立即体验：Gemini 图像无损去水印工具</a></p>
+    </div>
+
+    <p class="text-gray-600">最近，Google 的 Gemini 模型生成的图片都会在右下角添加一个半透明的 Logo 水印。虽然这有助于标识 AI 生成内容，但在某些个人使用场景下（如收藏、壁纸），这个水印可能会有些干扰。本文将介绍我们刚刚发布的<a href="/banana/">在线去水印工具</a>背后的技术原理。</p>
+
+    <h2>水印是如何添加的？</h2>
+    <p>Gemini 添加水印的方式其实非常标准，使用了计算机图形学中最基础的 <strong>Alpha 混合（Alpha Blending）</strong>。</p>
+    <p>公式如下：</p>
+    <p>$$watermarked = \alpha \cdot logo + (1 - \alpha) \cdot original$$</p>
+    
+    <p>其中：</p>
+    <ul>
+      <li><code>watermarked</code>: 最终带水印的像素值（我们看到的）</li>
+      <li><code>α</code>: Alpha 通道值 (0.0 - 1.0)，代表透明度</li>
+      <li><code>logo</code>: 水印 Logo 的颜色值（Gemini 使用的是白色，即 255）</li>
+      <li><code>original</code>: 原始图像的像素值（我们想要的）</li>
+    </ul>
+
+    <h2>如何反向移除？</h2>
+    <p>既然公式是线性的，而且我们已知 <code>watermarked</code>（从图片中读取）、<code>logo</code>（白色）以及通过逆向工程获取的 <code>α</code>（透明度分布图），我们就可以通过简单的代数变换求出 <code>original</code>。</p>
+    
+    <p>反向求解公式：</p>
+    <p>$$original = \frac{watermarked - \alpha \cdot logo}{1 - \alpha}$$</p>
+
+    <h3>核心步骤</h3>
+    <ol>
+      <li><strong>检测水印位置</strong>：根据图片尺寸（>1024px 或其他），确定水印是 96x96 还是 48x48 大小。</li>
+      <li><strong>获取 Alpha Map</strong>：我们在纯色背景上预先捕获了 Gemini 的水印，计算出了每个像素点的 Alpha 值。</li>
+      <li><strong>像素级还原</strong>：对水印区域的每一个像素应用上述反向公式，计算出原始 RGB 值。</li>
+    </ol>
+
+    <h2>为什么它是“无损”的？</h2>
+    <p>与使用 AI 修复（Inpainting）不同，AI 修复是“猜”被遮挡的内容是什么，而本工具是“算”出来的。</p>
+    <ul>
+      <li><strong>AI 修复</strong>：可能会改变原图细节，产生模糊或奇怪的纹理。</li>
+      <li><strong>反向算法</strong>：在数学精度允许的范围内，还原出的就是原始像素值。</li>
+    </ul>
+    
+    <h2>隐私与安全</h2>
+    <p>这个工具完全基于 <strong>Javascript</strong> 开发，运行在你的浏览器中。</p>
+    <ul>
+      <li>✅ <strong>纯本地处理</strong>：图片数据不会上传到任何服务器。</li>
+      <li>✅ <strong>无损画质</strong>：不进行压缩或重采样。</li>
+      <li>✅ <strong>开源透明</strong>：核心算法代码公开可见。</li>
+    </ul>
+
+    <h2>使用限制</h2>
+    <p>需要注意的是，该算法仅适用于移除<strong>可见的 Alpha 混合水印</strong>。它无法移除：</p>
+    <ul>
+      <li>SynthID（Google 的隐形水印技术）</li>
+      <li>不透明的水印</li>
+      <li>非标准位置或被裁剪过的水印</li>
+    </ul>
+
+    <h2>总结</h2>
+    <p>通过简单的数学原理，我们可以优雅地解决这个问题。如果你也受困于 Gemini 的图片水印，欢迎尝试这个小工具。</p>
+    
+    <div class="mt-8">
+      <a href="/banana/" class="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-semibold no-underline">
+        🚀 试用 Gemini 去水印工具
+      </a>
+    </div>
+
+  </main>
+  
+  <footer class="py-12 px-6 border-t border-gray-200 bg-white mt-12">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-gray-500 text-lg">© <span id="year"></span> HolaTiger - 小工具，大能量</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    window.addEventListener('load', function () {
+      if (window.i18n && typeof window.i18n.init === 'function') {
+        window.i18n.init();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -35,6 +35,7 @@ const htmlFiles = [
   , 'blog-handy-tulip-implementation.html'
   , 'lexa.html'
   , 'blog-lexa-launch.html'
+  , 'blog-gemini-watermark-remover.html'
 ];
 htmlFiles.forEach(file => {
   if (existsSync(file)) {
@@ -52,6 +53,14 @@ staticFiles.forEach(file => {
     console.log(`  ✅ ${file}`);
   }
 });
+
+// 6. 复制 banana 目录
+console.log('🍌 复制 banana 目录...');
+const bananaDir = 'banana';
+if (existsSync(bananaDir)) {
+  execSync(`cp -r ${bananaDir} ${distDir}/`, { stdio: 'inherit' });
+  console.log(`  ✅ ${bananaDir}`);
+}
 
 console.log('🎉 构建完成！');
 console.log(`📂 输出目录: ${distDir}`);
