@@ -1,6 +1,9 @@
 {
-  "title.webdavy": "WebDavy - 虎啦",
-  "title.tinypass": "TinyPass - 虎啦",
+  "title.webdavy": "WebDavy WebDAV客户端 - 浏览器文件同步 | 连接云存储 - 虎啦",
+  "title.tinypass": "TinyPass 密码生成器 - Chrome扩展 | 本地安全随机强密码 - 虎啦",
+  "title.svg-studio": "SVG Studio Pro - SVG 查看器和导出工具 - 虎啦",
+  "title.text-to-png": "文本转PNG生成器 - 在线文字转图片工具 | 虎啦",
+  "title.banana": "Gemini AI 去水印工具 - 免费在线图片去水印 | 虎啦",
 
   "nav.home": "首页",
   "nav.extensions": "浏览器扩展",
@@ -72,7 +75,7 @@
   "text-to-png.name": "Text to PNG",
   "lexa.name": "Lexa",
   "lexa.desc": "一键生成精美纵版词汇卡，包含定义、例句、音标与扩展词汇。",
-  "title.lexa": "Lexa - 虎啦",
+  "title.lexa": "Lexa - 纵版词汇卡生成器 | AI 驱动中西双语学习 - 虎啦",
   "lexa.description": "Lexa 是一个面向语言学习者的在线词汇卡生成器。输入单词或句子，即可快速生成纵版卡片，展示定义、例句、音标与扩展词汇，适合做复习、分享与打印。",
   "lexa.features.title": "产品特性",
   "lexa.features.subtitle": "了解 Lexa 的核心功能",
