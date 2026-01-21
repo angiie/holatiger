@@ -1,6 +1,9 @@
 {
-  "title.webdavy": "WebDavy - HolaTiger",
-  "title.tinypass": "TinyPass - HolaTiger",
+  "title.webdavy": "WebDavy WebDAV Client - Browser Sync & Cloud Files | HolaTiger",
+  "title.tinypass": "TinyPass Password Generator - Chrome Extension for Local Security | HolaTiger",
+  "title.svg-studio": "SVG Studio Pro - SVG Viewer & Batch Export Tool | HolaTiger",
+  "title.text-to-png": "Text to PNG Generator - Online Typography to Image Tool | HolaTiger",
+  "title.banana": "Gemini Watermark Remover - Lossless & Private Browser Tool | HolaTiger",
 
   "nav.home": "Home",
   "nav.extensions": "Extensions",
@@ -46,7 +49,7 @@
   "tinypass.screenshots.title": "Product Screenshots",
   "tinypass.screenshots.subtitle": "Get a visual overview of TinyPass's interface and functionality",
 
-  "title": "HolaTiger - Small Tools, Big Power",
+  "title": "HolaTiger - Small Tools, Big Power | Extensions & Web Utilities",
   "logo.text": "HolaTiger",
 
   "hero.badge": "🚀 Updating Continuously",
@@ -67,9 +70,10 @@
   "webdavy.name": "WebDavy",
   "svg-studio.name": "SVG Studio",
   "text-to-png.name": "Text to PNG",
+  "gemini.name": "Gemini Watermark Remover",
   "lexa.name": "Lexa",
   "lexa.desc": "Generate beautiful vertical vocabulary flashcards in seconds.",
-  "title.lexa": "Lexa - HolaTiger",
+  "title.lexa": "Lexa - Vertical Vocabulary Cards | AI-Driven Bilingual Learning & Export - HolaTiger",
   "lexa.description": "Lexa is an online vocabulary card generator for language learners. Enter a word or sentence to quickly generate vertical cards showing definitions, examples, phonetics, and extended vocabulary.",
   "lexa.features.title": "Features",
   "lexa.features.subtitle": "Core features of Lexa",
@@ -97,6 +101,7 @@
   "tools.badge": "Web Tool",
   "svg-studio.desc": "An easy-to-use SVG conversion tool with multiple output formats and live preview.",
   "text-to-png.desc": "Quickly convert text to PNG images with customizable fonts, colors, and style settings.",
+  "gemini.desc": "Lossless Gemini watermark remover based on precise math, 100% browser-based and private.",
   "status.available": "Available",
   "btn.try-tool": "Try Tool",
   "btn.email": "Email",
@@ -119,7 +124,7 @@
   "footer.copyright": "© {year} HolaTiger - Small Tools, Big Power"
   ,
   "handytulip.desc": "Plant tulips with camera gestures, generating CSS animations.",
-  "title.handytulip": "HandyTulip - Plant Tulips with Gestures - HolaTiger",
+  "title.handytulip": "HandyTulip Gesture Garden - Camera Interaction & CSS Animation Lab | HolaTiger",
   "handytulip.description": "A playful web tool: enable your camera and plant tulips with hand gestures. Pure CSS animation, lightweight, no installation required.",
   "handytulip.tips.title": "Quick Tips",
   "handytulip.tips.camera": "Please allow camera access to enable gesture recognition.",

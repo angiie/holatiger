@@ -65,7 +65,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   function getCurrentLanguage() { return localStorage.getItem('language') || 'zh'; }
   function setLanguage(lang) {
     localStorage.setItem('language', lang);
-    const langMap = { 'zh': 'zh-CN', 'zh-tw': 'zh-TW', 'en': 'en' };
+    const langMap = { 'zh': 'zh-CN', 'en': 'en' };
     document.documentElement.lang = langMap[lang] || 'zh-CN';
   }
   function updateContent(lang) {
@@ -84,7 +84,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     const currentLangElement = document.getElementById('current-lang');
     const langOptions = document.querySelectorAll('.lang-option');
     if (currentLangElement) {
-      const langNames = { 'zh': '简体', 'zh-tw': '繁體', 'en': 'EN' };
+      const langNames = { 'zh': '简体', 'en': 'EN' };
       currentLangElement.textContent = langNames[lang] || '简体';
     }
     langOptions.forEach(option => {

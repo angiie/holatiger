@@ -18,11 +18,7 @@ class I18nManager {
     const norm = (l) => {
       const s = String(l || '').toLowerCase();
       if (s === 'zh' || s === 'zh-cn') return 'zh';
-      if (['zh-tw','zh-hk','zh-hant'].includes(s)) return 'zh-tw';
       if (s.startsWith('en')) return 'en';
-      if (s.startsWith('fr')) return 'fr';
-      if (s.startsWith('es')) return 'es';
-      if (s.startsWith('ar')) return 'ar';
       return 'zh';
     }
     const urlLang = new URLSearchParams(window.location.search).get('lang');
@@ -43,17 +39,13 @@ class I18nManager {
     const norm = (l) => {
       const s = String(l || '').toLowerCase();
       if (s === 'zh' || s === 'zh-cn') return 'zh';
-      if (['zh-tw','zh-hk','zh-hant'].includes(s)) return 'zh-tw';
       if (s.startsWith('en')) return 'en';
-      if (s.startsWith('fr')) return 'fr';
-      if (s.startsWith('es')) return 'es';
-      if (s.startsWith('ar')) return 'ar';
       return 'zh';
     }
     const normalized = norm(lang);
-    const htmlLangMap = { 'zh': 'zh-CN', 'zh-tw': 'zh-TW', 'en': 'en', 'fr': 'fr', 'es': 'es', 'ar': 'ar' };
+    const htmlLangMap = { 'zh': 'zh-CN', 'en': 'en' };
     document.documentElement.lang = htmlLangMap[normalized] || 'zh-CN';
-    document.documentElement.dir = normalized === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.dir = 'ltr';
     this.currentLanguage = normalized;
   }
 
@@ -145,9 +137,8 @@ class I18nManager {
       document.title = this.t(titleKey);
     }
     
-    // 首页等无特定titleKey时，直接使用通用的 title 键
     const directTitle = this.t('title');
-    if (directTitle && directTitle !== 'title') {
+    if (!document.title && directTitle && directTitle !== 'title') {
       document.title = directTitle;
     }
     
@@ -192,7 +183,7 @@ class I18nManager {
     const langOptions = document.querySelectorAll('.lang-option');
     
     if (currentLangElement) {
-      const map = { 'zh': '简体', 'zh-tw': '繁體', 'en': 'EN', 'fr': 'Français', 'es': 'Español', 'ar': 'العربية' };
+      const map = { 'zh': '简体', 'en': 'EN' };
       const fallback = this.t('lang.current');
       currentLangElement.textContent = map[this.currentLanguage] || fallback;
     }
