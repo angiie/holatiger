@@ -1,0 +1,91 @@
+一、首屏文案（Above the Fold｜直接用）
+
+目标：
+
+3 秒内让用户知道「这是我要的」
+
+同时吃掉
+
+gemini watermark remover
+
+remove gemini watermark
+
+强工具意图 + 高转化
+
+H1
+Gemini Watermark Remover
+
+首屏一句话（核心价值）
+Remove Gemini AI watermark from images in seconds.
+Free, fast, and processed directly in your browser.
+
+补充说明（信任 + 差异点）
+No signup required. 
+No image upload to server. 
+Original image quality preserved.
+
+CTA（按钮文案建议）
+Upload Image to Remove Watermark
+
+
+或更激进一点（如果你首屏很干净）：
+
+Remove Gemini Watermark Now
+
+首屏下方一行小字（非常推荐）
+Supports Gemini AI images, including Nano Banana watermark.
+
+
+👉 这行的作用：
+
+提前埋下 nano banana watermark
+
+不抢主关键词
+
+让 Google 知道你“覆盖面更广”
+
+二、原理段落（Why + How｜SEO + 信任核心）
+
+目标：
+
+呼应 SERP 里的 GitHub / Google Support / Reddit
+
+解释「为什么 Gemini 会加水印」
+
+解释「你是怎么去掉的」
+
+不暴露算法细节（安全）
+
+H2：Why do Gemini images have watermark?
+Gemini adds visible watermarks to AI-generated images to indicate their origin.
+This helps identify content created by AI models and prevents misuse or confusion
+with human-made images.
+
+However, for many creators and designers, these watermarks can be distracting —
+especially when using Gemini images for presentations, mockups, or internal drafts.
+
+H2：How our Gemini watermark remover works
+Our Gemini watermark remover is designed specifically for AI-generated images.
+Instead of applying generic blur or crop techniques, it analyzes the watermark
+pattern and removes it while preserving the original image details.
+
+The entire process runs directly in your browser.
+Your image is never uploaded to a server, ensuring privacy and fast processing.
+In most cases, the watermark can be removed cleanly without noticeable quality loss.
+
+可选强化段（强烈建议加）
+H3：Does this work for Nano Banana watermark?
+Yes. This tool also supports newer Gemini image outputs,
+including Nano Banana watermark patterns.
+
+As Gemini models evolve, watermark styles may change.
+We continuously adapt the removal process to support the latest formats.
+
+
+👉 这一小段的作用非常大：
+
+明确吃 nano banana watermark
+
+暗示“我们在持续更新”
+
+提高可信度（不是一次性工具）
