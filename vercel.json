@@ -72,6 +72,11 @@
       "source": "/handytulip.html",
       "destination": "/HandyTulip.html",
       "permanent": true
+    },
+    {
+      "source": "/banana",
+      "destination": "/banana/index.html",
+      "permanent": true
     }
   ],
   "headers": [
