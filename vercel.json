@@ -72,11 +72,6 @@
       "source": "/handytulip.html",
       "destination": "/HandyTulip.html",
       "permanent": true
-    },
-    {
-      "source": "/banana",
-      "destination": "/banana/index.html",
-      "permanent": true
     }
   ],
   "headers": [
@@ -117,6 +112,8 @@
   ,
   "rewrites": [
     { "source": "/handytulip.html", "destination": "/HandyTulip.html" },
-    { "source": "/handytulip", "destination": "/HandyTulip.html" }
+    { "source": "/handytulip", "destination": "/HandyTulip.html" },
+    { "source": "/banana", "destination": "/banana/index.html" },
+    { "source": "/banana/batch", "destination": "/banana/index.html" }
   ]
 }

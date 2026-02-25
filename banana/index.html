@@ -167,6 +167,18 @@
         Supports Gemini AI images, including Nano Banana watermark.
       </div>
 
+      <!-- Mode Switcher Tabs -->
+      <div class="flex justify-center mt-8 mb-2">
+        <div class="bg-slate-200/50 p-1 rounded-xl inline-flex items-center gap-1" id="modeTabs">
+          <button class="px-6 py-2 text-sm font-medium rounded-lg text-slate-500 hover:text-slate-700 transition-all" data-mode="single" data-i18n="mode.single">
+            单图模式
+          </button>
+          <button class="px-6 py-2 text-sm font-medium rounded-lg bg-white text-indigo-600 shadow-sm transition-all" data-mode="batch" data-i18n="mode.batch">
+            多图批量
+          </button>
+        </div>
+      </div>
+
       <div class="max-w-4xl mx-auto glass-card rounded-2xl p-2 md:p-3 transition-transform hover:scale-[1.005] duration-500">
         <div id="uploadArea" class="group relative flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-slate-300/80 rounded-xl bg-slate-50/50 hover:bg-indigo-50/30 hover:border-indigo-400 transition-all cursor-pointer overflow-hidden">
           
@@ -310,8 +322,13 @@
         <p class="text-slate-600 leading-relaxed mb-4" data-i18n="nano.body.1">
           Yes. This tool also supports newer Gemini image outputs, including Nano Banana watermark patterns.
         </p>
-        <p class="text-slate-600 leading-relaxed" data-i18n="nano.body.2">
+        <p class="text-slate-600 leading-relaxed mb-8" data-i18n="nano.body.2">
           As Gemini models evolve, watermark styles may change. We continuously adapt the removal process to support the latest formats.
+        </p>
+
+        <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-3" data-i18n="batch.faq.title">Do you support batch watermark removal?</h3>
+        <p class="text-slate-600 leading-relaxed" data-i18n="batch.faq.body">
+          Yes! We offer a Batch Mode that allows you to upload and process multiple images (currently limited to 3) simultaneously. You can then download all clean images in a single ZIP file.
         </p>
       </div>
     </section>
@@ -321,13 +338,20 @@
         <div class="text-center mb-6 md:mb-12">
           <h3 class="text-2xl font-bold text-slate-800" data-i18n="feature.title">功能特点</h3>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 border border-slate-100 group">
             <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-4 ring-1 ring-indigo-100 group-hover:scale-110 transition-transform">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
             <h4 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-primary transition-colors" data-i18n="feature.speed.title">极速处理</h4>
             <p class="text-slate-500 text-sm leading-relaxed" data-i18n="feature.speed.desc">基于现代浏览器技术加速处理，毫秒级响应，无需等待排队</p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 border border-slate-100 group">
+            <div class="w-12 h-12 bg-fuchsia-50 text-fuchsia-600 rounded-2xl flex items-center justify-center mb-4 ring-1 ring-fuchsia-100 group-hover:scale-110 transition-transform">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+            </div>
+            <h4 class="text-lg font-bold text-slate-800 mb-2 group-hover:text-fuchsia-600 transition-colors" data-i18n="feature.batch.title">批量处理</h4>
+            <p class="text-slate-500 text-sm leading-relaxed" data-i18n="feature.batch.desc">支持一次上传多张 Gemini 图片批量去除水印，提升工作效率</p>
           </div>
           <div class="glass-card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 border border-slate-100 group">
             <div class="w-12 h-12 bg-sky-50 text-sky-600 rounded-2xl flex items-center justify-center mb-4 ring-1 ring-sky-100 group-hover:scale-110 transition-transform">
@@ -366,6 +390,85 @@
     </div>
   </div>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modeTabs = document.getElementById('modeTabs');
+      const fileInput = document.getElementById('fileInput');
+      const uploadArea = document.getElementById('uploadArea');
+      
+      if (!modeTabs || !fileInput || !uploadArea) return;
+
+      // Handle URL-based activation for Batch mode
+      const activateBatchMode = () => {
+        const batchBtn = modeTabs.querySelector('button[data-mode="batch"]');
+        if (batchBtn) {
+          batchBtn.click();
+        }
+      };
+
+      // Check path and query params on load
+      const path = window.location.pathname;
+      if (path.includes('/batch') || path.includes('/banana/batch')) {
+        activateBatchMode();
+      }
+
+      // Mode Switching Logic
+      modeTabs.addEventListener('click', (e) => {
+        const btn = e.target.closest('button');
+        if (!btn) return;
+        
+        const mode = btn.dataset.mode;
+        const buttons = modeTabs.querySelectorAll('button');
+        
+        // Update Buttons Style
+        buttons.forEach(b => {
+          if (b === btn) {
+            b.className = "px-6 py-2 text-sm font-medium rounded-lg bg-white text-indigo-600 shadow-sm transition-all";
+          } else {
+            b.className = "px-6 py-2 text-sm font-medium rounded-lg text-slate-500 hover:text-slate-700 transition-all";
+          }
+        });
+
+        // Update Input Attribute
+        if (mode === 'single') {
+          fileInput.removeAttribute('multiple');
+        } else {
+          fileInput.setAttribute('multiple', '');
+        }
+      });
+
+      // Enforce max 3 files limit using capture phase to intercept before app.js
+      const checkFileLimit = (files) => {
+        if (files && files.length > 3) {
+          const lang = localStorage.getItem('language') || navigator.language || 'zh';
+          const isZh = lang.toLowerCase().startsWith('zh');
+          const msg = isZh ? '一次最多只能选择 3 张图片' : 'Max 3 images per upload';
+          alert(msg);
+          return true;
+        }
+        return false;
+      };
+
+      uploadArea.addEventListener('change', (e) => {
+        if (e.target !== fileInput) return;
+        
+        if (checkFileLimit(fileInput.files)) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+          fileInput.value = ''; // Clear selection
+        }
+      }, true); // capture: true
+
+      uploadArea.addEventListener('drop', (e) => {
+        if (checkFileLimit(e.dataTransfer.files)) {
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
+        }
+      }, true); // capture: true is crucial here
+    });
+  </script>
   <script src="app.js"></script>
 </body>
 </html>

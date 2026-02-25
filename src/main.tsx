@@ -4,7 +4,6 @@ import TestI18n from '@/pages/TestI18n'
 import '@/i18n'
 
 // 导入样式
-import '@assets/css/tw.css'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

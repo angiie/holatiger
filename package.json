@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "build": "node scripts/build-static.mjs",
-    "build:css": "tailwindcss -i ./assets/css/tw-src.css -o ./assets/css/tw.css --minify",
-    "dev:css": "tailwindcss -i ./assets/css/tw-src.css -o ./assets/css/tw.css --watch",
     "serve": "python3 -m http.server 8000",
     "export:covers": "node scripts/export-covers.mjs",
     "export:covers:pw": "node scripts/export-covers-playwright.mjs",
@@ -17,12 +15,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^10.4.21",
-    "daisyui": "^4.12.24",
     "playwright": "^1.47.2",
-    "postcss": "^8.5.6",
-    "puppeteer": "^22.13.1",
-    "tailwindcss": "^3.4.17"
+    "puppeteer": "^22.13.1"
   },
   "dependencies": {
     "caniuse-lite": "^1.0.30001743",

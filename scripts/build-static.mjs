@@ -4,10 +4,6 @@ import { join } from 'path';
 
 console.log('🚀 开始构建静态网站...');
 
-// 1. 构建CSS
-console.log('📦 构建CSS...');
-execSync('npm run build:css', { stdio: 'inherit' });
-
 // 2. 创建dist目录
 const distDir = 'dist';
 if (!existsSync(distDir)) {

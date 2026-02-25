@@ -39,6 +39,10 @@
   "feature.privacy.desc": "浏览器前端本地运行，图片数据不会离开您的设备，绝不会上传服务器",
   "feature.free.title": "完全免费",
   "feature.free.desc": "无次数限制，无隐藏付费，即开即用",
+  "feature.batch.title": "批量处理",
+  "feature.batch.desc": "支持一次上传多张 Gemini 图片批量去除水印，提升工作效率",
+  "batch.faq.title": "支持批量去除水印吗？",
+  "batch.faq.body": "是的，我们提供了多图批量模式。您可以一次选择多张（目前限制为 3 张）Gemini 图片进行处理，系统会自动并行去除水印并支持一键打包下载所有结果，无需逐个操作。",
   "footer.desc": "holatiger 无损去水印工具，本工具仅供学习交流使用",
   "footer.links": "链接",
   "footer.terms": "使用条款",
@@ -57,5 +61,8 @@
   "info.removed": "水印已移除",
   "original.not_gemini": "⚠️ 此图片非 Gemini 生成的原始图片，可能无法进行无损去水印",
   "original.not_original": "⚠️ 此图片非原始尺寸，可能无法进行无损去水印",
-  "original.pass": "✅ 此图片为 Gemini 生成的原始图片，可进行无损去水印"
+  "original.pass": "✅ 此图片为 Gemini 生成的原始图片，可进行无损去水印",
+  "mode.single": "单图模式",
+  "mode.batch": "多图批量",
+  "error.limitExceeded": "一次最多只能选择 3 张图片"
 }
