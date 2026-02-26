@@ -25,51 +25,73 @@
   <link rel="stylesheet" href="/assets/css/index-inline.css" />
   <link rel="stylesheet" href="/assets/css/nav-unified.css" />
   <script src="/assets/js/i18n.js"></script>
-  <script type="application/ld+json">{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "TinyPass 是否离线生成？数据会被收集吗？",
-        "acceptedAnswer": {"@type":"Answer","text":"TinyPass 支持本地离线生成强密码，不上传到服务器。本站不采集可识别个人信息，仅记录匿名聚合访问与按钮点击，用于改进体验。"}
-      },
-      {
-        "@type": "Question",
-        "name": "如何在 Chrome 安装或更新 TinyPass？",
-        "acceptedAnswer": {"@type":"Answer","text":"在浏览器扩展商店安装后，浏览器会自动推送更新。若遇到更新异常，可在扩展管理页手动检查更新。"}
-      },
-      {
-        "@type": "Question",
-        "name": "WebDavy 如何配置常见 WebDAV 服务？",
-        "acceptedAnswer": {"@type":"Answer","text":"按照服务提供的 WebDAV 地址、用户名与密码填写，常见如 Nextcloud/OwnCloud。建议先在桌面客户端验证连接，再在扩展中填写相同参数。"}
-      },
-      {
-        "@type": "Question",
-        "name": "SVG Studio 如何批量导出 PNG/ICO/WebP？",
-        "acceptedAnswer": {"@type":"Answer","text":"在左侧选择批量导出尺寸，启用相应格式后执行导出，可一次生成多尺寸图标包（如 PNG/ICO），预览区会实时更新效果。"}
-      },
-      {
-        "@type": "Question",
-        "name": "如何切换站点语言？SEO/分享信息是否同步？",
-        "acceptedAnswer": {"@type":"Answer","text":"通过右上语言切换器选择 zh/en。切换后页面文本与关键 meta（标题/描述/OG/Twitter）会同步更新，保证分享与索引一致性。"}
-      },
-      {
-        "@type": "Question",
-        "name": "如何反馈问题或建议？",
-        "acceptedAnswer": {"@type":"Answer","text":"可在页面底部的社交链接联系作者，或通过仓库/邮件反馈（不含敏感信息）。请附带复现步骤与截图以便定位。"}
-      },
-      {
-        "@type": "Question",
-        "name": "站点是否使用 Cookie 或跟踪个人信息？",
-        "acceptedAnswer": {"@type":"Answer","text":"本站仅使用必要的匿名统计，不收集或存储可识别个人信息（PII）。"}
-      }
-    ]
-  }</script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "TinyPass 是否离线生成？数据会被收集吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TinyPass 支持本地离线生成强密码，不上传到服务器。本站不采集可识别个人信息，仅记录匿名聚合访问与按钮点击，用于改进体验。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何在 Chrome 安装或更新 TinyPass？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "在浏览器扩展商店安装后，浏览器会自动推送更新。若遇到更新异常，可在扩展管理页手动检查更新。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "WebDavy 如何配置常见 WebDAV 服务？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "按照服务提供的 WebDAV 地址、用户名与密码填写，常见如 Nextcloud/OwnCloud。建议先在桌面客户端验证连接，再在扩展中填写相同参数。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "SVG Studio 如何批量导出 PNG/ICO/WebP？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "在左侧选择批量导出尺寸，启用相应格式后执行导出，可一次生成多尺寸图标包（如 PNG/ICO），预览区会实时更新效果。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何切换站点语言？SEO/分享信息是否同步？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "通过右上语言切换器选择 zh/en。切换后页面文本与关键 meta（标题/描述/OG/Twitter）会同步更新，保证分享与索引一致性。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何反馈问题或建议？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可在页面底部的社交链接联系作者，或通过仓库/邮件反馈（不含敏感信息）。请附带复现步骤与截图以便定位。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "站点是否使用 Cookie 或跟踪个人信息？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "本站仅使用必要的匿名统计，不收集或存储可识别个人信息（PII）。"
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 <body class="v1-professional">
-    <!-- Header -->
-    <!-- Header -->
+  <!-- Header -->
   <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
     <div class="container nav-v1">
       <a class="logo-v1" href="/">
@@ -82,8 +104,8 @@
           <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
           <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
           <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
-          <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
-          <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+          <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
         </nav>
         
         <!-- Language Selector (Toggle Button) -->
@@ -106,52 +128,141 @@
         <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
         <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
         <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
-        <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
-        <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
       </nav>
     </div>
   </header>
 
-  <main class="container py-10">
-    <h1 class="text-3xl font-bold mb-6" data-i18n="nav.faq">常见问题（FAQ）</h1>
-    <section class="space-y-6">
-      <details open>
-        <summary class="font-semibold">TinyPass 是否离线生成？数据会被收集吗？</summary>
-        <p class="text-gray-700">TinyPass 支持本地离线生成强密码，不上传到服务器。本站不采集可识别个人信息，仅记录匿名聚合访问与按钮点击，用于改进体验。</p>
+  <main class="container py-10 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100 text-orange-600 mb-4">
+        <i data-lucide="help-circle" class="w-8 h-8"></i>
+      </div>
+      <h1 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="nav.faq">常见问题（FAQ）</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto" data-i18n="faq.subtitle">这里汇集了大家最关心的问题。如果您找不到答案，欢迎通过底部社交链接联系我们。</p>
+    </div>
+
+    <section class="space-y-4">
+      <!-- FAQ Item 1 -->
+      <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden open:ring-2 open:ring-orange-100 open:border-orange-200 transition-all duration-200">
+        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-white hover:bg-gray-50 transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+            </div>
+            <span class="font-semibold text-gray-900 text-lg" data-i18n="faq.q1.title">TinyPass 是否离线生成？数据会被收集吗？</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
+        </summary>
+        <div class="px-6 pb-6 pt-2 border-t border-gray-100 bg-gray-50/50">
+          <p class="text-gray-600 leading-relaxed pl-12" data-i18n="faq.q1.desc">TinyPass 支持本地离线生成强密码，不上传到服务器。本站不采集可识别个人信息，仅记录匿名聚合访问与按钮点击，用于改进体验。</p>
+        </div>
       </details>
-      <details>
-        <summary class="font-semibold">如何在 Chrome 安装或更新 TinyPass？</summary>
-        <p class="text-gray-700">在浏览器扩展商店安装后，浏览器会自动推送更新。若遇到更新异常，可在扩展管理页手动检查更新。</p>
+
+      <!-- FAQ Item 2 -->
+      <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden open:ring-2 open:ring-orange-100 open:border-orange-200 transition-all duration-200">
+        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-white hover:bg-gray-50 transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+              <i data-lucide="download" class="w-4 h-4"></i>
+            </div>
+            <span class="font-semibold text-gray-900 text-lg" data-i18n="faq.q2.title">如何在 Chrome 安装或更新 TinyPass？</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
+        </summary>
+        <div class="px-6 pb-6 pt-2 border-t border-gray-100 bg-gray-50/50">
+          <p class="text-gray-600 leading-relaxed pl-12" data-i18n="faq.q2.desc">在浏览器扩展商店安装后，浏览器会自动推送更新。若遇到更新异常，可在扩展管理页手动检查更新。</p>
+        </div>
       </details>
-      <details>
-        <summary class="font-semibold">WebDavy 如何配置常见 WebDAV 服务？</summary>
-        <p class="text-gray-700">根据服务的 WebDAV 地址、用户名与密码填写，常见如 Nextcloud/OwnCloud。建议先在桌面客户端验证连接，再在扩展中填写相同参数。</p>
+
+      <!-- FAQ Item 3 -->
+      <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden open:ring-2 open:ring-orange-100 open:border-orange-200 transition-all duration-200">
+        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-white hover:bg-gray-50 transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center">
+              <i data-lucide="cloud" class="w-4 h-4"></i>
+            </div>
+            <span class="font-semibold text-gray-900 text-lg" data-i18n="faq.q3.title">WebDavy 如何配置常见 WebDAV 服务？</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
+        </summary>
+        <div class="px-6 pb-6 pt-2 border-t border-gray-100 bg-gray-50/50">
+          <p class="text-gray-600 leading-relaxed pl-12" data-i18n="faq.q3.desc">根据服务的 WebDAV 地址、用户名与密码填写，常见如 Nextcloud/OwnCloud。建议先在桌面客户端验证连接，再在扩展中填写相同参数。</p>
+        </div>
       </details>
-      <details>
-        <summary class="font-semibold">SVG Studio 如何批量导出 PNG/ICO/WebP？</summary>
-        <p class="text-gray-700">在左侧选择批量导出尺寸，启用相应格式后执行导出，可一次生成多尺寸图标包（如 PNG/ICO），预览区会实时更新效果。</p>
+
+      <!-- FAQ Item 4 -->
+      <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden open:ring-2 open:ring-orange-100 open:border-orange-200 transition-all duration-200">
+        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-white hover:bg-gray-50 transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center">
+              <i data-lucide="image" class="w-4 h-4"></i>
+            </div>
+            <span class="font-semibold text-gray-900 text-lg" data-i18n="faq.q4.title">SVG Studio 如何批量导出 PNG/ICO/WebP？</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
+        </summary>
+        <div class="px-6 pb-6 pt-2 border-t border-gray-100 bg-gray-50/50">
+          <p class="text-gray-600 leading-relaxed pl-12" data-i18n="faq.q4.desc">在左侧选择批量导出尺寸，启用相应格式后执行导出，可一次生成多尺寸图标包（如 PNG/ICO），预览区会实时更新效果。</p>
+        </div>
       </details>
-      <details>
-        <summary class="font-semibold">如何切换站点语言？SEO/分享信息是否同步？</summary>
-        <p class="text-gray-700">通过右上语言切换器选择 zh/en。切换后页面文本与关键 meta（标题/描述/OG/Twitter）会同步更新。</p>
+
+      <!-- FAQ Item 5 -->
+      <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden open:ring-2 open:ring-orange-100 open:border-orange-200 transition-all duration-200">
+        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-white hover:bg-gray-50 transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center">
+              <i data-lucide="languages" class="w-4 h-4"></i>
+            </div>
+            <span class="font-semibold text-gray-900 text-lg" data-i18n="faq.q5.title">如何切换站点语言？SEO/分享信息是否同步？</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
+        </summary>
+        <div class="px-6 pb-6 pt-2 border-t border-gray-100 bg-gray-50/50">
+          <p class="text-gray-600 leading-relaxed pl-12" data-i18n="faq.q5.desc">通过右上语言切换器选择 zh/en。切换后页面文本与关键 meta（标题/描述/OG/Twitter）会同步更新。</p>
+        </div>
       </details>
-      <details>
-        <summary class="font-semibold">如何反馈问题或建议？</summary>
-        <p class="text-gray-700">可在页面底部的社交链接联系作者，或通过仓库/邮件反馈（不含敏感信息）。请附带复现步骤与截图以便定位。</p>
+
+      <!-- FAQ Item 6 -->
+      <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden open:ring-2 open:ring-orange-100 open:border-orange-200 transition-all duration-200">
+        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-white hover:bg-gray-50 transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center">
+              <i data-lucide="message-square" class="w-4 h-4"></i>
+            </div>
+            <span class="font-semibold text-gray-900 text-lg" data-i18n="faq.q6.title">如何反馈问题或建议？</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
+        </summary>
+        <div class="px-6 pb-6 pt-2 border-t border-gray-100 bg-gray-50/50">
+          <p class="text-gray-600 leading-relaxed pl-12" data-i18n="faq.q6.desc">可在页面底部的社交链接联系作者，或通过仓库/邮件反馈（不含敏感信息）。请附带复现步骤与截图以便定位。</p>
+        </div>
       </details>
-      <details>
-        <summary class="font-semibold">站点是否使用 Cookie 或跟踪个人信息？</summary>
-        <p class="text-gray-700">本站仅使用必要的匿名统计，不收集或存储可识别个人信息（PII）。</p>
+
+      <!-- FAQ Item 7 -->
+      <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden open:ring-2 open:ring-orange-100 open:border-orange-200 transition-all duration-200">
+        <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-white hover:bg-gray-50 transition-colors">
+          <div class="flex items-center gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center">
+              <i data-lucide="shield-alert" class="w-4 h-4"></i>
+            </div>
+            <span class="font-semibold text-gray-900 text-lg" data-i18n="faq.q7.title">站点是否使用 Cookie 或跟踪个人信息？</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform duration-200"></i>
+        </summary>
+        <div class="px-6 pb-6 pt-2 border-t border-gray-100 bg-gray-50/50">
+          <p class="text-gray-600 leading-relaxed pl-12" data-i18n="faq.q7.desc">本站仅使用必要的匿名统计，不收集或存储可识别个人信息（PII）。</p>
+        </div>
       </details>
     </section>
   </main>
 
   <footer class="py-12 px-6 border-t border-gray-200 bg-white">
     <div class="max-w-6xl mx-auto text-center">
-      <p class="text-gray-500 text-lg">© <span id="year"></span> HolaTiger - 小工具，大能量</p>
+      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© {year} HolaTiger - 小工具，大能量</p>
     </div>
   </footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
