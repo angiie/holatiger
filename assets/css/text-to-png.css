@@ -1,11 +1,13 @@
 /* Text to PNG Generator Styles */
 
 /* 覆盖默认样式，确保与其他页面一致 */
-.v1-professional .container {
+/* 移除 container 覆盖，统一使用 product-detail.css 中的 .container (max-width: 1280px) */
+/* .v1-professional .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
-}
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+} */
 
 /* Hero Section 样式 */
 .fade-in-up {
@@ -97,7 +99,7 @@
 
 
 /* 按钮样式 */
-.btn {
+main .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -113,38 +115,38 @@
   white-space: nowrap;
 }
 
-#refreshRainbowBtn {
+main #refreshRainbowBtn {
   color: white;
 }
 
-.btn-primary {
+main .btn-primary {
   background-color: #f97316;
   color: white;
 }
 
-.btn-primary:hover {
+main .btn-primary:hover {
   background-color: #ea580c;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
 }
 
-.btn-outline {
+main .btn-outline {
   background-color: transparent;
   border: 1px solid #f97316;
   color: #f97316;
 }
 
-.btn-outline:hover {
+main .btn-outline:hover {
   background-color: #f97316;
   color: white;
 }
 
-.btn-sm {
+main .btn-sm {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
 }
 
-.btn-lg {
+main .btn-lg {
   padding: 1rem 2rem;
   font-size: 1.125rem;
 }

@@ -88,6 +88,7 @@
   "text-to-png.preview-title": "实时预览",
   "text-to-png.history-title": "历史记录",
   "gemini.name": "Gemini去水印",
+    "gemini.desc": "快速移除 Gemini AI 水印，保持图片原画质。",
   "lexa.name": "Lexa",
   "lexa.desc": "一键生成精美纵版词汇卡，包含定义、例句、音标与扩展词汇。",
   "title.lexa": "Lexa - 纵版词汇卡生成器 | AI 驱动中西双语学习与导出 - 虎啦",

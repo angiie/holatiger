@@ -22,7 +22,7 @@
   });
 })();
 
-// 3) 移动端菜单开关
+// 3) 移动端菜单开关 (Legacy for index.html v1)
 (function mobileMenu(){
   const btn = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav-links');
@@ -41,6 +41,18 @@
   });
 })();
 
+// 3.1) 新版移动端菜单开关 (For subpages using Tailwind)
+(function newMobileMenu(){
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.querySelector('.mobile-menu');
+  if(!btn || !menu) return;
+  
+  btn.addEventListener('click', ()=>{
+    menu.classList.toggle('hidden');
+  });
+})();
+
+
 function closeMenu(){
   const btn = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav-links');
@@ -48,6 +60,12 @@ function closeMenu(){
   if(window.innerWidth <= 560){
     nav.style.display = 'none';
     btn.setAttribute('aria-expanded','false');
+  }
+  
+  // Close new menu if exists
+  const newMenu = document.querySelector('.mobile-menu');
+  if(newMenu && !newMenu.classList.contains('hidden')){
+    newMenu.classList.add('hidden');
   }
 }
 

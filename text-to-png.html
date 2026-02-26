@@ -79,6 +79,7 @@
   <!-- 样式文件 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/assets/css/product-detail.css" />
+  <link rel="stylesheet" href="/assets/css/nav-unified.css" />
   <link rel="stylesheet" href="/assets/css/text-to-png.css" />
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/brannboll-f-personal-use-only" rel="stylesheet">
@@ -92,18 +93,20 @@
 
 <body class="v1-professional">
   <!-- Header -->
+    <!-- Header -->
+    <!-- Header -->
   <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
-    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
-      <a class="logo-v1" href="https://holatiger.com/">
+    <div class="container nav-v1">
+      <a class="logo-v1" href="/">
         <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
-        <span class="logo-text">虎啦</span>
+        <span class="logo-text" data-i18n="logo.text">虎啦</span>
       </a>
       <div class="flex items-center gap-6">
         <nav class="nav-links-v1 hidden md:flex items-center gap-6">
-          <a href="./index.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
-          <a href="./index.html#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
-          <a href="./index.html#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
-          <a href="./index.html#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
           <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
           <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
         </nav>
@@ -115,7 +118,7 @@
         </button>
         
         <!-- Mobile Menu Button -->
-        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn">
+        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn" aria-label="Menu">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
@@ -124,10 +127,10 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu hidden md:hidden border-t border-orange-100 bg-white/90 backdrop-blur-sm">
       <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
-        <a href="./index.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
-        <a href="./index.html#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
-        <a href="./index.html#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
-        <a href="./index.html#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+        <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+        <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
         <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
         <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
       </nav>
@@ -336,15 +339,11 @@
   <!-- Scripts -->
   <script src="/assets/js/text-to-png.js"></script>
   <script>
-    // Mobile menu toggle
-    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-      document.querySelector('.mobile-menu').classList.toggle('hidden');
-    });
-    
     // Initialize Lucide icons
     if (typeof lucide !== 'undefined') {
       lucide.createIcons();
     }
   </script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
