@@ -5,7 +5,6 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [
     react({
-      fastRefresh: true,
       jsxRuntime: 'automatic',
     }),
   ],
@@ -21,12 +20,17 @@ export default defineConfig({
         'svg-studio': resolve(__dirname, 'svg-studio.html'),
         'webdavy': resolve(__dirname, 'webdavy.html'),
         'tinypass': resolve(__dirname, 'tinypass.html'),
+        'text-to-png': resolve(__dirname, 'text-to-png.html'),
+        'lexa': resolve(__dirname, 'lexa.html'),
+        'handytulip': resolve(__dirname, 'handytulip.html'),
         'faq': resolve(__dirname, 'faq.html'),
         'blog': resolve(__dirname, 'blog.html'),
         'blog-svg-to-png-workflow': resolve(__dirname, 'blog-svg-to-png-workflow.html'),
         'blog-tinypass-password-guide': resolve(__dirname, 'blog-tinypass-password-guide.html'),
         'blog-webdav-chrome-setup': resolve(__dirname, 'blog-webdav-chrome-setup.html'),
         'blog-handy-tulip-implementation': resolve(__dirname, 'blog-handy-tulip-implementation.html'),
+        'blog-lexa-launch': resolve(__dirname, 'blog-lexa-launch.html'),
+        'blog-gemini-watermark-remover': resolve(__dirname, 'blog-gemini-watermark-remover.html'),
         'banana': resolve(__dirname, 'banana/index.html'),
       },
       output: {

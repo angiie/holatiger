@@ -14,6 +14,14 @@
   ],
   "rewrites": [
     {
+      "source": "/:product(svg-studio|tinypass|webdavy|lexa|text-to-png|handytulip)",
+      "destination": "/:product.html"
+    },
+    {
+      "source": "/:product(svg-studio|tinypass|webdavy|lexa|text-to-png|handytulip)/",
+      "destination": "/:product.html"
+    },
+    {
       "source": "/svg-studio",
       "destination": "/svg-studio.html"
     },
@@ -48,6 +56,14 @@
     {
       "source": "/handytulip-implementation",
       "destination": "/blog-handy-tulip-implementation.html"
+    },
+    {
+      "source": "/blog-lexa-launch",
+      "destination": "/blog-lexa-launch.html"
+    },
+    {
+      "source": "/blog-gemini-watermark-remover",
+      "destination": "/blog-gemini-watermark-remover.html"
     },
     {
       "source": "/blog-handy-tulip-implementation",

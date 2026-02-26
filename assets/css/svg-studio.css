@@ -1167,7 +1167,7 @@
 }
 
 /* Button styles */
-.svg-studio .btn {
+.svg-studio .app-container .btn {
     padding: 0.875rem 1.75rem;
     border: none;
     border-radius: var(--radius-md);
@@ -1185,7 +1185,7 @@
     letter-spacing: 0.025em;
 }
 
-.svg-studio .btn::before {
+.svg-studio .app-container .btn::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1196,66 +1196,66 @@
     transition: left 0.5s;
 }
 
-.svg-studio .btn:hover::before {
+.svg-studio .app-container .btn:hover::before {
     left: 100%;
 }
 
-.svg-studio .btn:disabled {
+.svg-studio .app-container .btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
     transform: none;
 }
 
-.svg-studio .btn:disabled::before {
+.svg-studio .app-container .btn:disabled::before {
     display: none;
 }
 
-.svg-studio .btn-primary {
+.svg-studio .app-container .btn-primary {
     background: var(--primary-gradient);
     color: white;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--primary-light);
 }
 
-.svg-studio .btn-primary:hover:not(:disabled) {
+.svg-studio .app-container .btn-primary:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: var(--shadow-xl);
     background: var(--accent-gradient);
 }
 
-.svg-studio .btn-primary:active:not(:disabled) {
+.svg-studio .app-container .btn-primary:active:not(:disabled) {
     transform: translateY(0);
     box-shadow: var(--shadow-md);
 }
 
-.svg-studio .btn-secondary {
+.svg-studio .app-container .btn-secondary {
     background: var(--surface-elevated);
     color: var(--text-primary);
     border: 1px solid var(--border);
     box-shadow: var(--shadow-sm);
 }
 
-.svg-studio .btn-secondary:hover:not(:disabled) {
+.svg-studio .app-container .btn-secondary:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
     background: var(--hover-elevated);
     border-color: var(--primary-light);
 }
 
-.svg-studio .btn-accent {
+.svg-studio .app-container .btn-accent {
     background: var(--accent-gradient);
     color: white;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--accent-light);
 }
 
-.svg-studio .btn-accent:hover:not(:disabled) {
+.svg-studio .app-container .btn-accent:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: var(--shadow-xl);
     background: linear-gradient(135deg, var(--success) 0%, var(--accent) 100%);
 }
 
-.svg-studio .btn-small {
+.svg-studio .app-container .btn-small {
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
 }
