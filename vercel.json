@@ -10,68 +10,52 @@
       "has": [{ "type": "host", "value": "www.holatiger.com" }],
       "destination": "https://holatiger.com/:path",
       "permanent": true
-    },
+    }
+  ],
+  "rewrites": [
     {
       "source": "/svg-studio",
-      "destination": "/svg-studio.html",
-      "permanent": true
+      "destination": "/svg-studio.html"
     },
     {
       "source": "/tinypass",
-      "destination": "/tinypass.html",
-      "permanent": true
+      "destination": "/tinypass.html"
     },
     {
       "source": "/webdavy",
-      "destination": "/webdavy.html",
-      "permanent": true
+      "destination": "/webdavy.html"
     },
     {
       "source": "/faq",
-      "destination": "/faq.html",
-      "permanent": true
+      "destination": "/faq.html"
     },
     {
       "source": "/blog",
-      "destination": "/blog.html",
-      "permanent": true
+      "destination": "/blog.html"
     },
     {
       "source": "/svg-to-png-workflow",
-      "destination": "/blog-svg-to-png-workflow.html",
-      "permanent": true
+      "destination": "/blog-svg-to-png-workflow.html"
     },
     {
       "source": "/tinypass-password-guide",
-      "destination": "/blog-tinypass-password-guide.html",
-      "permanent": true
+      "destination": "/blog-tinypass-password-guide.html"
     },
     {
       "source": "/webdav-chrome-setup",
-      "destination": "/blog-webdav-chrome-setup.html",
-      "permanent": true
-    }
-    ,
+      "destination": "/blog-webdav-chrome-setup.html"
+    },
     {
       "source": "/handytulip-implementation",
-      "destination": "/blog-handy-tulip-implementation.html",
-      "permanent": true
+      "destination": "/blog-handy-tulip-implementation.html"
     },
     {
       "source": "/blog-handy-tulip-implementation",
-      "destination": "/blog-handy-tulip-implementation.html",
-      "permanent": true
-    }
-    ,
-    {
-      "source": "/handytulip",
-      "destination": "/HandyTulip.html",
-      "permanent": true
+      "destination": "/blog-handy-tulip-implementation.html"
     },
     {
-      "source": "/handytulip.html",
-      "destination": "/HandyTulip.html",
-      "permanent": true
+      "source": "/handytulip",
+      "destination": "/handytulip.html"
     }
   ],
   "headers": [
