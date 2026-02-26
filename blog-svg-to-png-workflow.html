@@ -18,44 +18,208 @@
   <meta name="twitter:title" content="SVG 转 PNG/WebP：设计师与前端的高效工作流" />
   <meta name="twitter:description" content="使用 SVG Studio 快速导出多尺寸图标与常用格式的实用方法。" />
   <meta name="twitter:image" content="/assets/images/social/blog-1200x630.png" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/i18n.js"></script>
+  <script>window.addEventListener('load',function(){ if(window.i18n && typeof window.i18n.init==='function'){ window.i18n.init(); }});</script>
+  <link rel="stylesheet" href="/assets/css/nav-unified.css">
+  <script>
+    window.addEventListener('load', function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "SVG 转 PNG/WebP：设计师与前端的高效工作流",
+      "image": "https://holatiger.com/assets/images/social/blog-1200x630.png",
+      "author": {
+        "@type": "Person",
+        "name": "HolaTiger"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HolaTiger",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://holatiger.com/assets/images/icons/icon_64x64.png"
+        }
+      },
+      "datePublished": "2025-05-10",
+      "description": "使用 SVG Studio 快速导出多尺寸图标与常用格式的实用方法。"
+    }
+  </script>
 </head>
 <body class="v1-professional">
-  <main class="container py-10 prose">
-    <h1 class="text-3xl font-bold mb-6">SVG 转 PNG/WebP：设计师与前端的高效工作流</h1>
+  <!-- Header -->
+  <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
+    <div class="container nav-v1">
+      <a class="logo-v1" href="/">
+        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <span class="logo-text" data-i18n="logo.text">虎啦</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+          <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        </nav>
+        
+        <!-- Language Selector (Toggle Button) -->
+        <button id="lang-toggle-btn" class="lang-switcher-btn" aria-label="Switch Language">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span class="lang-text">中</span>
+        </button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn" aria-label="Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden border-t border-orange-100 bg-white/90 backdrop-blur-sm">
+      <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
+        <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+        <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+        <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container py-10 prose lg:prose-xl mx-auto">
+    <!-- Breadcrumb -->
+    <nav class="flex mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+      <ol class="flex items-center space-x-2">
+        <li><a href="/" class="hover:text-orange-500 transition-colors">首页</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li><a href="/blog.html" class="hover:text-orange-500 transition-colors">博客</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li class="text-gray-800 font-medium" aria-current="page">SVG 转 PNG/WebP：设计师与前端的高效工作流</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">SVG 转 PNG/WebP：设计师与前端的高效工作流</h1>
+    <div class="flex items-center gap-4 text-sm text-gray-500 mb-8 pb-8 border-b border-gray-100">
+      <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> 2025-05-10</span>
+      <span class="flex items-center gap-1"><i data-lucide="user" class="w-4 h-4"></i> HolaTiger</span>
+      <span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-xs font-medium">效率工具</span>
+    </div>
     <p class="text-gray-600">本文介绍如何使用 SVG Studio 将 SVG 快速导出为 PNG/WebP 等格式，并一次生成多尺寸图标包，适配浏览器与移动端需求。</p>
 
     <h2>准备与导入</h2>
-    <ul>
-      <li>准备干净的 SVG（移除冗余样式与未用图层）</li>
-      <li>在工具左侧粘贴 SVG 代码或拖拽文件导入</li>
+    <ul class="list-none pl-0 space-y-3">
+      <li class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg border border-gray-100">
+        <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+          <i data-lucide="file-image" class="w-3.5 h-3.5"></i>
+        </div>
+        <span class="text-gray-700">准备干净的 SVG（移除冗余样式与未用图层）</span>
+      </li>
+      <li class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg border border-gray-100">
+        <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+          <i data-lucide="upload-cloud" class="w-3.5 h-3.5"></i>
+        </div>
+        <span class="text-gray-700">在工具左侧粘贴 SVG 代码或拖拽文件导入</span>
+      </li>
     </ul>
 
     <h2>尺寸与格式</h2>
-    <ul>
-      <li>常用尺寸：16/32/48/64/128/256/512</li>
-      <li>WebP：更小体积，适合预览与分享图</li>
-      <li>PNG：通用无损格式，适配大多数平台</li>
-    </ul>
+    <div class="grid md:grid-cols-3 gap-4 not-prose my-8">
+      <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+        <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+          <i data-lucide="scaling" class="w-4 h-4 text-orange-500"></i> 常用尺寸
+        </h3>
+        <p class="text-sm text-gray-600">16/32/48/64/128/256/512，覆盖从 Favicon 到应用图标的需求。</p>
+      </div>
+      <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+        <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+          <i data-lucide="image" class="w-4 h-4 text-green-500"></i> WebP
+        </h3>
+        <p class="text-sm text-gray-600">更小体积，适合现代浏览器的预览图与社交分享图。</p>
+      </div>
+      <div class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
+        <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+          <i data-lucide="layers" class="w-4 h-4 text-purple-500"></i> PNG
+        </h3>
+        <p class="text-sm text-gray-600">通用无损格式，带有透明通道，适配绝大多数设计工具。</p>
+      </div>
+    </div>
 
     <h2>批量导出</h2>
-    <ol>
-      <li>选择需导出的尺寸集合</li>
-      <li>勾选导出格式（PNG/ICO/WebP）</li>
-      <li>执行导出并下载压缩包</li>
+    <ol class="list-none pl-0 space-y-4 counter-reset-step">
+      <li class="relative pl-12">
+        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-sm border border-orange-200">1</div>
+        <strong class="block text-gray-900 mb-1">选择尺寸</strong>
+        <span class="text-gray-600">勾选你需要导出的尺寸集合，支持自定义输入。</span>
+      </li>
+      <li class="relative pl-12">
+        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-sm border border-orange-200">2</div>
+        <strong class="block text-gray-900 mb-1">选择格式</strong>
+        <span class="text-gray-600">勾选导出格式（PNG/ICO/WebP），WebP 建议用于 Web 展示。</span>
+      </li>
+      <li class="relative pl-12">
+        <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-sm border border-orange-200">3</div>
+        <strong class="block text-gray-900 mb-1">执行导出</strong>
+        <span class="text-gray-600">点击导出按钮，下载自动打包好的 ZIP 压缩包。</span>
+      </li>
     </ol>
 
     <h2>最佳实践</h2>
-    <ul>
-      <li>确保 SVG 视窗与画布边界正确，避免导出被裁切</li>
-      <li>在高对比度背景下检查边缘与透明度</li>
-      <li>为社交分享准备 1200×630 的封面图</li>
-    </ul>
+    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100 my-8 not-prose space-y-3">
+      <div class="flex gap-3">
+        <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5"></i>
+        <p class="text-sm text-blue-900">确保 SVG 视窗（viewBox）与画布边界正确，避免导出时被裁切。</p>
+      </div>
+      <div class="flex gap-3">
+        <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5"></i>
+        <p class="text-sm text-blue-900">在高对比度背景下检查边缘与透明度，确保没有杂边。</p>
+      </div>
+      <div class="flex gap-3">
+        <i data-lucide="check-circle-2" class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5"></i>
+        <p class="text-sm text-blue-900">为社交分享准备 1200×630 的封面图，这是 OG 协议的标准尺寸。</p>
+      </div>
+    </div>
 
     <h2>常见问题</h2>
-    <p><strong>Q：</strong>导出模糊？<br/><strong>A：</strong>确认像素尺寸足够，避免浏览器缩放渲染；必要时提高导出尺寸。</p>
-    <p><strong>Q：</strong>颜色不一致？<br/><strong>A：</strong>检查 SVG 中的滤镜与混合模式；尽量使用标准 fill/stroke。</p>
+    <div class="space-y-4">
+      <details class="group bg-white p-4 rounded-lg border border-gray-200 open:ring-2 open:ring-orange-100 open:border-orange-200">
+        <summary class="flex items-center justify-between cursor-pointer list-none font-medium text-gray-900">
+          <span>导出图片模糊怎么办？</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <div class="mt-3 text-gray-600 text-sm leading-relaxed">
+          确认像素尺寸足够，避免浏览器缩放渲染；必要时提高导出尺寸（如 2x/3x）。如果是位图嵌入 SVG，请检查原图分辨率。
+        </div>
+      </details>
+      <details class="group bg-white p-4 rounded-lg border border-gray-200 open:ring-2 open:ring-orange-100 open:border-orange-200">
+        <summary class="flex items-center justify-between cursor-pointer list-none font-medium text-gray-900">
+          <span>导出颜色不一致？</span>
+          <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <div class="mt-3 text-gray-600 text-sm leading-relaxed">
+          检查 SVG 中的滤镜与混合模式，部分复杂效果在转码时可能丢失；尽量使用标准的 fill/stroke 属性。
+        </div>
+      </details>
+    </div>
   </main>
-  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <footer class="py-12 px-6 border-t border-gray-200 bg-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© {year} HolaTiger - 小工具，大能量</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <link rel="stylesheet" href="/assets/css/index-inline.css" />
   <script src="/assets/js/i18n.js"></script>
   <script>

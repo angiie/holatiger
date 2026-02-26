@@ -19,59 +19,178 @@
   <meta name="twitter:description" content="一键生成精美纵版词汇卡，包含定义、例句、音标与扩展词汇。AI 驱动，支持中西双语学习。" />
   <meta name="twitter:image" content="/assets/images/lexa/logo.png" />
   <!-- 加载 i18n 管理器，启用 data-i18n 自动翻译 -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/assets/css/index-inline.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
   <script src="/assets/js/i18n.js"></script>
   <script>window.addEventListener('load',function(){ if(window.i18n && typeof window.i18n.init==='function'){ window.i18n.init(); }});</script>
+  <link rel="stylesheet" href="/assets/css/nav-unified.css">
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <link rel="stylesheet" href="/assets/css/index-inline.css" />
+  <script>
+    window.addEventListener('load', function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Lexa 发布：AI 驱动的纵版词汇卡生成器",
+      "image": "https://holatiger.com/assets/images/lexa/logo.png",
+      "author": {
+        "@type": "Person",
+        "name": "HolaTiger"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HolaTiger",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://holatiger.com/assets/images/icons/icon_64x64.png"
+        }
+      },
+      "datePublished": "2026-01-10",
+      "description": "一键生成精美纵版词汇卡，包含定义、例句、音标与扩展词汇。AI 驱动，支持中西双语学习。"
+    }
+  </script>
 </head>
 <body class="v1-professional">
-  <header class="site-header-v1" id="top">
+  <!-- Header -->
+  <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
     <div class="container nav-v1">
       <a class="logo-v1" href="/">
-        <img src="/assets/images/icons/icon_64x64.png" alt="HolaTiger Logo" class="w-8 h-8" />
-        <span class="logo-text" data-i18n="logo.text">HolaTiger</span>
+        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <span class="logo-text" data-i18n="logo.text">虎啦</span>
       </a>
-      <nav class="nav-links-v1">
-        <a href="/index.html#extensions" data-i18n="nav.extensions">浏览器扩展</a>
-        <a href="/index.html#tools" data-i18n="nav.tools">在线工具</a>
-        <a href="/faq.html" data-i18n="nav.faq">FAQ</a>
+      <div class="flex items-center gap-6">
+        <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+          <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        </nav>
+        
+        <!-- Language Selector (Toggle Button) -->
+        <button id="lang-toggle-btn" class="lang-switcher-btn" aria-label="Switch Language">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span class="lang-text">中</span>
+        </button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn" aria-label="Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden border-t border-orange-100 bg-white/90 backdrop-blur-sm">
+      <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
+        <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+        <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+        <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
       </nav>
     </div>
   </header>
 
-  <main class="container py-10 prose">
-    <h1 class="text-3xl font-bold mb-6">Lexa 发布：AI 驱动的纵版词汇卡生成器</h1>
+  <main class="container py-10 prose lg:prose-xl mx-auto">
+    <!-- Breadcrumb -->
+    <nav class="flex mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+      <ol class="flex items-center space-x-2">
+        <li><a href="/" class="hover:text-orange-500 transition-colors">首页</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li><a href="/blog.html" class="hover:text-orange-500 transition-colors">博客</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li class="text-gray-800 font-medium" aria-current="page">Lexa 发布：AI 驱动的纵版词汇卡生成器</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Lexa 发布：AI 驱动的纵版词汇卡生成器</h1>
+    <div class="flex items-center gap-4 text-sm text-gray-500 mb-8 pb-8 border-b border-gray-100">
+      <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> 2026-01-10</span>
+      <span class="flex items-center gap-1"><i data-lucide="user" class="w-4 h-4"></i> HolaTiger</span>
+      <span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-xs font-medium">产品发布</span>
+    </div>
     <p class="text-gray-600">我们很高兴地宣布 <a href="https://lexa.holatiger.com">Lexa</a> 正式发布！这是一个面向语言学习者的在线词汇卡生成器，旨在帮助你更高效地制作精美的单词卡片。</p>
 
     <h2>为什么开发 Lexa？</h2>
-    <p>语言学习中，制作闪卡（Flashcards）是一个非常有效但往往耗时的方法。你需要查找定义、例句、音标，还要排版。Lexa 的出现就是为了解决这个问题：<strong>输入即所得</strong>。</p>
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 my-8 rounded-r-lg">
+      <p class="m-0 text-gray-700 italic">语言学习中，制作闪卡（Flashcards）是一个非常有效但往往耗时的方法。你需要查找定义、例句、音标，还要排版。Lexa 的出现就是为了解决这个问题：<strong>输入即所得</strong>。</p>
+    </div>
 
     <h2>核心功能</h2>
-    <ul>
-      <li><strong>秒级生成：</strong>只需输入单词或句子，AI 自动补全所有信息。</li>
-      <li><strong>纵版视觉：</strong>专为手机端阅读和社交平台分享（如 Instagram Story、小红书）设计。</li>
-      <li><strong>信息完整：</strong>每一张卡片都包含定义、双语例句、音标以及扩展词汇。</li>
-      <li><strong>双语支持：</strong>目前完美支持中文和西班牙语的学习路径。</li>
-      <li><strong>短句翻译：</strong>支持短句输入与翻译，通过语境学习更高效。</li>
-      <li><strong>批量导出：</strong>支持单条与批量导出，便于沉淀素材与复习。</li>
-    </ul>
+    <div class="grid sm:grid-cols-2 gap-6 my-8 not-prose">
+      <div class="flex gap-4">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+          <i data-lucide="zap" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 mb-1">秒级生成</h3>
+          <p class="text-sm text-gray-600">只需输入单词或句子，AI 自动补全所有信息。</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+          <i data-lucide="smartphone" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 mb-1">纵版视觉</h3>
+          <p class="text-sm text-gray-600">专为手机端阅读和社交平台分享设计。</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+          <i data-lucide="database" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 mb-1">信息完整</h3>
+          <p class="text-sm text-gray-600">包含定义、双语例句、音标以及扩展词汇。</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600">
+          <i data-lucide="languages" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 mb-1">双语支持</h3>
+          <p class="text-sm text-gray-600">目前完美支持中文和西班牙语的学习路径。</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 mb-1">短句翻译</h3>
+          <p class="text-sm text-gray-600">支持短句输入与翻译，通过语境学习更高效。</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600">
+          <i data-lucide="download" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-gray-900 mb-1">批量导出</h3>
+          <p class="text-sm text-gray-600">支持单条与批量导出，便于沉淀素材与复习。</p>
+        </div>
+      </div>
+    </div>
 
     <h2>产品截图</h2>
     <p>
-      <img src="/assets/images/lexa/screenshots/lexa-home.png" alt="Lexa 首页" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
-      <img src="/assets/images/lexa/screenshots/lexa-word-card.png" alt="Lexa 词汇卡" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-left: 20px;" />
-      <img src="/assets/images/lexa/screenshots/lexa-translation.png" alt="Lexa 短句翻译" style="max-width: 300px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-left: 20px;" />
+      <img src="/assets/images/lexa/screenshots/screenshot-mobile.png" alt="Lexa Mobile Screenshot" class="rounded-lg shadow-lg mx-auto" style="max-height: 600px;">
     </p>
 
-    <h2>如何开始？</h2>
-    <p>Lexa 完全免费且无需安装。直接访问 <a href="https://lexa.holatiger.com">lexa.holatiger.com</a> 即可开始使用。</p>
-
-    <h2>相关链接</h2>
-    <ul>
-      <li><a href="https://lexa.holatiger.com">Lexa 在线工具</a></li>
-      <li><a href="/lexa.html">Lexa 产品介绍页</a></li>
-      <li><a href="/blog" data-i18n="nav.blog">博客</a></li>
-    </ul>
+    <h2>立即体验</h2>
+    <p>点击下方链接，开始制作你的第一张词汇卡：<br/>
+    <a href="https://lexa.holatiger.com" target="_blank" class="text-blue-600 font-bold hover:underline">👉 访问 Lexa</a></p>
   </main>
 
   <footer class="py-12 px-6 border-t border-gray-200 bg-white">

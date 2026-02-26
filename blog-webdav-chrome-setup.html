@@ -18,59 +18,235 @@
   <meta name="twitter:title" content="在 Chrome 中连接 WebDAV：常见云服务一站式配置" />
   <meta name="twitter:description" content="Nextcloud/OwnCloud 等服务的 WebDAV 连接参数与排错要点。" />
   <meta name="twitter:image" content="/assets/images/social/blog-1200x630.png" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/i18n.js"></script>
+  <script>window.addEventListener('load',function(){ if(window.i18n && typeof window.i18n.init==='function'){ window.i18n.init(); }});</script>
+  <link rel="stylesheet" href="/assets/css/nav-unified.css">
+  <script>
+    window.addEventListener('load', function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "在 Chrome 中连接 WebDAV：常见云服务一站式配置",
+      "image": "https://holatiger.com/assets/images/social/blog-1200x630.png",
+      "author": {
+        "@type": "Person",
+        "name": "HolaTiger"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HolaTiger",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://holatiger.com/assets/images/icons/icon_64x64.png"
+        }
+      },
+      "datePublished": "2025-07-20",
+      "description": "Nextcloud/OwnCloud 等服务的 WebDAV 连接参数与排错要点。"
+    }
+  </script>
 </head>
 <body class="v1-professional">
-  <main class="container py-10 prose">
-    <h1 class="text-3xl font-bold mb-6">在 Chrome 中连接 WebDAV：常见云服务一站式配置</h1>
+  <!-- Header -->
+  <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
+    <div class="container nav-v1">
+      <a class="logo-v1" href="/">
+        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <span class="logo-text" data-i18n="logo.text">虎啦</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+          <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        </nav>
+        
+        <!-- Language Selector (Toggle Button) -->
+        <button id="lang-toggle-btn" class="lang-switcher-btn" aria-label="Switch Language">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span class="lang-text">中</span>
+        </button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn" aria-label="Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden border-t border-orange-100 bg-white/90 backdrop-blur-sm">
+      <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
+        <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+        <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+        <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container py-10 prose lg:prose-xl mx-auto">
+    <!-- Breadcrumb -->
+    <nav class="flex mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+      <ol class="flex items-center space-x-2">
+        <li><a href="/" class="hover:text-orange-500 transition-colors">首页</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li><a href="/blog.html" class="hover:text-orange-500 transition-colors">博客</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li class="text-gray-800 font-medium" aria-current="page">在 Chrome 中连接 WebDAV：常见云服务一站式配置</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">在 Chrome 中连接 WebDAV：常见云服务一站式配置</h1>
+    <div class="flex items-center gap-4 text-sm text-gray-500 mb-8 pb-8 border-b border-gray-100">
+      <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> 2025-07-20</span>
+      <span class="flex items-center gap-1"><i data-lucide="user" class="w-4 h-4"></i> HolaTiger</span>
+      <span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-xs font-medium">配置教程</span>
+    </div>
     <p class="text-gray-600">本文为开发者与进阶用户整理了在浏览器中连接 WebDAV 的通用步骤与参数要点，并给出 Nextcloud/OwnCloud 的示例路径与排错清单。</p>
 
     <h2>WebDavy 基本流程</h2>
-    <ol>
-      <li>准备服务器地址（HTTPS 优先）与账号密码</li>
-      <li>在扩展中填写 WebDAV URL、用户名、密码</li>
-      <li>测试连接，成功后进行文件列表/上传下载</li>
+    <ol class="relative border-l border-gray-200 ml-4 pl-8 space-y-6 my-8">
+      <li class="relative">
+        <span class="absolute -left-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -ml-px ring-4 ring-white">
+          <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
+        </span>
+        <h3 class="font-bold text-gray-900 mb-1">准备账号</h3>
+        <p class="text-sm text-gray-600 m-0">准备服务器地址（HTTPS 优先）与账号密码</p>
+      </li>
+      <li class="relative">
+        <span class="absolute -left-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -ml-px ring-4 ring-white">
+          <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
+        </span>
+        <h3 class="font-bold text-gray-900 mb-1">填写信息</h3>
+        <p class="text-sm text-gray-600 m-0">在扩展中填写 WebDAV URL、用户名、密码</p>
+      </li>
+      <li class="relative">
+        <span class="absolute -left-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -ml-px ring-4 ring-white">
+          <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
+        </span>
+        <h3 class="font-bold text-gray-900 mb-1">测试连接</h3>
+        <p class="text-sm text-gray-600 m-0">测试连接，成功后进行文件列表/上传下载</p>
+      </li>
     </ol>
 
     <h2>常见服务连接示例</h2>
-    <h3>Nextcloud</h3>
-    <pre><code>https://your-domain.com/remote.php/dav/files/&lt;username&gt;/</code></pre>
-    <ul>
-      <li>用户名：你的 Nextcloud 登录名</li>
-      <li>密码：建议使用应用专用密码</li>
-    </ul>
+    <div class="space-y-6 my-8">
+      <div class="bg-gray-900 rounded-xl p-6 shadow-lg text-gray-100 not-prose">
+        <div class="flex items-center gap-2 mb-4 border-b border-gray-700 pb-3">
+          <i data-lucide="cloud" class="w-5 h-5 text-blue-400"></i>
+          <span class="font-bold">Nextcloud</span>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <label class="text-xs text-gray-500 uppercase font-semibold tracking-wider">URL 格式</label>
+            <div class="bg-gray-800 rounded p-3 mt-1 font-mono text-sm text-green-400 break-all">
+              https://your-domain.com/remote.php/dav/files/&lt;username&gt;/
+            </div>
+          </div>
+          <ul class="text-sm text-gray-400 space-y-1 pl-4 list-disc">
+            <li>用户名：你的 Nextcloud 登录名</li>
+            <li>密码：建议使用应用专用密码</li>
+          </ul>
+        </div>
+      </div>
 
-    <h3>OwnCloud</h3>
-    <pre><code>https://your-domain.com/remote.php/webdav/</code></pre>
-    <ul>
-      <li>用户名/密码：与 OwnCloud 账户一致</li>
-      <li>若开启 2FA，使用专用令牌</li>
-    </ul>
+      <div class="bg-gray-900 rounded-xl p-6 shadow-lg text-gray-100 not-prose">
+        <div class="flex items-center gap-2 mb-4 border-b border-gray-700 pb-3">
+          <i data-lucide="server" class="w-5 h-5 text-purple-400"></i>
+          <span class="font-bold">OwnCloud</span>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <label class="text-xs text-gray-500 uppercase font-semibold tracking-wider">URL 格式</label>
+            <div class="bg-gray-800 rounded p-3 mt-1 font-mono text-sm text-green-400 break-all">
+              https://your-domain.com/remote.php/webdav/
+            </div>
+          </div>
+          <ul class="text-sm text-gray-400 space-y-1 pl-4 list-disc">
+            <li>用户名/密码：与 OwnCloud 账户一致</li>
+            <li>若开启 2FA，使用专用令牌</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <h2>HTTPS 与证书</h2>
-    <ul>
-      <li>尽量使用 HTTPS，避免明文凭据泄露</li>
-      <li>自签证书需在系统/浏览器信任，否则可能连接失败</li>
-    </ul>
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8 rounded-r-lg">
+      <ul class="list-none pl-0 space-y-2 m-0">
+        <li class="flex items-start gap-3">
+          <i data-lucide="lock" class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"></i>
+          <span class="text-yellow-900">尽量使用 HTTPS，避免明文凭据泄露</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <i data-lucide="alert-triangle" class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"></i>
+          <span class="text-yellow-900">自签证书需在系统/浏览器信任，否则可能连接失败</span>
+        </li>
+      </ul>
+    </div>
 
     <h2>常见错误与排查</h2>
-    <ul>
-      <li>401 未授权：检查用户名/密码/应用密码是否正确</li>
-      <li>404 路径错误：确认服务路径后缀（如 /dav/files/username/）</li>
-      <li>405 不允许：确认请求方法与服务器允许的动词</li>
-      <li>连接超时：检查防火墙/端口与反向代理配置</li>
-    </ul>
+    <div class="grid md:grid-cols-2 gap-4 not-prose">
+      <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+        <div class="text-red-500 font-bold mb-1">401 未授权</div>
+        <div class="text-sm text-gray-600">检查用户名/密码/应用密码是否正确</div>
+      </div>
+      <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+        <div class="text-orange-500 font-bold mb-1">404 路径错误</div>
+        <div class="text-sm text-gray-600">确认服务路径后缀（如 /dav/files/username/）</div>
+      </div>
+      <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+        <div class="text-yellow-500 font-bold mb-1">405 不允许</div>
+        <div class="text-sm text-gray-600">确认请求方法与服务器允许的动词</div>
+      </div>
+      <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+        <div class="text-gray-500 font-bold mb-1">连接超时</div>
+        <div class="text-sm text-gray-600">检查防火墙/端口与反向代理配置</div>
+      </div>
+    </div>
 
     <h2>最佳实践</h2>
-    <ul>
-      <li>先用桌面客户端或 curl 验证 URL 与凭据，再填入扩展</li>
-      <li>为每台设备设置不同专用密码，便于撤销</li>
-      <li>限制权限：只授予所需目录的读写权限</li>
+    <ul class="list-none pl-0 space-y-3">
+      <li class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+        <i data-lucide="terminal" class="w-5 h-5 text-gray-500"></i>
+        <span>先用桌面客户端或 curl 验证 URL 与凭据，再填入扩展</span>
+      </li>
+      <li class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+        <i data-lucide="key" class="w-5 h-5 text-gray-500"></i>
+        <span>为每台设备设置不同专用密码，便于撤销</span>
+      </li>
+      <li class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+        <i data-lucide="shield" class="w-5 h-5 text-gray-500"></i>
+        <span>限制权限：只授予所需目录的读写权限</span>
+      </li>
     </ul>
 
     <h2>安全提示</h2>
-    <p>避免在公共网络明文传输；关闭未使用的 WebDAV 方法；定期轮换密码与访问令牌。</p>
+    <div class="bg-red-50 p-6 rounded-xl text-center">
+      <i data-lucide="shield-alert" class="w-8 h-8 text-red-500 mx-auto mb-3"></i>
+      <p class="text-red-800 font-medium m-0">避免在公共网络明文传输；关闭未使用的 WebDAV 方法；定期轮换密码与访问令牌。</p>
+    </div>
   </main>
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <footer class="py-12 px-6 border-t border-gray-200 bg-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© {year} HolaTiger - 小工具，大能量</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <link rel="stylesheet" href="/assets/css/index-inline.css" />
   <script src="/assets/js/i18n.js"></script>
   <script>

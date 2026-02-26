@@ -25,7 +25,15 @@
   <link rel="stylesheet" href="/assets/css/index-inline.css" />
   <link rel="stylesheet" href="/assets/css/nav-unified.css" />
   <script src="/assets/js/i18n.js"></script>
-  <script>window.addEventListener('load',function(){ if(window.i18n && typeof window.i18n.init==='function'){ window.i18n.init(); }});</script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script>
+    window.addEventListener('load', function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+      if(window.i18n && typeof window.i18n.init==='function'){ window.i18n.init(); }
+    });
+  </script>
 </head>
 <body class="v1-professional">
     <!-- Header -->
@@ -75,24 +83,30 @@
   <main class="container py-10">
     <h1 class="text-3xl font-bold mb-6" data-i18n="nav.blog">博客</h1>
     <p class="text-gray-600 mb-8" data-i18n="blog.subtitle">主题方向依据 docs：密码安全、WebDAV、SVG 工具与设计。</p>
-    <ul class="space-y-4">
-      <li>
-        <a class="text-blue-600 hover:underline" href="/blog-gemini-watermark-remover.html" rel="bookmark" data-i18n="blog.geminiWatermark">揭秘 Gemini AI 去水印原理：基于数学的反向 Alpha 混合算法</a>
+    <ul class="space-y-6">
+      <li class="group">
+        <div class="text-sm text-gray-500 mb-1">2026-02-15</div>
+        <a class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors" href="/blog-gemini-watermark-remover.html" rel="bookmark" data-i18n="blog.geminiWatermark">揭秘 Gemini AI 去水印原理：基于数学的反向 Alpha 混合算法</a>
       </li>
-      <li>
-        <a class="text-blue-600 hover:underline" href="/blog-lexa-launch.html" rel="bookmark" data-i18n="blog.lexaLaunch">Lexa 发布：AI 驱动的纵版词汇卡生成器</a>
+      <li class="group">
+        <div class="text-sm text-gray-500 mb-1">2026-01-10</div>
+        <a class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors" href="/blog-lexa-launch.html" rel="bookmark" data-i18n="blog.lexaLaunch">Lexa 发布：AI 驱动的纵版词汇卡生成器</a>
       </li>
-      <li>
-        <a class="text-blue-600 hover:underline" href="/blog-handy-tulip-implementation" rel="bookmark" data-i18n="blog.handyTulip">手势种花 HandyTulip 的技术实现</a>
+      <li class="group">
+        <div class="text-sm text-gray-500 mb-1">2025-11-20</div>
+        <a class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors" href="/blog-handy-tulip-implementation.html" rel="bookmark" data-i18n="blog.handyTulip">手势种花 HandyTulip 的技术实现</a>
       </li>
-      <li>
-        <a class="text-blue-600 hover:underline" href="/blog-tinypass-password-guide" rel="bookmark" data-i18n="blog.tinyPass">用 TinyPass 生成强密码的实用指南</a>
+      <li class="group">
+        <div class="text-sm text-gray-500 mb-1">2025-09-15</div>
+        <a class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors" href="/blog-tinypass-password-guide.html" rel="bookmark" data-i18n="blog.tinyPass">用 TinyPass 生成强密码的实用指南</a>
       </li>
-      <li>
-        <a class="text-blue-600 hover:underline" href="/blog-webdav-chrome-setup" rel="bookmark" data-i18n="blog.webDav">在 Chrome 中连接 WebDAV：常见云服务一站式配置</a>
+      <li class="group">
+        <div class="text-sm text-gray-500 mb-1">2025-07-20</div>
+        <a class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors" href="/blog-webdav-chrome-setup.html" rel="bookmark" data-i18n="blog.webDav">在 Chrome 中连接 WebDAV：常见云服务一站式配置</a>
       </li>
-      <li>
-        <a class="text-blue-600 hover:underline" href="/blog-svg-to-png-workflow" rel="bookmark" data-i18n="blog.svgToPng">SVG 转 PNG/WebP：设计师与前端的高效工作流</a>
+      <li class="group">
+        <div class="text-sm text-gray-500 mb-1">2025-05-10</div>
+        <a class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors" href="/blog-svg-to-png-workflow.html" rel="bookmark" data-i18n="blog.svgToPng">SVG 转 PNG/WebP：设计师与前端的高效工作流</a>
       </li>
     </ul>
   </main>

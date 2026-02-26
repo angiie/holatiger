@@ -19,24 +19,116 @@
   <meta name="twitter:description" content="浏览器端实时手势识别与分阶段动画的工程实现。" />
   <meta name="twitter:image" content="/assets/images/social/blog-1200x630.png" />
   <!-- 加载 i18n 管理器，启用 data-i18n 自动翻译 -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <link rel="stylesheet" href="/assets/css/index-inline.css" />
   <script src="/assets/js/i18n.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
   <script>window.addEventListener('load',function(){ if(window.i18n && typeof window.i18n.init==='function'){ window.i18n.init(); }});</script>
+  <link rel="stylesheet" href="/assets/css/nav-unified.css">
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script>
     // 初始化 mermaid（暗色主题）
     // 用于渲染下方的技术流程图，提升可读性
     mermaid.initialize({ startOnLoad: true, theme: 'dark' });
   </script>
+  <script>
+    window.addEventListener('load', function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "手势种花 HandyTulip 的技术实现",
+      "image": "https://holatiger.com/assets/images/social/blog-1200x630.png",
+      "author": {
+        "@type": "Person",
+        "name": "HolaTiger"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HolaTiger",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://holatiger.com/assets/images/icons/icon_64x64.png"
+        }
+      },
+      "datePublished": "2025-11-20",
+      "description": "基于浏览器实时手势识别的互动小应用：摄像头采集、MediaPipe 手势模型、稳定性判定与分阶段动画种花。"
+    }
+  </script>
 </head>
 <body class="v1-professional">
-  <main class="container py-10 prose">
-    <h1 class="text-3xl font-bold mb-6">手势种花 HandyTulip 的技术实现</h1>
+  <!-- Header -->
+  <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
+    <div class="container nav-v1">
+      <a class="logo-v1" href="/">
+        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <span class="logo-text" data-i18n="logo.text">虎啦</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+          <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        </nav>
+        
+        <!-- Language Selector (Toggle Button) -->
+        <button id="lang-toggle-btn" class="lang-switcher-btn" aria-label="Switch Language">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span class="lang-text">中</span>
+        </button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn" aria-label="Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden border-t border-orange-100 bg-white/90 backdrop-blur-sm">
+      <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
+        <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+        <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+        <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container py-10 prose lg:prose-xl mx-auto">
+    <!-- Breadcrumb -->
+    <nav class="flex mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+      <ol class="flex items-center space-x-2">
+        <li><a href="/" class="hover:text-orange-500 transition-colors">首页</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li><a href="/blog.html" class="hover:text-orange-500 transition-colors">博客</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li class="text-gray-800 font-medium" aria-current="page">手势种花 HandyTulip 的技术实现</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">手势种花 HandyTulip 的技术实现</h1>
+    <div class="flex items-center gap-4 text-sm text-gray-500 mb-8 pb-8 border-b border-gray-100">
+      <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> 2025-11-20</span>
+      <span class="flex items-center gap-1"><i data-lucide="user" class="w-4 h-4"></i> HolaTiger</span>
+      <span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-xs font-medium">技术分享</span>
+    </div>
     <p class="text-gray-600">本文介绍 <a href="/handytulip.html">HandyTulip</a> 的核心实现思路：摄像头采集、手势模型推理、稳定性判定与分阶段动画种花，确保在浏览器端实现流畅互动。</p>
 
     <h2>技术流程（Mermaid）</h2>
-    <pre class="mermaid">
+    <div class="not-prose my-8 p-6 bg-gray-900 rounded-xl shadow-lg overflow-x-auto">
+      <pre class="mermaid bg-transparent">
 flowchart TD
   A[用户打开页面<br/>User opens page] --> B[请求摄像头权限<br/>Request camera permission]
   B --> C[采集视频流<br/>Capture video stream]
@@ -48,24 +140,85 @@ flowchart TD
   G -- 是/Yes --> H[种花：生成 DOM 与动画<br/>Plant tulip DOM + animation]
   H --> I[分阶段成长/凋谢<br/>Stage growth/decay]
   I --> J[清理与重置<br/>Cleanup + reset]
-    </pre>
+      </pre>
+    </div>
 
     <h2>关键模块拆解</h2>
-    <ul>
-      <li><strong>权限与采集：</strong>通过 <code>getUserMedia</code> 获取视频流，设置分辨率以兼顾清晰度与性能。</li>
-      <li><strong>模型加载：</strong>使用 MediaPipe 手势模型（HandLandmarker）在浏览器端推理，避免后端依赖。</li>
-      <li><strong>稳定性判定：</strong>对连续若干帧的关键点进行抖动过滤，确保非误触发。</li>
-      <li><strong>触发与动画：</strong>满足手势条件后插入花朵 DOM，使用 CSS 动画分阶段展示成长与凋谢。</li>
-      <li><strong>状态与清理：</strong>在动画结束后清理节点并复位状态，准备下一次交互。</li>
+    <ul class="list-none space-y-4 pl-0">
+      <li class="flex items-start gap-3">
+        <div class="mt-1.5 min-w-[20px] h-[20px] rounded-full bg-orange-100 flex items-center justify-center">
+          <div class="w-2 h-2 rounded-full bg-orange-500"></div>
+        </div>
+        <div>
+          <strong class="text-gray-900 block mb-1">权限与采集</strong>
+          <span class="text-gray-600">通过 <code>getUserMedia</code> 获取视频流，设置分辨率以兼顾清晰度与性能。</span>
+        </div>
+      </li>
+      <li class="flex items-start gap-3">
+        <div class="mt-1.5 min-w-[20px] h-[20px] rounded-full bg-orange-100 flex items-center justify-center">
+          <div class="w-2 h-2 rounded-full bg-orange-500"></div>
+        </div>
+        <div>
+          <strong class="text-gray-900 block mb-1">模型加载</strong>
+          <span class="text-gray-600">使用 MediaPipe 手势模型（HandLandmarker）在浏览器端推理，避免后端依赖。</span>
+        </div>
+      </li>
+      <li class="flex items-start gap-3">
+        <div class="mt-1.5 min-w-[20px] h-[20px] rounded-full bg-orange-100 flex items-center justify-center">
+          <div class="w-2 h-2 rounded-full bg-orange-500"></div>
+        </div>
+        <div>
+          <strong class="text-gray-900 block mb-1">稳定性判定</strong>
+          <span class="text-gray-600">对连续若干帧的关键点进行抖动过滤，确保非误触发。</span>
+        </div>
+      </li>
+      <li class="flex items-start gap-3">
+        <div class="mt-1.5 min-w-[20px] h-[20px] rounded-full bg-orange-100 flex items-center justify-center">
+          <div class="w-2 h-2 rounded-full bg-orange-500"></div>
+        </div>
+        <div>
+          <strong class="text-gray-900 block mb-1">触发与动画</strong>
+          <span class="text-gray-600">满足手势条件后插入花朵 DOM，使用 CSS 动画分阶段展示成长与凋谢。</span>
+        </div>
+      </li>
+      <li class="flex items-start gap-3">
+        <div class="mt-1.5 min-w-[20px] h-[20px] rounded-full bg-orange-100 flex items-center justify-center">
+          <div class="w-2 h-2 rounded-full bg-orange-500"></div>
+        </div>
+        <div>
+          <strong class="text-gray-900 block mb-1">状态与清理</strong>
+          <span class="text-gray-600">在动画结束后清理节点并复位状态，准备下一次交互。</span>
+        </div>
+      </li>
     </ul>
 
     <h2>实现要点与经验</h2>
-    <ul>
-      <li><strong>性能：</strong>控制推理帧率与动画复杂度，优先保持交互顺滑。</li>
-      <li><strong>兼容性：</strong>在移动端与桌面端测试，适当降级（如关闭高开销效果）。</li>
-      <li><strong>可维护：</strong>模块化拆分识别、判定、渲染，避免耦合。</li>
-      <li><strong>用户提示：</strong>使用可关闭的中英双语提示（基于 <code>localStorage</code>），减少打扰。</li>
-    </ul>
+    <div class="grid md:grid-cols-2 gap-6 my-8 not-prose">
+      <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+        <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+          <i data-lucide="zap" class="w-5 h-5 text-orange-500"></i> 性能优化
+        </h3>
+        <p class="text-sm text-gray-600">控制推理帧率与动画复杂度，优先保持交互顺滑。</p>
+      </div>
+      <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+        <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+          <i data-lucide="smartphone" class="w-5 h-5 text-orange-500"></i> 兼容性
+        </h3>
+        <p class="text-sm text-gray-600">在移动端与桌面端测试，适当降级（如关闭高开销效果）。</p>
+      </div>
+      <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+        <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+          <i data-lucide="code-2" class="w-5 h-5 text-orange-500"></i> 可维护性
+        </h3>
+        <p class="text-sm text-gray-600">模块化拆分识别、判定、渲染，避免耦合。</p>
+      </div>
+      <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+        <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+          <i data-lucide="message-square" class="w-5 h-5 text-orange-500"></i> 用户提示
+        </h3>
+        <p class="text-sm text-gray-600">使用可关闭的中英双语提示（基于 <code>localStorage</code>），减少打扰。</p>
+      </div>
+    </div>
 
     <h2>相关链接</h2>
     <ul>
@@ -73,5 +226,11 @@ flowchart TD
       <li><a href="/blog" data-i18n="nav.blog">博客</a></li>
     </ul>
   </main>
+
+  <footer class="py-12 px-6 border-t border-gray-200 bg-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© {year} HolaTiger - 小工具，大能量</p>
+    </div>
+  </footer>
 </body>
 </html>
