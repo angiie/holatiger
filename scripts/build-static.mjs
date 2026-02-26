@@ -27,7 +27,7 @@ const htmlFiles = [
   'blog-svg-to-png-workflow.html',
   'blog-tinypass-password-guide.html',
   'blog-webdav-chrome-setup.html'
-  , 'HandyTulip.html'
+  , 'handytulip.html'
   , 'blog-handy-tulip-implementation.html'
   , 'lexa.html'
   , 'blog-lexa-launch.html'
