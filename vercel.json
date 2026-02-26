@@ -56,6 +56,22 @@
     {
       "source": "/handytulip",
       "destination": "/handytulip.html"
+    },
+    {
+      "source": "/text-to-png",
+      "destination": "/text-to-png.html"
+    },
+    {
+      "source": "/lexa",
+      "destination": "/lexa.html"
+    },
+    {
+      "source": "/banana",
+      "destination": "/banana/index.html"
+    },
+    {
+      "source": "/banana/batch",
+      "destination": "/banana/index.html"
     }
   ],
   "headers": [
@@ -92,12 +108,5 @@
         { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     }
-  ]
-  ,
-  "rewrites": [
-    { "source": "/handytulip.html", "destination": "/HandyTulip.html" },
-    { "source": "/handytulip", "destination": "/HandyTulip.html" },
-    { "source": "/banana", "destination": "/banana/index.html" },
-    { "source": "/banana/batch", "destination": "/banana/index.html" }
   ]
 }
