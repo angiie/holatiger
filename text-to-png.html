@@ -272,7 +272,7 @@
       </div>
       
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-blue-100">
+        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-blue-100 hover:shadow-xl transition-shadow">
           <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <i data-lucide="type" class="w-8 h-8 text-blue-600"></i>
           </div>
@@ -280,7 +280,7 @@
           <p class="text-gray-600" data-i18n="text-to-png.feature1-desc">支持多种字体选择，打造个性化文字效果</p>
         </div>
         
-        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-purple-100">
+        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-purple-100 hover:shadow-xl transition-shadow">
           <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <i data-lucide="palette" class="w-8 h-8 text-purple-600"></i>
           </div>
@@ -288,7 +288,7 @@
           <p class="text-gray-600" data-i18n="text-to-png.feature2-desc">独特的彩虹渐变效果，让文字更加生动</p>
         </div>
         
-        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-green-100">
+        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-green-100 hover:shadow-xl transition-shadow">
           <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <i data-lucide="eye" class="w-8 h-8 text-green-600"></i>
           </div>
@@ -340,9 +340,11 @@
   <script src="/assets/js/text-to-png.js"></script>
   <script>
     // Initialize Lucide icons
-    if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
-    }
+    window.addEventListener('load', function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
   </script>
   <script src="/assets/js/main.js" defer></script>
 </body>
