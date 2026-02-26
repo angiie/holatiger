@@ -108,17 +108,11 @@
           <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
         </nav>
         
-        <!-- Language Selector -->
-        <div class="dropdown dropdown-end">
-          <div tabindex="0" role="button" class="btn btn-ghost btn-sm">
-            <i data-lucide="globe" class="w-4 h-4"></i>
-            <span class="hidden sm:inline" data-i18n="lang.current">中文</span>
-          </div>
-          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-32">
-            <li><a href="?lang=zh" data-i18n="lang.zh">简体中文</a></li>
-            <li><a href="?lang=en" data-i18n="lang.en">English</a></li>
-          </ul>
-        </div>
+        <!-- Language Selector (Toggle Button) -->
+        <button id="lang-toggle-btn" class="lang-switcher-btn" aria-label="Switch Language">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span class="lang-text">中</span>
+        </button>
         
         <!-- Mobile Menu Button -->
         <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn">
@@ -275,25 +269,25 @@
       </div>
       
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-orange-100">
-          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i data-lucide="type" class="w-8 h-8 text-orange-600"></i>
+        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-blue-100">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="type" class="w-8 h-8 text-blue-600"></i>
           </div>
           <h3 class="text-xl font-semibold text-gray-800 mb-2" data-i18n="text-to-png.feature1-title">自定义字体</h3>
           <p class="text-gray-600" data-i18n="text-to-png.feature1-desc">支持多种字体选择，打造个性化文字效果</p>
         </div>
         
-        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-orange-100">
-          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i data-lucide="palette" class="w-8 h-8 text-orange-600"></i>
+        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-purple-100">
+          <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="palette" class="w-8 h-8 text-purple-600"></i>
           </div>
           <h3 class="text-xl font-semibold text-gray-800 mb-2" data-i18n="text-to-png.feature2-title">彩虹渐变</h3>
           <p class="text-gray-600" data-i18n="text-to-png.feature2-desc">独特的彩虹渐变效果，让文字更加生动</p>
         </div>
         
-        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-orange-100">
-          <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i data-lucide="eye" class="w-8 h-8 text-orange-600"></i>
+        <div class="text-center p-6 bg-white rounded-xl shadow-lg border border-green-100">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="eye" class="w-8 h-8 text-green-600"></i>
           </div>
           <h3 class="text-xl font-semibold text-gray-800 mb-2" data-i18n="text-to-png.feature3-title">实时预览</h3>
           <p class="text-gray-600" data-i18n="text-to-png.feature3-desc">即时预览效果，所见即所得的设计体验</p>

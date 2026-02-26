@@ -63,22 +63,11 @@
           <a href="/blog" data-i18n="nav.blog">博客</a>
         </nav>
 
-        <!-- 语言选择器 -->
-        <div class="dropdown dropdown-end">
-          <div tabindex="0" role="button" class="lang-switcher-btn">
-            <i data-lucide="globe" class="w-4 h-4"></i>
-            <span id="current-lang">中文</span>
-            <i data-lucide="chevron-down" class="w-3 h-3 transition-transform duration-200"></i>
-          </div>
-          <ul tabindex="0" class="lang-dropdown-menu">
-            <li><a onclick="switchLanguage('zh')" class="lang-option" data-lang="zh">
-                <span class="lang-text">简体</span>
-              </a></li>
-            <li><a onclick="switchLanguage('en')" class="lang-option" data-lang="en">
-                <span class="lang-text">EN</span>
-              </a></li>
-          </ul>
-        </div>
+        <!-- 语言选择器 (Toggle Button) -->
+        <button id="lang-toggle-btn" class="lang-switcher-btn" aria-label="Switch Language">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span class="lang-text">中</span>
+        </button>
       </div>
     </div>
   </header>

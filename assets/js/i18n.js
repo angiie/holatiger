@@ -96,19 +96,49 @@ class I18nManager {
   }
 
   /**
-   * 切换语言
+   * 切换语言 (Toggle)
+   * 在 zh 和 en 之间切换
    */
-  async switchLanguage(lang) {
-    // 先加载语言包
-    await this.loadLanguage(lang);
-    this.setLanguage(lang);
-    this.updateContent();
-    this.updateLanguageSelector();
-    
-    // 触发语言切换事件
-    window.dispatchEvent(new CustomEvent('languageChanged', {
-      detail: { language: lang }
-    }));
+  toggleLanguage() {
+    const nextLang = this.currentLanguage === 'zh' ? 'en' : 'zh';
+    this.setLanguage(nextLang);
+    // 重新加载并更新页面
+    this.loadLanguage(nextLang).then(() => {
+      this.updateContent();
+      // 更新按钮状态（如果有）
+      this.updateToggleButton();
+    });
+  }
+
+  /**
+   * 更新 Toggle 按钮显示
+   * 假设按钮 ID 为 lang-toggle-btn
+   */
+  updateToggleButton() {
+    const btn = document.getElementById('lang-toggle-btn');
+    if (btn) {
+      // 如果当前是 zh，显示 "EN" (点击切换到英文)
+      // 如果当前是 en，显示 "中" (点击切换到中文)
+      // 或者显示当前语言状态
+      // 方案：显示 "中/En" icon，或者根据当前语言显示目标语言
+      // 这里采用：显示当前语言的 Icon + 文字，或者直接 Toggle 样式
+      
+      // 简单方案：显示 "中" 或 "En" 代表当前语言，或者 "English" / "中文"
+      // 用户需求是 Toggle，通常是一个按钮，点击切换
+      // 我们可以显示 "🌐 中/En" 或者当前选中的语言
+      
+      const isZh = this.currentLanguage === 'zh';
+      // 更新按钮文本或内容
+      // 这里我们假设按钮内部有一个 span 用来显示文本
+      const textSpan = btn.querySelector('.lang-text');
+      if (textSpan) {
+        textSpan.textContent = isZh ? 'EN' : '中'; // 显示"点击后将切换到的语言"或者"当前语言"？
+        // 通常 Toggle 按钮显示的是"当前状态"或者"对立状态"
+        // 让我们显示当前语言： "中文" / "English"
+        // 或者更简洁： "中" / "En"
+        textSpan.textContent = isZh ? '中' : 'En';
+      }
+    }
   }
 
   /**
@@ -203,59 +233,17 @@ class I18nManager {
    * 初始化
    */
   async init() {
-    // 加载当前语言包
     await this.loadLanguage(this.currentLanguage);
     this.updateContent();
-    this.updateLanguageSelector();
     
-    // 监听DOM变化，自动翻译新添加的元素
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node.nodeType === Node.ELEMENT_NODE && node.querySelectorAll) {
-            // 检查节点本身是否有data-i18n属性
-            if (node.hasAttribute && node.hasAttribute('data-i18n')) {
-              const key = node.getAttribute('data-i18n');
-              const params = node.getAttribute('data-i18n-params');
-              const parsedParams = params ? JSON.parse(params) : {};
-              node.innerHTML = this.t(key, parsedParams);
-            }
-            
-            // 查找子元素中的data-i18n元素
-            const i18nElements = node.querySelectorAll('[data-i18n]');
-            i18nElements.forEach(element => {
-              const key = element.getAttribute('data-i18n');
-              const params = element.getAttribute('data-i18n-params');
-              const parsedParams = params ? JSON.parse(params) : {};
-              element.innerHTML = this.t(key, parsedParams);
-            });
-          }
-        });
-      });
-    });
-    
-    // 确保document.body存在后再开始监听
-    if (document.body) {
-      observer.observe(document.body, { childList: true, subtree: true });
-    } else {
-      // 如果body还不存在，等待DOM加载完成
-      document.addEventListener('DOMContentLoaded', () => {
-        observer.observe(document.body, { childList: true, subtree: true });
-      });
+    // 绑定 Toggle 按钮事件
+    const toggleBtn = document.getElementById('lang-toggle-btn');
+    if (toggleBtn) {
+      toggleBtn.onclick = () => this.toggleLanguage();
+      this.updateToggleButton();
     }
   }
 }
 
 // 创建全局实例
-const i18n = new I18nManager();
-
-// 暴露到全局作用域
-window.i18n = i18n;
-window.switchLanguage = async (lang) => {
-  await i18n.switchLanguage(lang);
-};
-
-// 导出（如果使用模块系统）
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { I18nManager };
-}
+window.i18n = new I18nManager();
