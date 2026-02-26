@@ -30,10 +30,14 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
 
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
 
-PORT = 8081
+PORT = 8080
+
+class ThreadingSimpleServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
+    allow_reuse_address = True
+
 # Allow reuse address to avoid "Address already in use"
 socketserver.TCPServer.allow_reuse_address = True
 
-with socketserver.TCPServer(("", PORT), MyHandler) as httpd:
+with ThreadingSimpleServer(("", PORT), MyHandler) as httpd:
     print(f"Serving at port {PORT}")
     httpd.serve_forever()
