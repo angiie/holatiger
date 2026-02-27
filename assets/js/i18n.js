@@ -233,14 +233,28 @@ class I18nManager {
    * 初始化
    */
   async init() {
+    console.log('I18n init started');
     await this.loadLanguage(this.currentLanguage);
     this.updateContent();
     
     // 绑定 Toggle 按钮事件
     const toggleBtn = document.getElementById('lang-toggle-btn');
     if (toggleBtn) {
-      toggleBtn.onclick = () => this.toggleLanguage();
+      console.log('I18n binding toggle button');
+      // 移除旧的事件监听器（如果可能），避免重复绑定
+      const newBtn = toggleBtn.cloneNode(true);
+      toggleBtn.parentNode.replaceChild(newBtn, toggleBtn);
+      
+      newBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log('Language toggle clicked');
+        this.toggleLanguage();
+      });
+      
+      // 重新获取引用以便后续更新
       this.updateToggleButton();
+    } else {
+      console.warn('I18n toggle button not found');
     }
   }
 }
