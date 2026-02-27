@@ -32,6 +32,7 @@ const htmlFiles = [
   , 'lexa.html'
   , 'blog-lexa-launch.html'
   , 'blog-gemini-watermark-remover.html'
+  , 'tinypic.html'
 ];
 htmlFiles.forEach(file => {
   if (existsSync(file)) {
@@ -56,6 +57,14 @@ const bananaDir = 'banana';
 if (existsSync(bananaDir)) {
   execSync(`cp -r ${bananaDir} ${distDir}/`, { stdio: 'inherit' });
   console.log(`  ✅ ${bananaDir}`);
+}
+
+// 7. 复制 tinypic 目录
+console.log('🖼️ 复制 tinypic 目录...');
+const tinypicDir = 'tinypic';
+if (existsSync(tinypicDir)) {
+  execSync(`cp -r ${tinypicDir} ${distDir}/`, { stdio: 'inherit' });
+  console.log(`  ✅ ${tinypicDir}`);
 }
 
 console.log('🎉 构建完成！');

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <!-- Analytics Scripts -->
+  <script src="/assets/js/analytics.js" charset="utf-8"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Tiny Pic 是一款纯本地运行的开源批量图片压缩工具，支持 JPEG, PNG, WEBP, AVIF, SVG 和 GIF 格式。完全保护隐私，无需上传服务器。" />
+  <meta name="keywords" content="Tiny Pic, 图片压缩, image compression, png compress, jpeg compress, webp compress, avif compress, gif compress, svg compress, 批量压缩, HolaTiger" />
+  <link rel="canonical" href="https://holatiger.com/tinypic.html" />
+  <meta property="og:title" content="Tiny Pic - 智能图片压缩工具 | 本地批量压缩保护隐私" />
+  <meta property="og:description" content="Tiny Pic 是一款纯本地运行的开源批量图片压缩工具，支持 JPEG, PNG, WEBP, AVIF, SVG 和 GIF 格式。完全保护隐私，无需上传服务器。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://holatiger.com/tinypic.html" />
+  <meta property="og:image" content="/assets/images/social/holatiger-svg-studio-1200x630.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tiny Pic - 智能图片压缩工具 | 本地批量压缩保护隐私" />
+  <meta name="twitter:description" content="Tiny Pic 是一款纯本地运行的开源批量图片压缩工具，支持 JPEG, PNG, WEBP, AVIF, SVG 和 GIF 格式。完全保护隐私，无需上传服务器。" />
+  <meta name="twitter:image" content="/assets/images/social/holatiger-svg-studio-1200x630.png" />
+  <title data-i18n="title.tinypic">Tiny Pic - 智能图片压缩工具 | 本地批量压缩保护隐私 - 虎啦</title>
+  
+  <!-- Favicon配置 -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/images/icons/icon_16x16.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png">
+  <link rel="icon" type="image/x-icon" sizes="48x48" href="/assets/images/icons/icon_48x48.ico">
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/icon_256x256.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/css/product-detail.css" />
+  <link rel="stylesheet" href="/assets/css/nav-unified.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="/assets/js/i18n.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Tiny Pic","description":"Local batch image compression tool","brand":{"@type":"Brand","name":"HolaTiger"},"url":"https://holatiger.com/tinypic.html","sku":"tinypic","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}</script>
+</head>
+<body class="v1-professional">
+  <!-- Header -->
+  <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
+    <div class="container nav-v1">
+      <a class="logo-v1" href="/">
+        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <span class="logo-text" data-i18n="logo.text">虎啦</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+          <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        </nav>
+        
+        <!-- Language Selector (Toggle Button) -->
+        <button id="lang-toggle-btn" class="lang-switcher-btn" aria-label="Switch Language">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span class="lang-text">中</span>
+        </button>
+        
+        <!-- Mobile Menu Button -->
+        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn" aria-label="Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden border-t border-orange-100 bg-white/90 backdrop-blur-sm">
+      <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
+        <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+        <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+        <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 产品详情 Hero -->
+    <section class="product-hero py-12 px-6">
+      <div class="max-w-4xl mx-auto relative z-10">
+        <div class="flex items-center gap-6 mb-8 fade-in-up">
+          <!-- 产品图标 -->
+          <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center shadow-md flex-shrink-0">
+            <img src="/tinypic/logo.svg" alt="Tiny Pic" class="w-10 h-10">
+          </div>
+          
+          <!-- 产品标题和版本 -->
+          <div>
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              <span class="gradient-text">Tiny Pic</span>
+            </h1>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium" data-i18n="tinypic.version">
+              版本 1.0.0
+            </div>
+          </div>
+        </div>
+        
+        <!-- 产品简介 -->
+        <div class="fade-in-up" style="animation-delay: 0.2s;">
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed" data-i18n="tinypic.description">
+            Tiny Pic 是一款纯本地运行的开源批量图片压缩工具，支持 JPEG, PNG, WEBP, AVIF, SVG 和 GIF 格式。完全保护隐私，无需上传服务器。
+          </p>
+          
+          <!-- 操作按钮 -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/tinypic/index.html" target="_blank" 
+               class="px-8 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md" 
+               style="text-decoration: none !important;" data-i18n="tinypic.button.install">
+              🚀 立即使用
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 产品特性 -->
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="tinypic.features.title">产品特性</h2>
+          <p class="text-gray-600 text-lg fade-in-up" style="animation-delay: 0.2s;" data-i18n="tinypic.features.subtitle">了解这款工具的核心功能和优势</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div class="feature-card fade-in-up" style="animation-delay: 0.1s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">🔒</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="tinypic.feature1.title">纯本地运行</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="tinypic.feature1.desc">所有压缩过程均在浏览器本地完成，无需上传服务器，确保隐私安全</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="feature-card fade-in-up" style="animation-delay: 0.2s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">🖼️</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="tinypic.feature2.title">多格式支持</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="tinypic.feature2.desc">支持 JPEG, PNG, WEBP, AVIF, SVG 和 GIF 等多种主流图片格式</p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="feature-card fade-in-up" style="animation-delay: 0.3s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">⚡</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="tinypic.feature3.title">高效批量处理</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="tinypic.feature3.desc">支持批量拖拽上传与压缩，快速处理大量图片，提升工作效率</p>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-gray-200 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-gray-500" data-i18n="footer.copyright">© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量</p>
+    </div>
+  </footer>
+
+  <script>
+    // 页面加载动画
+    window.addEventListener('load', function() {
+      // 设置年份
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const elements = document.querySelectorAll('.fade-in-up');
+      elements.forEach((el, index) => {
+        setTimeout(() => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.animation = `fadeInUp 0.8s ease-out ${index * 0.2}s forwards`;
+        }, 100);
+      });
+
+      // 初始化 Lucide 图标
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+      
+      // 初始化语言
+      if (typeof i18n !== 'undefined') {
+        i18n.init();
+      }
+    });
+  </script>
+  
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

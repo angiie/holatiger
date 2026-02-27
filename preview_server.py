@@ -3,10 +3,23 @@ import socketserver
 import os
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
+    def end_headers(self):
+        # Add COOP/COEP headers for Tiny Pic
+        if self.path.startswith('/tinypic'):
+            self.send_header("Cross-Origin-Embedder-Policy", "require-corp")
+            self.send_header("Cross-Origin-Opener-Policy", "same-origin")
+        super().end_headers()
+
     def do_GET(self):
         # Clean path from query and hash
         original_path = self.path.split('?')[0].split('#')[0]
         
+        # Handle /tinypic rewrite manually
+        if original_path == '/tinypic' or original_path == '/tinypic/':
+             if os.path.exists('tinypic/index.html'):
+                self.path = '/tinypic/index.html'
+                return http.server.SimpleHTTPRequestHandler.do_GET(self)
+
         # Determine actual file path
         if original_path == '/':
             full_path = 'index.html'

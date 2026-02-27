@@ -86,8 +86,12 @@
       "destination": "/banana/index.html"
     },
     {
-      "source": "/banana/batch",
-      "destination": "/banana/index.html"
+      "source": "/tinypic",
+      "destination": "/tinypic/index.html"
+    },
+    {
+      "source": "/tinypic/",
+      "destination": "/tinypic/index.html"
     }
   ],
   "headers": [
@@ -116,6 +120,28 @@
       "source": "/assets/images/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/tinypic/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "Cross-Origin-Embedder-Policy", "value": "require-corp" },
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" }
+      ]
+    },
+    {
+      "source": "/tinypic/(.*)",
+      "headers": [
+        { "key": "Cross-Origin-Embedder-Policy", "value": "require-corp" },
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" }
+      ]
+    },
+    {
+      "source": "/tinypic",
+      "headers": [
+        { "key": "Cross-Origin-Embedder-Policy", "value": "require-corp" },
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" }
       ]
     },
     {
