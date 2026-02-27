@@ -33,6 +33,7 @@ const htmlFiles = [
   , 'blog-lexa-launch.html'
   , 'blog-gemini-watermark-remover.html'
   , 'tinypic.html'
+  , 'blog-tinypic-wasm-principle.html'
 ];
 htmlFiles.forEach(file => {
   if (existsSync(file)) {
