@@ -31,6 +31,7 @@ export default defineConfig({
         'blog-handy-tulip-implementation': resolve(__dirname, 'blog-handy-tulip-implementation.html'),
         'blog-lexa-launch': resolve(__dirname, 'blog-lexa-launch.html'),
         'blog-gemini-watermark-remover': resolve(__dirname, 'blog-gemini-watermark-remover.html'),
+        'blog-tinypic-wasm-principle': resolve(__dirname, 'blog-tinypic-wasm-principle.html'),
         'banana': resolve(__dirname, 'banana/index.html'),
       },
       output: {
