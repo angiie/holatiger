@@ -34,6 +34,7 @@ const htmlFiles = [
   , 'blog-gemini-watermark-remover.html'
   , 'tinypic.html'
   , 'blog-tinypic-wasm-principle.html'
+  , 'ezpixy.html'
 ];
 htmlFiles.forEach(file => {
   if (existsSync(file)) {

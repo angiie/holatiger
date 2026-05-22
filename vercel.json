@@ -78,6 +78,14 @@
       "destination": "/text-to-png.html"
     },
     {
+      "source": "/ezpixy",
+      "destination": "/ezpixy.html"
+    },
+    {
+      "source": "/ezpixy/",
+      "destination": "/ezpixy.html"
+    },
+    {
       "source": "/lexa",
       "destination": "/lexa.html"
     },
