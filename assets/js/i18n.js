@@ -151,29 +151,29 @@ class I18nManager {
       const key = element.getAttribute('data-i18n');
       const params = element.getAttribute('data-i18n-params');
       const parsedParams = params ? JSON.parse(params) : {};
-      
+
       // 特殊处理年份
       if (key === 'footer.copyright') {
         parsedParams.year = new Date().getFullYear();
       }
-      
+
       const text = this.t(key, parsedParams);
       if (text !== key) element.innerHTML = text;
     });
-    
+
     // 更新页面标题
     const titleKey = this.getPageTitleKey();
     if (titleKey) {
       document.title = this.t(titleKey);
     }
-    
+
     const directTitle = this.t('title');
     if (!document.title && directTitle && directTitle !== 'title') {
       document.title = directTitle;
     }
-    
-    // 更新meta描述
-    this.updateMetaDescription();
+
+    // 更新所有 SEO meta（描述、OG、Twitter、locale）
+    this.updateSeoMeta();
   }
 
   /**
@@ -181,6 +181,7 @@ class I18nManager {
    */
   getPageTitleKey() {
     const path = window.location.pathname;
+    if (path.toLowerCase().includes('ezpixy')) return 'title.ezpixy';
     if (path.includes('webdavy')) return 'title.webdavy';
     if (path.includes('tinypass')) return 'title.tinypass';
     if (path.toLowerCase().includes('handytulip')) return 'title.handytulip';
@@ -188,21 +189,52 @@ class I18nManager {
   }
 
   /**
-   * 更新meta描述
+   * 更新所有 SEO meta 标签（语言切换时同步更新）
    */
-  updateMetaDescription() {
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      const path = window.location.pathname;
-      let descKey = '';
-      if (path.includes('webdavy')) descKey = 'webdavy.description';
-      if (path.includes('tinypass')) descKey = 'tinypass.description';
-      if (path.toLowerCase().includes('handytulip')) descKey = 'handytulip.description';
-      
-      if (descKey) {
-        metaDesc.setAttribute('content', this.t(descKey));
-      }
+  updateSeoMeta() {
+    const help = (attr, name, content) => {
+      const el = document.querySelector(`${attr === 'name' ? 'meta[name="' : 'meta[property="'}${name}"]`);
+      if (el && content) el.setAttribute('content', content);
+    };
+
+    const path = window.location.pathname;
+    let prefix = '';
+    if (path.toLowerCase().includes('ezpixy')) prefix = 'ezpixy';
+    else if (path.includes('tinypass')) prefix = 'tinypass';
+    else if (path.includes('webdavy')) prefix = 'webdavy';
+    else if (path.toLowerCase().includes('handytulip')) prefix = 'handytulip';
+    else if (path.includes('tinypic')) prefix = 'tinypic';
+    else prefix = 'home';
+
+    // 描述
+    const descKey = prefix !== 'home' ? `${prefix}.description` : null;
+    if (descKey) {
+      const desc = this.t(descKey);
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && desc && desc !== descKey) metaDesc.setAttribute('content', desc);
     }
+
+    // OG / Twitter
+    const seoKeys = ['title', 'description'];
+    seoKeys.forEach(k => {
+      const baseKey = prefix !== 'home' ? `seo.og.${prefix}.${k}` : null;
+      const text = baseKey ? this.t(baseKey) : null;
+      if (text && text !== baseKey) {
+        if (k === 'title') {
+          help('property', 'og:title', text);
+          help('name', 'twitter:title', text);
+        } else {
+          help('property', 'og:description', text);
+          help('name', 'twitter:description', text);
+        }
+      }
+    });
+
+    // locale & html lang
+    const langCodeMap = { 'zh': 'zh-CN', 'en': 'en' };
+    const localeMap = { 'zh': 'zh_CN', 'en': 'en_US' };
+    document.documentElement.lang = langCodeMap[this.currentLanguage] || 'zh-CN';
+    help('property', 'og:locale', localeMap[this.currentLanguage] || 'zh_CN');
   }
 
   /**
