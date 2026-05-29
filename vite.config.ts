@@ -22,7 +22,6 @@ export default defineConfig({
         'tinypass': resolve(__dirname, 'tinypass.html'),
         'text-to-png': resolve(__dirname, 'text-to-png.html'),
         'lexa': resolve(__dirname, 'lexa.html'),
-        'handytulip': resolve(__dirname, 'handytulip.html'),
         'faq': resolve(__dirname, 'faq.html'),
         'blog': resolve(__dirname, 'blog.html'),
         'blog-svg-to-png-workflow': resolve(__dirname, 'blog-svg-to-png-workflow.html'),

@@ -194,8 +194,6 @@
   "ezpixy.faq4.q": "更适合什么业务场景？",
   "ezpixy.faq4.a": "更适合服装电商、目录上新、站外投放和详情页补图场景，核心价值是减少棚拍与手工修图的等待时间。",
 
-  "handytulip.name": "HandyTulip",
-
   "tools.title": "在线工具",
   "tools.subtitle": "无需安装，打开即用的在线工具集合",
   "tools.badge": "Web工具",
@@ -221,20 +219,9 @@
   "seo.og.tinypass.description": "TinyPass 是一款专为Chrome浏览器设计的随机密码生成工具，完全在本地运行，无需联网或登录。",
   "seo.og.webdavy.title": "WebDavy WebDAV客户端 - 浏览器文件同步 | 连接云存储 | HolaTiger",
   "seo.og.webdavy.description": "WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。",
-  "seo.og.handytulip.title": "HandyTulip 手势种花 - 摄像头互动与 CSS 动画 | 虎啦",
-  "seo.og.handytulip.description": "开启摄像头，用手势在屏幕上种郁金香。纯 CSS 动画，轻量有趣。",
+
   "seo.og.ezpixy.title": "ezpixy - AI 电商图片工作台 | 模特图、试衣、商品图生成 | 虎啦",
   "seo.og.ezpixy.description": "上传商品图或模特图，几分钟内生成电商可用的 AI 模特图、白底图、虚拟试衣和场景图。",
   "seo.og.tinypic.title": "Tiny Pic - 智能图片压缩工具 | 本地批量压缩保护隐私 | 虎啦",
-  "seo.og.tinypic.description": "Tiny Pic 是一款纯本地运行的开源批量图片压缩工具，支持 JPEG, PNG, WEBP, AVIF, SVG 和 GIF 格式。完全保护隐私，无需上传服务器。",
-
-  "handytulip.desc": "用摄像头手势种花，生成 CSS 郁金香动画。",
-  "title.handytulip": "HandyTulip 手势种花 - 摄像头互动与 CSS 动画实验 | 免费体验 - 虎啦",
-  "handytulip.description": "HandyTulip 是一个趣味交互工具：开启摄像头，用手势在屏幕上种郁金香，实时预览并调整位置。纯 CSS 动画实现，轻量、私密，无需安装或账号，适合演示互动、放松体验或教学展示。识别过程在本地进行，延迟低，手势动作清晰可见，体验像在屏幕上种花一样直观，对新手也友好，更易上手。",
-  "handytulip.tips.title": "使用须知",
-  "handytulip.tips.camera": "请允许摄像头权限以进行手势识别。",
-  "handytulip.tips.play": "基础玩法：伸出手掌预览位置，捏合手势即可种下一朵郁金香。移动手势可调整位置，在地面区域效果更佳。",
-  "handytulip.tips.close": "我已了解"
-  ,
-  "handytulip.tips.handopen": "把手伸到镜头前：停留并张开五指可在该位置种下郁金香 🌷"
+  "seo.og.tinypic.description": "Tiny Pic 是一款纯本地运行的开源批量图片压缩工具，支持 JPEG, PNG, WEBP, AVIF, SVG 和 GIF 格式。完全保护隐私，无需上传服务器。"
 }

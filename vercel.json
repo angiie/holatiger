@@ -54,10 +54,6 @@
       "destination": "/blog-webdav-chrome-setup.html"
     },
     {
-      "source": "/handytulip-implementation",
-      "destination": "/blog-handy-tulip-implementation.html"
-    },
-    {
       "source": "/blog-lexa-launch",
       "destination": "/blog-lexa-launch.html"
     },
@@ -70,8 +66,8 @@
       "destination": "/blog-handy-tulip-implementation.html"
     },
     {
-      "source": "/handytulip",
-      "destination": "/handytulip.html"
+      "source": "/blog-handy-tulip-implementation",
+      "destination": "/blog-handy-tulip-implementation.html"
     },
     {
       "source": "/text-to-png",

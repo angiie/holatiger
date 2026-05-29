@@ -191,8 +191,6 @@
   "ezpixy.faq4.q": "What business scenarios fit best?",
   "ezpixy.faq4.a": "It fits apparel ecommerce, catalog launches, paid acquisition assets, and PDP image gaps best. The main value is reducing the waiting time caused by studio shoots and manual retouching.",
 
-  "handytulip.name": "HandyTulip",
-
   "tools.title": "Web Tools",
   "tools.subtitle": "No installation required, use instantly in your browser",
   "tools.badge": "Web Tool",
@@ -208,7 +206,6 @@
   "about.desc": "I'm <strong class=\"text-orange-600\">angiie</strong>. My daughter was born in the Year of the Tiger; our family loves tiger motifs, and even our dog is called \"Tiger\" (he's the fifth one, so the name stuck). \"Hola\" comes from my ongoing Spanish learning — it's the friendly Spanish greeting I like. This site will keep updating Chrome extensions and web tools. Feel free to bookmark and send feedback.",
 
   "blog.subtitle": "Topics: password security, WebDAV configuration, and SVG workflows.",
-  "blog.handyTulip": "HandyTulip Technical Implementation",
   "blog.tinyPass": "Practical Guide: Generate Strong Passwords with TinyPass",
   "blog.webDav": "Connect WebDAV in Chrome: Unified Setup for Common Services",
   "blog.svgToPng": "SVG to PNG/WebP: Efficient Workflow for Designers and Frontend",
@@ -223,22 +220,10 @@
   "seo.og.tinypass.description": "Generate strong passwords locally in your Chrome browser. Free, offline, and privacy-first password manager extension.",
   "seo.og.webdavy.title": "WebDavy WebDAV Client - Browser File Sync & Cloud Storage Manager | HolaTiger",
   "seo.og.webdavy.description": "Manage remote files via WebDAV right from your Chrome browser. Supports NextCloud, OwnCloud and more.",
-  "seo.og.handytulip.title": "HandyTulip Gesture Garden - Plant Tulips with Camera Gestures | HolaTiger",
-  "seo.og.handytulip.description": "A playful web tool: plant CSS tulips with hand gestures via camera. Lightweight interactive demo.",
   "seo.og.ezpixy.title": "ezpixy - AI Ecommerce Image Studio | Model Photos & Virtual Try-On | HolaTiger",
   "seo.og.ezpixy.description": "AI-powered fashion model generation, virtual try-on, white background, and product scene creation for ecommerce.",
   "seo.og.tinypic.title": "Tiny Pic - Smart Image Compression Tool | Local & Private | HolaTiger",
   "seo.og.tinypic.description": "Batch compress JPEG, PNG, WEBP, AVIF, SVG and GIF images locally in your browser. No uploads, full privacy.",
 
   "footer.copyright": "© {year} HolaTiger - Small Tools, Big Power"
-  ,
-  "handytulip.desc": "Plant tulips with camera gestures, generating CSS animations.",
-  "title.handytulip": "HandyTulip Gesture Garden - Camera Interaction & CSS Animation Lab | HolaTiger",
-  "handytulip.description": "A playful web tool: enable your camera and plant tulips with hand gestures. Pure CSS animation, lightweight, no installation required.",
-  "handytulip.tips.title": "Quick Tips",
-  "handytulip.tips.camera": "Please allow camera access to enable gesture recognition.",
-  "handytulip.tips.play": "Basics: show your open palm to preview position, pinch to plant a tulip. Move to adjust placement; near the ground area works best.",
-  "handytulip.tips.close": "Got it"
-  ,
-  "handytulip.tips.handopen": "Put your hand in front of the camera: hold still and spread your five fingers to plant a tulip at that position 🌷"
 }

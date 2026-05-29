@@ -184,7 +184,6 @@ class I18nManager {
     if (path.toLowerCase().includes('ezpixy')) return 'title.ezpixy';
     if (path.includes('webdavy')) return 'title.webdavy';
     if (path.includes('tinypass')) return 'title.tinypass';
-    if (path.toLowerCase().includes('handytulip')) return 'title.handytulip';
     return null;
   }
 
@@ -202,7 +201,6 @@ class I18nManager {
     if (path.toLowerCase().includes('ezpixy')) prefix = 'ezpixy';
     else if (path.includes('tinypass')) prefix = 'tinypass';
     else if (path.includes('webdavy')) prefix = 'webdavy';
-    else if (path.toLowerCase().includes('handytulip')) prefix = 'handytulip';
     else if (path.includes('tinypic')) prefix = 'tinypic';
     else prefix = 'home';
 

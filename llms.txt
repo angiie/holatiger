@@ -1,0 +1,44 @@
+# HolaTiger - 小工具，大能量 / Small Tools, Big Power
+
+## 关于 / About
+虎啦（HolaTiger）是一个轻量、实用的浏览器扩展与在线工具集合站，由独立开发者 angiie 创建。
+HolaTiger is a lightweight collection of browser extensions and online tools created by indie developer angiie.
+
+## 产品 / Products
+
+### TinyPass
+- ZH: Chrome 扩展，本地随机密码生成器
+- EN: Chrome extension for local random password generation
+
+### WebDavy
+- ZH: Chrome 扩展，WebDAV 文件管理工具
+- EN: Chrome extension for WebDAV file management
+
+### ezpixy
+- ZH: AI 电商图片工作台（模特图、虚拟试衣、白底图）
+- EN: AI ecommerce image studio (model generation, virtual try-on, white background)
+
+### Tiny Pic
+- ZH: 在线图片压缩工具（JPEG/PNG/WEBP/AVIF/SVG/GIF）
+- EN: Online image compression tool (JPEG/PNG/WEBP/AVIF/SVG/GIF)
+
+### Lexa
+- ZH: AI 词汇卡生成器（中西双语学习）
+- EN: AI vocabulary card generator (bilingual learning)
+
+### Gemini Watermark Remover
+- ZH: Gemini AI 水印移除工具
+- EN: Gemini AI watermark removal tool
+
+### SVG Studio
+- ZH: SVG 查看和导出工具
+- EN: SVG viewer and export tool
+
+### Text to PNG
+- ZH: 文字转图片工具
+- EN: Text to PNG converter
+
+## 技术栈 / Tech Stack
+- 静态 HTML + Tailwind CSS + Lucide 图标 / Static HTML + Tailwind CSS + Lucide Icons
+- 托管于 Vercel（全球 CDN）/ Hosted on Vercel (Global CDN)
+- 多语言支持（中文/English）/ Multilingual support (Chinese/English)
