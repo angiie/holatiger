@@ -27,7 +27,7 @@ const WebDavyPage: React.FC = () => {
 
   const screenshots = [
     {
-      src: '/assets/images/webdavy/screenshot/zh/login-page.jpg',
+      src: '/assets/images/webdavy/screenshot/zh/login-page.png',
       alt: 'WebDavy 连接配置界面'
     },
     {
