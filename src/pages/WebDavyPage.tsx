@@ -4,25 +4,35 @@ import ProductPage from './ProductPage'
 const WebDavyPage: React.FC = () => {
   const features = [
     {
-      icon: '🌐',
+      icon: '🔒',
       titleKey: 'feature1.title',
       descriptionKey: 'feature1.desc'
     },
     {
-      icon: '📁',
+      icon: '⚙️',
       titleKey: 'feature2.title',
       descriptionKey: 'feature2.desc'
+    },
+    {
+      icon: '📌',
+      titleKey: 'feature3.title',
+      descriptionKey: 'feature3.desc'
+    },
+    {
+      icon: '📦',
+      titleKey: 'feature4.title',
+      descriptionKey: 'feature4.desc'
     }
   ]
 
   const screenshots = [
     {
-      src: '/assets/images/webdavy/screenshot/zh/store-screenshot-1280x800-main.png',
-      alt: 'WebDavy 主界面'
+      src: '/assets/images/webdavy/screenshot/zh/login-page.jpg',
+      alt: 'WebDavy 连接配置界面'
     },
     {
-      src: '/assets/images/webdavy/screenshot/zh/store-screenshot-1280x800-files.png',
-      alt: 'WebDavy 文件管理'
+      src: '/assets/images/webdavy/screenshot/zh/detail-page.jpg',
+      alt: 'WebDavy 文件管理界面'
     }
   ]
 

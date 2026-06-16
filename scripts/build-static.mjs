@@ -4,6 +4,10 @@ import { join } from 'path';
 
 console.log('🚀 开始构建静态网站...');
 
+// 1. 自动生成 sitemap.xml
+console.log('🗺️ 生成 sitemap.xml...');
+execSync('node scripts/gen-sitemap.mjs', { stdio: 'inherit' });
+
 // 2. 创建dist目录
 const distDir = 'dist';
 if (!existsSync(distDir)) {
