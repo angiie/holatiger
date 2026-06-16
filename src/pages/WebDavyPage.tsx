@@ -31,7 +31,7 @@ const WebDavyPage: React.FC = () => {
       alt: 'WebDavy 连接配置界面'
     },
     {
-      src: '/assets/images/webdavy/screenshot/zh/detail-page.jpg',
+      src: '/assets/images/webdavy/screenshot/zh/detail-page.png',
       alt: 'WebDavy 文件管理界面'
     }
   ]
