@@ -1,9 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import TestI18n from '@/pages/TestI18n'
-import '@/i18n'
-
-// 导入样式
+import App from './App'
+import './i18n'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,6 +9,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <TestI18n />
+    <App />
   </React.StrictMode>
 )

@@ -10,28 +10,34 @@
       "has": [{ "type": "host", "value": "www.holatiger.com" }],
       "destination": "https://holatiger.com/:path",
       "permanent": true
+    },
+    {
+      "source": "/webdavy.html",
+      "destination": "/webdavy",
+      "permanent": true
+    },
+    {
+      "source": "/tinypass.html",
+      "destination": "/tinypass",
+      "permanent": true
     }
   ],
   "rewrites": [
     {
-      "source": "/:product(svg-studio|tinypass|webdavy|lexa|text-to-png|handytulip)",
-      "destination": "/:product.html"
+      "source": "/webdavy",
+      "destination": "/index.html"
     },
     {
-      "source": "/:product(svg-studio|tinypass|webdavy|lexa|text-to-png|handytulip)/",
-      "destination": "/:product.html"
+      "source": "/tinypass",
+      "destination": "/index.html"
     },
     {
       "source": "/svg-studio",
       "destination": "/svg-studio.html"
     },
     {
-      "source": "/tinypass",
-      "destination": "/tinypass.html"
-    },
-    {
-      "source": "/webdavy",
-      "destination": "/webdavy.html"
+      "source": "/svg-studio/",
+      "destination": "/svg-studio.html"
     },
     {
       "source": "/faq",
@@ -66,19 +72,11 @@
       "destination": "/blog-handy-tulip-implementation.html"
     },
     {
-      "source": "/blog-handy-tulip-implementation",
-      "destination": "/blog-handy-tulip-implementation.html"
-    },
-    {
       "source": "/text-to-png",
       "destination": "/text-to-png.html"
     },
     {
       "source": "/ezpixy",
-      "destination": "/ezpixy.html"
-    },
-    {
-      "source": "/ezpixy/",
       "destination": "/ezpixy.html"
     },
     {

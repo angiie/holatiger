@@ -44,7 +44,8 @@ i18n
     debug: import.meta.env?.DEV === true,
     interpolation: { escapeValue: false },
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
+      order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
+      lookupQuerystring: 'lang',
       caches: ['localStorage'],
       lookupLocalStorage: 'language',
     },

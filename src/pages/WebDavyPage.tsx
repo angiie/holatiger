@@ -1,7 +1,11 @@
 import React from 'react'
+import { Helmet } from 'react-helmet-async'
+import { useTranslation } from 'react-i18next'
 import ProductPage from './ProductPage'
 
 const WebDavyPage: React.FC = () => {
+  const { t } = useTranslation()
+
   const features = [
     {
       icon: '🔒',
@@ -37,15 +41,27 @@ const WebDavyPage: React.FC = () => {
   ]
 
   return (
-    <ProductPage
-      productKey="webdavy"
-      icon="/assets/images/webdavy/svg-export-40x40.png"
-      iconBg="from-gray-100 to-gray-200"
-      installUrl="https://chromewebstore.google.com/detail/webdavy/inaeglkgfmnkncalphgpkendfjndjmid"
-      moreUrl="https://holatiger.com/#extensions"
-      features={features}
-      screenshots={screenshots}
-    />
+    <>
+      <Helmet>
+        <title>{t('title.webdavy', 'WebDavy WebDAV客户端 - 浏览器文件同步 | 连接云存储 - 虎啦')}</title>
+        <meta name="description" content={t('webdavy.description', 'WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展。')} />
+        <link rel="canonical" href="https://holatiger.com/webdavy" />
+        <meta property="og:title" content={t('seo.og.webdavy.title', 'WebDavy WebDAV客户端 - 浏览器文件同步 | 连接云存储')} />
+        <meta property="og:description" content={t('seo.og.webdavy.description', 'WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展。')} />
+        <meta property="og:url" content="https://holatiger.com/webdavy" />
+        <meta property="og:image" content="https://holatiger.com/assets/images/social/webdavy-1200x630.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+      <ProductPage
+        productKey="webdavy"
+        icon="/assets/images/webdavy/svg-export-40x40.png"
+        iconBg="from-gray-100 to-gray-200"
+        installUrl="https://chromewebstore.google.com/detail/webdavy/inaeglkgfmnkncalphgpkendfjndjmid"
+        moreUrl="https://holatiger.com/#extensions"
+        features={features}
+        screenshots={screenshots}
+      />
+    </>
   )
 }
 

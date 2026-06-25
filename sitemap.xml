@@ -127,15 +127,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/text-to-png.html" />
   </url>
   <url>
-    <loc>https://holatiger.com/tinypass.html</loc>
-    <lastmod>2026-05-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/tinypass.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/tinypass.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/tinypass.html" />
-  </url>
-  <url>
     <loc>https://holatiger.com/tinypic.html</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
@@ -143,15 +134,6 @@
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/tinypic.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/tinypic.html?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/tinypic.html" />
-  </url>
-  <url>
-    <loc>https://holatiger.com/webdavy.html</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/webdavy.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/webdavy.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/webdavy.html" />
   </url>
   <url>
     <loc>https://holatiger.com/tinypic/</loc>
@@ -170,5 +152,23 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/banana/" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/banana/?lang=zh-CN" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/banana/" />
+  </url>
+  <url>
+    <loc>https://holatiger.com/webdavy</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/webdavy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/webdavy?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/webdavy" />
+  </url>
+  <url>
+    <loc>https://holatiger.com/tinypass</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/tinypass" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/tinypass?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/tinypass" />
   </url>
 </urlset>

@@ -80,6 +80,14 @@ function getLoc(pagePath) {
 
 // ===== 获取文件最后修改日期 =====
 function getLastMod(filePath) {
+  // SPA 路由: 从对应的 React 组件文件获取最后修改日期
+  if (filePath === 'webdavy') {
+    return getLastMod('src/pages/WebDavyPage.tsx');
+  }
+  if (filePath === 'tinypass') {
+    return getLastMod('src/pages/TinyPassPage.tsx');
+  }
+
   const fullPath = resolve(ROOT, filePath);
   if (!existsSync(fullPath)) return new Date().toISOString().split('T')[0];
 
@@ -108,9 +116,14 @@ function getLastMod(filePath) {
 function scanPages() {
   const pages = [];
 
-  // 根目录 HTML
+  // 根目录 HTML (排除已迁移为 SPA 路由的页面)
   const rootFiles = readdirSync(ROOT).filter(f => f.endsWith('.html') && f !== 'index.html');
-  rootFiles.sort().forEach(f => pages.push(f));
+  rootFiles.sort();
+  rootFiles.forEach(f => {
+    if (f !== 'tinypass.html' && f !== 'webdavy.html') {
+      pages.push(f);
+    }
+  });
   pages.unshift('index.html'); // 首页放第一个
 
   // 子目录 HTML (tinypic, banana)
@@ -121,6 +134,10 @@ function scanPages() {
       pages.push(indexPath);
     }
   });
+
+  // SPA 路由（无对应 .html 文件）
+  pages.push('webdavy');
+  pages.push('tinypass');
 
   return pages;
 }

@@ -21,22 +21,20 @@ execSync(`cp -r assets ${distDir}/`, { stdio: 'inherit' });
 // 4. 复制HTML文件
 console.log('📄 复制HTML文件...');
 const htmlFiles = [
-  'index.html', 
-  'svg-studio.html', 
+  'svg-studio.html',
   'text-to-png.html',
-  'tinypass.html', 
-  'webdavy.html',
   'faq.html',
   'blog.html',
   'blog-svg-to-png-workflow.html',
   'blog-tinypass-password-guide.html',
   'blog-webdav-chrome-setup.html',
-  'blog-handy-tulip-implementation.html', 'lexa.html'
-  , 'blog-lexa-launch.html'
-  , 'blog-gemini-watermark-remover.html'
-  , 'tinypic.html'
-  , 'blog-tinypic-wasm-principle.html'
-  , 'ezpixy.html'
+  'blog-handy-tulip-implementation.html',
+  'lexa.html',
+  'blog-lexa-launch.html',
+  'blog-gemini-watermark-remover.html',
+  'tinypic.html',
+  'blog-tinypic-wasm-principle.html',
+  'ezpixy.html'
 ];
 htmlFiles.forEach(file => {
   if (existsSync(file)) {
