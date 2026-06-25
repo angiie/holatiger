@@ -227,7 +227,7 @@
   "carousel.slide": "切换到第{index}张",
   "lang.current": "简体",
 
-  "footer.copyright": "© {year} 虎啦 (HolaTiger) - 小工具，大能量",
+  "footer.copyright": "© {{year}} 虎啦 (HolaTiger) - 小工具，大能量",
 
   "seo.og.tinypass.title": "TinyPass 密码生成器 - Chrome扩展 | 本地安全随机强密码 | HolaTiger",
   "seo.og.tinypass.description": "TinyPass 是一款专为Chrome浏览器设计的随机密码生成工具，完全在本地运行，无需联网或登录。",

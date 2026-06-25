@@ -238,5 +238,5 @@
   "seo.og.tinypic.title": "Tiny Pic - Smart Image Compression Tool | Local & Private | HolaTiger",
   "seo.og.tinypic.description": "Batch compress JPEG, PNG, WEBP, AVIF, SVG and GIF images locally in your browser. No uploads, full privacy.",
 
-  "footer.copyright": "© {year} HolaTiger - Small Tools, Big Power"
+  "footer.copyright": "© {{year}} HolaTiger - Small Tools, Big Power"
 }
