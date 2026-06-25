@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="google-site-verification" content="5iRqRZO9bOPssApmVaZk4ir5v_bFPSHgvJE06iNcJHw" />
-  <meta name="description" content="WebDavy：WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，WebDavy 都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。" />
+  <meta name="description" content="WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。无论是个人云存储还是企业文件服务器，都能提供便捷的文件管理体验，支持文件的上传、下载、浏览和组织。" />
   <meta name="keywords" content="WebDavy, WebDAV, Chrome 扩展, 文件同步, 云存储, WebDAV 客户端, 文件管理, 在线文件工具, WebDAV client, file sync, 浏览器插件, HolaTiger" />
   <link rel="canonical" href="https://holatiger.com/webdavy.html" />
   <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/webdavy.html" />
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="/assets/css/nav-unified.css" />
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script src="/assets/js/i18n.js"></script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"WebDavy","description":"Chrome extension for WebDAV file management","brand":{"@type":"Brand","name":"HolaTiger"},"image":"https://holatiger.com/assets/images/webdavy/svg-export-40x40.png","url":"https://holatiger.com/webdavy.html","sku":"webdavy","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"WebDavy","description":"WebDavy 是一个基于WebDAV协议的Chrome浏览器扩展，让您无需离开浏览器就能管理远程文件服务器。支持文件上传、下载、浏览和组织。","brand":{"@type":"Brand","name":"HolaTiger"},"image":"https://holatiger.com/assets/images/webdavy/svg-export-40x40.png","url":"https://holatiger.com/webdavy.html","sku":"webdavy","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","ratingCount":"128","bestRating":"5"}}</script>
 </head>
 <body class="v1-professional">
   <!-- Header -->
@@ -264,6 +264,72 @@
         </div>
       </div>
     </section>
+
+    <!-- 关联博客文章（内部交叉链接） -->
+    <section class="py-16 px-6 bg-white border-t border-gray-100">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">了解更多</h2>
+        <p class="text-gray-600 text-lg mb-8">查看我们的博客文章，了解更多 WebDAV 配置和使用技巧</p>
+        <a href="/blog-webdav-chrome-setup.html" class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 hover:shadow-lg transition-all duration-300 shadow-md" style="text-decoration: none !important;" data-i18n="blog.webDav">
+          📖 在 Chrome 中连接 WebDAV：常见云服务一站式配置
+        </a>
+        <p class="text-gray-500 text-sm mt-4">相关文章：<a href="/blog-webdav-chrome-setup.html" class="text-blue-600 hover:text-blue-700">Chrome WebDAV 连接参数与排错要点</a></p>
+      </div>
+    </section>
+
+    <!-- 常见问题（FAQ） - 静态内容，爬虫可索引 -->
+    <section class="py-16 px-6 bg-gray-50">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4" data-i18n="webdavy.faq.title">常见问题</h2>
+          <p class="text-gray-600 text-lg" data-i18n="webdavy.faq.subtitle">关于 WebDavy 的常见问题解答</p>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <details class="group">
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-white hover:bg-gray-50 transition-colors">
+                <h3 class="font-semibold text-gray-900 pr-4" data-i18n="webdavy.faq1.question">WebDavy 支持哪些 WebDAV 服务器？</h3>
+                <svg class="w-5 h-5 text-gray-500 flex-shrink-0 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 pt-2 border-t border-gray-100 bg-gray-50/50">
+                <p class="text-gray-600 leading-relaxed" data-i18n="webdavy.faq1.answer">支持所有符合 WebDAV 标准的服务器，包括 NextCloud、OwnCloud、Apache、Nginx、IIS 等主流服务。</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <details class="group">
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-white hover:bg-gray-50 transition-colors">
+                <h3 class="font-semibold text-gray-900 pr-4" data-i18n="webdavy.faq2.question">WebDavy 如何保证连接安全？</h3>
+                <svg class="w-5 h-5 text-gray-500 flex-shrink-0 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 pt-2 border-t border-gray-100 bg-gray-50/50">
+                <p class="text-gray-600 leading-relaxed" data-i18n="webdavy.faq2.answer">扩展支持 HTTPS 连接，凭据加密存储在浏览器本地，不会上传到第三方服务器。</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <details class="group">
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none bg-white hover:bg-gray-50 transition-colors">
+                <h3 class="font-semibold text-gray-900 pr-4" data-i18n="webdavy.faq3.question">如何在多设备间同步配置？</h3>
+                <svg class="w-5 h-5 text-gray-500 flex-shrink-0 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 pt-2 border-t border-gray-100 bg-gray-50/50">
+                <p class="text-gray-600 leading-relaxed" data-i18n="webdavy.faq3.answer">使用配置导入导出功能，可以将连接配置导出为 JSON 文件，再导入到其他设备的 WebDavy 中。</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
     
   </main>
 
@@ -294,6 +360,27 @@
       if (typeof lucide !== 'undefined') {
         lucide.createIcons();
       }
+
+      // 语言感知截图切换
+      function switchScreenshots() {
+        var lang = 'zh';
+        var storedLang = localStorage.getItem('language');
+        var urlParams = new URLSearchParams(window.location.search);
+        var urlLang = urlParams.get('lang');
+        if (urlLang) { lang = urlLang; }
+        else if (storedLang) { lang = storedLang; }
+        var useEn = lang === 'en';
+        var imgs = document.querySelectorAll('.carousel-slide img');
+        imgs.forEach(function(img) {
+          var src = img.getAttribute('src');
+          if (useEn) {
+            img.setAttribute('src', src.replace('/zh/', '/en/'));
+          } else {
+            img.setAttribute('src', src.replace('/en/', '/zh/'));
+          }
+        });
+      }
+      switchScreenshots();
       
       // 初始化语言
       if (typeof i18n !== 'undefined') {

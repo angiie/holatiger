@@ -14,9 +14,10 @@
   "nav.faq": "常见问题",
 
   "blog.svgToPng": "SVG 转 PNG/WebP：设计师与前端的高效工作流",
+  "blog.webDav": "在 Chrome 中连接 WebDAV：常见云服务一站式配置",
   "blog.lexaLaunch": "Lexa 发布：AI 驱动的纵版词汇卡生成器",
 
-  "webdavy.version": "版本 1.1.0",
+  "webdavy.version": "版本 1.2.0",
   "webdavy.description": "WebDavy 是基于 WebDAV 的 Chrome 扩展，可在浏览器内连接个人云盘或企业服务器，实现上传、下载、浏览与整理文件，并支持常见服务配置本地保存与快速切换。无需离开浏览器即可完成文件管理，安全高效，适合日常与团队协作，支持多账号管理与路径记忆，提升远程文件处理效率。",
   "webdavy.status.development": "🚧 开发中",
   "webdavy.button.install": "🚀 立即安装",
@@ -35,6 +36,15 @@
   "webdavy.screenshots.subtitle": "直观了解 WebDavy 的界面和功能",
   "webdavy.servers.title": "支持的WebDAV服务器",
   "webdavy.servers.subtitle": "兼容主流WebDAV服务，满足不同使用场景",
+
+  "webdavy.faq.title": "常见问题",
+  "webdavy.faq.subtitle": "关于 WebDavy 的常见问题解答",
+  "webdavy.faq1.question": "WebDavy 支持哪些 WebDAV 服务器？",
+  "webdavy.faq1.answer": "支持所有符合 WebDAV 标准的服务器，包括 NextCloud、OwnCloud、Apache、Nginx、IIS 等主流服务。",
+  "webdavy.faq2.question": "WebDavy 如何保证连接安全？",
+  "webdavy.faq2.answer": "扩展支持 HTTPS 连接，凭据加密存储在浏览器本地，不会上传到第三方服务器。",
+  "webdavy.faq3.question": "如何在多设备间同步配置？",
+  "webdavy.faq3.answer": "使用配置导入导出功能，可以将连接配置导出为 JSON 文件，再导入到其他设备的 WebDavy 中。",
 
   "tinypass.version": "版本 1.0.24",
   "tinypass.description": "TinyPass 在本地生成强密码，支持长度与字符集组合，提供历史记录与一键复制，自动避开弱密码和易混淆字符。无需联网或注册即可提升账号安全，适合日常登录与新账号创建场景，并提供回收站保护，防止误删。界面简洁，生成结果可快速粘贴到网站或应用，降低密码管理负担，对新手也友好，更省心。",
