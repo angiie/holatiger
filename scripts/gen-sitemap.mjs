@@ -23,13 +23,14 @@ const PAGE_CONFIG = {
   'svg-studio.html':      { priority: 0.9, changefreq: 'weekly' },
   'lexa.html':            { priority: 0.9, changefreq: 'weekly' },
   'tinypic/index.html':   { priority: 0.9, changefreq: 'weekly' },
-  'tinypass.html':        { priority: 0.8, changefreq: 'monthly' },
-  'webdavy.html':         { priority: 0.8, changefreq: 'monthly' },
   'text-to-png.html':     { priority: 0.8, changefreq: 'monthly' },
   'ezpixy.html':          { priority: 0.8, changefreq: 'weekly' },
   'banana/index.html':    { priority: 0.8, changefreq: 'monthly' },
   'faq.html':             { priority: 0.6, changefreq: 'weekly' },
   'blog.html':            { priority: 0.6, changefreq: 'daily' },
+  // SPA 路由（无对应 .html 文件）
+  'webdavy':              { priority: 0.8, changefreq: 'monthly' },
+  'tinypass':             { priority: 0.8, changefreq: 'monthly' },
 };
 
 const BLOG_DEFAULT =    { priority: 0.5, changefreq: 'monthly' };

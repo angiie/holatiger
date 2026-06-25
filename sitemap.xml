@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://holatiger.com/</loc>
-    <lastmod>2026-05-29</lastmod>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/" />
@@ -155,18 +155,18 @@
   </url>
   <url>
     <loc>https://holatiger.com/webdavy</loc>
-    <lastmod>2026-06-16</lastmod>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/webdavy" />
     <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/webdavy?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/webdavy" />
   </url>
   <url>
     <loc>https://holatiger.com/tinypass</loc>
-    <lastmod>2025-09-30</lastmod>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/tinypass" />
     <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/tinypass?lang=en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/tinypass" />

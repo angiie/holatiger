@@ -155,7 +155,7 @@ const HomePage: React.FC = () => {
                   <span className="w-3 h-3 bg-green-500 rounded-full" />
                   <span>{t('status.available', '可用')}</span>
                 </div>
-                <a href="/ezpixy.html" className="inline-flex items-center px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-colors font-medium text-sm shadow-sm no-underline" style={{ backgroundColor: '#6366f1 !important', color: 'white !important', textDecoration: 'none !important' }}>
+                <a href="https://ezpixy.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-colors font-medium text-sm shadow-sm no-underline" style={{ backgroundColor: '#6366f1 !important', color: 'white !important', textDecoration: 'none !important' }}>
                   {t('btn.details', '查看详情')}
                 </a>
               </div>
