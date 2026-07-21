@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-site-verification" content="5iRqRZO9bOPssApmVaZk4ir5v_bFPSHgvJE06iNcJHw" />
+  <title>TinyPass - 强密码生成器（本地运行、可读模式、批量导出） - 虎啦</title>
+  <meta name="description" content="TinyPass 是高强度密码生成器：本地运行（密码不离开浏览器）、可读模式、批量生成、长度 / 字符集自定义、可一键复制到剪贴板。" />
+  <meta name="keywords" content="TinyPass, 强密码生成器, 密码生成, password generator, secure password, 本地密码, 批量密码, 可读密码, HolaTiger" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://holatiger.com/tinypass.html" />
+  <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/tinypass.html" />
+  <link rel="alternate" hreflang="en" href="https://holatiger.com/tinypass.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://holatiger.com/tinypass.html" />
+  <meta property="og:title" content="TinyPass - 强密码生成器 - 虎啦" />
+  <meta property="og:description" content="本地运行、可读模式、批量导出、长度与字符集完全可控的高强度密码生成器。" />
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://holatiger.com/tinypass.html" />
+  <meta property="og:image" content="https://holatiger.com/assets/images/social/tinypass-1200x630.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TinyPass - 强密码生成器" />
+  <meta name="twitter:description" content="本地运行、可读模式、批量导出、长度与字符集完全可控。" />
+  <meta name="twitter:image" content="https://holatiger.com/assets/images/social/tinypass-1200x630.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/css/nav-unified.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TinyPass",
+    "operatingSystem": "Chrome, Edge, Brave, Firefox",
+    "applicationCategory": "UtilitiesApplication",
+    "applicationSubCategory": "Password Generator",
+    "description": "高强度密码生成器，本地运行",
+    "url": "https://holatiger.com/tinypass.html",
+    "downloadUrl": "https://holatiger.com/tinypass",
+    "softwareVersion": "1.0",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+    "author": {"@type": "Organization", "name": "HolaTiger", "url": "https://holatiger.com/"},
+    "publisher": {"@type": "Organization", "name": "HolaTiger", "logo": {"@type": "ImageObject", "url": "https://holatiger.com/assets/images/icons/icon_64x64.png"}}
+  }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a class="flex items-center gap-2" href="/">
+        <img src="/assets/images/icons/icon_64x64.png" alt="HolaTiger 虎啦" class="w-8 h-8">
+        <span class="font-semibold">虎啦 HolaTiger</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/" class="hover:text-orange-500">首页</a>
+        <a href="/tinypic.html" class="hover:text-orange-500">Tiny Pic</a>
+        <a href="/svg-studio.html" class="hover:text-orange-500">SVG Studio</a>
+        <a href="/lexa.html" class="hover:text-orange-500">Lexa</a>
+        <a href="/text-to-png.html" class="hover:text-orange-500">Text to PNG</a>
+        <a href="/ezpixy.html" class="hover:text-orange-500">ezpixy</a>
+        <a href="/blog.html" class="hover:text-orange-500">博客</a>
+        <a href="/faq.html" class="hover:text-orange-500">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-3">TinyPass · 强密码生成器</h1>
+    <p class="text-lg text-gray-600 mb-8">本地运行、长度与字符集完全可控、支持可读模式与批量导出。所有密码在你浏览器里生成，不离开设备。</p>
+
+    <div class="bg-white rounded-xl shadow p-6 mb-8 flex flex-col sm:flex-row gap-4 items-center">
+      <div class="flex-1">
+        <h2 class="text-xl font-semibold mb-2">立即使用</h2>
+        <p class="text-gray-600">浏览器内实时生成，一键复制到剪贴板。可批量导出 CSV / TXT。</p>
+      </div>
+      <a href="/tinypass" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium">
+        <i data-lucide="key-round" class="w-4 h-4"></i>
+        打开 TinyPass
+      </a>
+    </div>
+
+    <h2 class="text-2xl font-semibold mt-10 mb-4">核心功能</h2>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="bg-white rounded-lg p-5 border border-gray-200">
+        <div class="text-2xl mb-2">🔒</div>
+        <h3 class="font-semibold mb-1">密码学安全</h3>
+        <p class="text-sm text-gray-600">使用 <code>crypto.getRandomValues</code> 强随机数，密码熵实时计算显示。</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-gray-200">
+        <div class="text-2xl mb-2">🏠</div>
+        <h3 class="font-semibold mb-1">本地运行</h3>
+        <p class="text-sm text-gray-600">不连服务器，不上传，不留痕。断网也能用。</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-gray-200">
+        <div class="text-2xl mb-2">📝</div>
+        <h3 class="font-semibold mb-1">可读模式</h3>
+        <p class="text-sm text-gray-600">用词表组合（correct-horse-battery-staple 风格），兼顾强度与可记忆。</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-gray-200">
+        <div class="text-2xl mb-2">📋</div>
+        <h3 class="font-semibold mb-1">批量 + 导出</h3>
+        <p class="text-sm text-gray-600">一次生成 1-1000 个，导出 CSV / TXT / 复制到剪贴板。</p>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-semibold mt-10 mb-4">使用场景</h2>
+    <ul class="space-y-2 text-gray-700 list-disc pl-5">
+      <li>运维 / DBA：批量给 100 台服务器生成 root 密码，导出 CSV 离线保管。</li>
+      <li>开发：为每个项目配不同数据库密码，标签化备注。</li>
+      <li>个人：避免到处用同一密码，生成 20+ 个 16 位密码存到密码管理器。</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-10 mb-4">相关文章</h2>
+    <ul class="space-y-2">
+      <li><a class="text-orange-600 hover:underline" href="/blog-tinypass-password-guide.html">用 TinyPass 生成强密码的实用指南</a></li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-10 mb-4">常见问题</h2>
+    <div class="space-y-3">
+      <details class="bg-white border border-gray-200 rounded-lg p-4">
+        <summary class="font-medium cursor-pointer">密码会经过 HolaTiger 服务器吗？</summary>
+        <p class="text-gray-600 mt-2 text-sm">不会。TinyPass 完全在浏览器本地用 <code>crypto.getRandomValues</code> 生成，断网也能工作。</p>
+      </details>
+      <details class="bg-white border border-gray-200 rounded-lg p-4">
+        <summary class="font-medium cursor-pointer">密码强度是怎么算的？</summary>
+        <p class="text-gray-600 mt-2 text-sm">基于 NIST SP 800-63B：长度 × log2(字符集大小) = 熵位。≥80 位认为"非常好"，TinyPass 默认 20 字符混合字符集约 131 位。</p>
+      </details>
+      <details class="bg-white border border-gray-200 rounded-lg p-4">
+        <summary class="font-medium cursor-pointer">和 1Password / Bitwarden 冲突吗？</summary>
+        <p class="text-gray-600 mt-2 text-sm">不冲突。TinyPass 是生成器，你仍可把生成的密码保存到任意密码管理器。</p>
+      </details>
+    </div>
+
+    <p class="mt-10 text-sm text-gray-500">© 2026 HolaTiger 虎啦 · 隐私优先 · 开箱即用</p>
+  </main>
+
+  <script>window.addEventListener('load',function(){if(typeof lucide!=='undefined'){lucide.createIcons();}});</script>
+</body>
+</html>

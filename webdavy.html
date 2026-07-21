@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-site-verification" content="5iRqRZO9bOPssApmVaZk4ir5v_bFPSHgvJE06iNcJHw" />
+  <title>WebDavy - Chrome 扩展连接 WebDAV 云盘（Nextcloud/坚果云/群晖） - 虎啦</title>
+  <meta name="description" content="WebDavy 是 Chrome 扩展，把 WebDAV 云盘（Nextcloud、坚果云、群晖、ownCloud 等）接入浏览器，支持多账户管理、文件预览、目录书签与后台常驻。" />
+  <meta name="keywords" content="WebDavy, WebDAV Chrome 扩展, Nextcloud Chrome, 坚果云 Chrome, 群晖 WebDAV, ownCloud 扩展, WebDAV 浏览器, Chrome WebDAV 客户端, HolaTiger" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://holatiger.com/webdavy.html" />
+  <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/webdavy.html" />
+  <link rel="alternate" hreflang="en" href="https://holatiger.com/webdavy.html?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://holatiger.com/webdavy.html" />
+  <meta property="og:title" content="WebDavy - Chrome 扩展连接 WebDAV 云盘 - 虎啦" />
+  <meta property="og:description" content="把 WebDAV 云盘（Nextcloud、坚果云、群晖、ownCloud）接入 Chrome。支持多账户、文件预览、目录书签、后台常驻。" />
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://holatiger.com/webdavy.html" />
+  <meta property="og:image" content="https://holatiger.com/assets/images/social/webdavy-1200x630.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WebDavy - Chrome 扩展连接 WebDAV 云盘" />
+  <meta name="twitter:description" content="把 WebDAV 云盘接入 Chrome，支持多账户、文件预览、目录书签、后台常驻。" />
+  <meta name="twitter:image" content="https://holatiger.com/assets/images/social/webdavy-1200x630.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/css/nav-unified.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "WebDavy",
+    "operatingSystem": "Chrome, Edge, Brave, Arc",
+    "applicationCategory": "BrowserApplication",
+    "applicationSubCategory": "File Management",
+    "description": "Chrome 扩展，把 WebDAV 云盘接入浏览器",
+    "url": "https://holatiger.com/webdavy.html",
+    "downloadUrl": "https://holatiger.com/webdavy",
+    "softwareVersion": "1.0",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+    "author": {"@type": "Organization", "name": "HolaTiger", "url": "https://holatiger.com/"},
+    "publisher": {"@type": "Organization", "name": "HolaTiger", "logo": {"@type": "ImageObject", "url": "https://holatiger.com/assets/images/icons/icon_64x64.png"}}
+  }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a class="flex items-center gap-2" href="/">
+        <img src="/assets/images/icons/icon_64x64.png" alt="HolaTiger 虎啦" class="w-8 h-8">
+        <span class="font-semibold">虎啦 HolaTiger</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="/" class="hover:text-orange-500">首页</a>
+        <a href="/tinypic.html" class="hover:text-orange-500">Tiny Pic</a>
+        <a href="/svg-studio.html" class="hover:text-orange-500">SVG Studio</a>
+        <a href="/lexa.html" class="hover:text-orange-500">Lexa</a>
+        <a href="/text-to-png.html" class="hover:text-orange-500">Text to PNG</a>
+        <a href="/ezpixy.html" class="hover:text-orange-500">ezpixy</a>
+        <a href="/blog.html" class="hover:text-orange-500">博客</a>
+        <a href="/faq.html" class="hover:text-orange-500">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold mb-3">WebDavy · 把 WebDAV 云盘接入浏览器</h1>
+    <p class="text-lg text-gray-600 mb-8">Chrome 扩展，连接 Nextcloud / 坚果云 / 群晖 / ownCloud / 任何标准 WebDAV 服务器。</p>
+
+    <div class="bg-white rounded-xl shadow p-6 mb-8 flex flex-col sm:flex-row gap-4 items-center">
+      <div class="flex-1">
+        <h2 class="text-xl font-semibold mb-2">立即安装</h2>
+        <p class="text-gray-600">点击下方按钮进入应用主页，支持多账户管理、文件预览、目录书签与后台常驻。</p>
+      </div>
+      <a href="/webdavy" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium">
+        <i data-lucide="external-link" class="w-4 h-4"></i>
+        打开 WebDavy
+      </a>
+    </div>
+
+    <h2 class="text-2xl font-semibold mt-10 mb-4">核心功能</h2>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="bg-white rounded-lg p-5 border border-gray-200">
+        <div class="text-2xl mb-2">🔒</div>
+        <h3 class="font-semibold mb-1">安全凭证</h3>
+        <p class="text-sm text-gray-600">OAuth / Basic Auth 两种模式，凭证加密保存于本地，可一键清空。</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-gray-200">
+        <div class="text-2xl mb-2">⚙️</div>
+        <h3 class="font-semibold mb-1">多账户切换</h3>
+        <p class="text-sm text-gray-600">同时挂载多个 WebDAV 服务器（如工作 Nextcloud + 个人坚果云），一键切换。</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-gray-200">
+        <div class="text-2xl mb-2">📌</div>
+        <h3 class="font-semibold mb-1">目录书签</h3>
+        <p class="text-sm text-gray-600">把常用目录固定到工具栏，新标签页直接打开，不再输入 URL。</p>
+      </div>
+      <div class="bg-white rounded-lg p-5 border border-gray-200">
+        <div class="text-2xl mb-2">📦</div>
+        <h3 class="font-semibold mb-1">文件预览</h3>
+        <p class="text-sm text-gray-600">图片 / 视频 / PDF / 代码 / 文本 全部内置预览，下载 / 上传 / 移动 / 重命名一站完成。</p>
+      </div>
+    </div>
+
+    <h2 class="text-2xl font-semibold mt-10 mb-4">使用场景</h2>
+    <ul class="space-y-2 text-gray-700 list-disc pl-5">
+      <li>开发者：把 ~/code 目录挂到云端，在公司 / 家里无缝切换。</li>
+      <li>设计师：把素材库放 Nextcloud，浏览器直接预览 PSD/PNG/SVG。</li>
+      <li>自媒体：把视频草稿放群晖，在家剪辑、办公室直接拿素材。</li>
+      <li>NAS 用户：群晖 WebDAV 默认开启，配合 WebDavy 替代收费的同步客户端。</li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-10 mb-4">相关文章</h2>
+    <ul class="space-y-2">
+      <li><a class="text-orange-600 hover:underline" href="/blog-webdav-chrome-setup.html">在 Chrome 中连接 WebDAV：常见云服务一站式配置</a></li>
+    </ul>
+
+    <h2 class="text-2xl font-semibold mt-10 mb-4">常见问题</h2>
+    <div class="space-y-3">
+      <details class="bg-white border border-gray-200 rounded-lg p-4">
+        <summary class="font-medium cursor-pointer">支持哪些 WebDAV 服务？</summary>
+        <p class="text-gray-600 mt-2 text-sm">任何符合 RFC 4918 标准的 WebDAV 服务器都可使用：Nextcloud、ownCloud、群晖 DSM、坚果云、Seafile（启用 WebDAV 后）、Apache mod_dav 等。</p>
+      </details>
+      <details class="bg-white border border-gray-200 rounded-lg p-4">
+        <summary class="font-medium cursor-pointer">数据会上传到 HolaTiger 吗？</summary>
+        <p class="text-gray-600 mt-2 text-sm">不会。WebDavy 只与你自己配置的 WebDAV 服务器通信，不经过任何中转服务器（除图标等 CDN 静态资源外）。</p>
+      </details>
+      <details class="bg-white border border-gray-200 rounded-lg p-4">
+        <summary class="font-medium cursor-pointer">如何从其他工具跳转？</summary>
+        <p class="text-gray-600 mt-2 text-sm">见 <a class="text-orange-600 hover:underline" href="/faq.html">FAQ</a> 与 <a class="text-orange-600 hover:underline" href="/blog-webdav-chrome-setup.html">博客教程</a>。</p>
+      </details>
+    </div>
+
+    <p class="mt-10 text-sm text-gray-500">© 2026 HolaTiger 虎啦 · 隐私优先 · 开箱即用</p>
+  </main>
+
+  <script>window.addEventListener('load',function(){if(typeof lucide!=='undefined'){lucide.createIcons();}});</script>
+</body>
+</html>
