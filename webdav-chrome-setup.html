@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-site-verification" content="5iRqRZO9bOPssApmVaZk4ir5v_bFPSHgvJE06iNcJHw" />
+  <title>WebDAV Chrome 扩展设置指南 - 连接 Nextcloud/坚果云/群晖 | HolaTiger</title>
+  <meta name="description" content="用 WebDavy 把 WebDAV 云盘接入 Chrome。图文步骤：装扩展、配置 Nextcloud / 坚果云 / 群晖 / ownCloud 服务器地址、登录、添加书签。后台常驻，离线可用。" />
+  <meta name="keywords" content="WebDAV Chrome 扩展, WebDAV 设置, Nextcloud Chrome, 坚果云 Chrome 扩展, 群晖 WebDAV, ownCloud 浏览器, WebDavy 教程, HolaTiger" />
+  <link rel="canonical" href="https://holatiger.com/webdav-chrome-setup" />
+  <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/webdav-chrome-setup" />
+  <link rel="alternate" hreflang="en" href="https://holatiger.com/webdav-chrome-setup?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://holatiger.com/webdav-chrome-setup" />
+  <meta property="og:title" content="WebDAV Chrome 扩展设置指南" />
+  <meta property="og:description" content="把 WebDAV 云盘接入 Chrome 浏览器，5 步完成。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://holatiger.com/webdav-chrome-setup" />
+  <meta property="og:image" content="https://holatiger.com/assets/images/social/webdavy-1200x630.png" />
+  <meta property="og:site_name" content="HolaTiger" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WebDAV Chrome 扩展设置指南" />
+  <meta name="twitter:description" content="5 步把 Nextcloud / 坚果云 / 群晖接入 Chrome。" />
+  <meta name="twitter:image" content="https://holatiger.com/assets/images/social/webdavy-1200x630.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png" />
+  <link rel="stylesheet" href="/assets/css/nav-unified.css" />
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1f2937; line-height: 1.65; margin: 0; background: #fff; }
+    .container { max-width: 880px; margin: 0 auto; padding: 32px 20px 80px; }
+    h1 { font-size: 2.1rem; font-weight: 800; margin: 0 0 14px; color: #0f172a; line-height: 1.25; }
+    h2 { font-size: 1.45rem; font-weight: 700; margin: 36px 0 12px; color: #0f172a; }
+    h3 { font-size: 1.15rem; font-weight: 600; margin: 22px 0 8px; color: #1f2937; }
+    p { margin: 0 0 14px; }
+    ol, ul { margin: 0 0 14px; padding-left: 24px; }
+    li { margin-bottom: 6px; }
+    a { color: #2563eb; }
+    a:hover { color: #1d4ed8; }
+    .cta { display: inline-block; padding: 13px 26px; background: #2563eb; color: #fff; border-radius: 8px; font-weight: 600; text-decoration: none; margin: 6px 6px 6px 0; }
+    .cta:hover { background: #1d4ed8; color: #fff; }
+    code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-size: 0.92em; }
+    .breadcrumb { font-size: 0.88rem; color: #6b7280; margin-bottom: 18px; }
+    .breadcrumb a { color: #6b7280; text-decoration: none; }
+    .breadcrumb a:hover { color: #2563eb; }
+    .step { background: #f8fafc; padding: 16px 20px; border-radius: 8px; margin-bottom: 14px; border-left: 4px solid #2563eb; }
+    .step h3 { margin-top: 0; }
+    .provider { background: #fff; padding: 14px 18px; border-radius: 8px; border: 1px solid #e2e8f0; margin-bottom: 10px; }
+    .faq-item { background: #f8fafc; padding: 14px 18px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
+    .faq-item h3 { margin: 0 0 6px; }
+    hr { margin: 40px 0; border: none; border-top: 1px solid #e5e7eb; }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"WebDavy - WebDAV Chrome Setup","description":"Chrome extension to connect WebDAV cloud storage","applicationCategory":"UtilitiesApplication","operatingSystem":"Chrome","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://holatiger.com/webdav-chrome-setup"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://holatiger.com/"},{"@type":"ListItem","position":2,"name":"WebDavy","item":"https://holatiger.com/webdavy"},{"@type":"ListItem","position":3,"name":"WebDAV Chrome 扩展设置","item":"https://holatiger.com/webdav-chrome-setup"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"WebDAV 服务器地址怎么填？","acceptedAnswer":{"@type":"Answer","text":"Nextcloud 默认是 https://你的域名/remote.php/dav，坚果云是 https://dav.jianguoyun.com/dav，群晖是 https://你的NAS地址:5005/webdav，ownCloud 通常是 https://你的域名/remote.php/webdav。"}},{"@type":"Question","name":"WebDavy 是免费的吗？","acceptedAnswer":{"@type":"Answer","text":"是。基础功能（多账户、文件预览、上传下载、目录书签）完全免费。"}},{"@type":"Question","name":"后台常驻会占很多内存吗？","acceptedAnswer":{"@type":"Answer","text":"不会。WebDavy 平时是休眠的 Service Worker，按需激活，内存占用通常在 10 MB 以内。"}},{"@type":"Question","name":"支持多账户吗？","acceptedAnswer":{"@type":"Answer","text":"支持。你可以在 WebDavy 中保存多个 WebDAV 账户（个人 Nextcloud + 公司坚果云等），随时切换。"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"把 WebDAV 云盘接入 Chrome 浏览器","step":[{"@type":"HowToStep","position":1,"name":"安装 WebDavy 扩展","text":"从 Chrome Web Store 安装 WebDavy（需在 Chrome / Edge / Brave 浏览器）。"},{"@type":"HowToStep","position":2,"name":"打开扩展弹窗","text":"点击工具栏的 WebDavy 图标，打开弹窗。"},{"@type":"HowToStep","position":3,"name":"添加账户","text":"点「添加账户」，填写名称、服务器地址、用户名、密码。"},{"@type":"HowToStep","position":4,"name":"测试连接","text":"点击「测试连接」确认能列出根目录文件。"},{"@type":"HowToStep","position":5,"name":"添加目录书签","text":"把常用目录加入书签，扩展弹窗一键直达。"}]}</script>
+</head>
+<body>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="面包屑">
+      <a href="/">首页</a> › <a href="/webdavy">WebDavy</a> › <span>WebDAV Chrome 扩展设置</span>
+    </nav>
+
+    <h1>WebDAV Chrome 扩展设置指南</h1>
+    <p>WebDavy 把你的 WebDAV 云盘（Nextcloud、坚果云、群晖、ownCloud 等）直接接入 Chrome 浏览器，不用每次打开 Web 客户端。5 分钟完成设置，文件预览、上传、下载、目录书签一步到位。</p>
+
+    <p>
+      <a class="cta" href="/webdavy">下载 WebDavy</a>
+    </p>
+
+    <h2>设置步骤</h2>
+    <div class="step">
+      <h3>第 1 步：安装 WebDavy 扩展</h3>
+      <p>在 Chrome / Edge / Brave 等 Chromium 内核浏览器中打开 Chrome Web Store，搜索 "WebDavy" 或直接访问 WebDavy 产品页。点击「添加至 Chrome」。</p>
+    </div>
+    <div class="step">
+      <h3>第 2 步：打开扩展弹窗</h3>
+      <p>安装完成后，工具栏会出现 WebDavy 图标（默认在拼图图标里）。点击图标打开弹窗。</p>
+    </div>
+    <div class="step">
+      <h3>第 3 步：添加账户</h3>
+      <p>点「添加账户」，填写：</p>
+      <ul>
+        <li><strong>账户名称</strong>：起个易识别的名字，比如「公司 Nextcloud」</li>
+        <li><strong>服务器地址</strong>：见下表</li>
+        <li><strong>用户名</strong>：你的 WebDAV 账号</li>
+        <li><strong>密码</strong>：建议使用「应用专用密码」</li>
+      </ul>
+    </div>
+    <div class="step">
+      <h3>第 4 步：测试连接</h3>
+      <p>点击「测试连接」按钮。如果配置正确，会显示根目录下的文件列表。</p>
+    </div>
+    <div class="step">
+      <h3>第 5 步：添加目录书签</h3>
+      <p>把 /Documents、/Photos 等常用目录添加到书签。下次打开弹窗一键直达。</p>
+    </div>
+
+    <h2>常见 WebDAV 服务器地址</h2>
+    <div class="provider">
+      <strong>Nextcloud</strong>：<code>https://你的域名/remote.php/dav</code><br>
+      自托管用户把"你的域名"换成实际地址。
+    </div>
+    <div class="provider">
+      <strong>坚果云</strong>：<code>https://dav.jianguoyun.com/dav</code><br>
+      用户名 = 邮箱前缀，密码 = 应用专用密码（在坚果云账户安全里生成）。
+    </div>
+    <div class="provider">
+      <strong>群晖 Synology NAS</strong>：<code>https://你的NAS地址:5005/webdav</code><br>
+      需先在 DSM 控制面板 → WebDAV Server 启用。
+    </div>
+    <div class="provider">
+      <strong>ownCloud</strong>：<code>https://你的域名/remote.php/webdav</code>
+    </div>
+
+    <h2>常见问题</h2>
+    <div class="faq-item">
+      <h3>WebDAV 服务器地址怎么填？</h3>
+      <p>Nextcloud 默认是 https://你的域名/remote.php/dav，坚果云是 https://dav.jianguoyun.com/dav，群晖是 https://你的NAS地址:5005/webdav，ownCloud 通常是 https://你的域名/remote.php/webdav。</p>
+    </div>
+    <div class="faq-item">
+      <h3>WebDavy 是免费的吗？</h3>
+      <p>是。基础功能（多账户、文件预览、上传下载、目录书签）完全免费。</p>
+    </div>
+    <div class="faq-item">
+      <h3>后台常驻会占很多内存吗？</h3>
+      <p>不会。WebDavy 平时是休眠的 Service Worker，按需激活，内存占用通常在 10 MB 以内。</p>
+    </div>
+    <div class="faq-item">
+      <h3>支持多账户吗？</h3>
+      <p>支持。你可以在 WebDavy 中保存多个 WebDAV 账户（个人 Nextcloud + 公司坚果云等），随时切换。</p>
+    </div>
+
+    <p style="margin-top:40px;">
+      <a class="cta" href="/webdavy">下载 WebDavy</a>
+    </p>
+
+    <hr />
+    <p style="font-size:0.9em;color:#6b7280;">
+      <a href="/webdavy">← WebDavy 产品页</a> · <a href="/">返回 HolaTiger 首页</a>
+    </p>
+  </div>
+</body>
+</html>

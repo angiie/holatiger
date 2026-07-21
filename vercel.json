@@ -30,12 +30,88 @@
       "destination": "/svg-studio.html"
     },
     {
+      "source": "/tinypic",
+      "destination": "/tinypic/index.html"
+    },
+    {
+      "source": "/tinypic/",
+      "destination": "/tinypic/index.html"
+    },
+    {
+      "source": "/banana",
+      "destination": "/banana/index.html"
+    },
+    {
+      "source": "/lexa",
+      "destination": "/lexa.html"
+    },
+    {
+      "source": "/ezpixy",
+      "destination": "/ezpixy.html"
+    },
+    {
+      "source": "/text-to-png",
+      "destination": "/text-to-png.html"
+    },
+    {
       "source": "/faq",
       "destination": "/faq.html"
     },
     {
       "source": "/blog",
       "destination": "/blog.html"
+    },
+    {
+      "source": "/compress-jpeg-online",
+      "destination": "/compress-jpeg-online.html"
+    },
+    {
+      "source": "/tinypic-vs-squoosh",
+      "destination": "/tinypic-vs-squoosh.html"
+    },
+    {
+      "source": "/webdav-chrome-setup",
+      "destination": "/webdav-chrome-setup.html"
+    },
+    {
+      "source": "/webdavy-vs-raidrive",
+      "destination": "/webdavy-vs-raidrive.html"
+    },
+    {
+      "source": "/password-generator",
+      "destination": "/password-generator.html"
+    },
+    {
+      "source": "/tinypass-vs-1password",
+      "destination": "/tinypass-vs-1password.html"
+    },
+    {
+      "source": "/svg-to-png",
+      "destination": "/svg-to-png.html"
+    },
+    {
+      "source": "/svg-studio-vs-inkscape",
+      "destination": "/svg-studio-vs-inkscape.html"
+    },
+    {
+      "source": "/text-to-image",
+      "destination": "/text-to-image.html"
+    },
+    {
+      "source": "/ai-fashion-model",
+      "destination": "/ai-fashion-model.html"
+    },
+    {
+      "source": "/ezpixy-vs-midjourney",
+      "destination": "/ezpixy-vs-midjourney.html"
+    },
+    {
+      "source": "/remove-gemini-watermark",
+      "destination": "/remove-gemini-watermark.html"
+    },
+    {
+      "source": "/banana-vs-adobe-firefly",
+      "destination": "/banana-vs-adobe-firefly.html"
     },
     {
       "source": "/svg-to-png-workflow",
@@ -46,7 +122,7 @@
       "destination": "/blog-tinypass-password-guide.html"
     },
     {
-      "source": "/webdav-chrome-setup",
+      "source": "/webdav-chrome-setup-blog",
       "destination": "/blog-webdav-chrome-setup.html"
     },
     {
@@ -60,30 +136,6 @@
     {
       "source": "/blog-handy-tulip-implementation",
       "destination": "/blog-handy-tulip-implementation.html"
-    },
-    {
-      "source": "/text-to-png",
-      "destination": "/text-to-png.html"
-    },
-    {
-      "source": "/ezpixy",
-      "destination": "/ezpixy.html"
-    },
-    {
-      "source": "/lexa",
-      "destination": "/lexa.html"
-    },
-    {
-      "source": "/banana",
-      "destination": "/banana/index.html"
-    },
-    {
-      "source": "/tinypic",
-      "destination": "/tinypic/index.html"
-    },
-    {
-      "source": "/tinypic/",
-      "destination": "/tinypic/index.html"
     }
   ],
   "headers": [

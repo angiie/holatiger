@@ -19,17 +19,31 @@ const BASE_URL = 'https://holatiger.com';
 // ===== 页面配置 =====
 // 每个页面可设置: priority, changefreq, hreflang 覆盖
 const PAGE_CONFIG = {
-  'index.html':           { priority: 1.0, changefreq: 'weekly' },
-  'svg-studio.html':      { priority: 0.9, changefreq: 'weekly' },
-  'lexa.html':            { priority: 0.9, changefreq: 'weekly' },
-  'tinypic/index.html':   { priority: 0.9, changefreq: 'weekly' },
-  'text-to-png.html':     { priority: 0.8, changefreq: 'monthly' },
-  'ezpixy.html':          { priority: 0.8, changefreq: 'weekly' },
-  'banana/index.html':    { priority: 0.8, changefreq: 'monthly' },
-  'faq.html':             { priority: 0.6, changefreq: 'weekly' },
-  'blog.html':            { priority: 0.6, changefreq: 'daily' },
-  'webdavy.html':         { priority: 0.8, changefreq: 'monthly' },
-  'tinypass.html':        { priority: 0.8, changefreq: 'monthly' },
+  'index.html':                              { priority: 1.0, changefreq: 'weekly' },
+  'svg-studio.html':                         { priority: 0.9, changefreq: 'weekly' },
+  'lexa.html':                               { priority: 0.9, changefreq: 'weekly' },
+  'tinypic/index.html':                      { priority: 0.9, changefreq: 'weekly' },
+  'text-to-png.html':                        { priority: 0.8, changefreq: 'monthly' },
+  'ezpixy.html':                             { priority: 0.8, changefreq: 'weekly' },
+  'banana/index.html':                       { priority: 0.8, changefreq: 'monthly' },
+  'webdavy.html':                            { priority: 0.8, changefreq: 'monthly' },
+  'tinypass.html':                           { priority: 0.8, changefreq: 'monthly' },
+  'faq.html':                                { priority: 0.6, changefreq: 'weekly' },
+  'blog.html':                               { priority: 0.6, changefreq: 'daily' },
+  // Use case / comparison pages (新 SEO 矩阵)
+  'compress-jpeg-online.html':               { priority: 0.8, changefreq: 'monthly' },
+  'tinypic-vs-squoosh.html':                 { priority: 0.7, changefreq: 'monthly' },
+  'webdav-chrome-setup.html':                { priority: 0.8, changefreq: 'monthly' },
+  'webdavy-vs-raidrive.html':                { priority: 0.7, changefreq: 'monthly' },
+  'password-generator.html':                 { priority: 0.8, changefreq: 'monthly' },
+  'tinypass-vs-1password.html':              { priority: 0.7, changefreq: 'monthly' },
+  'svg-to-png.html':                         { priority: 0.8, changefreq: 'monthly' },
+  'svg-studio-vs-inkscape.html':             { priority: 0.7, changefreq: 'monthly' },
+  'text-to-image.html':                      { priority: 0.8, changefreq: 'monthly' },
+  'ai-fashion-model.html':                   { priority: 0.8, changefreq: 'monthly' },
+  'ezpixy-vs-midjourney.html':               { priority: 0.7, changefreq: 'monthly' },
+  'remove-gemini-watermark.html':            { priority: 0.8, changefreq: 'monthly' },
+  'banana-vs-adobe-firefly.html':            { priority: 0.7, changefreq: 'monthly' },
 };
 
 const BLOG_DEFAULT =    { priority: 0.5, changefreq: 'monthly' };

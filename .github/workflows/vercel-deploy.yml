@@ -61,12 +61,84 @@ jobs:
                 "dest": "/svg-studio.html"
               },
               {
+                "src": "/tinypic",
+                "dest": "/tinypic/index.html"
+              },
+              {
+                "src": "/banana",
+                "dest": "/banana/index.html"
+              },
+              {
+                "src": "/lexa",
+                "dest": "/lexa.html"
+              },
+              {
+                "src": "/ezpixy",
+                "dest": "/ezpixy.html"
+              },
+              {
+                "src": "/text-to-png",
+                "dest": "/text-to-png.html"
+              },
+              {
                 "src": "/faq",
                 "dest": "/faq.html"
               },
               {
                 "src": "/blog",
                 "dest": "/blog.html"
+              },
+              {
+                "src": "/compress-jpeg-online",
+                "dest": "/compress-jpeg-online.html"
+              },
+              {
+                "src": "/tinypic-vs-squoosh",
+                "dest": "/tinypic-vs-squoosh.html"
+              },
+              {
+                "src": "/webdav-chrome-setup",
+                "dest": "/webdav-chrome-setup.html"
+              },
+              {
+                "src": "/webdavy-vs-raidrive",
+                "dest": "/webdavy-vs-raidrive.html"
+              },
+              {
+                "src": "/password-generator",
+                "dest": "/password-generator.html"
+              },
+              {
+                "src": "/tinypass-vs-1password",
+                "dest": "/tinypass-vs-1password.html"
+              },
+              {
+                "src": "/svg-to-png",
+                "dest": "/svg-to-png.html"
+              },
+              {
+                "src": "/svg-studio-vs-inkscape",
+                "dest": "/svg-studio-vs-inkscape.html"
+              },
+              {
+                "src": "/text-to-image",
+                "dest": "/text-to-image.html"
+              },
+              {
+                "src": "/ai-fashion-model",
+                "dest": "/ai-fashion-model.html"
+              },
+              {
+                "src": "/ezpixy-vs-midjourney",
+                "dest": "/ezpixy-vs-midjourney.html"
+              },
+              {
+                "src": "/remove-gemini-watermark",
+                "dest": "/remove-gemini-watermark.html"
+              },
+              {
+                "src": "/banana-vs-adobe-firefly",
+                "dest": "/banana-vs-adobe-firefly.html"
               },
               {
                 "src": "/svg-to-png-workflow",
@@ -77,7 +149,7 @@ jobs:
                 "dest": "/blog-tinypass-password-guide.html"
               },
               {
-                "src": "/webdav-chrome-setup",
+                "src": "/webdav-chrome-setup-blog",
                 "dest": "/blog-webdav-chrome-setup.html"
               }
             ]

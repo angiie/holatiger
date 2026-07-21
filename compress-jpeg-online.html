@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-site-verification" content="5iRqRZO9bOPssApmVaZk4ir5v_bFPSHgvJE06iNcJHw" />
+  <title>在线压缩 JPEG 图片 - 本地处理、保留画质、批量导出 | HolaTiger</title>
+  <meta name="description" content="在线 JPEG 图片压缩工具，全部在浏览器内本地处理（不上传服务器）。支持批量压缩、可调质量、可设目标尺寸、保留 EXIF、保留画质。WASM 加速，单张图秒级完成。" />
+  <meta name="keywords" content="在线压缩 JPEG, JPEG 压缩, jpg compress, 批量压缩 jpg, 本地压缩, 浏览器压缩, 保留画质, HolaTiger" />
+  <link rel="canonical" href="https://holatiger.com/compress-jpeg-online" />
+  <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/compress-jpeg-online" />
+  <link rel="alternate" hreflang="en" href="https://holatiger.com/compress-jpeg-online?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://holatiger.com/compress-jpeg-online" />
+  <meta property="og:title" content="在线压缩 JPEG 图片 - 本地批量处理" />
+  <meta property="og:description" content="浏览器内 WASM 压缩 JPEG，文件不离开设备。支持批量、可调质量、目标大小、保留 EXIF。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://holatiger.com/compress-jpeg-online" />
+  <meta property="og:image" content="https://holatiger.com/assets/images/social/tinypic-1200x630.png" />
+  <meta property="og:site_name" content="HolaTiger" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="在线压缩 JPEG 图片" />
+  <meta name="twitter:description" content="本地处理、批量、保留画质。" />
+  <meta name="twitter:image" content="https://holatiger.com/assets/images/social/tinypic-1200x630.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png" />
+  <link rel="stylesheet" href="/assets/css/nav-unified.css" />
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1f2937; line-height: 1.65; margin: 0; background: #fff; }
+    .container { max-width: 880px; margin: 0 auto; padding: 32px 20px 80px; }
+    h1 { font-size: 2.1rem; font-weight: 800; margin: 0 0 14px; color: #0f172a; line-height: 1.25; }
+    h2 { font-size: 1.45rem; font-weight: 700; margin: 36px 0 12px; color: #0f172a; }
+    h3 { font-size: 1.15rem; font-weight: 600; margin: 22px 0 8px; color: #1f2937; }
+    p { margin: 0 0 14px; }
+    ul, ol { margin: 0 0 14px; padding-left: 24px; }
+    li { margin-bottom: 6px; }
+    a { color: #2563eb; }
+    a:hover { color: #1d4ed8; }
+    .cta { display: inline-block; padding: 13px 26px; background: #2563eb; color: #fff; border-radius: 8px; font-weight: 600; text-decoration: none; margin: 6px 6px 6px 0; }
+    .cta:hover { background: #1d4ed8; color: #fff; }
+    .cta.secondary { background: #f1f5f9; color: #1f2937; }
+    .cta.secondary:hover { background: #e2e8f0; color: #0f172a; }
+    code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-size: 0.92em; }
+    .breadcrumb { font-size: 0.88rem; color: #6b7280; margin-bottom: 18px; }
+    .breadcrumb a { color: #6b7280; text-decoration: none; }
+    .breadcrumb a:hover { color: #2563eb; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin: 16px 0 24px; }
+    .feature { padding: 14px 16px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; }
+    .feature strong { color: #0f172a; }
+    .faq-item { background: #f8fafc; padding: 14px 18px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
+    .faq-item h3 { margin: 0 0 6px; }
+    hr { margin: 40px 0; border: none; border-top: 1px solid #e5e7eb; }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Tiny Pic - JPEG Compressor","description":"Online JPEG image compression tool that runs locally in the browser","applicationCategory":"MultimediaApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://holatiger.com/compress-jpeg-online"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://holatiger.com/"},{"@type":"ListItem","position":2,"name":"Tiny Pic","item":"https://holatiger.com/tinypic"},{"@type":"ListItem","position":3,"name":"在线压缩 JPEG","item":"https://holatiger.com/compress-jpeg-online"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"压缩 JPEG 会损失画质吗？","acceptedAnswer":{"@type":"Answer","text":"Tiny Pic 使用 libjpeg-turbo 重新编码 JPEG 文件。你可以调节质量参数（1-100），高质量档位（80+）几乎无肉眼可感知的画质损失，文件大小可减少 50%-80%。"}},{"@type":"Question","name":"图片会上传到服务器吗？","acceptedAnswer":{"@type":"Answer","text":"不会。Tiny Pic 完全在浏览器内运行，图片通过 File API 读取后在 WebAssembly 中处理，全程不经过任何服务器。"}},{"@type":"Question","name":"支持批量压缩吗？","acceptedAnswer":{"@type":"Answer","text":"支持。你可以一次拖入多张图片，Tiny Pic 会逐个处理并打包为 ZIP 下载。"}},{"@type":"Question","name":"压缩后的图会保留 EXIF 信息吗？","acceptedAnswer":{"@type":"Answer","text":"默认保留。你也可以选择去除 EXIF 信息以进一步缩小文件体积。"}},{"@type":"Question","name":"最大能压缩多大的图？","acceptedAnswer":{"@type":"Answer","text":"理论上没有大小限制。处理超大图片时，浏览器内存是瓶颈。建议单图控制在 50 MB 以内以获得最佳体验。"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"在线压缩 JPEG 图片","step":[{"@type":"HowToStep","position":1,"name":"打开 Tiny Pic","text":"访问 holatiger.com/tinypic，无需注册。"},{"@type":"HowToStep","position":2,"name":"拖入或选择 JPEG 文件","text":"支持单张或批量拖入。"},{"@type":"HowToStep","position":3,"name":"调整质量参数","text":"默认 80，可滑动到 1-100 任意值。"},{"@type":"HowToStep","position":4,"name":"下载或打包 ZIP","text":"单图直接下载，多图一键打包为 ZIP。"}]}</script>
+</head>
+<body>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="面包屑">
+      <a href="/">首页</a> › <a href="/tinypic">Tiny Pic</a> › <span>在线压缩 JPEG</span>
+    </nav>
+
+    <h1>在线压缩 JPEG 图片</h1>
+    <p>JPEG 是互联网上最常见的图片格式之一，但单张照片动辄几 MB，拖慢页面加载、占用云盘空间。Tiny Pic 是一个<strong>完全本地运行</strong>的 JPEG 压缩工具，使用 WebAssembly 加速的 libjpeg-turbo 编码器，文件不离开你的设备。</p>
+
+    <p>
+      <a class="cta" href="/tinypic">打开 Tiny Pic 压缩</a>
+      <a class="cta secondary" href="/tinypic-vs-squoosh">vs Squoosh</a>
+    </p>
+
+    <h2>为什么选择本地压缩</h2>
+    <p>市面上多数在线压缩工具会先把你的图片上传到服务器，处理后再下载回浏览器。这个过程有三重隐患：</p>
+    <ul>
+      <li><strong>隐私风险</strong>：个人照片、合同截图、产品图都可能经过第三方服务器。</li>
+      <li><strong>速度限制</strong>：上传耗时受网络带宽限制，10 MB 的图可能 30 秒。</li>
+      <li><strong>使用限制</strong>：多数工具限制免费次数或单图大小。</li>
+    </ul>
+    <p>Tiny Pic 把 libjpeg-turbo 编译成 WebAssembly 跑在浏览器里，从读取到编码全程在你的设备上完成。</p>
+
+    <h2>核心功能</h2>
+    <div class="feature-grid">
+      <div class="feature"><strong>批量处理</strong><br>一次拖入多张，逐个压缩并打包 ZIP</div>
+      <div class="feature"><strong>可调质量</strong><br>质量滑块 1-100，实时预览压缩后大小</div>
+      <div class="feature"><strong>目标大小</strong><br>指定"压到 200 KB 以内"，自动找最优质量</div>
+      <div class="feature"><strong>EXIF 控制</strong><br>默认保留，可一键去除</div>
+      <div class="feature"><strong>多格式</strong><br>JPEG / PNG / WebP / AVIF / GIF / SVG</div>
+      <div class="feature"><strong>零注册</strong><br>打开即用，不留 cookie、不写账号</div>
+    </div>
+
+    <h2>使用场景</h2>
+    <ul>
+      <li><strong>电商卖家</strong>：上架前把 5 MB 的产品图压到 200 KB 以内</li>
+      <li><strong>博客作者</strong>：每篇文章的配图控制在 100 KB 以内，提升 LCP</li>
+      <li><strong>UI 设计师</strong>：交付前批量压缩截图、导出资源</li>
+      <li><strong>普通用户</strong>：手机相册照片发微信前手动压一压</li>
+    </ul>
+
+    <h2>常见问题</h2>
+    <div class="faq-item">
+      <h3>压缩 JPEG 会损失画质吗？</h3>
+      <p>Tiny Pic 使用 libjpeg-turbo 重新编码 JPEG 文件。质量档位 80+ 几乎无肉眼可感知的画质损失，文件大小可减少 50%-80%。</p>
+    </div>
+    <div class="faq-item">
+      <h3>图片会上传到服务器吗？</h3>
+      <p>不会。Tiny Pic 完全在浏览器内运行，图片通过 File API 读取后在 WebAssembly 中处理，全程不经过任何服务器。</p>
+    </div>
+    <div class="faq-item">
+      <h3>支持批量压缩吗？</h3>
+      <p>支持。你可以一次拖入多张图片，Tiny Pic 会逐个处理并打包为 ZIP 下载。</p>
+    </div>
+    <div class="faq-item">
+      <h3>压缩后的图会保留 EXIF 信息吗？</h3>
+      <p>默认保留。你也可以选择去除 EXIF 信息以进一步缩小文件体积。</p>
+    </div>
+    <div class="faq-item">
+      <h3>最大能压缩多大的图？</h3>
+      <p>理论上没有大小限制。处理超大图片时，浏览器内存是瓶颈。建议单图控制在 50 MB 以内以获得最佳体验。</p>
+    </div>
+
+    <p style="margin-top:40px;">
+      <a class="cta" href="/tinypic">开始压缩 JPEG</a>
+    </p>
+
+    <hr />
+    <p style="font-size:0.9em;color:#6b7280;">
+      <a href="/tinypic">← Tiny Pic 产品页</a> · <a href="/">返回 HolaTiger 首页</a>
+    </p>
+  </div>
+</body>
+</html>

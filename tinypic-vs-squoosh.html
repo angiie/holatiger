@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-site-verification" content="5iRqRZO9bOPssApmVaZk4ir5v_bFPSHgvJE06iNcJHw" />
+  <title>Tiny Pic vs Squoosh - 选哪个图片压缩工具？| HolaTiger</title>
+  <meta name="description" content="Tiny Pic 和 Squoosh 都能本地压缩图片。Tiny Pic 胜在批量、ZIP 打包、无后端；Squoosh 胜在单图实时对比与 WebP/AVIF 高压缩率。详细对比帮你选。" />
+  <meta name="keywords" content="Tiny Pic vs Squoosh, Squoosh 对比, 图片压缩工具对比, 批量压缩, 浏览器压缩, HolaTiger" />
+  <link rel="canonical" href="https://holatiger.com/tinypic-vs-squoosh" />
+  <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/tinypic-vs-squoosh" />
+  <link rel="alternate" hreflang="en" href="https://holatiger.com/tinypic-vs-squoosh?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://holatiger.com/tinypic-vs-squoosh" />
+  <meta property="og:title" content="Tiny Pic vs Squoosh - 图片压缩工具对比" />
+  <meta property="og:description" content="两个工具都能本地压缩图片，但擅长场景不同。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://holatiger.com/tinypic-vs-squoosh" />
+  <meta property="og:image" content="https://holatiger.com/assets/images/social/tinypic-1200x630.png" />
+  <meta property="og:site_name" content="HolaTiger" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tiny Pic vs Squoosh" />
+  <meta name="twitter:description" content="图片压缩工具功能对比。" />
+  <meta name="twitter:image" content="https://holatiger.com/assets/images/social/tinypic-1200x630.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png" />
+  <link rel="stylesheet" href="/assets/css/nav-unified.css" />
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1f2937; line-height: 1.65; margin: 0; background: #fff; }
+    .container { max-width: 880px; margin: 0 auto; padding: 32px 20px 80px; }
+    h1 { font-size: 2.1rem; font-weight: 800; margin: 0 0 14px; color: #0f172a; line-height: 1.25; }
+    h2 { font-size: 1.45rem; font-weight: 700; margin: 36px 0 12px; color: #0f172a; }
+    h3 { font-size: 1.15rem; font-weight: 600; margin: 22px 0 8px; color: #1f2937; }
+    p { margin: 0 0 14px; }
+    a { color: #2563eb; }
+    a:hover { color: #1d4ed8; }
+    .cta { display: inline-block; padding: 13px 26px; background: #2563eb; color: #fff; border-radius: 8px; font-weight: 600; text-decoration: none; margin: 6px 6px 6px 0; }
+    .cta:hover { background: #1d4ed8; color: #fff; }
+    .breadcrumb { font-size: 0.88rem; color: #6b7280; margin-bottom: 18px; }
+    .breadcrumb a { color: #6b7280; text-decoration: none; }
+    .breadcrumb a:hover { color: #2563eb; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.95em; }
+    th, td { padding: 10px 12px; border: 1px solid #e5e7eb; text-align: left; vertical-align: top; }
+    th { background: #f3f4f6; font-weight: 600; }
+    .check { color: #059669; font-weight: 700; }
+    .cross { color: #dc2626; font-weight: 700; }
+    .partial { color: #d97706; font-weight: 600; }
+    .verdict { background: #f0f9ff; border-left: 4px solid #2563eb; padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+    .faq-item { background: #f8fafc; padding: 14px 18px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
+    .faq-item h3 { margin: 0 0 6px; }
+    hr { margin: 40px 0; border: none; border-top: 1px solid #e5e7eb; }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Tiny Pic vs Squoosh","description":"A feature-by-feature comparison of two browser-based image compressors","author":{"@type":"Organization","name":"HolaTiger","url":"https://holatiger.com"},"publisher":{"@type":"Organization","name":"HolaTiger","logo":{"@type":"ImageObject","url":"https://holatiger.com/assets/images/icons/icon_64x64.png"}},"datePublished":"2026-07-21","dateModified":"2026-07-21"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://holatiger.com/"},{"@type":"ListItem","position":2,"name":"Tiny Pic","item":"https://holatiger.com/tinypic"},{"@type":"ListItem","position":3,"name":"vs Squoosh","item":"https://holatiger.com/tinypic-vs-squoosh"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Tiny Pic 和 Squoosh 哪个更好？","acceptedAnswer":{"@type":"Answer","text":"取决于场景。单图实时对比和探索 WebP/AVIF 等新格式选 Squoosh；批量处理、ZIP 打包、纯前端零依赖选 Tiny Pic。"}},{"@type":"Question","name":"Squoosh 是 Google 的项目吗？","acceptedAnswer":{"@type":"Answer","text":"Squoosh 是 GoogleChromeLabs 推出的开源 PWA，基于 WebAssembly 和 libimagequant / MozJPEG 等编码器。"}},{"@type":"Question","name":"Tiny Pic 支持哪些 Squoosh 不支持的功能？","acceptedAnswer":{"@type":"Answer","text":"批量上传并打包 ZIP、目标文件大小自动寻优、保留 EXIF 控制、完全无外部依赖（自托管友好）。"}}]}</script>
+</head>
+<body>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="面包屑">
+      <a href="/">首页</a> › <a href="/tinypic">Tiny Pic</a> › <span>vs Squoosh</span>
+    </nav>
+
+    <h1>Tiny Pic vs Squoosh</h1>
+    <p>两个工具都能在浏览器里压缩图片、不上传服务器。但侧重点不同：Squoosh 是 Google 的实验性 PWA，主打<strong>单图实时对比</strong>和探索新格式；Tiny Pic 是 HolaTiger 旗下的批处理工具，主打<strong>一次压多张 + ZIP 打包 + 零后端部署</strong>。</p>
+
+    <h2>功能对比</h2>
+    <table>
+      <thead>
+        <tr><th>功能</th><th>Tiny Pic</th><th>Squoosh</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>本地处理（不上传）</td><td class="check">✅</td><td class="check">✅</td></tr>
+        <tr><td>批量处理多图</td><td class="check">✅</td><td class="cross">❌ 一次一张</td></tr>
+        <tr><td>批量导出 ZIP</td><td class="check">✅</td><td class="cross">❌</td></tr>
+        <tr><td>实时前后对比</td><td class="partial">◐ 仅压缩后预览</td><td class="check">✅ 滑块对比</td></tr>
+        <tr><td>JPEG / PNG / WebP</td><td class="check">✅</td><td class="check">✅</td></tr>
+        <tr><td>AVIF 编码</td><td class="check">✅</td><td class="check">✅</td></tr>
+        <tr><td>目标大小自动寻优</td><td class="check">✅ 压到 X KB</td><td class="cross">❌ 手动调质量</td></tr>
+        <tr><td>EXIF 保留/去除</td><td class="check">✅</td><td class="cross">❌ 不可控</td></tr>
+        <tr><td>完全自托管</td><td class="check">✅ 单页静态</td><td class="partial">◐ 需 PWA 容器</td></tr>
+        <tr><td>账号 / 登录</td><td class="check">✅ 无</td><td class="check">✅ 无</td></tr>
+        <tr><td>开源</td><td class="partial">◐ 闭源</td><td class="check">✅ Apache 2.0</td></tr>
+      </tbody>
+    </table>
+
+    <h2>选哪个</h2>
+    <div class="verdict">
+      <strong>单张图调参 + 探索格式</strong> → 选 <a href="https://squoosh.app" rel="nofollow noopener">Squoosh</a>，它的实时滑块对比是同类最强。
+    </div>
+    <div class="verdict">
+      <strong>一次处理 10-100 张</strong> → 选 <a href="/tinypic">Tiny Pic</a>，批量 + ZIP 打包是刚需。
+    </div>
+    <div class="verdict">
+      <strong>需要部署到自己的服务器</strong> → 选 <a href="/tinypic">Tiny Pic</a>，单页 + 静态资源即可。
+    </div>
+
+    <h2>共同点</h2>
+    <ul>
+      <li>都基于 WebAssembly 在浏览器内编码，文件不上传</li>
+      <li>都支持 JPEG / PNG / WebP / AVIF（AVIF 在 Squoosh 是实验性）</li>
+      <li>都不需要登录、不留账号</li>
+    </ul>
+
+    <h2>常见问题</h2>
+    <div class="faq-item">
+      <h3>Tiny Pic 和 Squoosh 哪个更好？</h3>
+      <p>取决于场景。单图实时对比和探索 WebP/AVIF 等新格式选 Squoosh；批量处理、ZIP 打包、纯前端零依赖选 Tiny Pic。</p>
+    </div>
+    <div class="faq-item">
+      <h3>Squoosh 是 Google 的项目吗？</h3>
+      <p>Squoosh 是 GoogleChromeLabs 推出的开源 PWA，基于 WebAssembly 和 libimagequant / MozJPEG 等编码器。</p>
+    </div>
+    <div class="faq-item">
+      <h3>Tiny Pic 支持哪些 Squoosh 不支持的功能？</h3>
+      <p>批量上传并打包 ZIP、目标文件大小自动寻优、保留 EXIF 控制、完全无外部依赖（自托管友好）。</p>
+    </div>
+
+    <p style="margin-top:40px;">
+      <a class="cta" href="/tinypic">打开 Tiny Pic</a>
+    </p>
+
+    <hr />
+    <p style="font-size:0.9em;color:#6b7280;">
+      <a href="/tinypic">← Tiny Pic 产品页</a> · <a href="/">返回 HolaTiger 首页</a>
+    </p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-site-verification" content="5iRqRZO9bOPssApmVaZk4ir5v_bFPSHgvJE06iNcJHw" />
+  <title>WebDavy vs RaiDrive - WebDAV 浏览器/桌面客户端对比 | HolaTiger</title>
+  <meta name="description" content="WebDavy 是 Chrome 扩展，RaiDrive 是把 WebDAV 挂载为 Windows 磁盘的工具。两者都能访问 WebDAV 云盘，但使用场景完全不同。详细对比帮你选。" />
+  <meta name="keywords" content="WebDavy vs RaiDrive, RaiDrive 对比, WebDAV 客户端对比, Chrome WebDAV, Windows WebDAV 挂载, HolaTiger" />
+  <link rel="canonical" href="https://holatiger.com/webdavy-vs-raidrive" />
+  <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/webdavy-vs-raidrive" />
+  <link rel="alternate" hreflang="en" href="https://holatiger.com/webdavy-vs-raidrive?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://holatiger.com/webdavy-vs-raidrive" />
+  <meta property="og:title" content="WebDavy vs RaiDrive" />
+  <meta property="og:description" content="浏览器扩展 vs 桌面挂载工具。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://holatiger.com/webdavy-vs-raidrive" />
+  <meta property="og:image" content="https://holatiger.com/assets/images/social/webdavy-1200x630.png" />
+  <meta property="og:site_name" content="HolaTiger" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WebDavy vs RaiDrive" />
+  <meta name="twitter:description" content="WebDAV 客户端对比。" />
+  <meta name="twitter:image" content="https://holatiger.com/assets/images/social/webdavy-1200x630.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png" />
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png" />
+  <link rel="stylesheet" href="/assets/css/nav-unified.css" />
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1f2937; line-height: 1.65; margin: 0; background: #fff; }
+    .container { max-width: 880px; margin: 0 auto; padding: 32px 20px 80px; }
+    h1 { font-size: 2.1rem; font-weight: 800; margin: 0 0 14px; color: #0f172a; line-height: 1.25; }
+    h2 { font-size: 1.45rem; font-weight: 700; margin: 36px 0 12px; color: #0f172a; }
+    h3 { font-size: 1.15rem; font-weight: 600; margin: 22px 0 8px; color: #1f2937; }
+    p { margin: 0 0 14px; }
+    a { color: #2563eb; }
+    a:hover { color: #1d4ed8; }
+    .cta { display: inline-block; padding: 13px 26px; background: #2563eb; color: #fff; border-radius: 8px; font-weight: 600; text-decoration: none; margin: 6px 6px 6px 0; }
+    .cta:hover { background: #1d4ed8; color: #fff; }
+    .breadcrumb { font-size: 0.88rem; color: #6b7280; margin-bottom: 18px; }
+    .breadcrumb a { color: #6b7280; text-decoration: none; }
+    .breadcrumb a:hover { color: #2563eb; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.95em; }
+    th, td { padding: 10px 12px; border: 1px solid #e5e7eb; text-align: left; vertical-align: top; }
+    th { background: #f3f4f6; font-weight: 600; }
+    .check { color: #059669; font-weight: 700; }
+    .cross { color: #dc2626; font-weight: 700; }
+    .partial { color: #d97706; font-weight: 600; }
+    .verdict { background: #f0f9ff; border-left: 4px solid #2563eb; padding: 14px 18px; border-radius: 6px; margin: 18px 0; }
+    .faq-item { background: #f8fafc; padding: 14px 18px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #e2e8f0; }
+    .faq-item h3 { margin: 0 0 6px; }
+    hr { margin: 40px 0; border: none; border-top: 1px solid #e5e7eb; }
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"WebDavy vs RaiDrive","description":"A feature-by-feature comparison of two WebDAV clients","author":{"@type":"Organization","name":"HolaTiger","url":"https://holatiger.com"},"datePublished":"2026-07-21","dateModified":"2026-07-21"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://holatiger.com/"},{"@type":"ListItem","position":2,"name":"WebDavy","item":"https://holatiger.com/webdavy"},{"@type":"ListItem","position":3,"name":"vs RaiDrive","item":"https://holatiger.com/webdavy-vs-raidrive"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"WebDavy 和 RaiDrive 哪个更好？","acceptedAnswer":{"@type":"Answer","text":"取决于场景。在 Chrome 浏览器内快速访问、上传、下载选 WebDavy；需要把 WebDAV 挂载为 Windows 磁盘符用本地应用打开选 RaiDrive。"}},{"@type":"Question","name":"RaiDrive 是免费的吗？","acceptedAnswer":{"@type":"Answer","text":"RaiDrive 个人版免费（带 1 个 WebDAV 账户限制），商业版需要付费订阅。WebDavy 完全免费，无账户数限制。"}},{"@type":"Question","name":"RaiDrive 支持 macOS / Linux 吗？","acceptedAnswer":{"@type":"Answer","text":"RaiDrive 仅支持 Windows。WebDavy 是 Chrome 扩展，在 macOS / Windows / Linux / ChromeOS 上都能用，只要浏览器是 Chromium 内核。"}}]}</script>
+</head>
+<body>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="面包屑">
+      <a href="/">首页</a> › <a href="/webdavy">WebDavy</a> › <span>vs RaiDrive</span>
+    </nav>
+
+    <h1>WebDavy vs RaiDrive</h1>
+    <p>两个工具都能让你访问 WebDAV 云盘，但形态完全不同：WebDavy 是 <strong>Chrome 扩展</strong>，在浏览器内直接操作云盘文件；RaiDrive 是 <strong>Windows 桌面程序</strong>，把 WebDAV 挂载成 Z 盘之类的磁盘符。选哪个，取决于你主要在哪种场景下访问云盘。</p>
+
+    <h2>功能对比</h2>
+    <table>
+      <thead>
+        <tr><th>维度</th><th>WebDavy</th><th>RaiDrive</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>形态</td><td>Chrome 扩展</td><td>Windows 程序</td></tr>
+        <tr><td>平台</td><td>Chromium 浏览器（Win/Mac/Linux）</td><td>仅 Windows</td></tr>
+        <tr><td>挂载为磁盘符</td><td class="cross">❌</td><td class="check">✅ Z 盘 / Y 盘</td></tr>
+        <tr><td>本地应用打开</td><td class="cross">❌ 仅预览</td><td class="check">✅ 任意 app</td></tr>
+        <tr><td>多账户</td><td class="check">✅ 无限制</td><td class="partial">◐ 付费解锁</td></tr>
+        <tr><td>文件预览</td><td class="check">✅ 图片/视频/PDF</td><td class="partial">◐ 依赖系统</td></tr>
+        <tr><td>目录书签</td><td class="check">✅</td><td class="cross">❌</td></tr>
+        <tr><td>价格</td><td class="check">✅ 完全免费</td><td class="partial">◐ 免费版 1 账户</td></tr>
+        <tr><td>安装复杂度</td><td class="check">✅ 一键安装</td><td class="partial">◐ 下载安装包</td></tr>
+        <tr><td>后台常驻</td><td class="check">✅ Service Worker</td><td class="check">✅ 系统服务</td></tr>
+        <tr><td>同步速度感知</td><td class="partial">◐ 取决于网络</td><td class="check">✅ 系统缓存</td></tr>
+      </tbody>
+    </table>
+
+    <h2>选哪个</h2>
+    <div class="verdict">
+      <strong>主要在浏览器里访问、上传、下载</strong> → 选 <a href="/webdavy">WebDavy</a>。零安装，跨平台。
+    </div>
+    <div class="verdict">
+      <strong>需要把云盘当本地盘用，本地软件打开</strong> → 选 <a href="https://www.raidrive.com" rel="nofollow noopener">RaiDrive</a>。比如用 Photoshop 直接打开云盘 PSD。
+    </div>
+    <div class="verdict">
+      <strong>Mac / Linux 用户</strong> → 只能选 <a href="/webdavy">WebDavy</a>。RaiDrive 不支持。
+    </div>
+
+    <h2>常见问题</h2>
+    <div class="faq-item">
+      <h3>WebDavy 和 RaiDrive 哪个更好？</h3>
+      <p>取决于场景。在 Chrome 浏览器内快速访问、上传、下载选 WebDavy；需要把 WebDAV 挂载为 Windows 磁盘符用本地应用打开选 RaiDrive。</p>
+    </div>
+    <div class="faq-item">
+      <h3>RaiDrive 是免费的吗？</h3>
+      <p>RaiDrive 个人版免费（带 1 个 WebDAV 账户限制），商业版需要付费订阅。WebDavy 完全免费，无账户数限制。</p>
+    </div>
+    <div class="faq-item">
+      <h3>RaiDrive 支持 macOS / Linux 吗？</h3>
+      <p>RaiDrive 仅支持 Windows。WebDavy 是 Chrome 扩展，在 macOS / Windows / Linux / ChromeOS 上都能用，只要浏览器是 Chromium 内核。</p>
+    </div>
+
+    <p style="margin-top:40px;">
+      <a class="cta" href="/webdavy">下载 WebDavy</a>
+    </p>
+
+    <hr />
+    <p style="font-size:0.9em;color:#6b7280;">
+      <a href="/webdavy">← WebDavy 产品页</a> · <a href="/">返回 HolaTiger 首页</a>
+    </p>
+  </div>
+</body>
+</html>
