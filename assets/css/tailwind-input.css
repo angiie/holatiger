@@ -1,0 +1,4 @@
+/* Tailwind 入口：所有 @tailwind 指令展开为最终 CSS。 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -188,7 +188,10 @@ const HomePage: React.FC = () => {
             <div className="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
               <a href="/lexa.html" className="flex items-center gap-4 mb-5 no-underline" style={{ textDecoration: 'none !important', color: 'inherit' }}>
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center shadow-sm">
-                  <img src="/assets/images/lexa/logo.png" alt="Lexa" className="w-8 h-8 object-contain" />
+                  <picture>
+                    <source srcSet="/assets/images/lexa/logo.webp" type="image/webp" />
+                    <img src="/assets/images/lexa/logo.png" alt="Lexa" className="w-8 h-8 object-contain" />
+                  </picture>
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900 text-lg">{t('lexa.name', 'Lexa')}</h3>
@@ -234,7 +237,10 @@ const HomePage: React.FC = () => {
             <div className="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
               <a href="/svg-studio.html" className="flex items-center gap-4 mb-5 no-underline" style={{ textDecoration: 'none !important', color: 'inherit' }}>
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center shadow-sm">
-                  <img src="/assets/images/svg-studio/edited_image_1 (1).png" alt="SVG Studio Pro Logo" className="w-8 h-8 object-contain" />
+                  <picture>
+                    <source srcSet="/assets/images/svg-studio/edited_image_1_(1).webp" type="image/webp" />
+                    <img src="/assets/images/svg-studio/edited_image_1 (1).png" alt="SVG Studio Pro Logo" className="w-8 h-8 object-contain" />
+                  </picture>
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900 text-lg">{t('svg-studio.name', 'SVG Studio')}</h3>
@@ -283,7 +289,10 @@ const HomePage: React.FC = () => {
       <section id="about" className="about-v1">
         <div className="about-container-v1">
           <div className="about-avatar-v1">
-            <img src="/assets/images/icons/avatar.jpeg" alt="angiie" width={100} height={100} />
+            <picture>
+              <source srcSet="/assets/images/icons/avatar.webp" type="image/webp" />
+              <img src="/assets/images/icons/avatar.jpeg" alt="angiie" width={100} height={100} />
+            </picture>
           </div>
           <div className="about-text-v1">
             <h2>{t('about.title', 'About Me')}</h2>
