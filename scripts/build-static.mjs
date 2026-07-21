@@ -96,33 +96,32 @@ if (existsSync(tinypicDir)) {
 }
 
 // 8. 把 vite build 剥掉的 /assets/css/*.css 链接补回 dist/index.html
-//    Vite 在 transformIndexHtml 时只把第一个 link tag 注入到 head，剩下的会被剥离。
-//    这里把静态站需要的 2 个本地 css link 重新追加到 vite 已经注入的 tailwind-built.css 之后。
-function injectRemainingCssLinks() {
+//    Vite 在 transformIndexHtml 时的 link 注入行为不稳定（root div 有内容时会被跳过），
+//    这里统一在 post-build 阶段强制追加 3 个本地 CSS link（不依赖任何 marker）。
+function injectStaticCssLinks() {
   const target = resolve(distDir, 'index.html');
   if (!existsSync(target)) return;
-  const html = readFileSync(target, 'utf-8');
-  if (html.includes('/assets/css/index-inline.css')) return; // 已存在则跳过
+  let html = readFileSync(target, 'utf-8');
 
-  const marker = '<link rel="stylesheet" href="/assets/css/tailwind-built.css">';
-  if (!html.includes(marker)) {
-    console.log('   ⚠️  未找到 tailwind-built.css marker，跳过 css link 补全');
-    return;
-  }
-
-  const extraLinks = [
+  const links = [
+    '<link rel="stylesheet" href="/assets/css/tailwind-built.css">',
     '<link rel="stylesheet" href="/assets/css/index-inline.css">',
     '<link rel="stylesheet" href="/assets/css/nav-unified.css">',
-  ].join('\n  ');
+  ];
 
-  const patched = html.replace(
-    marker,
-    `${marker}\n  ${extraLinks}`
-  );
-  writeFileSync(target, patched, 'utf-8');
-  console.log('   🔗 已补全 dist/index.html 的 2 个静态 CSS link');
+  let patched = false;
+  for (const link of links) {
+    if (html.includes(link)) continue;
+    // 追加到 head 结束前
+    html = html.replace('</head>', `  ${link}\n  </head>`);
+    patched = true;
+  }
+  if (patched) {
+    writeFileSync(target, html, 'utf-8');
+    console.log('   🔗 已补全 dist/index.html 的本地 CSS link');
+  }
 }
-injectRemainingCssLinks();
+injectStaticCssLinks();
 
 console.log(`📂 输出目录: ${distDir}`);
 console.log('🎉 构建完成！');
