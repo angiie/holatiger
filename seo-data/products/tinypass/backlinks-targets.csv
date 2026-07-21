@@ -1,0 +1,6 @@
+domain,dr,traffic,ref_domains,competitor,target_page,contact_email,status,last_contact
+1password.com,82,25000000,8200,1password,/tinypass-vs-1password,,todo,
+lastpass.com,75,8200000,5400,lastpass,/tinypass-vs-1password,,todo,
+bitwarden.com,72,5800000,4200,bitwarden,/tinypass-vs-1password,,todo,
+randomkeygen.com,38,420000,420,randomkeygen,/tinypass,,todo,
+dashlane.com,68,4200000,3200,dashlane,/tinypass-vs-1password,,todo,

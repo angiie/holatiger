@@ -1,0 +1,5 @@
+keyword,target_url,content_type,word_count,deadline,author,status
+remove gemini watermark,/remove-gemini-watermark,use-case,800,2026-08-15,,published
+banana vs adobe firefly,/banana-vs-adobe-firefly,comparison,1500,2026-08-15,,published
+gemini watermark how-to,/blog-gemini-watermark,blog,2500,2026-09-01,,writing
+ai image copyright guide,/blog-ai-image-copyright,blog,2000,2026-09-15,,backlog

@@ -1,0 +1,5 @@
+keyword,target_url,content_type,word_count,deadline,author,status
+password generator,/password-generator,use-case,800,2026-08-15,,published
+tinypass vs 1password,/tinypass-vs-1password,comparison,1500,2026-08-15,,published
+password strength guide,/blog-password-strength,blog,2500,2026-09-01,,writing
+bitwarden selfhost guide,/blog-bitwarden-selfhost,blog,3000,2026-09-15,,backlog

@@ -1,0 +1,5 @@
+keyword,target_url,content_type,word_count,deadline,author,status
+svg to png,/svg-to-png,use-case,800,2026-08-15,,published
+svg studio vs inkscape,/svg-studio-vs-inkscape,comparison,1500,2026-08-15,,published
+chrome extension icon guide,/blog-chrome-extension-icon,blog,2500,2026-09-01,,writing
+svg optimization best practices,/blog-svg-optimization,blog,3000,2026-09-15,,backlog

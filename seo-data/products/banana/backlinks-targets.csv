@@ -1,0 +1,6 @@
+domain,dr,traffic,ref_domains,competitor,target_page,contact_email,status,last_contact
+gemini.google.com,95,450000000,180000,gemini,/remove-gemini-watermark,,todo,
+adobe.com,92,180000000,120000,firefly,/banana-vs-adobe-firefly,,todo,
+photoshop.com,90,95000000,85000,photoshop,/banana-vs-adobe-firefly,,todo,
+photopea.com,68,12000000,4200,photopea,/banana,,todo,
+canva.com,92,210000000,95000,canva,/banana-vs-adobe-firefly,,todo,

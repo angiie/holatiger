@@ -1,0 +1,11 @@
+keyword,search_volume,kd,current_rank,intent,target_page,priority,notes
+password generator,550000,82,,commercial,/password-generator,high,
+random password generator,165000,76,,commercial,/password-generator,high,
+strong password generator,40500,68,,commercial,/password-generator,high,
+readable password generator,2400,28,,commercial,/tinypass,high,差异化
+batch password generator,880,22,,commercial,/tinypass,medium,
+local password generator,1600,32,,commercial,/tinypass,high,本地差异化
+password generator no signup,4400,35,,commercial,/tinypass,high,差异化
+1password alternative,8200,55,,commercial,/tinypass-vs-1password,high,
+lastpass alternative,12100,62,,commercial,/tinypass-vs-1password,high,
+bitwarden alternative,2400,38,,commercial,/tinypass-vs-1password,medium,

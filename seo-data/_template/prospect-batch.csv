@@ -1,0 +1,4 @@
+domain,outreach_template,sent_date,follow_up_date,reply_status,notes
+example.com,A,2026-08-01,2026-08-15,no-reply,
+example.org,A,2026-08-01,2026-08-15,interested,
+example.net,B,2026-08-01,2026-08-15,no-reply,

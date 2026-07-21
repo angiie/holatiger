@@ -1,0 +1,11 @@
+keyword,search_volume,kd,current_rank,intent,target_page,priority,notes
+image compressor,82000,67,,commercial,/compress-jpeg-online,high,
+compress jpeg,49500,72,,commercial,/compress-jpeg-online,high,
+jpg compressor,33100,68,,commercial,/compress-jpeg-online,high,
+compress image,22200,71,,commercial,/compress-jpeg-online,high,
+image compression,18100,55,,informational,/compress-jpeg-online,medium,
+batch image compressor,2400,32,,commercial,/compress-jpeg-online,high,长尾
+local image compressor,1900,28,,commercial,/tinypic,high,本地差异化
+compress image without losing quality,5400,41,,commercial,/tinypic,high,
+wasm image compressor,880,18,,commercial,/tinypic,medium,技术差异化
+browser image compressor,4400,38,,commercial,/tinypic,medium,

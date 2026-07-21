@@ -1,0 +1,4 @@
+domain,dr,traffic,ref_domains,competitor,target_page,contact_email,status,last_contact
+example.com,45,12000,890,squoosh.app,/compress-jpeg-online,,todo,
+example.org,38,5400,420,tinypng.com,/tinypic,,todo,
+example.net,52,22100,1200,compressor.io,/compress-jpeg-online,,todo,

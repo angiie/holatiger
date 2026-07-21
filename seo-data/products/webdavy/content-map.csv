@@ -1,0 +1,6 @@
+keyword,target_url,content_type,word_count,deadline,author,status
+webdav chrome extension,/webdavy,use-case,800,2026-08-15,,published
+webdav chrome setup,/webdav-chrome-setup,use-case,1500,2026-08-15,,published
+webdavy vs raidrive,/webdavy-vs-raidrive,comparison,1500,2026-08-15,,published
+nextcloud deploy guide,/blog-nextcloud-deploy,blog,3000,2026-09-01,,writing
+synology webdav enable,/blog-synology-webdav,blog,2000,2026-09-15,,backlog
