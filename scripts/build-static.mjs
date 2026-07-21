@@ -123,5 +123,66 @@ function injectStaticCssLinks() {
 }
 injectStaticCssLinks();
 
+// 8.5. 合并所有 CSS 成单一文件，节省 mobile 慢 4G 下的多次 RTT
+//    4 个 CSS link（tailwind-built 53K + index-inline 3.3K + vite 合并 11.2K + nav-unified 2.8K）
+//    → 1 个 all.min.css ~70K。mobile 模拟下 RTT 从 4×300ms 降到 1×300ms，节省 ~900ms。
+function mergeCss() {
+  const target = resolve(distDir, 'index.html');
+  if (!existsSync(target)) return;
+  let html = readFileSync(target, 'utf-8');
+
+  // 收集所有本地 css 路径
+  const cssLinks = [
+    '/assets/css/tailwind-built.css',
+    '/assets/css/index-inline.css',
+    '/assets/css/nav-unified.css',
+  ];
+  // vite 自动注入的 index-xxx.css（动态名）
+  const viteCssMatch = html.match(/href="(\/assets\/index-[A-Za-z0-9_-]+\.css)"/);
+  if (viteCssMatch) cssLinks.push(viteCssMatch[1]);
+
+  // 检查所有 css 是否都存在
+  const cssDir = resolve(distDir, 'assets');
+  const missing = cssLinks.filter(p => !existsSync(join(cssDir, p.replace('/assets/', ''))));
+  if (missing.length) {
+    console.log(`   ⚠️  跳过 CSS 合并（缺失: ${missing.join(', ')}）`);
+    return;
+  }
+
+  // 拼接所有 css
+  const allCss = cssLinks.map(p => {
+    const full = join(cssDir, p.replace('/assets/', ''));
+    return `/* === ${p} === */\n` + readFileSync(full, 'utf-8');
+  }).join('\n');
+
+  const outName = 'all-' + Date.now() + '.min.css';
+  const outPath = resolve(cssDir, 'css', outName);
+  // 简化命名：用 all.min.css（固定名可被 browser 缓存命中）
+  const finalName = 'all.min.css';
+  const finalPath = resolve(cssDir, 'css', finalName);
+  writeFileSync(finalPath, allCss, 'utf-8');
+  // 删除临时文件
+  if (outName !== finalName && existsSync(outPath)) {
+    try { require('fs').unlinkSync(outPath); } catch {}
+  }
+
+  // 替换 index.html 中所有 css link 为单一 link
+  let newHtml = html;
+  cssLinks.forEach(p => {
+    const escaped = p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    newHtml = newHtml.replace(
+      new RegExp(`<link[^>]*href="${escaped}"[^>]*>\\s*`, 'g'),
+      ''
+    );
+  });
+  newHtml = newHtml.replace(
+    '</head>',
+    `  <link rel="stylesheet" href="/assets/css/${finalName}">\n  </head>`
+  );
+  writeFileSync(target, newHtml, 'utf-8');
+  console.log(`   🎨 已合并 ${cssLinks.length} 个 CSS 为 1 个 (${(allCss.length/1024).toFixed(1)}KB)`);
+}
+mergeCss();
+
 console.log(`📂 输出目录: ${distDir}`);
 console.log('🎉 构建完成！');
