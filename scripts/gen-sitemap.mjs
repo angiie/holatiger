@@ -28,9 +28,8 @@ const PAGE_CONFIG = {
   'banana/index.html':    { priority: 0.8, changefreq: 'monthly' },
   'faq.html':             { priority: 0.6, changefreq: 'weekly' },
   'blog.html':            { priority: 0.6, changefreq: 'daily' },
-  // SPA 路由（无对应 .html 文件）
-  'webdavy':              { priority: 0.8, changefreq: 'monthly' },
-  'tinypass':             { priority: 0.8, changefreq: 'monthly' },
+  'webdavy.html':         { priority: 0.8, changefreq: 'monthly' },
+  'tinypass.html':        { priority: 0.8, changefreq: 'monthly' },
 };
 
 const BLOG_DEFAULT =    { priority: 0.5, changefreq: 'monthly' };
@@ -76,19 +75,13 @@ function getLoc(pagePath) {
   if (pagePath === 'index.html') {
     return `${BASE_URL}/`;
   }
-  return `${BASE_URL}/${pagePath}`;
+  // webdavy.html / tinypass.html 等使用 clean URL（由 vercel.json rewrite 提供）
+  const cleanName = pagePath.replace(/\.html$/, '');
+  return `${BASE_URL}/${cleanName}`;
 }
 
 // ===== 获取文件最后修改日期 =====
 function getLastMod(filePath) {
-  // SPA 路由: 从对应的 React 组件文件获取最后修改日期
-  if (filePath === 'webdavy') {
-    return getLastMod('src/pages/WebDavyPage.tsx');
-  }
-  if (filePath === 'tinypass') {
-    return getLastMod('src/pages/TinyPassPage.tsx');
-  }
-
   const fullPath = resolve(ROOT, filePath);
   if (!existsSync(fullPath)) return new Date().toISOString().split('T')[0];
 
@@ -117,13 +110,11 @@ function getLastMod(filePath) {
 function scanPages() {
   const pages = [];
 
-  // 根目录 HTML (排除已迁移为 SPA 路由的页面)
+  // 根目录 HTML（包括 webdavy.html / tinypass.html 等所有产品页）
   const rootFiles = readdirSync(ROOT).filter(f => f.endsWith('.html') && f !== 'index.html');
   rootFiles.sort();
   rootFiles.forEach(f => {
-    if (f !== 'tinypass.html' && f !== 'webdavy.html') {
-      pages.push(f);
-    }
+    pages.push(f);
   });
   pages.unshift('index.html'); // 首页放第一个
 
@@ -135,10 +126,6 @@ function scanPages() {
       pages.push(indexPath);
     }
   });
-
-  // SPA 路由（无对应 .html 文件）
-  pages.push('webdavy');
-  pages.push('tinypass');
 
   return pages;
 }

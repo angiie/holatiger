@@ -10,26 +10,16 @@
       "has": [{ "type": "host", "value": "www.holatiger.com" }],
       "destination": "https://holatiger.com/:path",
       "permanent": true
-    },
-    {
-      "source": "/webdavy.html",
-      "destination": "/webdavy",
-      "permanent": true
-    },
-    {
-      "source": "/tinypass.html",
-      "destination": "/tinypass",
-      "permanent": true
     }
   ],
   "rewrites": [
     {
       "source": "/webdavy",
-      "destination": "/index.html"
+      "destination": "/webdavy.html"
     },
     {
       "source": "/tinypass",
-      "destination": "/index.html"
+      "destination": "/tinypass.html"
     },
     {
       "source": "/svg-studio",

@@ -49,44 +49,36 @@ jobs:
             "version": 3,
             "routes": [
               {
-                "src": "/svg-studio",
-                "dest": "/svg-studio.html",
-                "status": 301
+                "src": "/webdavy",
+                "dest": "/webdavy.html"
               },
               {
                 "src": "/tinypass",
-                "dest": "/tinypass.html",
-                "status": 301
+                "dest": "/tinypass.html"
               },
               {
-                "src": "/webdavy",
-                "dest": "/webdavy.html",
-                "status": 301
+                "src": "/svg-studio",
+                "dest": "/svg-studio.html"
               },
               {
                 "src": "/faq",
-                "dest": "/faq.html",
-                "status": 301
+                "dest": "/faq.html"
               },
               {
                 "src": "/blog",
-                "dest": "/blog.html",
-                "status": 301
+                "dest": "/blog.html"
               },
               {
                 "src": "/svg-to-png-workflow",
-                "dest": "/blog-svg-to-png-workflow.html",
-                "status": 301
+                "dest": "/blog-svg-to-png-workflow.html"
               },
               {
                 "src": "/tinypass-password-guide",
-                "dest": "/blog-tinypass-password-guide.html",
-                "status": 301
+                "dest": "/blog-tinypass-password-guide.html"
               },
               {
                 "src": "/webdav-chrome-setup",
-                "dest": "/blog-webdav-chrome-setup.html",
-                "status": 301
+                "dest": "/blog-webdav-chrome-setup.html"
               }
             ]
           }

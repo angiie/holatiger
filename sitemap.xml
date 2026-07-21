@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://holatiger.com/</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/" />
@@ -10,128 +10,157 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/" />
   </url>
   <url>
-    <loc>https://holatiger.com/blog-gemini-watermark-remover.html</loc>
+    <loc>https://holatiger.com/blog-gemini-watermark-remover</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-gemini-watermark-remover.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-gemini-watermark-remover.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-gemini-watermark-remover.html" />
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-gemini-watermark-remover" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-gemini-watermark-remover?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-gemini-watermark-remover" />
   </url>
   <url>
-    <loc>https://holatiger.com/blog-handy-tulip-implementation.html</loc>
+    <loc>https://holatiger.com/blog-handy-tulip-implementation</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-handy-tulip-implementation.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-handy-tulip-implementation.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-handy-tulip-implementation.html" />
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-handy-tulip-implementation" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-handy-tulip-implementation?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-handy-tulip-implementation" />
   </url>
   <url>
-    <loc>https://holatiger.com/blog-lexa-launch.html</loc>
+    <loc>https://holatiger.com/blog-lexa-launch</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-lexa-launch.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-lexa-launch.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-lexa-launch.html" />
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-lexa-launch" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-lexa-launch?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-lexa-launch" />
   </url>
   <url>
-    <loc>https://holatiger.com/blog-svg-to-png-workflow.html</loc>
+    <loc>https://holatiger.com/blog-svg-to-png-workflow</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-svg-to-png-workflow.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-svg-to-png-workflow.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-svg-to-png-workflow.html" />
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-svg-to-png-workflow" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-svg-to-png-workflow?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-svg-to-png-workflow" />
   </url>
   <url>
-    <loc>https://holatiger.com/blog-tinypass-password-guide.html</loc>
+    <loc>https://holatiger.com/blog-tinypass-password-guide</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-tinypass-password-guide.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-tinypass-password-guide.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-tinypass-password-guide.html" />
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-tinypass-password-guide" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-tinypass-password-guide?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-tinypass-password-guide" />
   </url>
   <url>
-    <loc>https://holatiger.com/blog-tinypic-wasm-principle.html</loc>
+    <loc>https://holatiger.com/blog-tinypic-wasm-principle</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-tinypic-wasm-principle.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-tinypic-wasm-principle.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-tinypic-wasm-principle.html" />
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-tinypic-wasm-principle" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-tinypic-wasm-principle?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-tinypic-wasm-principle" />
   </url>
   <url>
-    <loc>https://holatiger.com/blog-webdav-chrome-setup.html</loc>
+    <loc>https://holatiger.com/blog-webdav-chrome-setup</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-webdav-chrome-setup.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-webdav-chrome-setup.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-webdav-chrome-setup.html" />
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-webdav-chrome-setup" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-webdav-chrome-setup?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-webdav-chrome-setup" />
   </url>
   <url>
-    <loc>https://holatiger.com/blog.html</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://holatiger.com/blog</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/en/blog" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog.html" />
   </url>
   <url>
-    <loc>https://holatiger.com/ezpixy.html</loc>
-    <lastmod>2026-05-22</lastmod>
+    <loc>https://holatiger.com/ezpixy</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/ezpixy.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/ezpixy.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/ezpixy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/ezpixy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/ezpixy?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/ezpixy" />
   </url>
   <url>
-    <loc>https://holatiger.com/faq.html</loc>
-    <lastmod>2026-05-22</lastmod>
+    <loc>https://holatiger.com/faq</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/faq.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/faq.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/faq?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/faq" />
   </url>
   <url>
-    <loc>https://holatiger.com/lexa.html</loc>
+    <loc>https://holatiger.com/lexa</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/lexa.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/lexa.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/lexa.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/lexa" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/lexa?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/lexa" />
   </url>
   <url>
-    <loc>https://holatiger.com/svg-studio.html</loc>
+    <loc>https://holatiger.com/seo-audit-report</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/seo-audit-report" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/seo-audit-report?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/seo-audit-report" />
+  </url>
+  <url>
+    <loc>https://holatiger.com/svg-studio</loc>
     <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/svg-studio.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/svg-studio.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/svg-studio.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/svg-studio" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/svg-studio?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/svg-studio" />
   </url>
   <url>
-    <loc>https://holatiger.com/text-to-png.html</loc>
+    <loc>https://holatiger.com/text-to-png</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/text-to-png.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/text-to-png.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/text-to-png.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/text-to-png" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/text-to-png?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/text-to-png" />
   </url>
   <url>
-    <loc>https://holatiger.com/tinypic.html</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://holatiger.com/tinypass</loc>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/tinypic.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/tinypic.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/tinypic.html" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/tinypass" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/tinypass?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/tinypass" />
+  </url>
+  <url>
+    <loc>https://holatiger.com/tinypic</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/tinypic" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/tinypic?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/tinypic" />
+  </url>
+  <url>
+    <loc>https://holatiger.com/webdavy</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/webdavy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/webdavy?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/webdavy" />
   </url>
   <url>
     <loc>https://holatiger.com/tinypic/</loc>
@@ -150,23 +179,5 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/banana/" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/banana/?lang=zh-CN" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/banana/" />
-  </url>
-  <url>
-    <loc>https://holatiger.com/webdavy.html</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/webdavy.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/webdavy.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/webdavy.html" />
-  </url>
-  <url>
-    <loc>https://holatiger.com/tinypass.html</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/tinypass.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/tinypass.html?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/tinypass.html" />
   </url>
 </urlset>
