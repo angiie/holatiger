@@ -30,8 +30,11 @@ export default defineConfig({
 
   build: {
     outDir: 'dist',
-    sourcemap: true,
+    sourcemap: false,
     minify: 'esbuild',
+    cssMinify: true,
+    target: 'es2020',
+    chunkSizeWarningLimit: 250,
     rollupOptions: {
       input: resolve(__dirname, 'index.html'),
       output: {

@@ -44,34 +44,7 @@
   <!-- <script type="module" src="/src/main.tsx"></script> -->
 </head>
 <body>
-  <div id="root">
-    <!--
-      Hero LCP 占位 (mobile 优化)
-      - 浏览器解析到这段静态 HTML 时立即渲染 LCP 元素，无需等待 React bundle 解析/执行
-      - ReactDOM.createRoot().render() 会清空 #root 并插入 React 树，本占位自动被替换
-      - 关键样式全部 inline，不依赖外部 CSS（CSSOM 阻塞不影响）
-      - mobile-first：默认就是 mobile 尺寸，加 @media (min-width: 768px) 提升到 PC 视觉
-    -->
-    <section aria-label="Hero" style="position:relative;padding:4rem 1.5rem;overflow:hidden;background:linear-gradient(135deg,#fff7ed 0%,#fed7aa 100%);text-align:center;">
-      <div style="max-width:64rem;margin:0 auto;position:relative;z-index:10;">
-        <div style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;border-radius:9999px;background:#ffedd5;color:#c2410c;font-size:0.875rem;font-weight:500;margin-bottom:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);border:1px solid #fed7aa;">
-          <span style="display:inline-block;width:0.5rem;height:0.5rem;background:#f97316;border-radius:9999px;"></span>
-          <span>🚀 持续更新中</span>
-        </div>
-        <h1 style="font-size:3rem;font-weight:700;color:#111827;margin:0 0 1.5rem 0;line-height:1.25;">
-          <span style="background:linear-gradient(135deg,#f97316,#ef4444,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">小工具，大能量。</span>
-        </h1>
-        <p style="font-size:1.125rem;line-height:1.625;color:#4b5563;margin:0 auto 2rem auto;max-width:42rem;">
-          <span>轻量、实用、开箱即用的浏览器扩展与在线工具集合</span><br>
-          <span style="color:#ea580c;font-weight:600;">为你的工作流程增添便利</span>
-        </p>
-        <div style="display:flex;flex-direction:column;gap:1rem;justify-content:center;align-items:center;">
-          <a href="/#extensions" style="display:inline-block;padding:0.75rem 2rem;background:#f97316;color:#fff;border-radius:0.75rem;font-weight:600;text-decoration:none;border:1px solid #f97316;">🔧 查看扩展</a>
-          <a href="/#tools" style="display:inline-block;padding:0.75rem 2rem;background:#fff;color:#ea580c;border-radius:0.75rem;font-weight:600;text-decoration:none;border:2px solid #f97316;">🛠️ 探索工具</a>
-        </div>
-      </div>
-    </section>
-  </div>
+  <div id="root"></div>
   <noscript>
     <header style="padding:24px;max-width:880px;margin:0 auto;font-family:-apple-system,sans-serif;color:#1f2937">
       <h1>HolaTiger 虎啦 · 6 款隐私优先的个人工具</h1>
