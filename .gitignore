@@ -9,3 +9,6 @@ neon
 .vercel
 .idea/*
 docs/*
+.agents/*
+.claude/*
+.vercelignore
