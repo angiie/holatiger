@@ -134,6 +134,10 @@
     {
       "source": "/blog-handy-tulip-implementation",
       "destination": "/blog-handy-tulip-implementation.html"
+    },
+    {
+      "source": "/bulk-gemini-watermark-remover",
+      "destination": "/blog-bulk-gemini-watermark-remover.html"
     }
   ],
   "headers": [

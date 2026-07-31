@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- Analytics Scripts -->
+  <script src="/assets/js/analytics.js" charset="utf-8" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="5iRqRZO9bOPssApmVaZk4ir5v_bFPSHgvJE06iNcJHw" />
+  <title>如何批量去除 Gemini 图片水印：5分钟搞定 50 张 - HolaTiger 博客</title>
+  <meta name="description" content="手把手教你批量去除 Gemini AI 图片水印。支持一次性拖入多张图片，纯浏览器端处理，无需上传、不损失画质，免费无限制。" />
+  <meta name="keywords" content="bulk gemini watermark remover, batch remove gemini watermark, gemini watermark remover batch, 批量去水印, Gemini 去水印, 批量图片处理, 在线去水印, 无损去水印, HolaTiger" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://holatiger.com/blog-bulk-gemini-watermark-remover.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="如何批量去除 Gemini 图片水印：5分钟搞定 50 张" />
+  <meta property="og:description" content="一次性拖入多张 Gemini AI 图片，批量去除水印，纯浏览器端处理，无损画质，免费无限制。" />
+  <meta property="og:url" content="https://holatiger.com/blog-bulk-gemini-watermark-remover.html" />
+  <meta property="og:image" content="https://holatiger.com/assets/images/social/blog-1200x630.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="如何批量去除 Gemini 图片水印：5分钟搞定 50 张" />
+  <meta name="twitter:description" content="一次性拖入多张 Gemini AI 图片，批量去除水印，纯浏览器端处理，无损画质，免费无限制。" />
+  <meta name="twitter:image" content="https://holatiger.com/assets/images/social/blog-1200x630.png" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/i18n.js"></script>
+  <script>window.addEventListener('load',function(){ if(window.i18n && typeof window.i18n.init==='function'){ window.i18n.init(); }});</script>
+  <link rel="stylesheet" href="/assets/css/nav-unified.css">
+  <script>
+    window.addEventListener('load', function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "如何批量去除 Gemini 图片水印：5分钟搞定 50 张",
+      "image": "/assets/images/social/blog-1200x630.png",
+      "author": {
+        "@type": "Person",
+        "name": "HolaTiger"
+      },
+      "datePublished": "2026-07-31",
+      "description": "手把手教你批量去除 Gemini AI 图片水印。支持一次性拖入多张图片，纯浏览器端处理、无损画质，免费无限制。"
+    }
+  </script>
+</head>
+<body class="v1-professional">
+  <!-- Header -->
+  <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
+    <div class="container nav-v1">
+      <a class="logo-v1" href="/">
+        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <span class="logo-text" data-i18n="logo.text">虎啦</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+          <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        </nav>
+        <button id="lang-toggle-btn" class="lang-switcher-btn" aria-label="Switch Language">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span class="lang-text">中</span>
+        </button>
+        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn" aria-label="Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu hidden md:hidden border-t border-orange-100 bg-white/90 backdrop-blur-sm">
+      <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
+        <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+        <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+        <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container py-10 prose lg:prose-xl mx-auto">
+    <nav class="flex mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+      <ol class="flex items-center space-x-2">
+        <li><a href="/" class="hover:text-orange-500 transition-colors">首页</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li><a href="/blog.html" class="hover:text-orange-500 transition-colors">博客</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li class="text-gray-800 font-medium" aria-current="page">批量 Gemini 去水印教程</li>
+      </ol>
+    </nav>
+
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">如何批量去除 Gemini 图片水印：5 分钟搞定 50 张</h1>
+    <div class="flex items-center gap-4 text-sm text-gray-500 mb-8 pb-8 border-b border-gray-100">
+      <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> 2026-07-31</span>
+      <span class="flex items-center gap-1"><i data-lucide="user" class="w-4 h-4"></i> HolaTiger</span>
+      <span class="bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full text-xs font-medium">实用教程</span>
+    </div>
+
+    <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 my-8 rounded-r-lg not-prose">
+      <p class="m-0 text-indigo-900 leading-relaxed"><strong>核心结论：</strong> Banana（Gemini Watermark Remover）是市面上唯一真正支持 <strong>批量拖入、并行处理</strong> 的 Gemini 去水印工具。一次拖入 50 张图片，几秒钟全部搞定，纯浏览器端处理、完全不损失画质。</p>
+      <a href="/banana/" class="inline-flex items-center gap-2 mt-4 text-indigo-700 font-bold hover:text-indigo-800 transition-colors">
+        👉 立即使用：批量 Gemini 图片去水印工具 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+    <h2>为什么需要批量去水印？</h2>
+    <p>如果你经常用 Gemini 生成图片——无论是做 mood board、产品概念图、还是用于内容创作——你一定会遇到这个问题：每张图右下角都有一个半透明的 Google Logo 水印。单张去水印很快，但如果你攒了 20 张、50 张甚至更多，一张一张处理就是噩梦。</p>
+    <p>这就是我们开发 <a href="/banana/">Banana</a> 批量模式的初衷：<strong>一次拖入，并行处理，几秒全部完成</strong>。</p>
+
+    <h2>实操：30 秒批量去水印</h2>
+    <ol>
+      <li><strong>打开工具：</strong>访问 <a href="/banana/">https://holatiger.com/banana/</a></li>
+      <li><strong>批量拖入：</strong>从文件管理器选中多张 Gemini 生成的图片，一次性拖入上传区</li>
+      <li><strong>自动处理：</strong>Banana 会并行处理所有图片（浏览器端 WASM 加速，无需等待）</li>
+      <li><strong>下载：</strong>点击下载按钮，保存无水印图片</li>
+    </ol>
+
+    <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 my-8 not-prose">
+      <h3 class="text-lg font-bold text-gray-900 mb-3">⚡ 批量模式三大优势</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <p class="text-2xl font-bold text-indigo-600 mb-1">0 上传</p>
+          <p class="text-sm text-gray-600">所有图片在浏览器本地处理，绝不离开你的设备</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <p class="text-2xl font-bold text-indigo-600 mb-1">并行处理</p>
+          <p class="text-sm text-gray-600">50 张图和 1 张图的处理速度几乎一样</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-sm">
+          <p class="text-2xl font-bold text-indigo-600 mb-1">无损画质</p>
+          <p class="text-sm text-gray-600">基于反向 Alpha 混合算法，不压缩不降质</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>常见问题</h2>
+
+    <h3>批量处理有文件数量限制吗？</h3>
+    <p>技术上没有硬限制。我们测试过 50+ 张图同时处理，完全流畅。但如果你一次拖入几百张，浏览器可能会因为内存占用短暂变慢，建议分批 50 张一组。</p>
+
+    <h3>支持哪些图片格式？</h3>
+    <p>PNG、JPEG、WebP 都完全支持。导出时保持原有格式。</p>
+
+    <h3>去水印会降低图片质量吗？</h3>
+    <p>不会。Banana 使用的是 <strong>数学反向求解</strong> 方式（反向 Alpha 混合），不是模糊/裁剪/覆盖。因为我们知道水印 Logo 的精确位置和透明度，可以直接从混合后的像素中反推出原始像素值。结果和 Gemini 未加水印之前的原图一致。（<a href="/blog-gemini-watermark-remover.html">点击这里看技术原理详解</a>）</p>
+
+    <h3>为什么不用在线工具（如 Photoshop Express / Remove.bg）？</h3>
+    <p>那些工具要么不支持 Gemini 的特定水印模式，要么需要把图片上传到云端服务器处理。Banana 是<strong>纯浏览器端运行</strong>的——你的图片不会离开你的电脑，隐私有保障。</p>
+
+    <h3>免费吗？需要注册吗？</h3>
+    <p>完全免费，无需注册。打开即用，没有次数限制。</p>
+
+    <h2>技术原理速览</h2>
+    <p>Gemini 的水印是通过简单的 Alpha 混合公式叠加的：</p>
+    <div class="bg-gray-900 text-gray-100 p-6 rounded-xl font-mono text-sm my-6 shadow-lg overflow-x-auto not-prose">
+      <p class="mb-2 text-gray-400">// Alpha 混合公式</p>
+      <code>watermarked = α × logo + (1 - α) × original</code>
+    </div>
+    <p>因为 Logo 的颜色（白色）、位置（右下角固定区域）和透明度（α 值）都是已知的，我们可以反向求解：</p>
+    <div class="bg-gray-900 text-gray-100 p-6 rounded-xl font-mono text-sm my-6 shadow-lg overflow-x-auto not-prose">
+      <p class="mb-2 text-gray-400">// 反向求解</p>
+      <code>original = (watermarked - α × logo) / (1 - α)</code>
+    </div>
+    <p>这个计算量很小（每个像素一次乘减除），所以在浏览器端用 WASM 并行处理 50 张图也毫无压力。</p>
+
+    <div class="bg-indigo-50 border-l-4 border-indigo-500 p-6 my-8 rounded-r-lg not-prose">
+      <p class="m-0 text-indigo-900 leading-relaxed"><strong>准备开始批量去水印了？</strong> 打开 Banana，拖入你的 Gemini 图片，几秒后全部搞定。</p>
+      <a href="/banana/" class="inline-flex items-center gap-2 mt-4 text-indigo-700 font-bold hover:text-indigo-800 transition-colors">
+        👉 打开 Banana：批量 Gemini 图片去水印工具 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </main>
+
+  <footer class="py-12 px-6 border-t border-gray-200 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-gray-500" data-i18n="footer.copyright">&copy; <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量</p>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
