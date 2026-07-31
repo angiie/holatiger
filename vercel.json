@@ -138,6 +138,10 @@
     {
       "source": "/bulk-gemini-watermark-remover",
       "destination": "/blog-bulk-gemini-watermark-remover.html"
+    },
+    {
+      "source": "/nano-banana-watermark-remover",
+      "destination": "/blog-nano-banana-watermark-remover.html"
     }
   ],
   "headers": [
