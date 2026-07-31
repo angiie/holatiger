@@ -38,12 +38,35 @@
     "applicationCategory": "UtilitiesApplication",
     "applicationSubCategory": "Password Generator",
     "description": "高强度密码生成器，本地运行",
-    "url": "https://holatiger.com/tinypass.html",
+    "url": "https://holatiger.com/tinypass",
     "downloadUrl": "https://holatiger.com/tinypass",
     "softwareVersion": "1.0",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
     "author": {"@type": "Organization", "name": "HolaTiger", "url": "https://holatiger.com/"},
     "publisher": {"@type": "Organization", "name": "HolaTiger", "logo": {"@type": "ImageObject", "url": "https://holatiger.com/assets/images/icons/icon_64x64.png"}}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "密码会经过 HolaTiger 服务器吗？",
+        "acceptedAnswer": {"@type": "Answer", "text": "不会。TinyPass 完全在浏览器本地用 crypto.getRandomValues 生成，断网也能工作。"}
+      },
+      {
+        "@type": "Question",
+        "name": "密码强度是怎么算的？",
+        "acceptedAnswer": {"@type": "Answer", "text": "基于 NIST SP 800-63B：长度 × log2(字符集大小) = 熵位。≥80 位认为非常好，TinyPass 默认 20 字符混合字符集约 131 位。"}
+      },
+      {
+        "@type": "Question",
+        "name": "和 1Password / Bitwarden 冲突吗？",
+        "acceptedAnswer": {"@type": "Answer", "text": "不冲突。TinyPass 是密码生成器，你仍可把生成的密码保存到任意密码管理器。"}
+      }
+    ]
   }
   </script>
 </head>
@@ -58,7 +81,6 @@
         <a href="/" class="hover:text-orange-500">首页</a>
         <a href="/tinypic.html" class="hover:text-orange-500">Tiny Pic</a>
         <a href="/svg-studio.html" class="hover:text-orange-500">SVG Studio</a>
-        <a href="/lexa.html" class="hover:text-orange-500">Lexa</a>
         <a href="/text-to-png.html" class="hover:text-orange-500">Text to PNG</a>
         <a href="/ezpixy.html" class="hover:text-orange-500">ezpixy</a>
         <a href="/blog.html" class="hover:text-orange-500">博客</a>
@@ -116,6 +138,7 @@
     <h2 class="text-2xl font-semibold mt-10 mb-4">相关文章</h2>
     <ul class="space-y-2">
       <li><a class="text-orange-600 hover:underline" href="/blog-tinypass-password-guide.html">用 TinyPass 生成强密码的实用指南</a></li>
+      <li><a class="text-orange-600 hover:underline" href="/password-generator.html">在线强密码生成器（免安装）</a></li>
     </ul>
 
     <h2 class="text-2xl font-semibold mt-10 mb-4">常见问题</h2>

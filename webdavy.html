@@ -38,12 +38,35 @@
     "applicationCategory": "BrowserApplication",
     "applicationSubCategory": "File Management",
     "description": "Chrome 扩展，把 WebDAV 云盘接入浏览器",
-    "url": "https://holatiger.com/webdavy.html",
+    "url": "https://holatiger.com/webdavy",
     "downloadUrl": "https://holatiger.com/webdavy",
     "softwareVersion": "1.0",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
     "author": {"@type": "Organization", "name": "HolaTiger", "url": "https://holatiger.com/"},
     "publisher": {"@type": "Organization", "name": "HolaTiger", "logo": {"@type": "ImageObject", "url": "https://holatiger.com/assets/images/icons/icon_64x64.png"}}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "支持哪些 WebDAV 服务？",
+        "acceptedAnswer": {"@type": "Answer", "text": "任何符合 RFC 4918 标准的 WebDAV 服务器都可使用：Nextcloud、ownCloud、群晖 DSM、坚果云、Seafile（启用 WebDAV 后）、Apache mod_dav 等。"}
+      },
+      {
+        "@type": "Question",
+        "name": "数据会上传到 HolaTiger 吗？",
+        "acceptedAnswer": {"@type": "Answer", "text": "不会。WebDavy 只与你自己配置的 WebDAV 服务器通信，不经过任何中转服务器（除图标等 CDN 静态资源外）。"}
+      },
+      {
+        "@type": "Question",
+        "name": "如何从其他工具跳转？",
+        "acceptedAnswer": {"@type": "Answer", "text": "见 FAQ 与博客教程《在 Chrome 中连接 WebDAV：常见云服务一站式配置》。"}
+      }
+    ]
   }
   </script>
 </head>
@@ -116,6 +139,7 @@
     <h2 class="text-2xl font-semibold mt-10 mb-4">相关文章</h2>
     <ul class="space-y-2">
       <li><a class="text-orange-600 hover:underline" href="/blog-webdav-chrome-setup.html">在 Chrome 中连接 WebDAV：常见云服务一站式配置</a></li>
+      <li><a class="text-orange-600 hover:underline" href="/webdavy-vs-raidrive.html">WebDavy vs RaiDrive：浏览器/桌面客户端怎么选</a></li>
     </ul>
 
     <h2 class="text-2xl font-semibold mt-10 mb-4">常见问题</h2>
