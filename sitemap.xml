@@ -28,15 +28,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/banana-vs-adobe-firefly" />
   </url>
   <url>
-    <loc>https://holatiger.com/blog-bulk-gemini-watermark-remover</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-bulk-gemini-watermark-remover" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-bulk-gemini-watermark-remover?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-bulk-gemini-watermark-remover" />
-  </url>
-  <url>
     <loc>https://holatiger.com/blog-gemini-watermark-remover</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -296,5 +287,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/banana/" />
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/banana/?lang=zh-CN" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/banana/" />
+  </url>
+  <url>
+    <loc>https://holatiger.com/blog/blog-bulk-gemini-watermark-remover.html</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog/blog-bulk-gemini-watermark-remover.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog/blog-bulk-gemini-watermark-remover.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog/blog-bulk-gemini-watermark-remover.html" />
   </url>
 </urlset>

@@ -69,6 +69,14 @@ if (existsSync(tinypicDir)) {
   console.log(`  ✅ ${tinypicDir}`);
 }
 
+// 7.5. 复制 blog 目录
+console.log('📝 复制 blog 目录...');
+const blogDir = 'blog';
+if (existsSync(blogDir)) {
+  execSync(`cp -r ${blogDir} ${distDir}/`, { stdio: 'inherit' });
+  console.log(`  ✅ ${blogDir}`);
+}
+
 // 8. 把 vite build 剥掉的 /assets/css/*.css 链接补回 dist/index.html
 //    Vite 在 transformIndexHtml 时的 link 注入行为不稳定（root div 有内容时会被跳过），
 //    这里统一在 post-build 阶段强制追加 3 个本地 CSS link（不依赖任何 marker）。

@@ -12,7 +12,9 @@
       "permanent": true
     },
     { "source": "/banana/index.html", "destination": "/banana/", "permanent": true },
-    { "source": "/en/faq", "destination": "/faq.html?lang=en", "permanent": true }
+    { "source": "/en/faq", "destination": "/faq.html?lang=en", "permanent": true },
+    { "source": "/blog-bulk-gemini-watermark-remover.html", "destination": "/blog/blog-bulk-gemini-watermark-remover.html", "permanent": true },
+    { "source": "/blog-bulk-gemini-watermark-remover", "destination": "/blog/blog-bulk-gemini-watermark-remover.html", "permanent": true }
   ],
   "rewrites": [
     {
@@ -137,7 +139,11 @@
     },
     {
       "source": "/bulk-gemini-watermark-remover",
-      "destination": "/blog-bulk-gemini-watermark-remover.html"
+      "destination": "/blog/blog-bulk-gemini-watermark-remover.html"
+    },
+    {
+      "source": "/blog/blog-bulk-gemini-watermark-remover",
+      "destination": "/blog/blog-bulk-gemini-watermark-remover.html"
     },
     {
       "source": "/nano-banana-watermark-remover",

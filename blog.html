@@ -91,7 +91,7 @@
       </li>
       <li class="group">
         <div class="text-sm text-gray-500 mb-1">2026-07-31</div>
-        <a class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors" href="/blog-bulk-gemini-watermark-remover.html" rel="bookmark">如何批量去除 Gemini 图片水印：5 分钟搞定 50 张</a>
+        <a class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors" href="/blog/blog-bulk-gemini-watermark-remover.html" rel="bookmark">如何批量去除 Gemini 图片水印：5 分钟搞定 50 张</a>
       </li>
       <li class="group">
         <div class="text-sm text-gray-500 mb-1">2026-02-27</div>
@@ -126,9 +126,10 @@
 
   <footer class="py-12 px-6 border-t border-gray-200 bg-white">
     <div class="max-w-6xl mx-auto text-center">
-      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© {year} HolaTiger - 小工具，大能量</p>
+      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© <span id="year"></span> HolaTiger - 小工具，大能量</p>
     </div>
   </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

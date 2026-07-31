@@ -90,6 +90,10 @@ function getLoc(pagePath) {
   if (pagePath === 'index.html') {
     return `${BASE_URL}/`;
   }
+  // blog 子目录文章保留 .html（避免 clean URL 需额外 rewrite）
+  if (pagePath.startsWith('blog/')) {
+    return `${BASE_URL}/${pagePath}`;
+  }
   // webdavy.html / tinypass.html 等使用 clean URL（由 vercel.json rewrite 提供）
   const cleanName = pagePath.replace(/\.html$/, '');
   return `${BASE_URL}/${cleanName}`;
@@ -133,12 +137,19 @@ function scanPages() {
   });
   pages.unshift('index.html'); // 首页放第一个
 
-  // 子目录 HTML (tinypic, banana)
-  const subdirs = ['tinypic', 'banana'];
+  // 子目录 HTML (tinypic, banana, blog)
+  const subdirs = ['tinypic', 'banana', 'blog'];
   subdirs.forEach(dir => {
     const indexPath = `${dir}/index.html`;
     if (existsSync(resolve(ROOT, indexPath))) {
       pages.push(indexPath);
+    }
+    // blog 子目录存放文章（如 blog/blog-bulk-gemini-watermark-remover.html）
+    const blogDir = resolve(ROOT, dir);
+    if (dir === 'blog' && existsSync(blogDir)) {
+      const blogFiles = readdirSync(blogDir).filter(f => f.endsWith('.html') && f !== 'index.html');
+      blogFiles.sort();
+      blogFiles.forEach(f => pages.push(`${dir}/${f}`));
     }
   });
 
@@ -149,7 +160,7 @@ function scanPages() {
 function generate() {
   const pages = scanPages().filter(p => !EXCLUDE.has(p));
   const urls = pages.map(pagePath => {
-    const cfg = PAGE_CONFIG[pagePath] || (pagePath.startsWith('blog-') ? BLOG_DEFAULT : { priority: 0.5, changefreq: 'monthly' });
+    const cfg = PAGE_CONFIG[pagePath] || (pagePath.startsWith('blog') ? BLOG_DEFAULT : { priority: 0.5, changefreq: 'monthly' });
     const lastmod = getLastMod(pagePath);
     const loc = getLoc(pagePath);
     const hreflangs = getHreflangs(pagePath, loc);
