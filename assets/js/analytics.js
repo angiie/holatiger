@@ -30,6 +30,15 @@
     s2.setAttribute('data-key', 'HDiRWpHWVxttOINcLS9xmA');
     document.head.appendChild(s2);
   }
+
+  // 4. Microsoft Clarity — 用户行为热图与会话录制
+  if (!document.querySelector('script[src*="clarity.ms/tag"]')) {
+    var s3 = document.createElement('script');
+    s3.async = true;
+    s3.src = 'https://www.clarity.ms/tag/xuy9jb4h2e';
+    s3.type = 'text/javascript';
+    document.head.appendChild(s3);
+  }
 })();
 
 // Click / section view 事件追踪

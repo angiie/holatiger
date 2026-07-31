@@ -18,10 +18,11 @@ const BASE_URL = 'https://holatiger.com';
 
 // ===== 页面配置 =====
 // 每个页面可设置: priority, changefreq, hreflang 覆盖
+// 从 sitemap 排除的页面（已下线的产品等）
+const EXCLUDE = new Set(['lexa.html']);
 const PAGE_CONFIG = {
   'index.html':                              { priority: 1.0, changefreq: 'weekly' },
   'svg-studio.html':                         { priority: 0.9, changefreq: 'weekly' },
-  'lexa.html':                               { priority: 0.9, changefreq: 'weekly' },
   'tinypic/index.html':                      { priority: 0.9, changefreq: 'weekly' },
   'text-to-png.html':                        { priority: 0.8, changefreq: 'monthly' },
   'ezpixy.html':                             { priority: 0.8, changefreq: 'weekly' },
@@ -146,7 +147,7 @@ function scanPages() {
 
 // ===== 生成 sitemap XML =====
 function generate() {
-  const pages = scanPages();
+  const pages = scanPages().filter(p => !EXCLUDE.has(p));
   const urls = pages.map(pagePath => {
     const cfg = PAGE_CONFIG[pagePath] || (pagePath.startsWith('blog-') ? BLOG_DEFAULT : { priority: 0.5, changefreq: 'monthly' });
     const lastmod = getLastMod(pagePath);

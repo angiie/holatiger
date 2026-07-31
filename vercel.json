@@ -10,7 +10,9 @@
       "has": [{ "type": "host", "value": "www.holatiger.com" }],
       "destination": "https://holatiger.com/:path",
       "permanent": true
-    }
+    },
+    { "source": "/banana/index.html", "destination": "/banana/", "permanent": true },
+    { "source": "/en/faq", "destination": "/faq.html?lang=en", "permanent": true }
   ],
   "rewrites": [
     {
@@ -40,10 +42,6 @@
     {
       "source": "/banana",
       "destination": "/banana/index.html"
-    },
-    {
-      "source": "/lexa",
-      "destination": "/lexa.html"
     },
     {
       "source": "/ezpixy",

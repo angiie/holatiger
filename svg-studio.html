@@ -16,6 +16,10 @@
     <meta name="robots" content="index, follow">
     <meta name="language" content="zh-CN">
     <link rel="canonical" href="https://holatiger.com/svg-studio.html">
+    <script>
+    // 动态 canonical：当 URL 带有 lang 参数时，canonical 指向自身而非默认 URL
+    (function(){ var m=location.search.match(/[?&]lang=([^&]+)/); if(m){ var l=document.querySelector('link[rel="canonical"]'); l&&l.setAttribute('href','https://holatiger.com/svg-studio.html?lang='+encodeURIComponent(m[1])); } })();
+    </script>
 
     <!-- Hreflang 标签 -->
     <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/svg-studio.html">
