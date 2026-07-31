@@ -7,7 +7,8 @@
   border-bottom: 1px solid #ffedd5;
 }
 
-.container {
+/* v1 主题容器：限定在 .v1-professional 内，避免覆盖 Tailwind 的 .container 工具类 */
+.v1-professional .container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1.5rem;
