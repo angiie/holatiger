@@ -261,9 +261,18 @@
 
   <footer class="py-12 px-6 border-t border-gray-200 bg-white">
     <div class="max-w-6xl mx-auto text-center">
-      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© {year} HolaTiger - 小工具，大能量</p>
+      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量</p>
     </div>
   </footer>
+  <script>
+    window.addEventListener('load', function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+      if (window.i18n && typeof window.i18n.init === 'function') {
+        window.i18n.init();
+      }
+    });
+  </script>
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

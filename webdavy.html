@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
+  <!-- Analytics Scripts -->
+  <script src="/assets/js/analytics.js" charset="utf-8" defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="google-site-verification" content="5iRqRZO9bOPssApmVaZk4ir5v_bFPSHgvJE06iNcJHw" />
-  <title>WebDavy - Chrome 扩展连接 WebDAV 云盘（Nextcloud/坚果云/群晖） - 虎啦</title>
   <meta name="description" content="WebDavy 是 Chrome 扩展，把 WebDAV 云盘（Nextcloud、坚果云、群晖、ownCloud 等）接入浏览器，支持多账户管理、文件预览、目录书签与后台常驻。" />
   <meta name="keywords" content="WebDavy, WebDAV Chrome 扩展, Nextcloud Chrome, 坚果云 Chrome, 群晖 WebDAV, ownCloud 扩展, WebDAV 浏览器, Chrome WebDAV 客户端, HolaTiger" />
   <meta name="robots" content="index, follow" />
@@ -22,13 +23,49 @@
   <meta name="twitter:title" content="WebDavy - Chrome 扩展连接 WebDAV 云盘" />
   <meta name="twitter:description" content="把 WebDAV 云盘接入 Chrome，支持多账户、文件预览、目录书签、后台常驻。" />
   <meta name="twitter:image" content="https://holatiger.com/assets/images/social/webdavy-1200x630.png" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png" />
-  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png" />
+  <title data-i18n="title.webdavy">WebDavy - Chrome 扩展连接 WebDAV 云盘（Nextcloud/坚果云/群晖） - 虎啦</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/images/icons/icon_16x16.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png">
+  <link rel="icon" type="image/x-icon" sizes="48x48" href="/assets/images/icons/icon_48x48.ico">
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/icon_256x256.png">
   <link rel="stylesheet" href="/assets/css/tailwind-built.css" />
-  <link rel="stylesheet" href="/assets/css/nav-unified.css">
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
-  <script src="/assets/js/main.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/product-detail.css" />
+  <link rel="stylesheet" href="/assets/css/nav-unified.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="/assets/js/i18n.js"></script>
+  <style>
+    .webdavy-hero-card {
+      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.15), transparent 35%),
+                  linear-gradient(135deg, #fff7ed, #ffedd5 60%, #fed7aa);
+      border: 1px solid rgba(249, 115, 22, 0.15);
+    }
+    .webdavy-stat-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(249, 115, 22, 0.15);
+      backdrop-filter: blur(8px);
+    }
+    .webdavy-logo-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 9999px;
+      background: #fff;
+      border: 1px solid rgba(249, 115, 22, 0.25);
+      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.15);
+      padding: 0.35rem;
+    }
+    .webdavy-shot-card {
+      overflow: hidden;
+      border-radius: 1rem;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,114 +90,364 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "支持哪些 WebDAV 服务？",
-        "acceptedAnswer": {"@type": "Answer", "text": "任何符合 RFC 4918 标准的 WebDAV 服务器都可使用：Nextcloud、ownCloud、群晖 DSM、坚果云、Seafile（启用 WebDAV 后）、Apache mod_dav 等。"}
+        "name": "WebDavy 支持哪些 WebDAV 服务器？",
+        "acceptedAnswer": {"@type": "Answer", "text": "支持所有符合 WebDAV 标准的服务器，包括 NextCloud、OwnCloud、Apache、Nginx、IIS 等主流服务。"}
       },
       {
         "@type": "Question",
-        "name": "数据会上传到 HolaTiger 吗？",
-        "acceptedAnswer": {"@type": "Answer", "text": "不会。WebDavy 只与你自己配置的 WebDAV 服务器通信，不经过任何中转服务器（除图标等 CDN 静态资源外）。"}
+        "name": "WebDavy 如何保证连接安全？",
+        "acceptedAnswer": {"@type": "Answer", "text": "扩展支持 HTTPS 连接，凭据加密存储在浏览器本地，不会上传到第三方服务器。"}
       },
       {
         "@type": "Question",
-        "name": "如何从其他工具跳转？",
-        "acceptedAnswer": {"@type": "Answer", "text": "见 FAQ 与博客教程《在 Chrome 中连接 WebDAV：常见云服务一站式配置》。"}
+        "name": "如何在多设备间同步配置？",
+        "acceptedAnswer": {"@type": "Answer", "text": "使用配置导入导出功能，可以将连接配置导出为 JSON 文件，再导入到其他设备的 WebDavy 中。"}
       }
     ]
   }
   </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-      <a class="flex items-center gap-2" href="/">
-        <img src="/assets/images/icons/icon_64x64.png" alt="HolaTiger 虎啦" class="w-8 h-8">
-        <span class="font-semibold">虎啦 HolaTiger</span>
+<body class="v1-professional">
+  <!-- Header -->
+  <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
+    <div class="container nav-v1">
+      <a class="logo-v1" href="/">
+        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <span class="logo-text" data-i18n="logo.text">虎啦</span>
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/" class="hover:text-orange-500">首页</a>
-        <a href="/tinypic.html" class="hover:text-orange-500">Tiny Pic</a>
-        <a href="/svg-studio.html" class="hover:text-orange-500">SVG Studio</a>
-        <a href="/text-to-png.html" class="hover:text-orange-500">Text to PNG</a>
-        <a href="/ezpixy.html" class="hover:text-orange-500">ezpixy</a>
-        <a href="/blog.html" class="hover:text-orange-500">博客</a>
-        <a href="/faq.html" class="hover:text-orange-500">FAQ</a>
+      <div class="flex items-center gap-6">
+        <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+          <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        </nav>
+
+        <button id="lang-toggle-btn" class="lang-switcher-btn" aria-label="Switch Language">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span class="lang-text">中</span>
+        </button>
+
+        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn" aria-label="Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu hidden md:hidden border-t border-orange-100 bg-white/90 backdrop-blur-sm">
+      <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
+        <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+        <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+        <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
       </nav>
     </div>
   </header>
 
-  <main class="container mx-auto px-4 py-12 max-w-4xl">
-    <h1 class="text-4xl font-bold mb-3">WebDavy · 把 WebDAV 云盘接入浏览器</h1>
-    <p class="text-lg text-gray-600 mb-8">Chrome 扩展，连接 Nextcloud / 坚果云 / 群晖 / ownCloud / 任何标准 WebDAV 服务器。</p>
+  <main>
+    <!-- Hero -->
+    <section class="px-6 py-12 md:py-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="webdavy-hero-card rounded-[2rem] p-8 md:p-12 shadow-2xl">
+          <div class="grid gap-10 items-center md:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <div class="inline-flex items-center gap-3 rounded-full bg-orange-100 border border-orange-200 px-4 py-2 text-sm font-medium fade-in-up">
+                <span class="webdavy-logo-pill">
+                  <img src="/assets/images/webdavy/svg-export-40x40.png" alt="WebDavy logo" class="w-full h-full object-contain">
+                </span>
+                <span class="text-orange-700" data-i18n="webdavy.hero.badge">WebDAV 浏览器客户端</span>
+              </div>
+              <h1 class="mt-6 text-4xl md:text-5xl font-bold leading-tight text-gray-900 fade-in-up" style="animation-delay: 0.1s;">
+                <span class="gradient-text">WebDavy</span>
+                <span data-i18n="webdavy.hero.title"> 把 WebDAV 云盘直接接入浏览器</span>
+              </h1>
+              <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-600 max-w-2xl fade-in-up" style="animation-delay: 0.2s;" data-i18n="webdavy.description">
+                WebDavy 是基于 WebDAV 的 Chrome 扩展，可在浏览器内连接个人云盘或企业服务器，实现上传、下载、浏览与整理文件，支持多账号管理与路径记忆。
+              </p>
+              <div class="mt-8 flex flex-col sm:flex-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
+                <a href="https://chromewebstore.google.com/detail/webdavy/inaeglkgfmnkncalphgpkendfjndjmid" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white transition hover:scale-[1.02] hover:bg-orange-600"
+                  data-i18n="webdavy.button.install">🚀 立即安装</a>
+                <a href="/#extensions"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-orange-500 bg-white px-6 py-3 font-semibold text-orange-600 transition hover:bg-orange-50"
+                  data-i18n="webdavy.button.home">返回虎啦首页</a>
+              </div>
+              <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 fade-in-up" style="animation-delay: 0.4s;">
+                <div class="webdavy-stat-card rounded-2xl p-4">
+                  <div class="text-2xl font-bold text-gray-900">4+</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="webdavy.stat1">支持主流服务</div>
+                </div>
+                <div class="webdavy-stat-card rounded-2xl p-4">
+                  <div class="text-2xl font-bold text-gray-900">2</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="webdavy.stat2">种认证方式</div>
+                </div>
+                <div class="webdavy-stat-card rounded-2xl p-4">
+                  <div class="text-2xl font-bold text-gray-900">多</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="webdavy.stat3">账户同时挂载</div>
+                </div>
+                <div class="webdavy-stat-card rounded-2xl p-4">
+                  <div class="text-2xl font-bold text-gray-900">Free</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="webdavy.stat4">免费使用</div>
+                </div>
+              </div>
+            </div>
 
-    <div class="bg-white rounded-xl shadow p-6 mb-8 flex flex-col sm:flex-row gap-4 items-center">
-      <div class="flex-1">
-        <h2 class="text-xl font-semibold mb-2">立即安装</h2>
-        <p class="text-gray-600">点击下方按钮进入应用主页，支持多账户管理、文件预览、目录书签与后台常驻。</p>
+            <div class="fade-in-up" style="animation-delay: 0.2s;">
+              <div class="rounded-[1.75rem] bg-white p-4 border border-orange-100 shadow-lg">
+                <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600" data-i18n="webdavy.hero.screenshot">连接配置界面</p>
+                <div class="rounded-xl overflow-hidden border border-orange-100 bg-white shadow-xl">
+                  <img src="/assets/images/webdavy/screenshot/zh/login-page.png" alt="WebDavy connection settings" class="w-full h-auto">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <a href="/webdavy" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium">
-        <i data-lucide="external-link" class="w-4 h-4"></i>
-        打开 WebDavy
-      </a>
-    </div>
+    </section>
 
-    <h2 class="text-2xl font-semibold mt-10 mb-4">核心功能</h2>
-    <div class="grid sm:grid-cols-2 gap-4">
-      <div class="bg-white rounded-lg p-5 border border-gray-200">
-        <div class="text-2xl mb-2">🔒</div>
-        <h3 class="font-semibold mb-1">安全凭证</h3>
-        <p class="text-sm text-gray-600">OAuth / Basic Auth 两种模式，凭证加密保存于本地，可一键清空。</p>
+    <!-- Features -->
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="webdavy.features.title">产品特性</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto fade-in-up" style="animation-delay: 0.1s;" data-i18n="webdavy.features.subtitle">
+            从一键连接、文件管理到目录书签，把远程文件操作完整搬进浏览器。
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article class="feature-card fade-in-up" style="animation-delay: 0.1s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-sky-100 to-blue-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">🔗</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="webdavy.feature1.title">一键连接 WebDAV 服务器</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="webdavy.feature1.desc">支持主流 WebDAV 服务如 NextCloud、OwnCloud 等，安全保存连接配置。</p>
+              </div>
+            </div>
+          </article>
+          <article class="feature-card fade-in-up" style="animation-delay: 0.15s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">📁</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="webdavy.feature2.title">完整文件管理功能</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="webdavy.feature2.desc">在浏览器中直接浏览、上传、下载、创建和删除文件夹。</p>
+              </div>
+            </div>
+          </article>
+          <article class="feature-card fade-in-up" style="animation-delay: 0.2s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-100 to-violet-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">📌</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="webdavy.feature3.title">侧边栏集成</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="webdavy.feature3.desc">点击扩展图标直接在浏览器右侧打开侧边栏，无需弹出窗口，操作更流畅。</p>
+              </div>
+            </div>
+          </article>
+          <article class="feature-card fade-in-up" style="animation-delay: 0.25s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-100 to-sky-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">📦</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="webdavy.feature4.title">配置导入导出</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="webdavy.feature4.desc">支持 JSON 导入/导出与拖拽上传，方便在多设备间迁移账户配置。</p>
+              </div>
+            </div>
+          </article>
+          <article class="feature-card fade-in-up" style="animation-delay: 0.3s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-violet-100 to-purple-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">⭐</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="webdavy.feature5.title">常用目录书签</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="webdavy.feature5.desc">把高频目录固定为书签，新标签页一键直达，不再手动输入地址。</p>
+              </div>
+            </div>
+          </article>
+          <article class="feature-card fade-in-up" style="animation-delay: 0.35s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">⚙️</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="webdavy.feature6.title">后台常驻连接</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="webdavy.feature6.desc">连接配置本地保存并常驻后台，多账户随时切换，无需反复登录。</p>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-gray-200">
-        <div class="text-2xl mb-2">⚙️</div>
-        <h3 class="font-semibold mb-1">多账户切换</h3>
-        <p class="text-sm text-gray-600">同时挂载多个 WebDAV 服务器（如工作 Nextcloud + 个人坚果云），一键切换。</p>
+    </section>
+
+    <!-- How it works -->
+    <section class="py-16 px-6 bg-gradient-to-br from-slate-50 to-orange-50/60">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="webdavy.steps.title">三步接入你的云盘</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto fade-in-up" style="animation-delay: 0.1s;" data-i18n="webdavy.steps.subtitle">
+            从添加服务器到管理文件，全程留在浏览器里完成。
+          </p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
+          <article class="text-center fade-in-up" style="animation-delay: 0.1s;">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 text-2xl font-bold text-sky-700 shadow-sm">1</div>
+            <div class="mt-4">
+              <div class="text-xs font-semibold uppercase tracking-[0.2em] text-sky-600">Step 1</div>
+              <h3 class="mt-2 text-xl font-bold text-gray-900" data-i18n="webdavy.step1.title">添加 WebDAV 服务器</h3>
+              <p class="mt-2 text-gray-600 leading-relaxed" data-i18n="webdavy.step1.desc">填写地址与账号信息，支持 OAuth 与 Basic Auth 两种认证方式。</p>
+            </div>
+          </article>
+          <article class="text-center fade-in-up" style="animation-delay: 0.2s;">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 text-2xl font-bold text-blue-700 shadow-sm">2</div>
+            <div class="mt-4">
+              <div class="text-xs font-semibold uppercase tracking-[0.2em] text-sky-600">Step 2</div>
+              <h3 class="mt-2 text-xl font-bold text-gray-900" data-i18n="webdavy.step2.title">浏览与管理文件</h3>
+              <p class="mt-2 text-gray-600 leading-relaxed" data-i18n="webdavy.step2.desc">图片、视频、PDF 与代码文件均可直接预览，上传、下载、重命名一站式完成。</p>
+            </div>
+          </article>
+          <article class="text-center fade-in-up" style="animation-delay: 0.3s;">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-100 to-violet-100 text-2xl font-bold text-indigo-700 shadow-sm">3</div>
+            <div class="mt-4">
+              <div class="text-xs font-semibold uppercase tracking-[0.2em] text-sky-600">Step 3</div>
+              <h3 class="mt-2 text-xl font-bold text-gray-900" data-i18n="webdavy.step3.title">常用目录一键直达</h3>
+              <p class="mt-2 text-gray-600 leading-relaxed" data-i18n="webdavy.step3.desc">把高频目录存为书签，后台常驻保证随时可用。</p>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-gray-200">
-        <div class="text-2xl mb-2">📌</div>
-        <h3 class="font-semibold mb-1">目录书签</h3>
-        <p class="text-sm text-gray-600">把常用目录固定到工具栏，新标签页直接打开，不再输入 URL。</p>
+    </section>
+
+    <!-- Gallery -->
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="webdavy.screenshots.title">产品截图</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto fade-in-up" style="animation-delay: 0.1s;" data-i18n="webdavy.screenshots.subtitle">
+            直观了解 WebDavy 的界面和功能。
+          </p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-2">
+          <article class="webdavy-shot-card fade-in-up" style="animation-delay: 0.1s;">
+            <div class="flex items-center gap-2 px-4 py-4 border-b border-slate-200 bg-slate-50">
+              <div class="flex-1"></div>
+              <span class="text-xs font-semibold text-sky-700" data-i18n="webdavy.gallery.item1.label">登录配置</span>
+            </div>
+            <img src="/assets/images/webdavy/screenshot/zh/login-page.png" alt="gallery 1 result" class="w-full h-auto">
+            <div class="px-4 py-4">
+              <h3 class="font-semibold text-gray-900" data-i18n="webdavy.gallery.item1.title">多账户连接配置</h3>
+              <p class="mt-2 text-sm text-gray-600 leading-relaxed" data-i18n="webdavy.gallery.item1.desc">同时挂载工作与个人多台 WebDAV 服务器，凭据本地加密保存。</p>
+            </div>
+          </article>
+          <article class="webdavy-shot-card fade-in-up" style="animation-delay: 0.2s;">
+            <div class="flex items-center gap-2 px-4 py-4 border-b border-slate-200 bg-slate-50">
+              <div class="flex-1"></div>
+              <span class="text-xs font-semibold text-sky-700" data-i18n="webdavy.gallery.item2.label">文件管理</span>
+            </div>
+            <img src="/assets/images/webdavy/screenshot/zh/detail-page.png" alt="gallery 2 result" class="w-full h-auto">
+            <div class="px-4 py-4">
+              <h3 class="font-semibold text-gray-900" data-i18n="webdavy.gallery.item2.title">浏览器内文件管理</h3>
+              <p class="mt-2 text-sm text-gray-600 leading-relaxed" data-i18n="webdavy.gallery.item2.desc">无需离开浏览器，即可完成远程文件的预览、上传、下载与整理。</p>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-gray-200">
-        <div class="text-2xl mb-2">📦</div>
-        <h3 class="font-semibold mb-1">文件预览</h3>
-        <p class="text-sm text-gray-600">图片 / 视频 / PDF / 代码 / 文本 全部内置预览，下载 / 上传 / 移动 / 重命名一站完成。</p>
+    </section>
+
+    <!-- Use cases -->
+    <section class="py-16 px-6 bg-gradient-to-br from-orange-50/50 to-red-50/50">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 fade-in-up" data-i18n="webdavy.usecases.title">适合谁用</h2>
+            <p class="mt-4 text-gray-600 leading-relaxed fade-in-up" style="animation-delay: 0.1s;" data-i18n="webdavy.usecases.subtitle">
+              只要你有远程文件管理需求，WebDavy 就能让你少装一个客户端。
+            </p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.15s;" data-i18n="webdavy.usecase1">开发者：把 ~/code 目录挂到云端，在公司与家里无缝切换。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.2s;" data-i18n="webdavy.usecase2">设计师：素材库放 Nextcloud，浏览器直接预览 PSD/PNG/SVG。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.25s;" data-i18n="webdavy.usecase3">自媒体：视频草稿放群晖，在家剪辑、办公室直接取素材。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.3s;" data-i18n="webdavy.usecase4">NAS 用户：群晖 WebDAV 默认开启，用 WebDavy 替代收费同步客户端。</div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <h2 class="text-2xl font-semibold mt-10 mb-4">使用场景</h2>
-    <ul class="space-y-2 text-gray-700 list-disc pl-5">
-      <li>开发者：把 ~/code 目录挂到云端，在公司 / 家里无缝切换。</li>
-      <li>设计师：把素材库放 Nextcloud，浏览器直接预览 PSD/PNG/SVG。</li>
-      <li>自媒体：把视频草稿放群晖，在家剪辑、办公室直接拿素材。</li>
-      <li>NAS 用户：群晖 WebDAV 默认开启，配合 WebDavy 替代收费的同步客户端。</li>
-    </ul>
-
-    <h2 class="text-2xl font-semibold mt-10 mb-4">相关文章</h2>
-    <ul class="space-y-2">
-      <li><a class="text-orange-600 hover:underline" href="/blog-webdav-chrome-setup.html">在 Chrome 中连接 WebDAV：常见云服务一站式配置</a></li>
-      <li><a class="text-orange-600 hover:underline" href="/webdavy-vs-raidrive.html">WebDavy vs RaiDrive：浏览器/桌面客户端怎么选</a></li>
-    </ul>
-
-    <h2 class="text-2xl font-semibold mt-10 mb-4">常见问题</h2>
-    <div class="space-y-3">
-      <details class="bg-white border border-gray-200 rounded-lg p-4">
-        <summary class="font-medium cursor-pointer">支持哪些 WebDAV 服务？</summary>
-        <p class="text-gray-600 mt-2 text-sm">任何符合 RFC 4918 标准的 WebDAV 服务器都可使用：Nextcloud、ownCloud、群晖 DSM、坚果云、Seafile（启用 WebDAV 后）、Apache mod_dav 等。</p>
-      </details>
-      <details class="bg-white border border-gray-200 rounded-lg p-4">
-        <summary class="font-medium cursor-pointer">数据会上传到 HolaTiger 吗？</summary>
-        <p class="text-gray-600 mt-2 text-sm">不会。WebDavy 只与你自己配置的 WebDAV 服务器通信，不经过任何中转服务器（除图标等 CDN 静态资源外）。</p>
-      </details>
-      <details class="bg-white border border-gray-200 rounded-lg p-4">
-        <summary class="font-medium cursor-pointer">如何从其他工具跳转？</summary>
-        <p class="text-gray-600 mt-2 text-sm">见 <a class="text-orange-600 hover:underline" href="/faq.html">FAQ</a> 与 <a class="text-orange-600 hover:underline" href="/blog-webdav-chrome-setup.html">博客教程</a>。</p>
-      </details>
-    </div>
-
-    <p class="mt-10 text-sm text-gray-500">© 2026 HolaTiger 虎啦 · 隐私优先 · 开箱即用</p>
+    <!-- FAQ -->
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="webdavy.faq.title">常见问题</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto fade-in-up" style="animation-delay: 0.1s;" data-i18n="webdavy.faq.subtitle">
+            关于 WebDavy 的常见问题解答。
+          </p>
+        </div>
+        <div class="space-y-4">
+          <details class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm fade-in-up" style="animation-delay: 0.1s;">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+              <span class="font-semibold text-gray-900" data-i18n="webdavy.faq1.question">WebDavy 支持哪些 WebDAV 服务器？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="mt-4 text-gray-600 leading-relaxed" data-i18n="webdavy.faq1.answer">支持所有符合 WebDAV 标准的服务器，包括 NextCloud、OwnCloud、Apache、Nginx、IIS 等主流服务。</p>
+          </details>
+          <details class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm fade-in-up" style="animation-delay: 0.15s;">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+              <span class="font-semibold text-gray-900" data-i18n="webdavy.faq2.question">WebDavy 如何保证连接安全？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="mt-4 text-gray-600 leading-relaxed" data-i18n="webdavy.faq2.answer">扩展支持 HTTPS 连接，凭据加密存储在浏览器本地，不会上传到第三方服务器。</p>
+          </details>
+          <details class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm fade-in-up" style="animation-delay: 0.2s;">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+              <span class="font-semibold text-gray-900" data-i18n="webdavy.faq3.question">如何在多设备间同步配置？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="mt-4 text-gray-600 leading-relaxed" data-i18n="webdavy.faq3.answer">使用配置导入导出功能，可以将连接配置导出为 JSON 文件，再导入到其他设备的 WebDavy 中。</p>
+          </details>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <script>window.addEventListener('load',function(){if(typeof lucide!=='undefined'){lucide.createIcons();}});</script>
+  <footer class="py-12 px-6 border-t border-gray-200 bg-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('load', function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const elements = document.querySelectorAll('.fade-in-up');
+      elements.forEach((el, index) => {
+        setTimeout(() => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.animation = `fadeInUp 0.8s ease-out ${index * 0.12}s forwards`;
+        }, 100);
+      });
+
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      if (window.i18n && typeof window.i18n.init === 'function') {
+        window.i18n.init();
+      }
+    });
+  </script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

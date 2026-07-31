@@ -38,12 +38,13 @@
   <script src="/assets/js/i18n.js"></script>
   <style>
     .ezpixy-hero-card {
-      background: radial-gradient(circle at top left, rgba(204, 255, 0, 0.18), transparent 30%),
-                  linear-gradient(135deg, #0f172a, #1e293b 60%, #312e81);
+      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.15), transparent 35%),
+                  linear-gradient(135deg, #fff7ed, #ffedd5 60%, #fed7aa);
+      border: 1px solid rgba(249, 115, 22, 0.15);
     }
     .ezpixy-stat-card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(249, 115, 22, 0.15);
       backdrop-filter: blur(8px);
     }
     .ezpixy-shot-card {
@@ -72,9 +73,9 @@
       width: 1.75rem;
       height: 1.75rem;
       border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+      background: #fff;
+      border: 1px solid rgba(249, 115, 22, 0.25);
+      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.15);
       padding: 0.35rem;
     }
   </style>
@@ -141,71 +142,71 @@
     <!-- Hero -->
     <section class="px-6 py-12 md:py-16">
       <div class="max-w-6xl mx-auto">
-        <div class="ezpixy-hero-card rounded-[2rem] p-8 md:p-12 text-white shadow-2xl">
+        <div class="ezpixy-hero-card rounded-[2rem] p-8 md:p-12 shadow-2xl">
           <div class="grid gap-10 items-center md:grid-cols-[1.1fr_0.9fr]">
             <div>
-              <div class="inline-flex items-center gap-3 rounded-full bg-white/10 px-4 py-2 text-sm font-medium fade-in-up">
+              <div class="inline-flex items-center gap-3 rounded-full bg-orange-100 border border-orange-200 px-4 py-2 text-sm font-medium fade-in-up">
                 <span class="ezpixy-logo-pill">
                   <img src="/assets/images/ezpixy/logo-header.png" alt="ezpixy logo" class="w-full h-full object-contain">
                 </span>
-                <span data-i18n="ezpixy.hero.badge">AI 电商图片工作台</span>
+                <span class="text-orange-700" data-i18n="ezpixy.hero.badge">AI 电商图片工作台</span>
               </div>
-              <h1 class="mt-6 text-4xl md:text-5xl font-bold leading-tight fade-in-up" style="animation-delay: 0.1s;">
-                <span class="text-lime-300">ezpixy</span>
+              <h1 class="mt-6 text-4xl md:text-5xl font-bold leading-tight text-gray-900 fade-in-up" style="animation-delay: 0.1s;">
+                <span class="gradient-text">ezpixy</span>
                 <span data-i18n="ezpixy.hero.title"> 让商品图几分钟内变成可上线的模特图与电商素材</span>
               </h1>
-              <p class="mt-6 text-base md:text-lg leading-relaxed text-slate-200 max-w-2xl fade-in-up" style="animation-delay: 0.2s;" data-i18n="ezpixy.description">
+              <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-600 max-w-2xl fade-in-up" style="animation-delay: 0.2s;" data-i18n="ezpixy.description">
                 ezpixy 是一个面向电商卖家的 AI 图片工作台，支持模特图生成、虚拟试衣、商品场景图、白底图与细节替换，让现有商品图更快变成可投放、可上架的素材。
               </p>
               <div class="mt-8 flex flex-col sm:flex-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
                 <a href="https://ezpixy.com" target="_blank" rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center gap-2 rounded-xl bg-lime-300 px-6 py-3 font-semibold text-slate-950 transition hover:scale-[1.02] hover:bg-lime-200"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white transition hover:scale-[1.02] hover:bg-orange-600"
                   data-i18n="ezpixy.button.visit">访问官网</a>
                 <a href="/#tools"
-                  class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-orange-500 bg-white px-6 py-3 font-semibold text-orange-600 transition hover:bg-orange-50"
                   data-i18n="ezpixy.button.home">返回虎啦首页</a>
               </div>
               <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 fade-in-up" style="animation-delay: 0.4s;">
                 <div class="ezpixy-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold">8</div>
-                  <div class="mt-1 text-xs text-slate-300" data-i18n="ezpixy.stat1">图像工作流</div>
+                  <div class="text-2xl font-bold text-gray-900">8</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="ezpixy.stat1">图像工作流</div>
                 </div>
                 <div class="ezpixy-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold">3</div>
-                  <div class="mt-1 text-xs text-slate-300" data-i18n="ezpixy.stat2">操作步骤</div>
+                  <div class="text-2xl font-bold text-gray-900">3</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="ezpixy.stat2">操作步骤</div>
                 </div>
                 <div class="ezpixy-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold">AI</div>
-                  <div class="mt-1 text-xs text-slate-300" data-i18n="ezpixy.stat3">服装与商品图生成</div>
+                  <div class="text-2xl font-bold text-gray-900">AI</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="ezpixy.stat3">服装与商品图生成</div>
                 </div>
                 <div class="ezpixy-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold">Free</div>
-                  <div class="mt-1 text-xs text-slate-300" data-i18n="ezpixy.stat4">可先试用</div>
+                  <div class="text-2xl font-bold text-gray-900">Free</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="ezpixy.stat4">可先试用</div>
                 </div>
               </div>
             </div>
 
             <div class="fade-in-up" style="animation-delay: 0.2s;">
-              <div class="rounded-[1.75rem] bg-white/10 p-4 backdrop-blur-md">
+              <div class="rounded-[1.75rem] bg-white p-4 border border-orange-100 shadow-lg">
                 <div class="flex items-center gap-4 md:gap-5">
                   <div class="w-1/3 flex-shrink-0 flex flex-col gap-3">
                     <div>
-                      <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-300" data-i18n="ezpixy.hero.input1">商品图</p>
-                      <div class="rounded-xl overflow-hidden border border-white/10 bg-white">
+                      <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500" data-i18n="ezpixy.hero.input1">商品图</p>
+                      <div class="rounded-xl overflow-hidden border border-orange-100 bg-white">
                         <img src="/assets/images/ezpixy/input/hero_product-1.jpg" alt="product input" class="w-full h-auto">
                       </div>
                     </div>
                     <div>
-                      <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-300" data-i18n="ezpixy.hero.input2">模特图</p>
-                      <div class="rounded-xl overflow-hidden border border-white/10 bg-white">
+                      <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500" data-i18n="ezpixy.hero.input2">模特图</p>
+                      <div class="rounded-xl overflow-hidden border border-orange-100 bg-white">
                         <img src="/assets/images/ezpixy/input/hero_model.jpg" alt="model input" class="w-full h-auto">
                       </div>
                     </div>
                   </div>
-                  <div class="flex-shrink-0 text-2xl text-slate-300">→</div>
+                  <div class="flex-shrink-0 text-2xl text-gray-400">→</div>
                   <div class="flex-1 min-w-0">
-                    <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-lime-300" data-i18n="ezpixy.hero.output">AI 结果</p>
-                    <div class="rounded-xl overflow-hidden border border-white/10 bg-white shadow-xl">
+                    <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600" data-i18n="ezpixy.hero.output">AI 结果</p>
+                    <div class="rounded-xl overflow-hidden border border-orange-100 bg-white shadow-xl">
                       <img src="/assets/images/ezpixy/output/hero-after.jpeg" alt="AI generated result" class="w-full h-auto">
                     </div>
                   </div>
@@ -396,20 +397,20 @@
     </section>
 
     <!-- Use cases -->
-    <section class="py-16 px-6 bg-gradient-to-br from-slate-900 to-indigo-950 text-white">
+    <section class="py-16 px-6 bg-gradient-to-br from-orange-50/50 to-red-50/50">
       <div class="max-w-6xl mx-auto">
         <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <h2 class="text-3xl font-bold fade-in-up" data-i18n="ezpixy.usecases.title">适合谁用</h2>
-            <p class="mt-4 text-slate-300 leading-relaxed fade-in-up" style="animation-delay: 0.1s;" data-i18n="ezpixy.usecases.subtitle">
+            <h2 class="text-3xl font-bold text-gray-900 fade-in-up" data-i18n="ezpixy.usecases.title">适合谁用</h2>
+            <p class="mt-4 text-gray-600 leading-relaxed fade-in-up" style="animation-delay: 0.1s;" data-i18n="ezpixy.usecases.subtitle">
               如果你正在做服装、电商详情页或广告图制作，ezpixy 这类工作流会比传统修图链更贴近业务节奏。
             </p>
           </div>
           <div class="grid gap-4 sm:grid-cols-2">
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 fade-in-up" style="animation-delay: 0.15s;" data-i18n="ezpixy.usecase1">服装品牌和独立站卖家，用更低成本补齐模特图与商品图。</div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 fade-in-up" style="animation-delay: 0.2s;" data-i18n="ezpixy.usecase2">平台运营团队，批量生成白底图、场景图和详情页素材。</div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 fade-in-up" style="animation-delay: 0.25s;" data-i18n="ezpixy.usecase3">社媒与广告团队，快速试不同人群、风格和视觉方向。</div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5 fade-in-up" style="animation-delay: 0.3s;" data-i18n="ezpixy.usecase4">需要快速验证产品展示方案的小团队或代理商。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.15s;" data-i18n="ezpixy.usecase1">服装品牌和独立站卖家，用更低成本补齐模特图与商品图。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.2s;" data-i18n="ezpixy.usecase2">平台运营团队，批量生成白底图、场景图和详情页素材。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.25s;" data-i18n="ezpixy.usecase3">社媒与广告团队，快速试不同人群、风格和视觉方向。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.3s;" data-i18n="ezpixy.usecase4">需要快速验证产品展示方案的小团队或代理商。</div>
           </div>
         </div>
       </div>

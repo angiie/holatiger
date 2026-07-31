@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
+  <!-- Analytics Scripts -->
+  <script src="/assets/js/analytics.js" charset="utf-8" defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="google-site-verification" content="5iRqRZO9bOPssApmVaZk4ir5v_bFPSHgvJE06iNcJHw" />
-  <title>TinyPass - 免费在线密码生成器 | 批量生成强密码、可读模式、本地安全运行</title>
   <meta name="description" content="TinyPass 免费在线密码生成器：一键批量生成高强度密码，支持可读模式、自定义长度与字符集，纯本地运行不传服务器，即开即用。" />
   <meta name="keywords" content="password generator, 密码生成器, TinyPass, 在线密码生成, 批量密码, 强密码, 可读密码, 随机密码, free password generator, secure password" />
   <meta name="robots" content="index, follow" />
@@ -22,13 +23,43 @@
   <meta name="twitter:title" content="TinyPass - 免费在线密码生成器" />
   <meta name="twitter:description" content="一键批量生成高强度密码，可读模式、纯本地运行。" />
   <meta name="twitter:image" content="https://holatiger.com/assets/images/social/tinypass-1200x630.png" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png" />
-  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png" />
+  <title data-i18n="title.tinypass">TinyPass - 免费在线密码生成器 | 批量生成强密码、可读模式、本地安全运行</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/images/icons/icon_16x16.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png">
+  <link rel="icon" type="image/x-icon" sizes="48x48" href="/assets/images/icons/icon_48x48.ico">
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/icon_256x256.png">
   <link rel="stylesheet" href="/assets/css/tailwind-built.css" />
-  <link rel="stylesheet" href="/assets/css/nav-unified.css">
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
-  <script src="/assets/js/main.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/product-detail.css" />
+  <link rel="stylesheet" href="/assets/css/nav-unified.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="/assets/js/i18n.js"></script>
+  <style>
+    .tinypass-hero-card {
+      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.15), transparent 35%),
+                  linear-gradient(135deg, #fff7ed, #ffedd5 60%, #fed7aa);
+      border: 1px solid rgba(249, 115, 22, 0.15);
+    }
+    .tinypass-stat-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(249, 115, 22, 0.15);
+      backdrop-filter: blur(8px);
+    }
+    .tinypass-logo-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 9999px;
+      background: #fff;
+      border: 1px solid rgba(249, 115, 22, 0.25);
+      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.15);
+      padding: 0.35rem;
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,96 +101,317 @@
   }
   </script>
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-      <a class="flex items-center gap-2" href="/">
-        <img src="/assets/images/icons/icon_64x64.png" alt="HolaTiger 虎啦" class="w-8 h-8">
-        <span class="font-semibold">虎啦 HolaTiger</span>
+<body class="v1-professional">
+  <!-- Header -->
+  <header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
+    <div class="container nav-v1">
+      <a class="logo-v1" href="/">
+        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <span class="logo-text" data-i18n="logo.text">虎啦</span>
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="/" class="hover:text-orange-500">首页</a>
-        <a href="/tinypic.html" class="hover:text-orange-500">Tiny Pic</a>
-        <a href="/svg-studio.html" class="hover:text-orange-500">SVG Studio</a>
-        <a href="/text-to-png.html" class="hover:text-orange-500">Text to PNG</a>
-        <a href="/ezpixy.html" class="hover:text-orange-500">ezpixy</a>
-        <a href="/blog.html" class="hover:text-orange-500">博客</a>
-        <a href="/faq.html" class="hover:text-orange-500">FAQ</a>
+      <div class="flex items-center gap-6">
+        <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+          <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        </nav>
+
+        <button id="lang-toggle-btn" class="lang-switcher-btn" aria-label="Switch Language">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span class="lang-text">中</span>
+        </button>
+
+        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn" aria-label="Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu hidden md:hidden border-t border-orange-100 bg-white/90 backdrop-blur-sm">
+      <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
+        <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+        <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+        <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
       </nav>
     </div>
   </header>
 
-  <main class="container mx-auto px-4 py-12 max-w-4xl">
-    <h1 class="text-4xl font-bold mb-3">TinyPass · 强密码生成器</h1>
-    <p class="text-lg text-gray-600 mb-8">本地运行、长度与字符集完全可控、支持可读模式与批量导出。所有密码在你浏览器里生成，不离开设备。</p>
+  <main>
+    <!-- Hero -->
+    <section class="px-6 py-12 md:py-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="tinypass-hero-card rounded-[2rem] p-8 md:p-12 shadow-2xl">
+          <div class="grid gap-10 items-center md:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <div class="inline-flex items-center gap-3 rounded-full bg-orange-100 border border-orange-200 px-4 py-2 text-sm font-medium fade-in-up">
+                <span class="tinypass-logo-pill">
+                  <img src="/assets/images/tinypass/svg-export-40x40.png" alt="TinyPass logo" class="w-full h-full object-contain">
+                </span>
+                <span class="text-orange-700" data-i18n="tinypass.hero.badge">本地运行的密码生成器</span>
+              </div>
+              <h1 class="mt-6 text-4xl md:text-5xl font-bold leading-tight text-gray-900 fade-in-up" style="animation-delay: 0.1s;">
+                <span class="gradient-text">TinyPass</span>
+                <span data-i18n="tinypass.hero.title"> 为每个账号生成唯一的高强度密码</span>
+              </h1>
+              <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-600 max-w-2xl fade-in-up" style="animation-delay: 0.2s;" data-i18n="tinypass.description">
+                TinyPass 在本地生成强密码，支持长度与字符集组合，提供历史记录与一键复制，自动避开弱密码和易混淆字符。无需联网或注册即可提升账号安全。
+              </p>
+              <div class="mt-8 flex flex-col sm:flex-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
+                <a href="https://chromewebstore.google.com/detail/tinypass/jjfmaihmmbclkonnkkipbplhklepopne" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white transition hover:scale-[1.02] hover:bg-orange-600"
+                  data-i18n="tinypass.button.install">🚀 立即安装</a>
+                <a href="/#extensions"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-orange-500 bg-white px-6 py-3 font-semibold text-orange-600 transition hover:bg-orange-50"
+                  data-i18n="tinypass.button.home">返回虎啦首页</a>
+              </div>
+              <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 fade-in-up" style="animation-delay: 0.4s;">
+                <div class="tinypass-stat-card rounded-2xl p-4">
+                  <div class="text-2xl font-bold text-gray-900">1-1000</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="tinypass.stat1">批量生成</div>
+                </div>
+                <div class="tinypass-stat-card rounded-2xl p-4">
+                  <div class="text-2xl font-bold text-gray-900">100%</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="tinypass.stat2">本地运行</div>
+                </div>
+                <div class="tinypass-stat-card rounded-2xl p-4">
+                  <div class="text-2xl font-bold text-gray-900">131 位</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="tinypass.stat3">默认熵值</div>
+                </div>
+                <div class="tinypass-stat-card rounded-2xl p-4">
+                  <div class="text-2xl font-bold text-gray-900">Free</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="tinypass.stat4">可免费使用</div>
+                </div>
+              </div>
+            </div>
 
-    <div class="bg-white rounded-xl shadow p-6 mb-8 flex flex-col sm:flex-row gap-4 items-center">
-      <div class="flex-1">
-        <h2 class="text-xl font-semibold mb-2">立即使用</h2>
-        <p class="text-gray-600">浏览器内实时生成，一键复制到剪贴板。可批量导出 CSV / TXT。</p>
+            <div class="fade-in-up" style="animation-delay: 0.2s;">
+              <div class="rounded-[1.75rem] bg-white p-4 border border-orange-100 shadow-lg">
+                <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600" data-i18n="tinypass.hero.screenshot">实时生成界面</p>
+                <div class="rounded-xl overflow-hidden border border-orange-100 bg-white shadow-xl">
+                  <img src="/assets/images/tinypass/screenshot/zh/store-screenshot-1280x800-generator.png" alt="TinyPass generator interface" class="w-full h-auto">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <a href="/tinypass" class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium">
-        <i data-lucide="key-round" class="w-4 h-4"></i>
-        打开 TinyPass
-      </a>
-    </div>
+    </section>
 
-    <h2 class="text-2xl font-semibold mt-10 mb-4">核心功能</h2>
-    <div class="grid sm:grid-cols-2 gap-4">
-      <div class="bg-white rounded-lg p-5 border border-gray-200">
-        <div class="text-2xl mb-2">🔒</div>
-        <h3 class="font-semibold mb-1">密码学安全</h3>
-        <p class="text-sm text-gray-600">使用 <code>crypto.getRandomValues</code> 强随机数，密码熵实时计算显示。</p>
+    <!-- Features -->
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="tinypass.features.title">产品特性</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto fade-in-up" style="animation-delay: 0.1s;" data-i18n="tinypass.features.subtitle">
+            从强随机生成到历史兜底，覆盖密码全生命周期的本地安全方案。
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article class="feature-card fade-in-up" style="animation-delay: 0.1s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">🔒</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="tinypass.feature1.title">智能密码生成</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="tinypass.feature1.desc">支持多种字符集组合，可自定义密码长度和复杂度。</p>
+              </div>
+            </div>
+          </article>
+          <article class="feature-card fade-in-up" style="animation-delay: 0.15s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-teal-100 to-cyan-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">🏠</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="tinypass.feature2.title">本地运行安全</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="tinypass.feature2.desc">完全在浏览器本地运行，不联网不上传，保护隐私安全。</p>
+              </div>
+            </div>
+          </article>
+          <article class="feature-card fade-in-up" style="animation-delay: 0.2s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-sky-100 to-blue-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">📝</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="tinypass.feature3.title">历史记录管理</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="tinypass.feature3.desc">保存最近 100 条密码记录，方便查找和管理。</p>
+              </div>
+            </div>
+          </article>
+          <article class="feature-card fade-in-up" style="animation-delay: 0.25s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-100 to-violet-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">📋</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="tinypass.feature4.title">一键复制粘贴</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="tinypass.feature4.desc">生成后一键复制到剪贴板，快速填入目标网站。</p>
+              </div>
+            </div>
+          </article>
+          <article class="feature-card fade-in-up" style="animation-delay: 0.3s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-rose-100 to-pink-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">🗑️</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="tinypass.feature5.title">回收站保护</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="tinypass.feature5.desc">30 天回收站保护，误删密码轻松找回。</p>
+              </div>
+            </div>
+          </article>
+          <article class="feature-card fade-in-up" style="animation-delay: 0.35s;">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl">✨</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900 text-lg mb-2" data-i18n="tinypass.feature6.title">简洁易用界面</h3>
+                <p class="text-gray-600 leading-relaxed" data-i18n="tinypass.feature6.desc">直观的用户界面，操作简单，新手也能快速上手。</p>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-gray-200">
-        <div class="text-2xl mb-2">🏠</div>
-        <h3 class="font-semibold mb-1">本地运行</h3>
-        <p class="text-sm text-gray-600">不连服务器，不上传，不留痕。断网也能用。</p>
+    </section>
+
+    <!-- How it works -->
+    <section class="py-16 px-6 bg-gradient-to-br from-slate-50 to-orange-50/60">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="tinypass.steps.title">三步生成并安全保存密码</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto fade-in-up" style="animation-delay: 0.1s;" data-i18n="tinypass.steps.subtitle">
+            从设定规则到复用历史，全程在浏览器本地完成，无需注册与联网。
+          </p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
+          <article class="text-center fade-in-up" style="animation-delay: 0.1s;">
+            <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-md">
+              <img src="/assets/images/tinypass/screenshot/zh/store-screenshot-1280x800-generator.png" alt="step 1" class="w-full h-auto">
+            </div>
+            <div class="mt-4">
+              <div class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600">Step 1</div>
+              <h3 class="mt-2 text-xl font-bold text-gray-900" data-i18n="tinypass.step1.title">设置规则并生成</h3>
+              <p class="mt-2 text-gray-600 leading-relaxed" data-i18n="tinypass.step1.desc">选择长度、字符集或可读模式，一键批量生成高强度密码。</p>
+            </div>
+          </article>
+          <article class="text-center fade-in-up" style="animation-delay: 0.2s;">
+            <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-md">
+              <img src="/assets/images/tinypass/screenshot/zh/store-screenshot-1280x800-history.png" alt="step 2" class="w-full h-auto">
+            </div>
+            <div class="mt-4">
+              <div class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600">Step 2</div>
+              <h3 class="mt-2 text-xl font-bold text-gray-900" data-i18n="tinypass.step2.title">历史记录随时可查</h3>
+              <p class="mt-2 text-gray-600 leading-relaxed" data-i18n="tinypass.step2.desc">最近 100 条记录自动保存并支持搜索，需要时快速找回。</p>
+            </div>
+          </article>
+          <article class="text-center fade-in-up" style="animation-delay: 0.3s;">
+            <div class="rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-md">
+              <img src="/assets/images/tinypass/screenshot/zh/store-screenshot-1280x800-trash.png" alt="step 3" class="w-full h-auto">
+            </div>
+            <div class="mt-4">
+              <div class="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600">Step 3</div>
+              <h3 class="mt-2 text-xl font-bold text-gray-900" data-i18n="tinypass.step3.title">回收站兜底防误删</h3>
+              <p class="mt-2 text-gray-600 leading-relaxed" data-i18n="tinypass.step3.desc">误删的密码进入回收站保留 30 天，随时可恢复。</p>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-gray-200">
-        <div class="text-2xl mb-2">📝</div>
-        <h3 class="font-semibold mb-1">可读模式</h3>
-        <p class="text-sm text-gray-600">用词表组合（correct-horse-battery-staple 风格），兼顾强度与可记忆。</p>
+    </section>
+
+    <!-- Use cases -->
+    <section class="py-16 px-6 bg-gradient-to-br from-orange-50/50 to-red-50/50">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 fade-in-up" data-i18n="tinypass.usecases.title">适合谁用</h2>
+            <p class="mt-4 text-gray-600 leading-relaxed fade-in-up" style="animation-delay: 0.1s;" data-i18n="tinypass.usecases.subtitle">
+              只要你在为账号安全发愁，TinyPass 就能帮你从「弱密码」切换到「唯一强密码」。
+            </p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.15s;" data-i18n="tinypass.usecase1">运维 / DBA：批量给服务器生成唯一 root 密码，导出 CSV 离线保管。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.2s;" data-i18n="tinypass.usecase2">开发：为每个项目配置不同数据库密码，避免一处泄露到处遭殃。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.25s;" data-i18n="tinypass.usecase3">个人用户：告别「123456」和重复密码，用 16 位随机密码守住每个账号。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.3s;" data-i18n="tinypass.usecase4">家庭共享：帮家人生成并保存密码，减少找回与重置的频率。</div>
+          </div>
+        </div>
       </div>
-      <div class="bg-white rounded-lg p-5 border border-gray-200">
-        <div class="text-2xl mb-2">📋</div>
-        <h3 class="font-semibold mb-1">批量 + 导出</h3>
-        <p class="text-sm text-gray-600">一次生成 1-1000 个，导出 CSV / TXT / 复制到剪贴板。</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="tinypass.faq.title">常见问题</h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto fade-in-up" style="animation-delay: 0.1s;" data-i18n="tinypass.faq.subtitle">
+            关于 TinyPass 的高频问题与解答。
+          </p>
+        </div>
+        <div class="space-y-4">
+          <details class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm fade-in-up" style="animation-delay: 0.1s;">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+              <span class="font-semibold text-gray-900" data-i18n="tinypass.faq1.question">密码会经过 HolaTiger 服务器吗？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="mt-4 text-gray-600 leading-relaxed" data-i18n="tinypass.faq1.answer">不会。TinyPass 完全在浏览器本地用 crypto.getRandomValues 生成，断网也能工作。</p>
+          </details>
+          <details class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm fade-in-up" style="animation-delay: 0.15s;">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+              <span class="font-semibold text-gray-900" data-i18n="tinypass.faq2.question">密码强度是怎么算的？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="mt-4 text-gray-600 leading-relaxed" data-i18n="tinypass.faq2.answer">基于 NIST SP 800-63B：长度 × log2(字符集大小) = 熵位。≥80 位认为"非常好"，TinyPass 默认 20 字符混合字符集约 131 位。</p>
+          </details>
+          <details class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm fade-in-up" style="animation-delay: 0.2s;">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+              <span class="font-semibold text-gray-900" data-i18n="tinypass.faq3.question">和 1Password / Bitwarden 冲突吗？</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="mt-4 text-gray-600 leading-relaxed" data-i18n="tinypass.faq3.answer">不冲突。TinyPass 是密码生成器，你仍可把生成的密码保存到任意密码管理器。</p>
+          </details>
+        </div>
       </div>
-    </div>
-
-    <h2 class="text-2xl font-semibold mt-10 mb-4">使用场景</h2>
-    <ul class="space-y-2 text-gray-700 list-disc pl-5">
-      <li>运维 / DBA：批量给 100 台服务器生成 root 密码，导出 CSV 离线保管。</li>
-      <li>开发：为每个项目配不同数据库密码，标签化备注。</li>
-      <li>个人：避免到处用同一密码，生成 20+ 个 16 位密码存到密码管理器。</li>
-    </ul>
-
-    <h2 class="text-2xl font-semibold mt-10 mb-4">相关文章</h2>
-    <ul class="space-y-2">
-      <li><a class="text-orange-600 hover:underline" href="/blog-tinypass-password-guide.html">用 TinyPass 生成强密码的实用指南</a></li>
-      <li><a class="text-orange-600 hover:underline" href="/password-generator.html">在线强密码生成器（免安装）</a></li>
-    </ul>
-
-    <h2 class="text-2xl font-semibold mt-10 mb-4">常见问题</h2>
-    <div class="space-y-3">
-      <details class="bg-white border border-gray-200 rounded-lg p-4">
-        <summary class="font-medium cursor-pointer">密码会经过 HolaTiger 服务器吗？</summary>
-        <p class="text-gray-600 mt-2 text-sm">不会。TinyPass 完全在浏览器本地用 <code>crypto.getRandomValues</code> 生成，断网也能工作。</p>
-      </details>
-      <details class="bg-white border border-gray-200 rounded-lg p-4">
-        <summary class="font-medium cursor-pointer">密码强度是怎么算的？</summary>
-        <p class="text-gray-600 mt-2 text-sm">基于 NIST SP 800-63B：长度 × log2(字符集大小) = 熵位。≥80 位认为"非常好"，TinyPass 默认 20 字符混合字符集约 131 位。</p>
-      </details>
-      <details class="bg-white border border-gray-200 rounded-lg p-4">
-        <summary class="font-medium cursor-pointer">和 1Password / Bitwarden 冲突吗？</summary>
-        <p class="text-gray-600 mt-2 text-sm">不冲突。TinyPass 是生成器，你仍可把生成的密码保存到任意密码管理器。</p>
-      </details>
-    </div>
-
-    <p class="mt-10 text-sm text-gray-500">© 2026 HolaTiger 虎啦 · 隐私优先 · 开箱即用</p>
+    </section>
   </main>
 
-  <script>window.addEventListener('load',function(){if(typeof lucide!=='undefined'){lucide.createIcons();}});</script>
+  <footer class="py-12 px-6 border-t border-gray-200 bg-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('load', function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      const elements = document.querySelectorAll('.fade-in-up');
+      elements.forEach((el, index) => {
+        setTimeout(() => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.animation = `fadeInUp 0.8s ease-out ${index * 0.12}s forwards`;
+        }, 100);
+      });
+
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      if (window.i18n && typeof window.i18n.init === 'function') {
+        window.i18n.init();
+      }
+    });
+  </script>
+  <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
