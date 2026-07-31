@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import { copyFileSync, mkdirSync, existsSync, readFileSync, writeFileSync } from 'fs';
+import { copyFileSync, mkdirSync, existsSync, readFileSync, writeFileSync, readdirSync } from 'fs';
 import { join, resolve } from 'path';
 
 console.log('🚀 开始构建静态网站...');
@@ -29,39 +29,13 @@ if (!existsSync(distDir)) {
 console.log('📁 复制assets目录...');
 execSync(`cp -r assets ${distDir}/`, { stdio: 'inherit' });
 
-// 4. 复制HTML文件
+// 4. 复制HTML文件（自动扫描根目录所有 *.html，index.html 由 vite build 生成）
 console.log('📄 复制HTML文件...');
-const htmlFiles = [
-  'svg-studio.html',
-  'text-to-png.html',
-  'faq.html',
-  'blog.html',
-  'blog-svg-to-png-workflow.html',
-  'blog-tinypass-password-guide.html',
-  'blog-webdav-chrome-setup.html',
-  'blog-handy-tulip-implementation.html',
-  'lexa.html',
-  'blog-lexa-launch.html',
-  'blog-gemini-watermark-remover.html',
-  'tinypic.html',
-  'blog-tinypic-wasm-principle.html',
-  'ezpixy.html',
-  'webdavy.html',
-  'tinypass.html',
-  // 新 SEO 矩阵
-  'compress-jpeg-online.html',
-  'tinypic-vs-squoosh.html',
-  'webdavy-vs-raidrive.html',
-  'password-generator.html',
-  'tinypass-vs-1password.html',
-  'svg-to-png.html',
-  'svg-studio-vs-inkscape.html',
-  'text-to-image.html',
-  'ai-fashion-model.html',
-  'ezpixy-vs-midjourney.html',
-  'remove-gemini-watermark.html',
-  'banana-vs-adobe-firefly.html',
-];
+// 从 build 复制的排除集（index.html 由 vite build 生成）
+const EXCLUDE_HTML = new Set(['index.html']);
+const htmlFiles = readdirSync('.').filter(
+  f => f.endsWith('.html') && !EXCLUDE_HTML.has(f)
+).sort();
 htmlFiles.forEach(file => {
   if (existsSync(file)) {
     copyFileSync(file, join(distDir, file));
