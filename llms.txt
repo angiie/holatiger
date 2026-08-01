@@ -22,10 +22,6 @@ HolaTiger is a lightweight collection of browser extensions and online tools cre
 - ZH: 在线图片压缩工具（JPEG/PNG/WEBP/AVIF/SVG/GIF）
 - EN: Online image compression tool (JPEG/PNG/WEBP/AVIF/SVG/GIF)
 
-### Lexa
-- ZH: AI 词汇卡生成器（中西双语学习）
-- EN: AI vocabulary card generator (bilingual learning)
-
 ### Gemini Watermark Remover
 - ZH: Gemini AI 水印移除工具
 - EN: Gemini AI watermark removal tool

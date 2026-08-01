@@ -33,7 +33,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
         else:
             full_path = original_path
             
-        # If we changed the path (e.g. /lexa -> /lexa.html), update self.path
+        # If we changed the path (e.g. /tinypass -> /tinypass.html), update self.path
         if full_path != original_path:
             # Reconstruct with query string if any
             if '?' in self.path:

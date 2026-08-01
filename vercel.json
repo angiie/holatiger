@@ -127,10 +127,6 @@
       "destination": "/blog-webdav-chrome-setup.html"
     },
     {
-      "source": "/blog-lexa-launch",
-      "destination": "/blog-lexa-launch.html"
-    },
-    {
       "source": "/blog-gemini-watermark-remover",
       "destination": "/blog-gemini-watermark-remover.html"
     },

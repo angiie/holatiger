@@ -19,7 +19,7 @@ const BASE_URL = 'https://holatiger.com';
 // ===== 页面配置 =====
 // 每个页面可设置: priority, changefreq, hreflang 覆盖
 // 从 sitemap 排除的页面（已下线的产品等）
-const EXCLUDE = new Set(['lexa.html']);
+const EXCLUDE = new Set();
 const PAGE_CONFIG = {
   'index.html':                              { priority: 1.0, changefreq: 'weekly' },
   'svg-studio.html':                         { priority: 0.9, changefreq: 'weekly' },

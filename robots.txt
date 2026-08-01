@@ -12,4 +12,3 @@ Disallow: /node_modules/
 Disallow: /.git/
 Disallow: /dist/
 Disallow: /en/
-Disallow: /lexa

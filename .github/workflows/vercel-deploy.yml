@@ -69,10 +69,6 @@ jobs:
                 "dest": "/banana/index.html"
               },
               {
-                "src": "/lexa",
-                "dest": "/lexa.html"
-              },
-              {
                 "src": "/ezpixy",
                 "dest": "/ezpixy.html"
               },

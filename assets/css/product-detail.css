@@ -24,6 +24,127 @@
 .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
 .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
 
+/* ===== 交互动画（仅 body[data-product] 的产品页启用，其余页面不受影响） ===== */
+
+/* --- 滚动入场：JS 启用时才隐藏，避免无 JS / SEO 抓取时内容不可见 --- */
+html.js body[data-product] .fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: none;
+}
+html.js body[data-product] .fade-in-up.reveal-visible {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* --- Hero 鼠标跟随光晕 --- */
+.product-hero-card {
+  position: relative;
+  overflow: hidden;
+}
+.product-hero-card > * {
+  position: relative;
+  z-index: 1;
+}
+.product-hero-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(249, 115, 22, 0.12), transparent 55%);
+}
+.product-hero-card:hover::before {
+  opacity: 1;
+}
+
+/* --- 动效签名：各产品差异化微交互 --- */
+@keyframes icon-bounce {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+  60% { transform: translateY(-2px); }
+}
+@keyframes step-pop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+@keyframes arrow-flow {
+  0%, 100% { opacity: 0.5; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(4px); }
+}
+
+/* tinypass（密码/安全）：特性卡图标悬停弹跳 + 步骤标签滚动点亮 */
+body[data-product="tinypass"] .feature-card .flex-shrink-0 {
+  transition: transform 0.3s ease;
+}
+body[data-product="tinypass"] .feature-card:hover .flex-shrink-0 {
+  animation: icon-bounce 0.5s ease;
+}
+body[data-product="tinypass"] .reveal-visible .text-emerald-600 {
+  animation: step-pop 0.6s ease 0.2s;
+}
+
+/* webdavy（连接/文件）：特性卡左侧发光条 + 图标右滑；步骤数字点亮 */
+body[data-product="webdavy"] .feature-card .flex-shrink-0 {
+  transition: transform 0.3s ease;
+}
+body[data-product="webdavy"] .feature-card:hover {
+  box-shadow: inset 3px 0 0 #0ea5e9, 0 8px 25px rgba(56, 189, 248, 0.18);
+}
+body[data-product="webdavy"] .feature-card:hover .flex-shrink-0 {
+  transform: translateX(4px);
+}
+body[data-product="webdavy"] .step-dot {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+body[data-product="webdavy"] .reveal-visible .step-dot {
+  animation: step-pop 0.6s ease;
+}
+
+/* ezpixy（AI 图片）：特性卡图标浮起旋转；结果图 hover 放大亮起；hero 箭头流动 */
+body[data-product="ezpixy"] .feature-card .flex-shrink-0 {
+  transition: transform 0.3s ease;
+}
+body[data-product="ezpixy"] .feature-card:hover .flex-shrink-0 {
+  transform: translateY(-4px) rotate(-6deg) scale(1.08);
+}
+body[data-product="ezpixy"] .ezpixy-shot-card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+body[data-product="ezpixy"] .ezpixy-shot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(236, 72, 153, 0.18);
+}
+body[data-product="ezpixy"] .ezpixy-shot-card img {
+  transition: transform 0.5s ease;
+}
+body[data-product="ezpixy"] .ezpixy-shot-card:hover img {
+  transform: scale(1.04);
+}
+body[data-product="ezpixy"] .hero-arrow {
+  animation: arrow-flow 1.6s ease-in-out infinite;
+}
+
+/* --- 系统偏好：减少动态效果 --- */
+@media (prefers-reduced-motion: reduce) {
+  html.js body[data-product] .fade-in-up {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+  body[data-product] .product-hero-card::before,
+  body[data-product] .feature-card,
+  body[data-product] .feature-card *,
+  body[data-product] .step-dot,
+  body[data-product] .ezpixy-shot-card,
+  body[data-product] .ezpixy-shot-card img,
+  body[data-product] .hero-arrow {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 .gradient-text {
   background: linear-gradient(135deg, #f97316, #ef4444, #f59e0b);
   -webkit-background-clip: text;

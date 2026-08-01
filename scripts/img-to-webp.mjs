@@ -10,7 +10,6 @@ const IMG_DIR = join(__dirname, '..', 'assets', 'images');
 
 const targets = [
   { rel: 'svg-studio/edited_image_1 (1).png', maxWidth: 1920, quality: 80 },
-  { rel: 'lexa/logo.png',                       maxWidth: 512,  quality: 85 },
   { rel: 'icons/avatar.jpeg',                   maxWidth: 256,  quality: 82 },
 ];
 

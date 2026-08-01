@@ -46,15 +46,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-handy-tulip-implementation" />
   </url>
   <url>
-    <loc>https://holatiger.com/blog-lexa-launch</loc>
-    <lastmod>2026-07-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog-lexa-launch" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/blog-lexa-launch?lang=en" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/blog-lexa-launch" />
-  </url>
-  <url>
     <loc>https://holatiger.com/blog-nano-banana-watermark-remover</loc>
     <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -128,7 +119,7 @@
   </url>
   <url>
     <loc>https://holatiger.com/ezpixy</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/ezpixy" />
@@ -137,7 +128,7 @@
   </url>
   <url>
     <loc>https://holatiger.com/faq</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/faq" />
