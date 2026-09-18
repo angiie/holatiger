@@ -6,24 +6,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="google-site-verification" content="5iRqRZO9bOPssApmVaZk4ir5v_bFPSHgvJE06iNcJHw" />
-  <meta name="description" content="BatteryKiller 是一款 macOS 菜单栏应用，用软件方式切断与恢复 MacBook 的电源适配器，让电量在你设定的区间内自动充放电循环，避免长期满电带来的鼓包与健康度下降。支持 Apple Silicon、macOS 13+，免费开源。" />
-  <meta name="keywords" content="BatteryKiller, macOS 电池管理, MacBook 电池健康, 充放电循环, 电池充电上限, 电源适配器控制, 菜单栏工具, 电池鼓包, HolaTiger" />
+  <meta name="description" content="BatteryKiller 是一款 macOS 菜单栏应用，用软件方式切断与恢复 MacBook 的电源适配器，让电池真的放电、真的充电，在你设定的区间里来回循环。它不保护电池——每次循环都在消耗循环次数、加速老化，名字就是字面意思。支持 Apple Silicon、macOS 13+，免费开源。" />
+  <meta name="keywords" content="BatteryKiller, macOS 电池工具, MacBook 电池老化, 充放电循环, 电池循环次数, 电源适配器控制, 菜单栏工具, 快速耗电, 电池损耗, HolaTiger" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://holatiger.com/battery-killer" />
   <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/battery-killer" />
   <link rel="alternate" hreflang="en" href="https://holatiger.com/battery-killer?lang=en" />
   <link rel="alternate" hreflang="x-default" href="https://holatiger.com/battery-killer" />
-  <meta property="og:title" content="BatteryKiller - macOS 电池充放电循环工具 | 区间控电、保护电池健康 - 虎啦" />
-  <meta property="og:description" content="macOS 菜单栏小工具：电量升到上限就切断电源适配器让电池真实放电，降到下限再恢复供电，避免电量长期顶在 100%。" />
+  <meta property="og:title" content="BatteryKiller - macOS 电池充放电循环工具 | 主动耗电、消耗循环次数 - 虎啦" />
+  <meta property="og:description" content="macOS 菜单栏小工具：升到区间上限就切断适配器让电池真的放电，降到下限再充回来。它不保护电池，用途就是消耗电池。" />
   <meta property="og:type" content="product" />
   <meta property="og:url" content="https://holatiger.com/battery-killer" />
   <meta property="og:image" content="https://holatiger.com/assets/images/social/battery-killer-1200x630.png" />
   <meta property="og:site_name" content="HolaTiger" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="BatteryKiller - macOS 电池充放电循环工具" />
-  <meta name="twitter:description" content="让 MacBook 的电池在设定的区间内自动充放电循环，不再长期顶在 100%。" />
+  <meta name="twitter:description" content="主动切断适配器，让 MacBook 的电池真的充放电循环——消耗循环次数的那种。" />
   <meta name="twitter:image" content="https://holatiger.com/assets/images/social/battery-killer-1200x630.png" />
-  <title data-i18n="title.battery-killer">BatteryKiller - macOS 电池充放电循环工具 | 区间控电、保护电池健康 - 虎啦</title>
+  <title data-i18n="title.battery-killer">BatteryKiller - macOS 电池充放电循环工具 | 主动耗电、消耗循环次数 - 虎啦</title>
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/images/icons/icon_16x16.ico">
@@ -79,6 +79,11 @@
       border-left: 3px solid rgba(249, 115, 22, 0.45);
       background: rgba(255, 247, 237, 0.7);
     }
+    .bk-warning {
+      background: #fffbeb;
+      border: 1px solid rgba(217, 119, 6, 0.22);
+      border-left: 4px solid rgba(217, 119, 6, 0.55);
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -88,7 +93,7 @@
     "operatingSystem": "macOS 13+ (Apple Silicon)",
     "applicationCategory": "UtilitiesApplication",
     "applicationSubCategory": "Battery Management",
-    "description": "macOS 菜单栏小工具，用软件方式控制电源适配器通断，让电池在指定区间内自动充放电循环",
+    "description": "macOS 菜单栏小工具，用软件方式控制电源适配器通断，让电池在指定区间内真的充放电循环——用途就是消耗电池的循环次数、加速老化",
     "url": "https://holatiger.com/battery-killer",
     "downloadUrl": "https://github.com/angiie/b-killer/releases/latest",
     "image": "https://holatiger.com/assets/images/social/battery-killer-1200x630.png",
@@ -120,8 +125,8 @@
       },
       {
         "@type": "Question",
-        "name": "长期使用会不会伤电池？",
-        "acceptedAnswer": {"@type": "Answer", "text": "让电量在区间内往返、避免长期满电，本身就是对电池更友好的用法。但它基于 SMC 私有键实现，系统固件更新后行为可能变化，风险自负。"}
+        "name": "会不会把电池弄坏？",
+        "acceptedAnswer": {"@type": "Answer", "text": "会，这就是它的用途。每切断一次适配器让电池放电、再充回来，都在消耗循环次数并加速老化，应用本身不做任何电池保养。如果你要的是延长电池寿命，这个工具不适合你。"}
       },
       {
         "@type": "Question",
@@ -198,7 +203,7 @@
                 <span data-i18n="battery-killer.hero.title"> 让电池按你设定的区间充放电循环</span>
               </h1>
               <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-600 max-w-2xl fade-in-up" style="animation-delay: 0.2s;" data-i18n="battery-killer.description">
-                BatteryKiller 用软件方式控制 MacBook 的电源适配器通断：电量升到区间上限就切断供电让电池真实放电，降到下限再恢复供电重新充电，如此往复。长期插电当台式机用时，电池不再常年顶在 100%。
+                BatteryKiller 用软件方式切断和恢复 MacBook 的电源适配器：升到区间上限就断电让电池真的放电，降到下限再充回来，如此往复。它不保护电池——每一次循环都在消耗循环次数、加速老化。名字就是字面意思。
               </p>
               <div class="mt-8 flex flex-col sm:flex-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
                 <a href="https://github.com/angiie/b-killer/releases/latest" target="_blank" rel="noopener noreferrer"
@@ -236,6 +241,21 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Warning -->
+    <section class="px-6 pt-4 pb-12">
+      <div class="max-w-6xl mx-auto">
+        <div class="bk-warning rounded-2xl px-6 py-5 flex items-start gap-4 fade-in-up">
+          <span class="text-2xl leading-none" aria-hidden="true">⚠️</span>
+          <div>
+            <h2 class="font-bold text-gray-900 text-lg" data-i18n="battery-killer.warning.title">它会把电池玩坏，这正是它的用途</h2>
+            <p class="mt-2 text-sm text-gray-700 leading-relaxed" data-i18n="battery-killer.warning.desc">
+              每切断一次适配器让电池放电、再充回来，都在消耗电池的循环次数、加速老化。BatteryKiller 不做任何电池保养，也不是省电工具。用之前请确认你不在乎这台机器的电池。
+            </p>
           </div>
         </div>
       </div>
@@ -454,14 +474,14 @@
           <div>
             <h2 class="text-3xl font-bold text-gray-900 fade-in-up" data-i18n="battery-killer.usecases.title">适合谁用</h2>
             <p class="mt-4 text-gray-600 leading-relaxed fade-in-up" style="animation-delay: 0.1s;" data-i18n="battery-killer.usecases.subtitle">
-              只要你的 MacBook 大部分时间插着电，它就派得上用场。
+              给明确知道自己在干什么的人：这台机器的电池你不在乎。
             </p>
           </div>
           <div class="grid gap-4 sm:grid-cols-2">
-            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.15s;" data-i18n="battery-killer.usecase1">长期插电党：MacBook 一直插着电当台式机用，不想让电量常年顶在 100%。</div>
-            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.2s;" data-i18n="battery-killer.usecase2">在意电池健康：想避开长期满电高压带来的鼓包与健康度下降，也不想把电放到空。</div>
-            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.25s;" data-i18n="battery-killer.usecase3">需要临时断电：想一键把机器切到电池供电，比如对比功耗、或者出门前先把电耗掉一些。</div>
-            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.3s;" data-i18n="battery-killer.usecase4">不爱装全家桶：只想要一个安静的菜单栏小工具，不想要带一堆后台服务的电池管家。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.15s;" data-i18n="battery-killer.usecase1">就是想把电池玩坏：循环数涨就涨，健康度掉就掉，这台机器的电池不在你的考虑范围内。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.2s;" data-i18n="battery-killer.usecase2">需要快速耗电：在真机上测试低电量行为、验证电源相关逻辑，要电量又快又可控地降下去。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.25s;" data-i18n="battery-killer.usecase3">想看循环和衰减怎么走：盯着循环计数与健康度，看它们随一次次充放电怎么变化。</div>
+            <div class="rounded-2xl border border-orange-100 bg-white p-5 shadow-sm fade-in-up" style="animation-delay: 0.3s;" data-i18n="battery-killer.usecase4">只想要那个开关：不关心循环，纯粹想要一键在「电池供电 / 电源供电」之间切换，不装后台服务。</div>
           </div>
         </div>
       </div>
@@ -500,10 +520,10 @@
           </details>
           <details class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm fade-in-up" style="animation-delay: 0.25s;">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
-              <span class="font-semibold text-gray-900" data-i18n="battery-killer.faq4.question">长期使用会不会伤电池？</span>
+              <span class="font-semibold text-gray-900" data-i18n="battery-killer.faq4.question">会不会把电池弄坏？</span>
               <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
             </summary>
-            <p class="mt-4 text-gray-600 leading-relaxed" data-i18n="battery-killer.faq4.answer">让电量在区间内往返、避免长期满电，本身就是对电池更友好的用法，循环区间两侧是各自独立的阈值，电量在阈值附近也不会来回抖动。但它基于 SMC 私有键实现，系统固件更新后行为可能变化，风险自负。</p>
+            <p class="mt-4 text-gray-600 leading-relaxed" data-i18n="battery-killer.faq4.answer">会，这就是它的用途。每切断一次适配器让电池放电、再充回来，都在消耗循环次数并加速老化，应用本身不做任何电池保养。如果你要的是延长电池寿命，这个工具不适合你。另外它基于 SMC 私有键实现，系统固件更新后行为可能变化，风险自负。</p>
           </details>
           <details class="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm fade-in-up" style="animation-delay: 0.3s;">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4">

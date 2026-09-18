@@ -35,8 +35,8 @@ HolaTiger is a lightweight collection of browser extensions, online tools and de
 - EN: Text to PNG converter
 
 ### BatteryKiller
-- ZH: macOS 菜单栏应用，用软件方式控制电源适配器通断，让电池在指定区间内自动充放电循环
-- EN: macOS menu bar app that switches the power adapter on and off in software so the battery cycles inside a chosen range
+- ZH: macOS 菜单栏应用，用软件方式控制电源适配器通断，让电池在指定区间内真的充放电循环。它不保护电池，用途就是消耗电池的循环次数、加速老化
+- EN: macOS menu bar app that switches the power adapter on and off in software so the battery really cycles inside a chosen range. It does not protect the battery — wearing it out is the point
 - 平台 / Platform: macOS 13+ (Apple Silicon)
 - 下载 / Download: https://github.com/angiie/b-killer/releases/latest
 
