@@ -1,8 +1,8 @@
 # HolaTiger - 小工具，大能量 / Small Tools, Big Power
 
 ## 关于 / About
-虎啦（HolaTiger）是一个轻量、实用的浏览器扩展与在线工具集合站，由独立开发者 angiie 创建。
-HolaTiger is a lightweight collection of browser extensions and online tools created by indie developer angiie.
+虎啦（HolaTiger）是一个轻量、实用的浏览器扩展、在线工具与桌面应用集合站，由独立开发者 angiie 创建。
+HolaTiger is a lightweight collection of browser extensions, online tools and desktop apps created by indie developer angiie.
 
 ## 产品 / Products
 
@@ -33,6 +33,12 @@ HolaTiger is a lightweight collection of browser extensions and online tools cre
 ### Text to PNG
 - ZH: 文字转图片工具
 - EN: Text to PNG converter
+
+### BatteryKiller
+- ZH: macOS 菜单栏应用，用软件方式控制电源适配器通断，让电池在指定区间内自动充放电循环
+- EN: macOS menu bar app that switches the power adapter on and off in software so the battery cycles inside a chosen range
+- 平台 / Platform: macOS 13+ (Apple Silicon)
+- 下载 / Download: https://github.com/angiie/b-killer/releases/latest
 
 ## 技术栈 / Tech Stack
 - 静态 HTML + Tailwind CSS + Lucide 图标 / Static HTML + Tailwind CSS + Lucide Icons

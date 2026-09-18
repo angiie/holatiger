@@ -123,6 +123,44 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Desktop Apps Section */}
+      <section id="apps" className="py-12 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-medium mb-4">
+              🖥️ Desktop Apps
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('apps.title', '桌面应用')}</h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">{t('apps.subtitle', '先做好一件事的原生小工具，装完就安静待在菜单栏里')}</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* BatteryKiller Card */}
+            <div className="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
+              <a href="/battery-killer" className="flex items-center gap-4 mb-5 no-underline" style={{ textDecoration: 'none !important', color: 'inherit' }}>
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-100 to-amber-100 flex items-center justify-center shadow-sm">
+                  <img src="/assets/images/battery-killer/logo-40x40.png" alt="BatteryKiller" className="w-8 h-8 object-contain" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 text-lg">{t('battery-killer.name', 'BatteryKiller')}</h3>
+                  <span className="text-sm text-orange-600 bg-orange-50 px-3 py-1 rounded-full font-medium">{t('apps.badge', 'macOS 应用')}</span>
+                </div>
+              </a>
+              <p className="text-gray-600 mb-4 leading-relaxed">{t('battery-killer.desc', 'macOS 菜单栏工具，让电池在指定区间自动充放电循环，避免电量长期顶在 100%。')}</p>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-sm text-gray-500">
+                  <span className="w-3 h-3 bg-green-500 rounded-full" />
+                  <span>{t('status.published', '已发布')}</span>
+                </div>
+                <a href="/battery-killer" className="inline-flex items-center px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium text-sm shadow-sm no-underline" style={{ backgroundColor: '#f97316 !important', color: 'white !important', textDecoration: 'none !important' }}>
+                  {t('btn.details', '查看详情')}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Tools Section */}
       <section id="tools" className="py-12 px-6 bg-gradient-to-br from-orange-50/50 to-red-50/50">
         <div className="max-w-6xl mx-auto">

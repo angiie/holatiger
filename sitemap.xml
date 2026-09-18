@@ -28,6 +28,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/banana-vs-adobe-firefly" />
   </url>
   <url>
+    <loc>https://holatiger.com/battery-killer</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/battery-killer" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://holatiger.com/battery-killer?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://holatiger.com/battery-killer" />
+  </url>
+  <url>
     <loc>https://holatiger.com/blog-gemini-watermark-remover</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -92,7 +101,7 @@
   </url>
   <url>
     <loc>https://holatiger.com/blog</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/blog.html" />
@@ -119,7 +128,7 @@
   </url>
   <url>
     <loc>https://holatiger.com/ezpixy</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/ezpixy" />
@@ -209,7 +218,7 @@
   </url>
   <url>
     <loc>https://holatiger.com/tinypass</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/tinypass" />
@@ -254,7 +263,7 @@
   </url>
   <url>
     <loc>https://holatiger.com/webdavy</loc>
-    <lastmod>2026-07-31</lastmod>
+    <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/webdavy" />

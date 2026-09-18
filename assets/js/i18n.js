@@ -184,6 +184,7 @@ class I18nManager {
     if (path.toLowerCase().includes('ezpixy')) return 'title.ezpixy';
     if (path.includes('webdavy')) return 'title.webdavy';
     if (path.includes('tinypass')) return 'title.tinypass';
+    if (path.includes('battery-killer')) return 'title.battery-killer';
     return null;
   }
 
@@ -202,6 +203,7 @@ class I18nManager {
     else if (path.includes('tinypass')) prefix = 'tinypass';
     else if (path.includes('webdavy')) prefix = 'webdavy';
     else if (path.includes('tinypic')) prefix = 'tinypic';
+    else if (path.includes('battery-killer')) prefix = 'battery-killer';
     else prefix = 'home';
 
     // 描述

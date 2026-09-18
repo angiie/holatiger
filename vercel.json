@@ -19,6 +19,10 @@
   ],
   "rewrites": [
     {
+      "source": "/battery-killer",
+      "destination": "/battery-killer.html"
+    },
+    {
       "source": "/webdavy",
       "destination": "/webdavy.html"
     },
