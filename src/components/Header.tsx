@@ -88,6 +88,7 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default', className = '' }) 
     const navItems = [
       { key: 'nav.home', href: variant === 'product' ? '/' : '#home' },
       { key: 'nav.extensions', href: variant === 'product' ? '/#extensions' : '#extensions' },
+      { key: 'nav.apps', href: variant === 'product' ? '/#apps' : '#apps' },
       { key: 'nav.tools', href: variant === 'product' ? '/#tools' : '#tools' },
       { key: 'nav.about', href: variant === 'product' ? '/#about' : '#about' },
       // 博客导航：统一指向 /blog（Vercel 重定向到 blog.html），使用 i18n 文案

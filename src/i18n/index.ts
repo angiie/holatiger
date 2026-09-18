@@ -42,7 +42,10 @@ i18n
     resources,
     fallbackLng: 'zh-CN',
     debug: import.meta.env?.DEV === true,
-    interpolation: { escapeValue: false },
+    // 语言包是与静态页共用的 assets/i18n/*.json，里面的占位符是单花括号（如 {year}），
+    // 静态页的 assets/js/i18n.js 按单花括号替换。i18next 默认用 {{双花括号}}，
+    // 不改这里的话 React 页面的 t() 替换不出来，页脚会直接显示 "{year}"。
+    interpolation: { escapeValue: false, prefix: '{', suffix: '}' },
     detection: {
       order: ['querystring', 'localStorage', 'navigator', 'htmlTag'],
       lookupQuerystring: 'lang',

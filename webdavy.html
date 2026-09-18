@@ -39,9 +39,11 @@
   <script>document.documentElement.classList.add('js');</script>
   <style>
     .webdavy-hero-card {
-      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.15), transparent 35%),
-                  linear-gradient(135deg, #fff7ed, #ffedd5 60%, #fed7aa);
-      border: 1px solid rgba(249, 115, 22, 0.15);
+      /* 弱化过重的大色块与投影：底色贴近页面背景，只留一层淡淡的暖色倾向 */
+      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.09), transparent 38%),
+                  linear-gradient(135deg, #fffefa, #fffaf3 60%, #fff2e3);
+      border: 1px solid rgba(249, 115, 22, 0.12);
+      box-shadow: 0 12px 30px -22px rgba(154, 52, 18, 0.28);
     }
     .webdavy-stat-card {
       background: rgba(255, 255, 255, 0.9);
@@ -120,6 +122,7 @@
         <nav class="nav-links-v1 hidden md:flex items-center gap-6">
           <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
           <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="/#apps" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.apps">桌面应用</a>
           <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
           <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
           <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
@@ -141,6 +144,7 @@
       <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
         <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
         <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/#apps" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.apps">桌面应用</a>
         <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
         <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
         <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
@@ -153,7 +157,7 @@
     <!-- Hero -->
     <section class="px-6 py-12 md:py-16">
       <div class="max-w-6xl mx-auto">
-        <div class="webdavy-hero-card product-hero-card rounded-[2rem] p-8 md:p-12 shadow-2xl">
+        <div class="webdavy-hero-card product-hero-card rounded-[2rem] p-8 md:p-12 shadow-sm">
           <div class="grid gap-10 items-center md:grid-cols-[1.1fr_0.9fr]">
             <div>
               <div class="inline-flex items-center gap-3 rounded-full bg-orange-100 border border-orange-200 px-4 py-2 text-sm font-medium fade-in-up">
