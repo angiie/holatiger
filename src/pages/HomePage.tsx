@@ -123,7 +123,7 @@ const HomePage: React.FC = () => {
             {/* MakerWorldMate Card */}
             <div className="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
               <a href="/makerworldmate" className="flex items-center gap-4 mb-5 no-underline" style={{ textDecoration: 'none !important', color: 'inherit' }}>
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center shadow-sm">
                   <img src="/assets/images/makerworldmate/icon-128.png" alt="MakerWorldMate" className="w-8 h-8" />
                 </div>
                 <div>
