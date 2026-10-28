@@ -1,211 +1,285 @@
 {
-  "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "installCommand": "npm install",
-  "framework": null,
-  "redirects": [
-    {
-      "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "www.holatiger.com" }],
-      "destination": "https://holatiger.com/:path",
-      "permanent": true
-    },
-    { "source": "/banana/index.html", "destination": "/banana/", "permanent": true },
-    { "source": "/en/faq", "destination": "/faq.html?lang=en", "permanent": true },
-    { "source": "/tinypic", "destination": "/tinypic/", "permanent": true },
-    { "source": "/blog-bulk-gemini-watermark-remover.html", "destination": "/blog/blog-bulk-gemini-watermark-remover.html", "permanent": true },
-    { "source": "/blog-bulk-gemini-watermark-remover", "destination": "/blog/blog-bulk-gemini-watermark-remover.html", "permanent": true }
-  ],
-  "rewrites": [
-    {
-      "source": "/battery-killer",
-      "destination": "/battery-killer.html"
-    },
-    {
-      "source": "/webdavy",
-      "destination": "/webdavy.html"
-    },
-    {
-      "source": "/tinypass",
-      "destination": "/tinypass.html"
-    },
-    {
-      "source": "/svg-studio",
-      "destination": "/svg-studio.html"
-    },
-    {
-      "source": "/svg-studio/",
-      "destination": "/svg-studio.html"
-    },
-    {
-      "source": "/tinypic",
-      "destination": "/tinypic/index.html"
-    },
-    {
-      "source": "/tinypic/",
-      "destination": "/tinypic/index.html"
-    },
-    {
-      "source": "/banana",
-      "destination": "/banana/index.html"
-    },
-    {
-      "source": "/ezpixy",
-      "destination": "/ezpixy.html"
-    },
-    {
-      "source": "/text-to-png",
-      "destination": "/text-to-png.html"
-    },
-    {
-      "source": "/faq",
-      "destination": "/faq.html"
-    },
-    {
-      "source": "/blog",
-      "destination": "/blog.html"
-    },
-    {
-      "source": "/compress-jpeg-online",
-      "destination": "/compress-jpeg-online.html"
-    },
-    {
-      "source": "/tinypic-vs-squoosh",
-      "destination": "/tinypic-vs-squoosh.html"
-    },
-    {
-      "source": "/webdav-chrome-setup",
-      "destination": "/webdav-chrome-setup.html"
-    },
-    {
-      "source": "/webdavy-vs-raidrive",
-      "destination": "/webdavy-vs-raidrive.html"
-    },
-    {
-      "source": "/password-generator",
-      "destination": "/password-generator.html"
-    },
-    {
-      "source": "/tinypass-vs-1password",
-      "destination": "/tinypass-vs-1password.html"
-    },
-    {
-      "source": "/svg-to-png",
-      "destination": "/svg-to-png.html"
-    },
-    {
-      "source": "/svg-studio-vs-inkscape",
-      "destination": "/svg-studio-vs-inkscape.html"
-    },
-    {
-      "source": "/text-to-image",
-      "destination": "/text-to-image.html"
-    },
-    {
-      "source": "/ai-fashion-model",
-      "destination": "/ai-fashion-model.html"
-    },
-    {
-      "source": "/ezpixy-vs-midjourney",
-      "destination": "/ezpixy-vs-midjourney.html"
-    },
-    {
-      "source": "/remove-gemini-watermark",
-      "destination": "/remove-gemini-watermark.html"
-    },
-    {
-      "source": "/banana-vs-adobe-firefly",
-      "destination": "/banana-vs-adobe-firefly.html"
-    },
-    {
-      "source": "/svg-to-png-workflow",
-      "destination": "/blog-svg-to-png-workflow.html"
-    },
-    {
-      "source": "/tinypass-password-guide",
-      "destination": "/blog-tinypass-password-guide.html"
-    },
-    {
-      "source": "/webdav-chrome-setup-blog",
-      "destination": "/blog-webdav-chrome-setup.html"
-    },
-    {
-      "source": "/blog-gemini-watermark-remover",
-      "destination": "/blog-gemini-watermark-remover.html"
-    },
-    {
-      "source": "/blog-handy-tulip-implementation",
-      "destination": "/blog-handy-tulip-implementation.html"
-    },
-    {
-      "source": "/bulk-gemini-watermark-remover",
-      "destination": "/blog/blog-bulk-gemini-watermark-remover.html"
-    },
-    {
-      "source": "/blog/blog-bulk-gemini-watermark-remover",
-      "destination": "/blog/blog-bulk-gemini-watermark-remover.html"
-    },
-    {
-      "source": "/nano-banana-watermark-remover",
-      "destination": "/blog-nano-banana-watermark-remover.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/assets/css/(.*)\\.css",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Content-Type", "value": "text/css; charset=utf-8" }
-      ]
-    },
-    {
-      "source": "/assets/js/(.*)\\.js",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Content-Type", "value": "application/javascript; charset=utf-8" }
-      ]
-    },
-    {
-      "source": "/assets/js/(.*)\\.json",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Content-Type", "value": "application/json; charset=utf-8" }
-      ]
-    },
-    {
-      "source": "/assets/images/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/tinypic/assets/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Cross-Origin-Embedder-Policy", "value": "require-corp" },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" }
-      ]
-    },
-    {
-      "source": "/tinypic/(.*)",
-      "headers": [
-        { "key": "Cross-Origin-Embedder-Policy", "value": "require-corp" },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" }
-      ]
-    },
-    {
-      "source": "/tinypic",
-      "headers": [
-        { "key": "Cross-Origin-Embedder-Policy", "value": "require-corp" },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" }
-      ]
-    },
-    {
-      "source": "/(sitemap\\.xml|robots\\.txt)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600" }
-      ]
-    }
-  ]
+    "version": 2,
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist",
+    "installCommand": "npm install",
+    "framework": null,
+    "redirects": [
+        {
+            "source": "/:path(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.holatiger.com"
+                }
+            ],
+            "destination": "https://holatiger.com/:path",
+            "permanent": true
+        },
+        {
+            "source": "/banana/index.html",
+            "destination": "/banana/",
+            "permanent": true
+        },
+        {
+            "source": "/en/faq",
+            "destination": "/faq.html?lang=en",
+            "permanent": true
+        },
+        {
+            "source": "/tinypic",
+            "destination": "/tinypic/",
+            "permanent": true
+        },
+        {
+            "source": "/blog-bulk-gemini-watermark-remover.html",
+            "destination": "/blog/blog-bulk-gemini-watermark-remover.html",
+            "permanent": true
+        },
+        {
+            "source": "/blog-bulk-gemini-watermark-remover",
+            "destination": "/blog/blog-bulk-gemini-watermark-remover.html",
+            "permanent": true
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/makerworldmate",
+            "destination": "/makerworldmate.html"
+        },
+        {
+            "source": "/battery-killer",
+            "destination": "/battery-killer.html"
+        },
+        {
+            "source": "/webdavy",
+            "destination": "/webdavy.html"
+        },
+        {
+            "source": "/tinypass",
+            "destination": "/tinypass.html"
+        },
+        {
+            "source": "/svg-studio",
+            "destination": "/svg-studio.html"
+        },
+        {
+            "source": "/svg-studio/",
+            "destination": "/svg-studio.html"
+        },
+        {
+            "source": "/tinypic",
+            "destination": "/tinypic/index.html"
+        },
+        {
+            "source": "/tinypic/",
+            "destination": "/tinypic/index.html"
+        },
+        {
+            "source": "/banana",
+            "destination": "/banana/index.html"
+        },
+        {
+            "source": "/ezpixy",
+            "destination": "/ezpixy.html"
+        },
+        {
+            "source": "/text-to-png",
+            "destination": "/text-to-png.html"
+        },
+        {
+            "source": "/faq",
+            "destination": "/faq.html"
+        },
+        {
+            "source": "/blog",
+            "destination": "/blog.html"
+        },
+        {
+            "source": "/compress-jpeg-online",
+            "destination": "/compress-jpeg-online.html"
+        },
+        {
+            "source": "/tinypic-vs-squoosh",
+            "destination": "/tinypic-vs-squoosh.html"
+        },
+        {
+            "source": "/webdav-chrome-setup",
+            "destination": "/webdav-chrome-setup.html"
+        },
+        {
+            "source": "/webdavy-vs-raidrive",
+            "destination": "/webdavy-vs-raidrive.html"
+        },
+        {
+            "source": "/password-generator",
+            "destination": "/password-generator.html"
+        },
+        {
+            "source": "/tinypass-vs-1password",
+            "destination": "/tinypass-vs-1password.html"
+        },
+        {
+            "source": "/svg-to-png",
+            "destination": "/svg-to-png.html"
+        },
+        {
+            "source": "/svg-studio-vs-inkscape",
+            "destination": "/svg-studio-vs-inkscape.html"
+        },
+        {
+            "source": "/text-to-image",
+            "destination": "/text-to-image.html"
+        },
+        {
+            "source": "/ai-fashion-model",
+            "destination": "/ai-fashion-model.html"
+        },
+        {
+            "source": "/ezpixy-vs-midjourney",
+            "destination": "/ezpixy-vs-midjourney.html"
+        },
+        {
+            "source": "/remove-gemini-watermark",
+            "destination": "/remove-gemini-watermark.html"
+        },
+        {
+            "source": "/banana-vs-adobe-firefly",
+            "destination": "/banana-vs-adobe-firefly.html"
+        },
+        {
+            "source": "/svg-to-png-workflow",
+            "destination": "/blog-svg-to-png-workflow.html"
+        },
+        {
+            "source": "/tinypass-password-guide",
+            "destination": "/blog-tinypass-password-guide.html"
+        },
+        {
+            "source": "/webdav-chrome-setup-blog",
+            "destination": "/blog-webdav-chrome-setup.html"
+        },
+        {
+            "source": "/blog-gemini-watermark-remover",
+            "destination": "/blog-gemini-watermark-remover.html"
+        },
+        {
+            "source": "/blog-handy-tulip-implementation",
+            "destination": "/blog-handy-tulip-implementation.html"
+        },
+        {
+            "source": "/bulk-gemini-watermark-remover",
+            "destination": "/blog/blog-bulk-gemini-watermark-remover.html"
+        },
+        {
+            "source": "/blog/blog-bulk-gemini-watermark-remover",
+            "destination": "/blog/blog-bulk-gemini-watermark-remover.html"
+        },
+        {
+            "source": "/nano-banana-watermark-remover",
+            "destination": "/blog-nano-banana-watermark-remover.html"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/assets/css/(.*)\\.css",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                },
+                {
+                    "key": "Content-Type",
+                    "value": "text/css; charset=utf-8"
+                }
+            ]
+        },
+        {
+            "source": "/assets/js/(.*)\\.js",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                },
+                {
+                    "key": "Content-Type",
+                    "value": "application/javascript; charset=utf-8"
+                }
+            ]
+        },
+        {
+            "source": "/assets/js/(.*)\\.json",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                },
+                {
+                    "key": "Content-Type",
+                    "value": "application/json; charset=utf-8"
+                }
+            ]
+        },
+        {
+            "source": "/assets/images/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/tinypic/assets/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                },
+                {
+                    "key": "Cross-Origin-Embedder-Policy",
+                    "value": "require-corp"
+                },
+                {
+                    "key": "Cross-Origin-Opener-Policy",
+                    "value": "same-origin"
+                }
+            ]
+        },
+        {
+            "source": "/tinypic/(.*)",
+            "headers": [
+                {
+                    "key": "Cross-Origin-Embedder-Policy",
+                    "value": "require-corp"
+                },
+                {
+                    "key": "Cross-Origin-Opener-Policy",
+                    "value": "same-origin"
+                }
+            ]
+        },
+        {
+            "source": "/tinypic",
+            "headers": [
+                {
+                    "key": "Cross-Origin-Embedder-Policy",
+                    "value": "require-corp"
+                },
+                {
+                    "key": "Cross-Origin-Opener-Policy",
+                    "value": "same-origin"
+                }
+            ]
+        },
+        {
+            "source": "/(sitemap\\.xml|robots\\.txt)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=3600"
+                }
+            ]
+        }
+    ]
 }

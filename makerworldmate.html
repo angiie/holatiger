@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <script src="/assets/js/analytics.js" charset="utf-8" defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-site-verification" content="5iRqRZO9bOPssApmVaZk4ir5v_bFPSHgvJE06iNcJHw" />
+  <meta name="description" content="MakerWorldMate 让你在 MakerWorld 模型列表页直接看到每张卡片用什么耗材、兼容多少种打印机，悬停展开完整机型清单，无需逐个点开详情页。支持 makerworld.com.cn 与 makerworld.com。" />
+  <meta name="keywords" content="MakerWorld, MakerWorldMate, 3D打印, 耗材, 材质, 打印耗材, 兼容机型, 打印机型号, PLA, PETG, Chrome扩展, makerworld.com.cn, bambu" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://holatiger.com/makerworldmate" />
+  <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/makerworldmate" />
+  <link rel="alternate" hreflang="en" href="https://holatiger.com/makerworldmate?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://holatiger.com/makerworldmate" />
+  <meta property="og:title" content="MakerWorldMate - 在 MakerWorld 列表页直接看材质与兼容机型" />
+  <meta property="og:description" content="每张模型卡片左下角显示耗材与兼容机型数量，悬停展开完整清单。支持 makerworld.com.cn 与 makerworld.com，本地缓存、不上传任何数据。" />
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://holatiger.com/makerworldmate" />
+  <meta property="og:image" content="https://holatiger.com/assets/images/social/makerworldmate-1200x630.png" />
+  <meta property="og:site_name" content="HolaTiger" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MakerWorldMate - MakerWorld 材质与兼容机型徽章" />
+  <meta name="twitter:description" content="列表页直接看耗材与兼容机型，悬停展开完整清单。" />
+  <meta name="twitter:image" content="https://holatiger.com/assets/images/social/makerworldmate-1200x630.png" />
+  <title data-i18n="title.makerworldmate">MakerWorldMate - MakerWorld 材质与兼容机型徽章 | 列表页直接看耗材和打印机</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/images/icons/icon_16x16.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/icon_32x32.png">
+  <link rel="icon" type="image/x-icon" sizes="48x48" href="/assets/images/icons/icon_48x48.ico">
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/images/icons/icon_256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/icon_256x256.png">
+  <link rel="stylesheet" href="/assets/css/tailwind-built.css" />
+  <link rel="stylesheet" href="/assets/css/product-detail.css" />
+  <link rel="stylesheet" href="/assets/css/nav-unified.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="/assets/js/i18n.js"></script>
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    .mwm-hero-card {
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.10), transparent 40%),
+                  radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.08), transparent 42%),
+                  linear-gradient(135deg, #fffefa, #fbfdf9 55%, #f4fbf6);
+      border: 1px solid rgba(34, 197, 94, 0.14);
+      box-shadow: 0 12px 30px -22px rgba(22, 101, 52, 0.28);
+    }
+    .mwm-stat-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(34, 197, 94, 0.16);
+      backdrop-filter: blur(8px);
+    }
+    .mwm-logo-pill {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 1.75rem; height: 1.75rem; border-radius: 9999px; background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .mwm-feature-card {
+      background: #fff;
+      border: 1px solid rgba(34, 197, 94, 0.14);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .mwm-feature-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -28px rgba(22, 101, 52, .5); }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MakerWorldMate",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome",
+    "description": "在 MakerWorld 模型列表页直接显示打印耗材与兼容打印机型号的 Chrome 扩展。",
+    "url": "https://holatiger.com/makerworldmate",
+    "image": "https://holatiger.com/assets/images/social/makerworldmate-1200x630.png",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+    "publisher": { "@type": "Organization", "name": "HolaTiger", "url": "https://holatiger.com" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "需要登录 MakerWorld 吗？", "acceptedAnswer": { "@type": "Answer", "text": "不需要。扩展读取的是站点公开的模型详情数据，未登录也能正常显示。" } },
+      { "@type": "Question", "name": "会不会被判定为爬虫？", "acceptedAnswer": { "@type": "Answer", "text": "扩展只在你打开列表页时，为可见的卡片请求一次公开详情接口，结果缓存在本地，不会遍历全站，也不会频繁重复请求。" } },
+      { "@type": "Question", "name": "为什么有些卡片显示「—」？", "acceptedAnswer": { "@type": "Answer", "text": "激光切割类 2D 模型没有耗材概念，构型里也不含打印配置，这类卡片会显示「—」，属于数据本身的情况。" } },
+      { "@type": "Question", "name": "支持 makerworld.com 吗？", "acceptedAnswer": { "@type": "Answer", "text": "支持。国际站的页面结构与接口和国内站一致，扩展对两个站点使用同一套逻辑；国际站单次请求的数据量更大，所以首屏预取的卡片更少，滚动时会自动补齐。" } },
+      { "@type": "Question", "name": "会自动下载或打印吗？", "acceptedAnswer": { "@type": "Answer", "text": "不会。扩展只做显示，不点赞、不收藏、不下载，也不触发任何写操作。" } }
+    ]
+  }
+  </script>
+<header class="site-header-v1 sticky top-0 z-50 border-b border-orange-100">
+    <div class="container nav-v1">
+      <a class="logo-v1" href="/">
+        <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" class="w-8 h-8">
+        <span class="logo-text" data-i18n="logo.text">虎啦</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <nav class="nav-links-v1 hidden md:flex items-center gap-6">
+          <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+          <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+          <a href="/#apps" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.apps">桌面应用</a>
+          <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+          <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+          <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        </nav>
+
+        <button id="lang-toggle-btn" class="lang-switcher-btn" aria-label="Switch Language">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          <span class="lang-text">中</span>
+        </button>
+
+        <button class="btn btn-ghost btn-sm md:hidden" id="mobile-menu-btn" aria-label="Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu hidden md:hidden border-t border-orange-100 bg-white/90 backdrop-blur-sm">
+      <nav class="container mx-auto px-6 py-4 flex flex-col gap-4">
+        <a href="/" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.home">首页</a>
+        <a href="/#extensions" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.extensions">浏览器扩展</a>
+        <a href="/#apps" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.apps">桌面应用</a>
+        <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
+        <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
+        <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="px-6 py-12 md:py-16">
+      <div class="max-w-6xl mx-auto">
+        <div class="mwm-hero-card product-hero-card rounded-[2rem] p-8 md:p-12 shadow-sm">
+          <div class="grid gap-10 items-center md:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <div class="inline-flex items-center gap-3 rounded-full bg-green-100 border border-green-200 px-4 py-2 text-sm font-medium fade-in-up">
+                <span class="mwm-logo-pill">
+                  <img src="/assets/images/makerworldmate/icon-128.png" alt="MakerWorldMate logo" class="w-full h-full object-contain rounded-full">
+                </span>
+                <span class="text-green-700" data-i18n="makerworldmate.hero.badge">Chrome 扩展 · 列表页直接看材质</span>
+              </div>
+              <h1 class="mt-6 text-4xl md:text-5xl font-bold leading-tight text-gray-900 fade-in-up" style="animation-delay: 0.1s;">
+                <span class="gradient-text">MakerWorldMate</span>
+                <span data-i18n="makerworldmate.hero.title"> 在列表页就看清楚用什么耗材、支持哪些机型</span>
+              </h1>
+              <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-600 max-w-2xl fade-in-up" style="animation-delay: 0.2s;" data-i18n="makerworldmate.description">
+                MakerWorld 的列表页只给你封面和标题，耗材和兼容机型全都藏在详情页里。MakerWorldMate 把这层信息直接铺回列表页：每张卡片左下角标出该模型用到的耗材，以及兼容多少种打印机，鼠标一悬停就展开完整型号清单。支持 makerworld.com.cn 与 makerworld.com，只读公开数据，结果在本地缓存 7 天。
+              </p>
+              <div class="mt-8 flex flex-col sm:flex-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
+                <span class="inline-flex items-center justify-center gap-2 rounded-xl bg-gray-200 px-6 py-3 font-semibold text-gray-500 cursor-not-allowed select-none" data-i18n="makerworldmate.button.pending">Chrome 应用商店审核中</span>
+                <a href="/#extensions"
+                  class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-orange-500 bg-white px-6 py-3 font-semibold text-orange-600 transition hover:bg-orange-50"
+                  data-i18n="makerworldmate.button.home">返回虎啦首页</a>
+              </div>
+              <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 fade-in-up" style="animation-delay: 0.4s;">
+                <div class="mwm-stat-card rounded-2xl p-4">
+                  <div class="text-2xl font-bold text-gray-900">14</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="makerworldmate.stat1">种兼容机型</div>
+                </div>
+                <div class="mwm-stat-card rounded-2xl p-4">
+                  <div class="text-2xl font-bold text-gray-900">2</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="makerworldmate.stat2">个站点</div>
+                </div>
+                <div class="mwm-stat-card rounded-2xl p-4">
+                  <div class="text-2xl font-bold text-gray-900">0</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="makerworldmate.stat3">数据上传</div>
+                </div>
+                <div class="mwm-stat-card rounded-2xl p-4">
+                  <div class="text-2xl font-bold text-gray-900">7 天</div>
+                  <div class="mt-1 text-xs text-gray-500" data-i18n="makerworldmate.stat4">本地缓存</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="fade-in-up" style="animation-delay: 0.2s;">
+              <div class="rounded-[1.75rem] bg-white p-4 border border-green-100 shadow-lg">
+                <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-green-600" data-i18n="makerworldmate.hero.screenshot">列表页效果</p>
+                <div class="rounded-xl overflow-hidden border border-green-100 bg-white shadow-xl">
+                  <img src="/assets/images/makerworldmate/screenshot/zh/store-screenshot-1280x800-1.png" alt="MakerWorldMate 在模型列表页显示耗材与兼容机型" class="w-full h-auto">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="makerworldmate.features.title">产品特性</h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto fade-in-up" style="animation-delay: 0.15s;" data-i18n="makerworldmate.features.subtitle">把详情页里的关键信息，提前搬到列表页</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="mwm-feature-card rounded-2xl p-6 fade-in-up">
+            <div class="text-3xl mb-4">🧵</div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="makerworldmate.feature1.title">耗材一目了然</h3>
+            <p class="text-gray-600 leading-relaxed" data-i18n="makerworldmate.feature1.desc">PLA、PETG、PLA-CF、TPU、ASA 等耗材带颜色标识直接标在卡片上，跨多个打印配置自动去重。</p>
+          </div>
+          <div class="mwm-feature-card rounded-2xl p-6 fade-in-up">
+            <div class="text-3xl mb-4">🖨️</div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="makerworldmate.feature2.title">兼容机型数量</h3>
+            <p class="text-gray-600 leading-relaxed" data-i18n="makerworldmate.feature2.desc">卡片右下角显示该模型兼容多少种打印机型号，一眼筛掉打不了的模型。</p>
+          </div>
+          <div class="mwm-feature-card rounded-2xl p-6 fade-in-up">
+            <div class="text-3xl mb-4">🖱️</div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="makerworldmate.feature3.title">悬停展开清单</h3>
+            <p class="text-gray-600 leading-relaxed" data-i18n="makerworldmate.feature3.desc">鼠标停在机型数量上，弹出完整型号列表：A1 mini、P1S、X1 Carbon、H2D、H2D Pro……</p>
+          </div>
+          <div class="mwm-feature-card rounded-2xl p-6 fade-in-up">
+            <div class="text-3xl mb-4">🌏</div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="makerworldmate.feature4.title">国内站与国际站</h3>
+            <p class="text-gray-600 leading-relaxed" data-i18n="makerworldmate.feature4.desc">makerworld.com.cn 与 makerworld.com 用同一套逻辑，在两个站点之间切换不用换工具。</p>
+          </div>
+          <div class="mwm-feature-card rounded-2xl p-6 fade-in-up">
+            <div class="text-3xl mb-4">🔒</div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="makerworldmate.feature5.title">只读，不上传</h3>
+            <p class="text-gray-600 leading-relaxed" data-i18n="makerworldmate.feature5.desc">只读取公开的模型信息，不碰账号、收藏、浏览记录，不向任何第三方服务器发送数据。</p>
+          </div>
+          <div class="mwm-feature-card rounded-2xl p-6 fade-in-up">
+            <div class="text-3xl mb-4">⚡</div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="makerworldmate.feature6.title">本地缓存</h3>
+            <p class="text-gray-600 leading-relaxed" data-i18n="makerworldmate.feature6.desc">结果在浏览器本地缓存 7 天，滚回看过的卡片不会重复请求，列表滚动依旧跟手。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-6 bg-gradient-to-br from-slate-50 to-green-50/60">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="makerworldmate.steps.title">三步用上</h2>
+          <p class="text-gray-600 text-lg fade-in-up" style="animation-delay: 0.15s;" data-i18n="makerworldmate.steps.subtitle">装好之后不用再管它</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="mwm-feature-card rounded-2xl p-6 text-center fade-in-up">
+            <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-xl font-bold text-green-700">1</div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="makerworldmate.step1.title">安装扩展</h3>
+            <p class="text-gray-600 leading-relaxed" data-i18n="makerworldmate.step1.desc">在 Chrome 应用商店安装后，扩展会自行识别 MakerWorld 的列表页。</p>
+          </div>
+          <div class="mwm-feature-card rounded-2xl p-6 text-center fade-in-up">
+            <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-xl font-bold text-green-700">2</div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="makerworldmate.step2.title">照常浏览</h3>
+            <p class="text-gray-600 leading-relaxed" data-i18n="makerworldmate.step2.desc">打开任意模型列表页，不需要额外操作，徽章会自动出现在卡片左下角。</p>
+          </div>
+          <div class="mwm-feature-card rounded-2xl p-6 text-center fade-in-up">
+            <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-xl font-bold text-green-700">3</div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="makerworldmate.step3.title">悬停查看</h3>
+            <p class="text-gray-600 leading-relaxed" data-i18n="makerworldmate.step3.desc">把鼠标停在机型数量上，完整兼容清单会浮在卡片上方。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-6 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="makerworldmate.screenshots.title">界面预览</h2>
+          <p class="text-gray-600 text-lg fade-in-up" style="animation-delay: 0.15s;" data-i18n="makerworldmate.screenshots.subtitle">徽章贴在封面左下角，不改变卡片高度与网格排布</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="rounded-2xl overflow-hidden border border-green-100 shadow-lg fade-in-up">
+            <img src="/assets/images/makerworldmate/screenshot/zh/store-screenshot-1280x800-1.png" alt="模型列表页上的耗材与机型徽章" class="w-full h-auto" loading="lazy">
+          </div>
+          <div class="rounded-2xl overflow-hidden border border-green-100 shadow-lg fade-in-up" style="animation-delay: 0.15s;">
+            <img src="/assets/images/makerworldmate/screenshot/zh/store-screenshot-1280x800-2.png" alt="悬停机型数量展开完整兼容机型清单" class="w-full h-auto" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-6 bg-gradient-to-br from-orange-50/40 to-green-50/40">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in-up" data-i18n="makerworldmate.faq.title">常见问题</h2>
+          <p class="text-gray-600 text-lg fade-in-up" style="animation-delay: 0.15s;" data-i18n="makerworldmate.faq.subtitle">关于数据来源与隐私</p>
+        </div>
+        <div class="space-y-4">
+          <details class="group rounded-2xl border border-green-100 bg-white p-5 fade-in-up">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-gray-900">
+              <span data-i18n="makerworldmate.faq1.question">需要登录 MakerWorld 吗？</span>
+              <span class="ml-4 text-green-600 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-gray-600 leading-relaxed" data-i18n="makerworldmate.faq1.answer">不需要。扩展读取的是站点公开的模型详情数据，未登录也能正常显示。</p>
+          </details>
+          <details class="group rounded-2xl border border-green-100 bg-white p-5 fade-in-up">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-gray-900">
+              <span data-i18n="makerworldmate.faq2.question">会不会被判定为爬虫？</span>
+              <span class="ml-4 text-green-600 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-gray-600 leading-relaxed" data-i18n="makerworldmate.faq2.answer">扩展只在你打开列表页时，为可见的卡片请求一次公开详情接口，结果缓存在本地，不会遍历全站，也不会频繁重复请求。</p>
+          </details>
+          <details class="group rounded-2xl border border-green-100 bg-white p-5 fade-in-up">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-gray-900">
+              <span data-i18n="makerworldmate.faq3.question">为什么有些卡片显示「—」？</span>
+              <span class="ml-4 text-green-600 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-gray-600 leading-relaxed" data-i18n="makerworldmate.faq3.answer">激光切割类 2D 模型没有耗材概念，构型里也不含打印配置，这类卡片会显示「—」，属于数据本身的情况。</p>
+          </details>
+          <details class="group rounded-2xl border border-green-100 bg-white p-5 fade-in-up">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-gray-900">
+              <span data-i18n="makerworldmate.faq4.question">支持 makerworld.com 吗？</span>
+              <span class="ml-4 text-green-600 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-gray-600 leading-relaxed" data-i18n="makerworldmate.faq4.answer">支持。国际站的页面结构与接口和国内站一致，扩展对两个站点使用同一套逻辑；国际站单次请求的数据量更大，所以首屏预取的卡片更少，滚动时会自动补齐。</p>
+          </details>
+          <details class="group rounded-2xl border border-green-100 bg-white p-5 fade-in-up">
+            <summary class="flex cursor-pointer list-none items-center justify-between font-semibold text-gray-900">
+              <span data-i18n="makerworldmate.faq5.question">会自动下载或打印吗？</span>
+              <span class="ml-4 text-green-600 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-gray-600 leading-relaxed" data-i18n="makerworldmate.faq5.answer">不会。扩展只做显示，不点赞、不收藏、不下载，也不触发任何写操作。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+<footer class="py-12 px-6 border-t border-gray-200 bg-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <p class="text-gray-500 text-lg" data-i18n="footer.copyright">© <span id="year"></span> 虎啦 (HolaTiger) - 小工具，大能量</p>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      if (window.i18n && typeof window.i18n.init === 'function') {
+        window.i18n.init();
+      }
+    });
+  </script>
+</body>
+</html>

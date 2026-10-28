@@ -30,6 +30,7 @@ const PAGE_CONFIG = {
   'webdavy.html':                            { priority: 0.8, changefreq: 'monthly' },
   'tinypass.html':                           { priority: 0.8, changefreq: 'monthly' },
   'battery-killer.html':                     { priority: 0.8, changefreq: 'monthly' },
+  'makerworldmate.html':                     { priority: 0.8, changefreq: 'monthly' },
   'faq.html':                                { priority: 0.6, changefreq: 'weekly' },
   'blog.html':                               { priority: 0.6, changefreq: 'daily' },
   // Use case / comparison pages (新 SEO 矩阵)

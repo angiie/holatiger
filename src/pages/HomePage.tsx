@@ -119,6 +119,29 @@ const HomePage: React.FC = () => {
                 </a>
               </div>
             </div>
+
+            {/* MakerWorldMate Card */}
+            <div className="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
+              <a href="/makerworldmate" className="flex items-center gap-4 mb-5 no-underline" style={{ textDecoration: 'none !important', color: 'inherit' }}>
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center shadow-sm">
+                  <img src="/assets/images/makerworldmate/icon-128.png" alt="MakerWorldMate" className="w-8 h-8" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 text-lg">{t('makerworldmate.name', 'MakerWorldMate')}</h3>
+                  <span className="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full font-medium">{t('extensions.badge', 'Chrome扩展')}</span>
+                </div>
+              </a>
+              <p className="text-gray-600 mb-5 leading-relaxed line-clamp-3">{t('makerworldmate.desc', '在 MakerWorld 模型列表页直接看到打印耗材与兼容机型。')}</p>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-sm text-gray-500">
+                  <span className="w-3 h-3 bg-amber-500 rounded-full" />
+                  <span>{t('status.reviewing', '审核中')}</span>
+                </div>
+                <a href="/makerworldmate" className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm shadow-sm no-underline" style={{ backgroundColor: '#2563eb !important', color: 'white !important', textDecoration: 'none !important' }}>
+                  {t('btn.details', '查看详情')}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
