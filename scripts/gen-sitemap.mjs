@@ -51,16 +51,18 @@ const PAGE_CONFIG = {
 
 const BLOG_DEFAULT =    { priority: 0.5, changefreq: 'monthly' };
 
+const PUBLIC_ROUTES = {
+  'blog-svg-to-png-workflow.html': '/svg-to-png-workflow',
+  'blog-tinypass-password-guide.html': '/tinypass-password-guide',
+  'blog-webdav-chrome-setup.html': '/webdav-chrome-setup-blog',
+  'blog-nano-banana-watermark-remover.html': '/nano-banana-watermark-remover',
+  'blog-tinypic-wasm-principle.html': '/blog-tinypic-wasm-principle',
+  'tinypic.html': null,
+};
+
 // ===== hreflang 配置 =====
 // 大多数页面: zh-CN=page, en=page?lang=en, x-default=page
 function getHreflangs(pagePath, loc) {
-  if (pagePath === 'index.html') {
-    return [
-      { hreflang: 'zh-CN', href: loc },
-      { hreflang: 'en', href: `${loc}?lang=en` },
-      { hreflang: 'x-default', href: loc },
-    ];
-  }
   if (pagePath === 'banana/index.html' || pagePath === 'tinypic/index.html') {
     const dirPath = pagePath.replace('/index.html', '');
     return [
@@ -69,14 +71,6 @@ function getHreflangs(pagePath, loc) {
       { hreflang: 'x-default', href: `${BASE_URL}/${dirPath}/` },
     ];
   }
-  if (pagePath === 'blog.html') {
-    return [
-      { hreflang: 'zh-CN', href: `${BASE_URL}/blog.html` },
-      { hreflang: 'en', href: `${BASE_URL}/en/blog` },
-      { hreflang: 'x-default', href: `${BASE_URL}/blog.html` },
-    ];
-  }
-  // fallback: 使用传入的 loc 参数
   return [
     { hreflang: 'zh-CN', href: loc },
     { hreflang: 'en', href: `${loc}?lang=en` },
@@ -85,20 +79,13 @@ function getHreflangs(pagePath, loc) {
 }
 
 function getLoc(pagePath) {
+  if (PUBLIC_ROUTES[pagePath] === null) return null;
   if (pagePath === 'banana/index.html' || pagePath === 'tinypic/index.html') {
-    const dirPath = pagePath.replace('/index.html', '');
-    return `${BASE_URL}/${dirPath}/`;
+    return `${BASE_URL}/${pagePath.replace('/index.html', '')}/`;
   }
-  if (pagePath === 'index.html') {
-    return `${BASE_URL}/`;
-  }
-  // blog 子目录文章保留 .html（避免 clean URL 需额外 rewrite）
-  if (pagePath.startsWith('blog/')) {
-    return `${BASE_URL}/${pagePath}`;
-  }
-  // webdavy.html / tinypass.html 等使用 clean URL（由 vercel.json rewrite 提供）
-  const cleanName = pagePath.replace(/\.html$/, '');
-  return `${BASE_URL}/${cleanName}`;
+  if (pagePath === 'index.html') return `${BASE_URL}/`;
+  if (pagePath.startsWith('blog/')) return `${BASE_URL}/${pagePath}`;
+  return `${BASE_URL}${PUBLIC_ROUTES[pagePath] || `/${pagePath.replace(/\.html$/, '')}`}`;
 }
 
 // ===== 获取文件最后修改日期 =====
@@ -160,7 +147,7 @@ function scanPages() {
 
 // ===== 生成 sitemap XML =====
 function generate() {
-  const pages = scanPages().filter(p => !EXCLUDE.has(p));
+  const pages = scanPages().filter(p => !EXCLUDE.has(p) && getLoc(p) !== null);
   const urls = pages.map(pagePath => {
     const cfg = PAGE_CONFIG[pagePath] || (pagePath.startsWith('blog') ? BLOG_DEFAULT : { priority: 0.5, changefreq: 'monthly' });
     const lastmod = getLastMod(pagePath);

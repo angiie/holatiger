@@ -17,18 +17,183 @@
             "permanent": true
         },
         {
+            "source": "/index.html",
+            "destination": "/",
+            "permanent": true
+        },
+        {
             "source": "/banana/index.html",
             "destination": "/banana/",
             "permanent": true
         },
         {
-            "source": "/en/faq",
-            "destination": "/faq.html?lang=en",
+            "source": "/tinypic",
+            "destination": "/tinypic/",
             "permanent": true
         },
         {
-            "source": "/tinypic",
+            "source": "/tinypic.html",
             "destination": "/tinypic/",
+            "permanent": true
+        },
+        {
+            "source": "/tinypic/index.html",
+            "destination": "/tinypic/",
+            "permanent": true
+        },
+        {
+            "source": "/en/",
+            "destination": "/?lang=en",
+            "permanent": true
+        },
+        {
+            "source": "/en/faq",
+            "destination": "/faq?lang=en",
+            "permanent": true
+        },
+        {
+            "source": "/svg-studio.html",
+            "destination": "/svg-studio",
+            "permanent": true
+        },
+        {
+            "source": "/ezpixy.html",
+            "destination": "/ezpixy",
+            "permanent": true
+        },
+        {
+            "source": "/text-to-png.html",
+            "destination": "/text-to-png",
+            "permanent": true
+        },
+        {
+            "source": "/faq.html",
+            "destination": "/faq",
+            "permanent": true
+        },
+        {
+            "source": "/blog.html",
+            "destination": "/blog",
+            "permanent": true
+        },
+        {
+            "source": "/ai-fashion-model.html",
+            "destination": "/ai-fashion-model",
+            "permanent": true
+        },
+        {
+            "source": "/banana-vs-adobe-firefly.html",
+            "destination": "/banana-vs-adobe-firefly",
+            "permanent": true
+        },
+        {
+            "source": "/battery-killer.html",
+            "destination": "/battery-killer",
+            "permanent": true
+        },
+        {
+            "source": "/compress-jpeg-online.html",
+            "destination": "/compress-jpeg-online",
+            "permanent": true
+        },
+        {
+            "source": "/ezpixy-vs-midjourney.html",
+            "destination": "/ezpixy-vs-midjourney",
+            "permanent": true
+        },
+        {
+            "source": "/makerworldmate.html",
+            "destination": "/makerworldmate",
+            "permanent": true
+        },
+        {
+            "source": "/password-generator.html",
+            "destination": "/password-generator",
+            "permanent": true
+        },
+        {
+            "source": "/remove-gemini-watermark.html",
+            "destination": "/remove-gemini-watermark",
+            "permanent": true
+        },
+        {
+            "source": "/svg-studio-vs-inkscape.html",
+            "destination": "/svg-studio-vs-inkscape",
+            "permanent": true
+        },
+        {
+            "source": "/svg-to-png.html",
+            "destination": "/svg-to-png",
+            "permanent": true
+        },
+        {
+            "source": "/text-to-image.html",
+            "destination": "/text-to-image",
+            "permanent": true
+        },
+        {
+            "source": "/tinypass-vs-1password.html",
+            "destination": "/tinypass-vs-1password",
+            "permanent": true
+        },
+        {
+            "source": "/tinypass.html",
+            "destination": "/tinypass",
+            "permanent": true
+        },
+        {
+            "source": "/tinypic-vs-squoosh.html",
+            "destination": "/tinypic-vs-squoosh",
+            "permanent": true
+        },
+        {
+            "source": "/webdav-chrome-setup.html",
+            "destination": "/webdav-chrome-setup",
+            "permanent": true
+        },
+        {
+            "source": "/webdavy-vs-raidrive.html",
+            "destination": "/webdavy-vs-raidrive",
+            "permanent": true
+        },
+        {
+            "source": "/webdavy.html",
+            "destination": "/webdavy",
+            "permanent": true
+        },
+        {
+            "source": "/blog-svg-to-png-workflow.html",
+            "destination": "/svg-to-png-workflow",
+            "permanent": true
+        },
+        {
+            "source": "/blog-tinypass-password-guide.html",
+            "destination": "/tinypass-password-guide",
+            "permanent": true
+        },
+        {
+            "source": "/blog-webdav-chrome-setup.html",
+            "destination": "/webdav-chrome-setup-blog",
+            "permanent": true
+        },
+        {
+            "source": "/blog-nano-banana-watermark-remover.html",
+            "destination": "/nano-banana-watermark-remover",
+            "permanent": true
+        },
+        {
+            "source": "/blog-tinypic-wasm-principle.html",
+            "destination": "/blog-tinypic-wasm-principle",
+            "permanent": true
+        },
+        {
+            "source": "/blog-gemini-watermark-remover.html",
+            "destination": "/blog-gemini-watermark-remover",
+            "permanent": true
+        },
+        {
+            "source": "/blog-handy-tulip-implementation.html",
+            "destination": "/blog-handy-tulip-implementation",
             "permanent": true
         },
         {
@@ -38,6 +203,16 @@
         },
         {
             "source": "/blog-bulk-gemini-watermark-remover",
+            "destination": "/blog/blog-bulk-gemini-watermark-remover.html",
+            "permanent": true
+        },
+        {
+            "source": "/blog/blog-bulk-gemini-watermark-remover",
+            "destination": "/blog/blog-bulk-gemini-watermark-remover.html",
+            "permanent": true
+        },
+        {
+            "source": "/bulk-gemini-watermark-remover",
             "destination": "/blog/blog-bulk-gemini-watermark-remover.html",
             "permanent": true
         }
@@ -168,12 +343,8 @@
             "destination": "/blog-handy-tulip-implementation.html"
         },
         {
-            "source": "/bulk-gemini-watermark-remover",
-            "destination": "/blog/blog-bulk-gemini-watermark-remover.html"
-        },
-        {
-            "source": "/blog/blog-bulk-gemini-watermark-remover",
-            "destination": "/blog/blog-bulk-gemini-watermark-remover.html"
+            "source": "/blog-tinypic-wasm-principle",
+            "destination": "/blog-tinypic-wasm-principle.html"
         },
         {
             "source": "/nano-banana-watermark-remover",

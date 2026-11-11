@@ -64,8 +64,8 @@
           <a href="/#apps" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.apps">桌面应用</a>
           <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
           <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
-          <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
-          <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+          <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
         </nav>
         <button id="lang-toggle-btn" class="lang-switcher-btn" aria-label="Switch Language">
           <i data-lucide="globe" class="w-4 h-4"></i>
@@ -83,8 +83,8 @@
         <a href="/#apps" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.apps">桌面应用</a>
         <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
         <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
-        <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
-        <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
       </nav>
     </div>
   </header>
@@ -94,7 +94,7 @@
       <ol class="flex items-center space-x-2">
         <li><a href="/" class="hover:text-orange-500 transition-colors">首页</a></li>
         <li><span class="mx-2">/</span></li>
-        <li><a href="/blog.html" class="hover:text-orange-500 transition-colors">博客</a></li>
+        <li><a href="/blog" class="hover:text-orange-500 transition-colors">博客</a></li>
         <li><span class="mx-2">/</span></li>
         <li class="text-gray-800 font-medium" aria-current="page">批量 Gemini 去水印教程</li>
       </ol>
@@ -153,7 +153,7 @@
     <p>PNG、JPEG、WebP 都完全支持。导出时保持原有格式。</p>
 
     <h3>去水印会降低图片质量吗？</h3>
-    <p>不会。Banana 使用的是 <strong>数学反向求解</strong> 方式（反向 Alpha 混合），不是模糊/裁剪/覆盖。因为我们知道水印 Logo 的精确位置和透明度，可以直接从混合后的像素中反推出原始像素值。结果和 Gemini 未加水印之前的原图一致。（<a href="/blog-gemini-watermark-remover.html">点击这里看技术原理详解</a>）</p>
+    <p>不会。Banana 使用的是 <strong>数学反向求解</strong> 方式（反向 Alpha 混合），不是模糊/裁剪/覆盖。因为我们知道水印 Logo 的精确位置和透明度，可以直接从混合后的像素中反推出原始像素值。结果和 Gemini 未加水印之前的原图一致。（<a href="/blog-gemini-watermark-remover">点击这里看技术原理详解</a>）</p>
 
     <h3>为什么不用在线工具（如 Photoshop Express / Remove.bg）？</h3>
     <p>那些工具要么不支持 Gemini 的特定水印模式，要么需要把图片上传到云端服务器处理。Banana 是<strong>纯浏览器端运行</strong>的——你的图片不会离开你的电脑，隐私有保障。</p>

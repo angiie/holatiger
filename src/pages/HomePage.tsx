@@ -6,6 +6,9 @@ import Layout from '@/components/Layout'
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation()
+  const canonicalUrl = new URLSearchParams(window.location.search).get('lang') === 'en'
+    ? 'https://holatiger.com/?lang=en'
+    : 'https://holatiger.com/'
 
   return (
     <Layout variant="default">
@@ -14,10 +17,10 @@ const HomePage: React.FC = () => {
         <meta name="description" content={t('home.description', '虎啦（HolaTiger）：轻量、实用、开箱即用的浏览器扩展与在线工具集合，为你的工作流程增添便利。')} />
         <meta property="og:title" content={t('seo.og.home.title', 'HolaTiger 虎啦 - 个人工具集合')} />
         <meta property="og:description" content={t('home.description', '轻量、实用、开箱即用的浏览器扩展与在线工具集合。')} />
-        <meta property="og:url" content="https://holatiger.com/" />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content="https://holatiger.com/assets/images/social/holatiger-svg-studio-1200x630.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://holatiger.com/" />
+        <link rel="canonical" href={canonicalUrl} />
       </Helmet>
 
       {/* Hero Section */}
@@ -198,7 +201,7 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* ezpixy */}
             <div className="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
-              <a href="/ezpixy.html" className="flex items-center gap-4 mb-5 no-underline" style={{ textDecoration: 'none !important', color: 'inherit' }}>
+              <a href="/ezpixy" className="flex items-center gap-4 mb-5 no-underline" style={{ textDecoration: 'none !important', color: 'inherit' }}>
                 <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 flex items-center justify-center shadow-sm">
                   <img src="/assets/images/ezpixy/logo-header.png" alt="ezpixy" className="w-8 h-8 object-contain" />
                 </div>
@@ -216,7 +219,7 @@ const HomePage: React.FC = () => {
                   <span className="w-3 h-3 bg-green-500 rounded-full" />
                   <span>{t('status.available', '可用')}</span>
                 </div>
-                <a href="/ezpixy.html" className="inline-flex items-center px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-colors font-medium text-sm shadow-sm no-underline" style={{ backgroundColor: '#6366f1 !important', color: 'white !important', textDecoration: 'none !important' }}>
+                <a href="/ezpixy" className="inline-flex items-center px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-colors font-medium text-sm shadow-sm no-underline" style={{ backgroundColor: '#6366f1 !important', color: 'white !important', textDecoration: 'none !important' }}>
                   {t('btn.details', '查看详情')}
                 </a>
               </div>
@@ -270,7 +273,7 @@ const HomePage: React.FC = () => {
 
             {/* SVG Studio */}
             <div className="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
-              <a href="/svg-studio.html" className="flex items-center gap-4 mb-5 no-underline" style={{ textDecoration: 'none !important', color: 'inherit' }}>
+              <a href="/svg-studio" className="flex items-center gap-4 mb-5 no-underline" style={{ textDecoration: 'none !important', color: 'inherit' }}>
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center shadow-sm">
                   <picture>
                     <source srcSet="/assets/images/svg-studio/edited_image_1_(1).webp" type="image/webp" />
@@ -288,7 +291,7 @@ const HomePage: React.FC = () => {
                   <span className="w-3 h-3 bg-green-500 rounded-full" />
                   <span>{t('status.available', '可用')}</span>
                 </div>
-                <a href="/svg-studio.html" className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm shadow-sm no-underline" style={{ backgroundColor: '#9333ea !important', color: 'white !important', textDecoration: 'none !important' }}>
+                <a href="/svg-studio" className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium text-sm shadow-sm no-underline" style={{ backgroundColor: '#9333ea !important', color: 'white !important', textDecoration: 'none !important' }}>
                   {t('btn.try-tool', '试用工具')}
                 </a>
               </div>
@@ -296,7 +299,7 @@ const HomePage: React.FC = () => {
 
             {/* Text to PNG */}
             <div className="group bg-white rounded-2xl p-8 shadow-md border border-gray-100 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
-              <a href="/text-to-png.html" className="flex items-center gap-4 mb-5 no-underline" style={{ textDecoration: 'none !important', color: 'inherit' }}>
+              <a href="/text-to-png" className="flex items-center gap-4 mb-5 no-underline" style={{ textDecoration: 'none !important', color: 'inherit' }}>
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center shadow-sm">
                   <Type className="w-8 h-8 text-orange-600" />
                 </div>
@@ -311,7 +314,7 @@ const HomePage: React.FC = () => {
                   <span className="w-3 h-3 bg-green-500 rounded-full" />
                   <span>{t('status.available', '可用')}</span>
                 </div>
-                <a href="/text-to-png.html" className="inline-flex items-center px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors font-medium text-sm shadow-sm no-underline" style={{ backgroundColor: '#ea580c !important', color: 'white !important', textDecoration: 'none !important' }}>
+                <a href="/text-to-png" className="inline-flex items-center px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors font-medium text-sm shadow-sm no-underline" style={{ backgroundColor: '#ea580c !important', color: 'white !important', textDecoration: 'none !important' }}>
                   {t('btn.try-tool', '试用工具')}
                 </a>
               </div>

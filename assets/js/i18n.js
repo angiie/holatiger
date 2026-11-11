@@ -188,6 +188,18 @@ class I18nManager {
     return null;
   }
 
+  updateCanonicalUrl() {
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) return;
+    const url = new URL(canonical.href, window.location.origin);
+    url.search = '';
+    const lang = new URLSearchParams(window.location.search).get('lang');
+    if (lang) url.searchParams.set('lang', lang);
+    canonical.setAttribute('href', url.toString());
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', url.toString());
+  }
+
   /**
    * 更新所有 SEO meta 标签（语言切换时同步更新）
    */
@@ -235,6 +247,7 @@ class I18nManager {
     const localeMap = { 'zh': 'zh_CN', 'en': 'en_US' };
     document.documentElement.lang = langCodeMap[this.currentLanguage] || 'zh-CN';
     help('property', 'og:locale', localeMap[this.currentLanguage] || 'zh_CN');
+    this.updateCanonicalUrl();
   }
 
   /**

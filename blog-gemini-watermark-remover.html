@@ -10,11 +10,11 @@
   <meta name="description" content="深入解析 Gemini 图片水印的原理，以及如何使用纯浏览器端工具通过数学反向求解无损移除水印。" />
   <meta name="keywords" content="Gemini, AI 水印, 去水印, 反向 Alpha 混合, 图片处理, 无损去水印, 技术原理, HolaTiger" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://holatiger.com/blog-gemini-watermark-remover.html" />
+  <link rel="canonical" href="https://holatiger.com/blog-gemini-watermark-remover" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="揭秘 Gemini AI 去水印原理：基于数学的反向 Alpha 混合算法" />
   <meta property="og:description" content="深入解析 Gemini 图片水印的原理，以及如何使用纯浏览器端工具通过数学反向求解无损移除水印。" />
-  <meta property="og:url" content="https://holatiger.com/blog-gemini-watermark-remover.html" />
+  <meta property="og:url" content="https://holatiger.com/blog-gemini-watermark-remover" />
   <meta property="og:image" content="https://holatiger.com/assets/images/social/blog-1200x630.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="揭秘 Gemini AI 去水印原理：基于数学的反向 Alpha 混合算法" />
@@ -64,8 +64,8 @@
           <a href="/#apps" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.apps">桌面应用</a>
           <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
           <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
-          <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
-          <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+          <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+          <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
         </nav>
         
         <!-- Language Selector (Toggle Button) -->
@@ -89,8 +89,8 @@
         <a href="/#apps" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.apps">桌面应用</a>
         <a href="/#tools" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.tools">在线工具</a>
         <a href="/#about" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.about">关于我</a>
-        <a href="/faq.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
-        <a href="/blog.html" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
+        <a href="/faq" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.faq">FAQ</a>
+        <a href="/blog" class="text-gray-600 hover:text-orange-500 transition-colors" data-i18n="nav.blog">博客</a>
       </nav>
     </div>
   </header>
@@ -101,7 +101,7 @@
       <ol class="flex items-center space-x-2">
         <li><a href="/" class="hover:text-orange-500 transition-colors">首页</a></li>
         <li><span class="mx-2">/</span></li>
-        <li><a href="/blog.html" class="hover:text-orange-500 transition-colors">博客</a></li>
+        <li><a href="/blog" class="hover:text-orange-500 transition-colors">博客</a></li>
         <li><span class="mx-2">/</span></li>
         <li class="text-gray-800 font-medium" aria-current="page">揭秘 Gemini AI 去水印原理</li>
       </ol>
@@ -116,12 +116,12 @@
     
     <div class="bg-blue-50 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg not-prose">
       <p class="m-0 text-blue-900 leading-relaxed"><strong>太长不看版：</strong> Gemini 的可见水印（右下角 Logo）是通过简单的 Alpha 混合叠加的。因为我们知道 Logo 的形状和位置，可以通过数学公式反向计算出原始像素值，从而实现<strong>无损还原</strong>。</p>
-      <a href="/banana/index.html" class="inline-flex items-center gap-2 mt-4 text-blue-700 font-bold hover:text-blue-800 transition-colors">
+      <a href="/banana/" class="inline-flex items-center gap-2 mt-4 text-blue-700 font-bold hover:text-blue-800 transition-colors">
         👉 立即体验：Gemini 图像无损去水印工具 <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </a>
     </div>
 
-    <p class="text-gray-600">最近，Google 的 Gemini 模型生成的图片都会在右下角添加一个半透明的 Logo 水印。虽然这有助于标识 AI 生成内容，但在某些个人使用场景下（如收藏、壁纸），这个水印可能会有些干扰。本文将介绍我们刚刚发布的<a href="/banana/index.html">在线去水印工具</a>背后的技术原理。</p>
+    <p class="text-gray-600">最近，Google 的 Gemini 模型生成的图片都会在右下角添加一个半透明的 Logo 水印。虽然这有助于标识 AI 生成内容，但在某些个人使用场景下（如收藏、壁纸），这个水印可能会有些干扰。本文将介绍我们刚刚发布的<a href="/banana/">在线去水印工具</a>背后的技术原理。</p>
 
     <h2>水印是如何添加的？</h2>
     <p>Gemini 添加水印的方式其实非常标准，使用了计算机图形学中最基础的 <strong>Alpha 混合（Alpha Blending）</strong>。</p>
@@ -213,7 +213,7 @@
     <p>通过简单的数学原理，我们可以优雅地解决这个问题。如果你也受困于 Gemini 的图片水印，欢迎尝试这个小工具。</p>
     
     <div class="mt-12 text-center not-prose">
-      <a href="/banana/index.html" class="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 font-bold text-lg no-underline shadow-md">
+      <a href="/banana/" class="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 font-bold text-lg no-underline shadow-md">
         <i data-lucide="rocket" class="w-5 h-5"></i>
         试用 Gemini 去水印工具
       </a>
