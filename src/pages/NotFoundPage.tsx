@@ -15,7 +15,7 @@ const NotFoundPage: React.FC = () => {
         <p className="text-xl text-gray-600 mb-8">页面未找到</p>
         <Link
           to="/"
-          className="inline-flex px-6 py-3 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition-colors"
+          className="ui-button ui-button-primary ui-button-large"
         >
           返回首页
         </Link>

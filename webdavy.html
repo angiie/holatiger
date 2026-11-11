@@ -38,30 +38,6 @@
   <script src="/assets/js/i18n.js"></script>
   <script>document.documentElement.classList.add('js');</script>
   <style>
-    .webdavy-hero-card {
-      /* 弱化过重的大色块与投影：底色贴近页面背景，只留一层淡淡的暖色倾向 */
-      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.09), transparent 38%),
-                  linear-gradient(135deg, #fffefa, #fffaf3 60%, #fff2e3);
-      border: 1px solid rgba(249, 115, 22, 0.12);
-      box-shadow: 0 12px 30px -22px rgba(154, 52, 18, 0.28);
-    }
-    .webdavy-stat-card {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(249, 115, 22, 0.15);
-      backdrop-filter: blur(8px);
-    }
-    .webdavy-logo-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.75rem;
-      height: 1.75rem;
-      border-radius: 9999px;
-      background: #fff;
-      border: 1px solid rgba(249, 115, 22, 0.25);
-      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.15);
-      padding: 0.35rem;
-    }
     .webdavy-shot-card {
       overflow: hidden;
       border-radius: 1rem;
@@ -155,60 +131,56 @@
 
   <main>
     <!-- Hero -->
-    <section class="px-6 py-12 md:py-16">
-      <div class="max-w-6xl mx-auto">
-        <div class="webdavy-hero-card product-hero-card rounded-[2rem] p-8 md:p-12 shadow-sm">
-          <div class="grid gap-10 items-center md:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <div class="inline-flex items-center gap-3 rounded-full bg-orange-100 border border-orange-200 px-4 py-2 text-sm font-medium fade-in-up">
-                <span class="webdavy-logo-pill">
-                  <img src="/assets/images/webdavy/svg-export-40x40.png" alt="WebDavy logo" class="w-full h-full object-contain">
+    <section class="product-showcase px-5 sm:px-6 py-10 md:py-16">
+      <div class="product-shell mx-auto">
+        <div class="product-hero-card" data-media="landscape">
+          <div class="product-hero-grid">
+            <div class="product-copy">
+              <div class="product-kicker fade-in-up">
+                <span class="product-logo">
+                  <img src="/assets/images/webdavy/svg-export-40x40.png" alt="WebDavy logo">
                 </span>
-                <span class="text-orange-700" data-i18n="webdavy.hero.badge">WebDAV 浏览器客户端</span>
+                <span data-i18n="webdavy.hero.badge">WebDAV 浏览器客户端</span>
               </div>
-              <h1 class="mt-6 text-4xl md:text-5xl font-bold leading-tight text-gray-900 fade-in-up" style="animation-delay: 0.1s;">
-                <span class="gradient-text">WebDavy</span>
-                <span data-i18n="webdavy.hero.title"> 把 WebDAV 云盘直接接入浏览器</span>
-              </h1>
-              <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-600 max-w-2xl fade-in-up" style="animation-delay: 0.2s;" data-i18n="webdavy.description">
+              <div class="product-name fade-in-up" style="animation-delay: 0.05s;">WebDavy</div>
+              <h1 class="product-title fade-in-up" style="animation-delay: 0.1s;" data-i18n="webdavy.hero.title">把 WebDAV 云盘直接接入浏览器</h1>
+              <p class="product-summary fade-in-up" style="animation-delay: 0.2s;" data-i18n="webdavy.description">
                 WebDavy 是基于 WebDAV 的 Chrome 扩展，可在浏览器内连接个人云盘或企业服务器，实现上传、下载、浏览与整理文件，支持多账号管理与路径记忆。
               </p>
-              <div class="mt-8 flex flex-col sm:flex-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
+              <div class="product-actions fade-in-up" style="animation-delay: 0.3s;">
                 <a href="https://chromewebstore.google.com/detail/webdavy/inaeglkgfmnkncalphgpkendfjndjmid" target="_blank" rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white transition hover:scale-[1.02] hover:bg-orange-600"
+                  class="product-button product-button-primary"
                   data-i18n="webdavy.button.install">🚀 立即安装</a>
                 <a href="/#extensions"
-                  class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-orange-500 bg-white px-6 py-3 font-semibold text-orange-600 transition hover:bg-orange-50"
+                  class="product-button product-button-secondary"
                   data-i18n="webdavy.button.home">返回虎啦首页</a>
               </div>
-              <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 fade-in-up" style="animation-delay: 0.4s;">
-                <div class="webdavy-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">4+</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="webdavy.stat1">支持主流服务</div>
+              <div class="product-stats fade-in-up" style="animation-delay: 0.4s;">
+                <div class="product-stat">
+                  <strong>4+</strong>
+                  <span data-i18n="webdavy.stat1">支持主流服务</span>
                 </div>
-                <div class="webdavy-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">2</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="webdavy.stat2">种认证方式</div>
+                <div class="product-stat">
+                  <strong>2</strong>
+                  <span data-i18n="webdavy.stat2">种认证方式</span>
                 </div>
-                <div class="webdavy-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">多</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="webdavy.stat3">账户同时挂载</div>
+                <div class="product-stat">
+                  <strong>多</strong>
+                  <span data-i18n="webdavy.stat3">账户同时挂载</span>
                 </div>
-                <div class="webdavy-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">Free</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="webdavy.stat4">免费使用</div>
+                <div class="product-stat">
+                  <strong>Free</strong>
+                  <span data-i18n="webdavy.stat4">免费使用</span>
                 </div>
               </div>
             </div>
 
-            <div class="fade-in-up" style="animation-delay: 0.2s;">
-              <div class="rounded-[1.75rem] bg-white p-4 border border-orange-100 shadow-lg">
-                <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600" data-i18n="webdavy.hero.screenshot">连接配置界面</p>
-                <div class="rounded-xl overflow-hidden border border-orange-100 bg-white shadow-xl">
-                  <img src="/assets/images/webdavy/screenshot/zh/login-page.png" alt="WebDavy connection settings" class="w-full h-auto">
-                </div>
+            <figure class="product-media fade-in-up" style="animation-delay: 0.2s;">
+              <figcaption class="product-media-label" data-i18n="webdavy.hero.screenshot">连接配置界面</figcaption>
+              <div class="product-media-frame">
+                <img src="/assets/images/webdavy/screenshot/zh/login-page.png" alt="WebDavy connection settings" width="1280" height="800" fetchpriority="high">
               </div>
-            </div>
+            </figure>
           </div>
         </div>
       </div>

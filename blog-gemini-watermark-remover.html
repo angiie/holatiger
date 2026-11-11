@@ -229,14 +229,9 @@
 
   <link rel="stylesheet" href="/assets/css/tailwind-built.css" />
   <link rel="stylesheet" href="/assets/css/index-inline.css" />
-  <script src="/assets/js/i18n.js"></script>
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    window.addEventListener('load', function () {
-      if (window.i18n && typeof window.i18n.init === 'function') {
-        window.i18n.init();
-      }
-    });
+    const year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

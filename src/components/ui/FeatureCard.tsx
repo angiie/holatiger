@@ -21,7 +21,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       style={{ animationDelay }}
     >
       <div className="flex items-start gap-4">
-        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center flex-shrink-0">
+        <div className="ui-feature-icon">
           <span className="text-xl">{icon}</span>
         </div>
         <div>

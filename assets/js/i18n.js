@@ -185,6 +185,7 @@ class I18nManager {
     if (path.includes('webdavy')) return 'title.webdavy';
     if (path.includes('tinypass')) return 'title.tinypass';
     if (path.includes('battery-killer')) return 'title.battery-killer';
+    if (path.includes('nano-banana-watermark-remover')) return 'title.blogNano';
     return null;
   }
 
@@ -216,6 +217,7 @@ class I18nManager {
     else if (path.includes('webdavy')) prefix = 'webdavy';
     else if (path.includes('tinypic')) prefix = 'tinypic';
     else if (path.includes('battery-killer')) prefix = 'battery-killer';
+    else if (path.includes('nano-banana-watermark-remover')) prefix = 'blogNano';
     else prefix = 'home';
 
     // 描述

@@ -15,7 +15,6 @@ interface ProductHeroProps {
 const ProductHero: React.FC<ProductHeroProps> = ({
   productKey,
   icon,
-  iconBg = 'from-gray-100 to-gray-200',
   installUrl,
   moreUrl,
   className = ''
@@ -24,34 +23,28 @@ const ProductHero: React.FC<ProductHeroProps> = ({
 
   return (
     <Section variant="product-hero" className={`product-hero ${className}`}>
-      <div className="flex items-center gap-6 mb-8 fade-in-up">
-        {/* 产品图标 */}
-        <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${iconBg} flex items-center justify-center shadow-md flex-shrink-0`}>
-          <img src={icon} alt={t(`${productKey}.title`)} className="w-10 h-10" />
+      <div className="fade-in-up mb-8 flex items-center gap-6">
+        <div className="ui-product-icon ui-product-icon-large">
+          <img src={icon} alt={t(`${productKey}.title`)} />
         </div>
-        
-        {/* 产品标题和版本 */}
+
         <div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-            <span className="gradient-text">{t(`${productKey}.title`)}</span>
+          <h1 className="mb-2 text-3xl font-bold text-gray-900 md:text-4xl">
+            {t(`${productKey}.title`)}
           </h1>
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">
-            {t(`${productKey}.version`)}
-          </div>
+          <span className="ui-badge">{t(`${productKey}.version`)}</span>
         </div>
       </div>
-      
-      {/* 产品简介 */}
-      <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
-        <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+
+      <div className="fade-in-up" style={{ animationDelay: '0.1s' }}>
+        <p className="mb-6 text-lg leading-relaxed text-gray-600">
           {t(`${productKey}.description`)}
         </p>
-        
-        {/* 操作按钮 */}
-        <div className="flex flex-col sm:flex-row gap-3">
-          <a 
-            href={installUrl} 
-            target="_blank" 
+
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <a
+            href={installUrl}
+            target="_blank"
             rel="noopener noreferrer"
             className="inline-block"
           >
@@ -59,12 +52,9 @@ const ProductHero: React.FC<ProductHeroProps> = ({
               {t(`${productKey}.button.install`)}
             </Button>
           </a>
-          
+
           {moreUrl && (
-            <a 
-              href={moreUrl} 
-              className="inline-block"
-            >
+            <a href={moreUrl} className="inline-block">
               <Button variant="secondary" size="large" className="w-full sm:w-auto">
                 {t(`${productKey}.button.more`)}
               </Button>

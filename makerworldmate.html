@@ -36,30 +36,6 @@
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <script src="/assets/js/i18n.js"></script>
   <script>document.documentElement.classList.add('js');</script>
-  <style>
-    .mwm-hero-card {
-      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.10), transparent 40%),
-                  linear-gradient(135deg, #fffefa, #fffaf3 55%, #fff2e3);
-      border: 1px solid rgba(249, 115, 22, 0.14);
-      box-shadow: 0 12px 30px -22px rgba(154, 52, 18, 0.28);
-    }
-    .mwm-stat-card {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(249, 115, 22, 0.16);
-      backdrop-filter: blur(8px);
-    }
-    .mwm-logo-pill {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 1.75rem; height: 1.75rem; border-radius: 9999px; background: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-    .mwm-feature-card {
-      background: #fff;
-      border: 1px solid rgba(249, 115, 22, 0.15);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .mwm-feature-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -28px rgba(154, 52, 18, .5); }
-  </style>
 </head>
 <body class="v1-professional" data-product="makerworldmate">
 
@@ -131,58 +107,56 @@
     </div>
   </header>
   <main>
-    <section class="px-6 py-12 md:py-16">
-      <div class="max-w-6xl mx-auto">
-        <div class="mwm-hero-card product-hero-card rounded-[2rem] p-8 md:p-12 shadow-sm">
-          <div class="grid gap-10 items-center md:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <div class="inline-flex items-center gap-3 rounded-full bg-orange-100 border border-orange-200 px-4 py-2 text-sm font-medium fade-in-up">
-                <span class="mwm-logo-pill">
-                  <img src="/assets/images/makerworldmate/icon-128.png" alt="MakerWorldMate logo" class="w-full h-full object-contain rounded-full">
+    <section class="product-showcase px-5 sm:px-6 py-10 md:py-16">
+      <div class="product-shell mx-auto">
+        <div class="product-hero-card" data-media="landscape">
+          <div class="product-hero-grid">
+            <div class="product-copy">
+              <div class="product-kicker fade-in-up">
+                <span class="product-logo">
+                  <img src="/assets/images/makerworldmate/icon-128.png" alt="MakerWorldMate logo">
                 </span>
-                <span class="text-orange-700" data-i18n="makerworldmate.hero.badge">Chrome 扩展 · 列表页直接看材质</span>
+                <span data-i18n="makerworldmate.hero.badge">Chrome 扩展 · 列表页直接看材质</span>
               </div>
-              <h1 class="mt-6 text-4xl md:text-5xl font-bold leading-tight text-gray-900 fade-in-up" style="animation-delay: 0.1s;">
-                <span class="gradient-text">MakerWorldMate</span>
-                <span data-i18n="makerworldmate.hero.title"> 在列表页就看清楚用什么耗材、支持哪些机型</span>
-              </h1>
-              <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-600 max-w-2xl fade-in-up" style="animation-delay: 0.2s;" data-i18n="makerworldmate.description">
+              <div class="product-name fade-in-up" style="animation-delay: 0.05s;">MakerWorldMate</div>
+              <h1 class="product-title fade-in-up" style="animation-delay: 0.1s;" data-i18n="makerworldmate.hero.title">在列表页就看清楚用什么耗材、支持哪些机型</h1>
+              <p class="product-summary fade-in-up" style="animation-delay: 0.2s;" data-i18n="makerworldmate.description">
                 MakerWorld 的列表页只给你封面和标题，耗材和兼容机型全都藏在详情页里。MakerWorldMate 把这层信息直接铺回列表页：每张卡片左下角标出该模型用到的耗材，以及兼容多少种打印机，鼠标一悬停就展开完整型号清单。支持 makerworld.com.cn 与 makerworld.com，只读公开数据，结果在本地缓存 7 天。
               </p>
-              <div class="mt-8 flex flex-col sm:flex-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
-                <span class="inline-flex items-center justify-center gap-2 rounded-xl bg-gray-200 px-6 py-3 font-semibold text-gray-500 cursor-not-allowed select-none" data-i18n="makerworldmate.button.pending">Chrome 应用商店审核中</span>
+              <div class="product-actions fade-in-up" style="animation-delay: 0.3s;">
+                <a href="https://chromewebstore.google.com/detail/cmkkddofgfglbfeapcafkpedipbpiaib" target="_blank" rel="noopener noreferrer"
+                  class="product-button product-button-primary"
+                  data-i18n="makerworldmate.button.install">🚀 前往 Chrome 应用商店</a>
                 <a href="/#extensions"
-                  class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-orange-500 bg-white px-6 py-3 font-semibold text-orange-600 transition hover:bg-orange-50"
+                  class="product-button product-button-secondary"
                   data-i18n="makerworldmate.button.home">返回虎啦首页</a>
               </div>
-              <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 fade-in-up" style="animation-delay: 0.4s;">
-                <div class="mwm-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">14</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="makerworldmate.stat1">种兼容机型</div>
+              <div class="product-stats fade-in-up" style="animation-delay: 0.4s;">
+                <div class="product-stat">
+                  <strong>14</strong>
+                  <span data-i18n="makerworldmate.stat1">种兼容机型</span>
                 </div>
-                <div class="mwm-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">2</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="makerworldmate.stat2">个站点</div>
+                <div class="product-stat">
+                  <strong>2</strong>
+                  <span data-i18n="makerworldmate.stat2">个站点</span>
                 </div>
-                <div class="mwm-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">0</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="makerworldmate.stat3">数据上传</div>
+                <div class="product-stat">
+                  <strong>0</strong>
+                  <span data-i18n="makerworldmate.stat3">数据上传</span>
                 </div>
-                <div class="mwm-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">7 天</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="makerworldmate.stat4">本地缓存</div>
+                <div class="product-stat">
+                  <strong>7 天</strong>
+                  <span data-i18n="makerworldmate.stat4">本地缓存</span>
                 </div>
               </div>
             </div>
 
-            <div class="fade-in-up" style="animation-delay: 0.2s;">
-              <div class="rounded-[1.75rem] bg-white p-4 border border-orange-100 shadow-lg">
-                <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600" data-i18n="makerworldmate.hero.screenshot">列表页效果</p>
-                <div class="rounded-xl overflow-hidden border border-orange-100 bg-white shadow-xl">
-                  <img src="/assets/images/makerworldmate/screenshot/zh/store-screenshot-1280x800-1.png" alt="MakerWorldMate 在模型列表页显示耗材与兼容机型" class="w-full h-auto">
-                </div>
+            <figure class="product-media fade-in-up" style="animation-delay: 0.2s;">
+              <figcaption class="product-media-label" data-i18n="makerworldmate.hero.screenshot">列表页效果</figcaption>
+              <div class="product-media-frame">
+                <img src="/assets/images/makerworldmate/screenshot/zh/store-screenshot-1280x800-1.png" alt="MakerWorldMate 在模型列表页显示耗材与兼容机型" width="1280" height="800" fetchpriority="high">
               </div>
-            </div>
+            </figure>
           </div>
         </div>
       </div>

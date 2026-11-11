@@ -38,18 +38,6 @@
   <script src="/assets/js/i18n.js"></script>
   <script>document.documentElement.classList.add('js');</script>
   <style>
-    .ezpixy-hero-card {
-      /* 弱化过重的大色块与投影：底色贴近页面背景，只留一层淡淡的暖色倾向 */
-      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.09), transparent 38%),
-                  linear-gradient(135deg, #fffefa, #fffaf3 60%, #fff2e3);
-      border: 1px solid rgba(249, 115, 22, 0.12);
-      box-shadow: 0 12px 30px -22px rgba(154, 52, 18, 0.28);
-    }
-    .ezpixy-stat-card {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(249, 115, 22, 0.15);
-      backdrop-filter: blur(8px);
-    }
     .ezpixy-shot-card {
       overflow: hidden;
       border-radius: 1rem;
@@ -68,18 +56,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-    .ezpixy-logo-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.75rem;
-      height: 1.75rem;
-      border-radius: 9999px;
-      background: #fff;
-      border: 1px solid rgba(249, 115, 22, 0.25);
-      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.15);
-      padding: 0.35rem;
     }
   </style>
   <script type="application/ld+json">
@@ -145,75 +121,71 @@
 
   <main>
     <!-- Hero -->
-    <section class="px-6 py-12 md:py-16">
-      <div class="max-w-6xl mx-auto">
-        <div class="ezpixy-hero-card product-hero-card rounded-[2rem] p-8 md:p-12 shadow-sm">
-          <div class="grid gap-10 items-center md:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <div class="inline-flex items-center gap-3 rounded-full bg-orange-100 border border-orange-200 px-4 py-2 text-sm font-medium fade-in-up">
-                <span class="ezpixy-logo-pill">
-                  <img src="/assets/images/ezpixy/logo-header.png" alt="ezpixy logo" class="w-full h-full object-contain">
+    <section class="product-showcase px-5 sm:px-6 py-10 md:py-16">
+      <div class="product-shell mx-auto">
+        <div class="product-hero-card" data-media="comparison">
+          <div class="product-hero-grid">
+            <div class="product-copy">
+              <div class="product-kicker fade-in-up">
+                <span class="product-logo">
+                  <img src="/assets/images/ezpixy/logo-header.png" alt="ezpixy logo">
                 </span>
-                <span class="text-orange-700" data-i18n="ezpixy.hero.badge">AI 电商图片工作台</span>
+                <span data-i18n="ezpixy.hero.badge">AI 电商图片工作台</span>
               </div>
-              <h1 class="mt-6 text-4xl md:text-5xl font-bold leading-tight text-gray-900 fade-in-up" style="animation-delay: 0.1s;">
-                <span class="gradient-text">ezpixy</span>
-                <span data-i18n="ezpixy.hero.title"> 让商品图几分钟内变成可上线的模特图与电商素材</span>
-              </h1>
-              <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-600 max-w-2xl fade-in-up" style="animation-delay: 0.2s;" data-i18n="ezpixy.description">
+              <div class="product-name fade-in-up" style="animation-delay: 0.05s;">ezpixy</div>
+              <h1 class="product-title fade-in-up" style="animation-delay: 0.1s;" data-i18n="ezpixy.hero.title">让商品图几分钟内变成可上线的模特图与电商素材</h1>
+              <p class="product-summary fade-in-up" style="animation-delay: 0.2s;" data-i18n="ezpixy.description">
                 ezpixy 是一个面向电商卖家的 AI 图片工作台，支持模特图生成、虚拟试衣、商品场景图、白底图与细节替换，让现有商品图更快变成可投放、可上架的素材。
               </p>
-              <div class="mt-8 flex flex-col sm:flex-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
+              <div class="product-actions fade-in-up" style="animation-delay: 0.3s;">
                 <a href="https://ezpixy.com" target="_blank" rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white transition hover:scale-[1.02] hover:bg-orange-600"
+                  class="product-button product-button-primary"
                   data-i18n="ezpixy.button.visit">访问官网</a>
                 <a href="/#tools"
-                  class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-orange-500 bg-white px-6 py-3 font-semibold text-orange-600 transition hover:bg-orange-50"
+                  class="product-button product-button-secondary"
                   data-i18n="ezpixy.button.home">返回虎啦首页</a>
               </div>
-              <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 fade-in-up" style="animation-delay: 0.4s;">
-                <div class="ezpixy-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">8</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="ezpixy.stat1">图像工作流</div>
+              <div class="product-stats fade-in-up" style="animation-delay: 0.4s;">
+                <div class="product-stat">
+                  <strong>8</strong>
+                  <span data-i18n="ezpixy.stat1">图像工作流</span>
                 </div>
-                <div class="ezpixy-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">3</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="ezpixy.stat2">操作步骤</div>
+                <div class="product-stat">
+                  <strong>3</strong>
+                  <span data-i18n="ezpixy.stat2">操作步骤</span>
                 </div>
-                <div class="ezpixy-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">AI</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="ezpixy.stat3">服装与商品图生成</div>
+                <div class="product-stat">
+                  <strong>AI</strong>
+                  <span data-i18n="ezpixy.stat3">服装与商品图生成</span>
                 </div>
-                <div class="ezpixy-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">Free</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="ezpixy.stat4">可先试用</div>
+                <div class="product-stat">
+                  <strong>Free</strong>
+                  <span data-i18n="ezpixy.stat4">可先试用</span>
                 </div>
               </div>
             </div>
 
-            <div class="fade-in-up" style="animation-delay: 0.2s;">
-              <div class="rounded-[1.75rem] bg-white p-4 border border-orange-100 shadow-lg">
-                <div class="flex items-center gap-4 md:gap-5">
-                  <div class="w-1/3 flex-shrink-0 flex flex-col gap-3">
-                    <div>
-                      <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500" data-i18n="ezpixy.hero.input1">商品图</p>
-                      <div class="rounded-xl overflow-hidden border border-orange-100 bg-white">
-                        <img src="/assets/images/ezpixy/input/hero_product-1.jpg" alt="product input" class="w-full h-auto">
-                      </div>
-                    </div>
-                    <div>
-                      <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500" data-i18n="ezpixy.hero.input2">模特图</p>
-                      <div class="rounded-xl overflow-hidden border border-orange-100 bg-white">
-                        <img src="/assets/images/ezpixy/input/hero_model.jpg" alt="model input" class="w-full h-auto">
-                      </div>
+            <div class="product-media fade-in-up" style="animation-delay: 0.2s;">
+              <div class="product-comparison">
+                <div class="product-comparison-inputs">
+                  <div class="product-comparison-item">
+                    <p class="product-media-label" data-i18n="ezpixy.hero.input1">商品图</p>
+                    <div class="product-media-frame">
+                      <img src="/assets/images/ezpixy/input/hero_product-1.jpg" alt="product input" width="800" height="800">
                     </div>
                   </div>
-                  <div class="hero-arrow flex-shrink-0 text-2xl text-gray-400">→</div>
-                  <div class="flex-1 min-w-0">
-                    <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600" data-i18n="ezpixy.hero.output">AI 结果</p>
-                    <div class="rounded-xl overflow-hidden border border-orange-100 bg-white shadow-xl">
-                      <img src="/assets/images/ezpixy/output/hero-after.jpeg" alt="AI generated result" class="w-full h-auto">
+                  <div class="product-comparison-item">
+                    <p class="product-media-label" data-i18n="ezpixy.hero.input2">模特图</p>
+                    <div class="product-media-frame">
+                      <img src="/assets/images/ezpixy/input/hero_model.jpg" alt="model input" width="1773" height="2364">
                     </div>
+                  </div>
+                </div>
+                <div class="hero-arrow" aria-hidden="true">→</div>
+                <div class="product-comparison-item product-comparison-output">
+                  <p class="product-media-label" data-i18n="ezpixy.hero.output">AI 结果</p>
+                  <div class="product-media-frame">
+                    <img src="/assets/images/ezpixy/output/hero-after.jpeg" alt="AI generated result" width="2400" height="1792" fetchpriority="high">
                   </div>
                 </div>
               </div>

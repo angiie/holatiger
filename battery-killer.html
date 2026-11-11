@@ -38,30 +38,6 @@
   <script src="/assets/js/i18n.js"></script>
   <script>document.documentElement.classList.add('js');</script>
   <style>
-    .bk-hero-card {
-      /* 弱化过重的大色块与投影：底色贴近页面背景，只留一层淡淡的暖色倾向 */
-      background: radial-gradient(circle at top left, rgba(249, 115, 22, 0.09), transparent 38%),
-                  linear-gradient(135deg, #fffefa, #fffaf3 60%, #fff2e3);
-      border: 1px solid rgba(249, 115, 22, 0.12);
-      box-shadow: 0 12px 30px -22px rgba(154, 52, 18, 0.28);
-    }
-    .bk-stat-card {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(249, 115, 22, 0.15);
-      backdrop-filter: blur(8px);
-    }
-    .bk-logo-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.75rem;
-      height: 1.75rem;
-      border-radius: 9999px;
-      background: #fff;
-      border: 1px solid rgba(249, 115, 22, 0.25);
-      box-shadow: 0 8px 20px rgba(249, 115, 22, 0.15);
-      padding: 0.3rem;
-    }
     .bk-shot-card {
       overflow: hidden;
       border-radius: 1rem;
@@ -187,60 +163,56 @@
 
   <main>
     <!-- Hero -->
-    <section class="px-6 py-12 md:py-16">
-      <div class="max-w-6xl mx-auto">
-        <div class="bk-hero-card product-hero-card rounded-[2rem] p-8 md:p-12 shadow-sm">
-          <div class="grid gap-10 items-center md:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <div class="inline-flex items-center gap-3 rounded-full bg-orange-100 border border-orange-200 px-4 py-2 text-sm font-medium fade-in-up">
-                <span class="bk-logo-pill">
-                  <img src="/assets/images/battery-killer/logo-40x40.png" alt="BatteryKiller logo" class="w-full h-full object-contain">
+    <section class="product-showcase px-5 sm:px-6 py-10 md:py-16">
+      <div class="product-shell mx-auto">
+        <div class="product-hero-card" data-media="portrait">
+          <div class="product-hero-grid">
+            <div class="product-copy">
+              <div class="product-kicker fade-in-up">
+                <span class="product-logo">
+                  <img src="/assets/images/battery-killer/logo-40x40.png" alt="BatteryKiller logo">
                 </span>
-                <span class="text-orange-700" data-i18n="battery-killer.hero.badge">macOS 菜单栏应用</span>
+                <span data-i18n="battery-killer.hero.badge">macOS 菜单栏应用</span>
               </div>
-              <h1 class="mt-6 text-4xl md:text-5xl font-bold leading-tight text-gray-900 fade-in-up" style="animation-delay: 0.1s;">
-                <span class="gradient-text">BatteryKiller</span>
-                <span data-i18n="battery-killer.hero.title"> 让电池按你设定的区间充放电循环</span>
-              </h1>
-              <p class="mt-6 text-base md:text-lg leading-relaxed text-gray-600 max-w-2xl fade-in-up" style="animation-delay: 0.2s;" data-i18n="battery-killer.description">
+              <div class="product-name fade-in-up" style="animation-delay: 0.05s;">BatteryKiller</div>
+              <h1 class="product-title fade-in-up" style="animation-delay: 0.1s;" data-i18n="battery-killer.hero.title">让电池按你设定的区间充放电循环</h1>
+              <p class="product-summary fade-in-up" style="animation-delay: 0.2s;" data-i18n="battery-killer.description">
                 BatteryKiller 用软件方式切断和恢复 MacBook 的电源适配器：升到区间上限就断电让电池真的放电，降到下限再充回来，如此往复。它不保护电池——每一次循环都在消耗循环次数、加速老化。名字就是字面意思。
               </p>
-              <div class="mt-8 flex flex-col sm:flex-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
+              <div class="product-actions fade-in-up" style="animation-delay: 0.3s;">
                 <a href="https://github.com/angiie/b-killer/releases/latest" target="_blank" rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white transition hover:scale-[1.02] hover:bg-orange-600"
+                  class="product-button product-button-primary"
                   data-i18n="battery-killer.button.download">⬇️ 下载安装包</a>
                 <a href="https://github.com/angiie/b-killer" target="_blank" rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-orange-500 bg-white px-6 py-3 font-semibold text-orange-600 transition hover:bg-orange-50"
+                  class="product-button product-button-secondary"
                   data-i18n="battery-killer.button.source">查看源码</a>
               </div>
-              <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 fade-in-up" style="animation-delay: 0.4s;">
-                <div class="bk-stat-card rounded-2xl p-4">
-                  <div class="text-xl font-bold text-gray-900 whitespace-nowrap">5%–100%</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="battery-killer.stat1">循环区间可调</div>
+              <div class="product-stats fade-in-up" style="animation-delay: 0.4s;">
+                <div class="product-stat">
+                  <strong>5%–100%</strong>
+                  <span data-i18n="battery-killer.stat1">循环区间可调</span>
                 </div>
-                <div class="bk-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">5s</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="battery-killer.stat2">电量轮询与判定</div>
+                <div class="product-stat">
+                  <strong>5s</strong>
+                  <span data-i18n="battery-killer.stat2">电量轮询与判定</span>
                 </div>
-                <div class="bk-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">1</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="battery-killer.stat3">安装时授权一次</div>
+                <div class="product-stat">
+                  <strong>1</strong>
+                  <span data-i18n="battery-killer.stat3">安装时授权一次</span>
                 </div>
-                <div class="bk-stat-card rounded-2xl p-4">
-                  <div class="text-2xl font-bold text-gray-900">Free</div>
-                  <div class="mt-1 text-xs text-gray-500" data-i18n="battery-killer.stat4">免费开源</div>
+                <div class="product-stat">
+                  <strong>Free</strong>
+                  <span data-i18n="battery-killer.stat4">免费开源</span>
                 </div>
               </div>
             </div>
 
-            <div class="fade-in-up" style="animation-delay: 0.2s;">
-              <div class="rounded-[1.75rem] bg-white p-4 border border-orange-100 shadow-lg">
-                <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600" data-i18n="battery-killer.hero.screenshot">主界面</p>
-                <div class="rounded-xl overflow-hidden border border-orange-100 bg-white shadow-xl">
-                  <img src="/assets/images/battery-killer/screenshot/zh/main.png" alt="BatteryKiller 主界面：电量、供电状态与循环区间" width="640" height="876" class="w-full h-auto">
-                </div>
+            <figure class="product-media fade-in-up" style="animation-delay: 0.2s;">
+              <figcaption class="product-media-label" data-i18n="battery-killer.hero.screenshot">主界面</figcaption>
+              <div class="product-media-frame">
+                <img src="/assets/images/battery-killer/screenshot/zh/main.png" alt="BatteryKiller 主界面：电量、供电状态与循环区间" width="640" height="876" fetchpriority="high">
               </div>
-            </div>
+            </figure>
           </div>
         </div>
       </div>
