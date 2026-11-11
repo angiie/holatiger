@@ -77,3 +77,10 @@ test('shared buttons no longer introduce indigo gradients or green actions', () 
   assert.match(button, /outline: 'ui-button ui-button-secondary'/)
   assert.doesNotMatch(button, /from-indigo-600|to-violet-600|bg-emerald-600/)
 })
+
+test('merged CSS uses a content-hashed filename for immutable caching', () => {
+  const buildScript = read('scripts/build-static.mjs')
+  assert.match(buildScript, /createHash\('sha256'\)\.update\(allCss\)\.digest\('hex'\)/)
+  assert.match(buildScript, /const finalName = `all-\$\{cssHash\}\.min\.css`/)
+  assert.doesNotMatch(buildScript, /const finalName = 'all\.min\.css'/)
+})

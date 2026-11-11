@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+import { createHash } from 'node:crypto';
 import { copyFileSync, mkdirSync, existsSync, readFileSync, writeFileSync, readdirSync } from 'fs';
 import { join, resolve } from 'path';
 
@@ -137,16 +138,11 @@ function mergeCss() {
     return `/* === ${p} === */\n` + readFileSync(full, 'utf-8');
   }).join('\n');
 
-  const outName = 'all-' + Date.now() + '.min.css';
-  const outPath = resolve(cssDir, 'css', outName);
-  // 简化命名：用 all.min.css（固定名可被 browser 缓存命中）
-  const finalName = 'all.min.css';
+  // 内容变化时文件名随之变化，避免 immutable 缓存让浏览器长期使用旧样式。
+  const cssHash = createHash('sha256').update(allCss).digest('hex').slice(0, 12);
+  const finalName = `all-${cssHash}.min.css`;
   const finalPath = resolve(cssDir, 'css', finalName);
   writeFileSync(finalPath, allCss, 'utf-8');
-  // 删除临时文件
-  if (outName !== finalName && existsSync(outPath)) {
-    try { require('fs').unlinkSync(outPath); } catch {}
-  }
 
   // 替换 index.html 中所有 css link 为单一 link
   let newHtml = html;
