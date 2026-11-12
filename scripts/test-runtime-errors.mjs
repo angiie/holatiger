@@ -11,6 +11,8 @@ const pages = [
   '/webdav-chrome-setup-blog',
   '/tinypass-password-guide',
   '/svg-to-png-workflow',
+  '/blog-handy-tulip-implementation',
+  '/svg-studio',
   '/banana/',
 ]
 

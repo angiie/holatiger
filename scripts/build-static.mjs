@@ -160,7 +160,51 @@ function mergeCss() {
   writeFileSync(target, newHtml, 'utf-8');
   console.log(`   🎨 已合并 ${cssLinks.length} 个 CSS 为 1 个 (${(allCss.length/1024).toFixed(1)}KB)`);
 }
+// 8.6. 为所有静态 HTML 的本地 CSS 引用添加内容哈希。
+// 源 HTML 保持易读路径；只有 dist 中的文件和引用会被改写，避免 immutable 缓存长期保留旧样式。
+function fingerprintStaticCssLinks() {
+  const cssDir = resolve(distDir, 'assets', 'css');
+  const htmlFiles = readdirSync(distDir, { recursive: true })
+    .filter(file => file.endsWith('.html'));
+  const hashedHrefs = new Map();
+  let updatedPages = 0;
+
+  for (const file of htmlFiles) {
+    const htmlPath = resolve(distDir, file);
+    const html = readFileSync(htmlPath, 'utf8');
+    const newHtml = html.replace(/<link\b[^>]*>/gi, linkTag => {
+      if (!/\brel=["']stylesheet["']/i.test(linkTag)) return linkTag;
+      const hrefMatch = linkTag.match(/\bhref=(["'])(\/assets\/css\/([^"']+\.css))\1/i);
+      if (!hrefMatch || /-[a-f0-9]{12}(?:\.min)?\.css$/i.test(hrefMatch[3])) return linkTag;
+
+      const originalHref = hrefMatch[2];
+      let hashedHref = hashedHrefs.get(originalHref);
+      if (!hashedHref) {
+        const originalName = hrefMatch[3];
+        const originalPath = resolve(cssDir, originalName);
+        if (!existsSync(originalPath)) {
+          throw new Error(`CSS 文件不存在: ${originalHref}（${file} 引用）`);
+        }
+        const content = readFileSync(originalPath);
+        const hash = createHash('sha256').update(content).digest('hex').slice(0, 12);
+        const hashedName = originalName.replace(/\.css$/i, `-${hash}.css`);
+        writeFileSync(resolve(cssDir, hashedName), content);
+        hashedHref = `/assets/css/${hashedName}`;
+        hashedHrefs.set(originalHref, hashedHref);
+      }
+      return linkTag.replace(originalHref, hashedHref);
+    });
+
+    if (newHtml !== html) {
+      writeFileSync(htmlPath, newHtml, 'utf8');
+      updatedPages += 1;
+    }
+  }
+  console.log(`   🔐 已为 ${updatedPages} 个 HTML 页面更新 CSS 内容哈希引用`);
+}
+
 mergeCss();
+fingerprintStaticCssLinks();
 
 console.log(`📂 输出目录: ${distDir}`);
 console.log('🎉 构建完成！');

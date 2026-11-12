@@ -32,7 +32,9 @@
   <script>
     // 初始化 mermaid（暗色主题）
     // 用于渲染下方的技术流程图，提升可读性
-    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    if (typeof mermaid !== 'undefined') {
+      mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+    }
   </script>
   <script>
     window.addEventListener('load', function() {

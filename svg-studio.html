@@ -260,7 +260,11 @@
 
     <!-- JavaScript 引用 -->
     <script src="/assets/js/svg-studio.js"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    </script>
   <script src="/assets/js/main.js" defer></script>
 </body>
 

@@ -41,3 +41,9 @@ test('shared stylesheet supports all media variants and reduced motion', () => {
   }
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
 });
+
+test('static build fingerprints local CSS links on every HTML page', () => {
+  const buildScript = readFileSync(join(root, 'scripts/build-static.mjs'), 'utf8');
+  assert.match(buildScript, /function fingerprintStaticCssLinks\(\)/);
+  assert.match(buildScript, /mergeCss\(\);\s*fingerprintStaticCssLinks\(\);/);
+});
