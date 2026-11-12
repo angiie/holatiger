@@ -5,6 +5,23 @@
     "installCommand": "npm install",
     "framework": null,
     "redirects": [
+
+        {
+            "source": "/omnipotent-pocket",
+            "destination": "/omnipotent-pocket.html"
+        },
+        {
+            "source": "/omnipotent-pocket/",
+            "destination": "/omnipotent-pocket.html"
+        },
+        {
+            "source": "/omnipotent-pocket-privacy",
+            "destination": "/omnipotent-pocket-privacy.html"
+        },
+        {
+            "source": "/en/omnipotent-pocket",
+            "destination": "/omnipotent-pocket.html?lang=en"
+        },
         {
             "source": "/:path(.*)",
             "has": [

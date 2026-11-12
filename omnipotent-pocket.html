@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omnipotent-Pocket · 把标签页收进口袋</title>
+  <meta name="description" content="Omnipotent-Pocket 是一个本地优先的 Chrome 标签页收藏扩展：一键收集、自动去重、中文优先 README 摘要、GitHub 搜索、JSON 备份，可选 Gist 同步。" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://holatiger.com/omnipotent-pocket" />
+  <link rel="alternate" hreflang="zh-CN" href="https://holatiger.com/omnipotent-pocket" />
+  <link rel="alternate" hreflang="en" href="https://holatiger.com/omnipotent-pocket?lang=en" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Omnipotent-Pocket · 把标签页收进口袋" />
+  <meta property="og:description" content="本地优先的 Chrome 标签页收藏扩展：一键收集、自动去重、README 摘要、可选 Gist 同步。" />
+  <meta property="og:url" content="https://holatiger.com/omnipotent-pocket" />
+  <meta property="og:image" content="https://holatiger.com/assets/images/omnipotent-pocket/library-zh.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --ink: #1f1a16;
+      --muted: #6b6259;
+      --line: rgba(31, 26, 22, 0.12);
+      --paper: #fbf7f0;
+      --card: #fffdf8;
+      --accent: #d95d39;
+      --forest: #233a30;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Songti SC", Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.7 var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    header.bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); }
+    .brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .bar nav { display: flex; align-items: center; gap: 18px; font-size: 14px; color: var(--muted); }
+    .bar nav a { color: var(--muted); }
+    .lang {
+      padding: 5px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .lang:hover { color: var(--ink); border-color: var(--ink); }
+
+    .hero { padding: 64px 0 40px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .kicker { margin: 0 0 14px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    h1 { margin: 0 0 18px; font-family: var(--serif); font-size: clamp(38px, 5.4vw, 58px); line-height: 1.08; letter-spacing: -0.02em; font-weight: 500; }
+    h1 em { font-style: italic; color: var(--accent); }
+    .lead { margin: 0 0 26px; font-size: 17px; color: var(--muted); max-width: 46ch; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--forest); color: #f9f2e3; }
+    .btn-primary:hover { text-decoration: none; opacity: 0.92; }
+    .btn-ghost { border-color: var(--line); color: var(--ink); }
+    .btn-ghost:hover { border-color: var(--ink); text-decoration: none; }
+    .hint { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
+
+    .shot {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 60px rgba(31, 26, 22, 0.16);
+      background: #fff;
+    }
+
+    section { padding: 56px 0; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 8px; font-family: var(--serif); font-size: 30px; font-weight: 500; letter-spacing: -0.01em; }
+    .sub { margin: 0 0 32px; color: var(--muted); }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { padding: 22px; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+    .card .no { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--accent); }
+    .card h3 { margin: 10px 0 6px; font-size: 16px; }
+    .card p { margin: 0; font-size: 14px; color: var(--muted); }
+
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    .privacy { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
+
+    footer { padding: 40px 0 64px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; padding-top: 40px; }
+      .grid { grid-template-columns: 1fr; }
+      .pair { grid-template-columns: 1fr; }
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #f2ece4; --muted: #a89f94; --line: rgba(242, 236, 228, 0.14);
+        --paper: #16130f; --card: #1d1915;
+      }
+      .shot { background: #0f0d0b; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="bar">
+      <a class="brand" href="/">
+        <img src="/assets/images/omnipotent-pocket/icon.svg" alt="" width="30" height="30" />
+        <span>Omnipotent-Pocket</span>
+      </a>
+      <nav>
+        <a href="/" data-i18n="nav.home">虎啦首页</a>
+        <a href="#features" data-i18n="nav.features">功能</a>
+        <a href="#shots" data-i18n="nav.shots">截图</a>
+        <a href="/omnipotent-pocket-privacy" data-i18n="nav.privacy">隐私政策</a>
+        <button class="lang" id="langToggle" type="button" aria-label="Switch language">EN</button>
+      </nav>
+    </header>
+
+    <section class="hero" style="border-top: 0; padding-top: 72px;">
+      <div>
+        <p class="kicker">Chrome Extension · Local first</p>
+        <h1 data-i18n="hero.title">把标签页<br /><em>收进口袋</em></h1>
+        <p class="lead" data-i18n="hero.lead">
+          开了一堆标签页，关掉可惜、留着碍事。Omnipotent-Pocket 让你一键把想留住的页面收进本地收藏库：自动去重、可搜索、带摘要，然后安心关掉它们。
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" id="installBtn" href="#shots" data-i18n="hero.cta">查看上架信息</a>
+          <a class="btn btn-ghost" href="#features" data-i18n="hero.secondary">它能做什么</a>
+        </div>
+        <p class="hint" data-i18n="hero.hint">上架审核中 · 通过后这里会直接跳到 Chrome 应用商店</p>
+      </div>
+      <div>
+        <img class="shot" data-shot="library" src="/assets/images/omnipotent-pocket/library-zh.jpg" alt="Omnipotent-Pocket 收藏库界面" />
+      </div>
+    </section>
+
+    <section id="features">
+      <h2 data-i18n="features.title">六个真正会用到的功能</h2>
+      <p class="sub" data-i18n="features.sub">没有账号、没有云同步开关、没有埋点。</p>
+      <div class="grid">
+        <article class="card">
+          <span class="no">01</span>
+          <h3 data-i18n="f1.title">一键收集</h3>
+          <p data-i18n="f1.body">按域名规则收集当前窗口或全部窗口，自动去重，重复链接直接跳过。</p>
+        </article>
+        <article class="card">
+          <span class="no">02</span>
+          <h3 data-i18n="f2.title">数据留在本机</h3>
+          <p data-i18n="f2.body">收藏、规则、设置都存在 chrome.storage.local，卸载即删。</p>
+        </article>
+        <article class="card">
+          <span class="no">03</span>
+          <h3 data-i18n="f3.title">中文优先摘要</h3>
+          <p data-i18n="f3.body">抓取 GitHub README 时优先用中文版本，生成一段能直接读的摘要。</p>
+        </article>
+        <article class="card">
+          <span class="no">04</span>
+          <h3 data-i18n="f4.title">GitHub 增强搜索</h3>
+          <p data-i18n="f4.body">按语言、star、fork 筛选仓库，选中的结果直接收进收藏库。</p>
+        </article>
+        <article class="card">
+          <span class="no">05</span>
+          <h3 data-i18n="f5.title">导出与备份</h3>
+          <p data-i18n="f5.body">Markdown 清单或完整 JSON 备份，随时导入还原。</p>
+        </article>
+        <article class="card">
+          <span class="no">06</span>
+          <h3 data-i18n="f6.title">可选 Gist 同步</h3>
+          <p data-i18n="f6.body">填自己的 GitHub Token，备份写进你账号下的私有 Gist，多设备共用。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="shots">
+      <h2 data-i18n="shots.title">界面是这样</h2>
+      <p class="sub" data-i18n="shots.sub">中英双语，跟随浏览器语言，也可以手动切换。</p>
+      <div class="pair">
+        <img class="shot" data-shot="gist" src="/assets/images/omnipotent-pocket/gist-zh.jpg" alt="GitHub Gist 同步设置" />
+        <img class="shot" data-shot="popup" src="/assets/images/omnipotent-pocket/popup-zh.jpg" alt="工具栏弹窗" />
+      </div>
+    </section>
+
+    <section>
+      <div class="privacy">
+        <div>
+          <h2 data-i18n="privacy.title">隐私很简单</h2>
+          <p class="sub" style="margin: 0" data-i18n="privacy.body">
+            默认不联网、不统计、不追踪。只有你主动用 GitHub 搜索、README 摘要或 Gist 同步时，才会直接请求 api.github.com。
+          </p>
+        </div>
+        <a class="btn btn-ghost" href="/omnipotent-pocket-privacy" data-i18n="privacy.cta">读完整隐私政策</a>
+      </div>
+    </section>
+
+    <footer>
+      <span data-i18n="footer.note">Omnipotent-Pocket · 开源 Chrome 扩展</span>
+      <span>
+        <a href="/" data-i18n="footer.home">虎啦</a> ·
+        <a href="/omnipotent-pocket-privacy" data-i18n="footer.privacy">隐私政策</a> ·
+        <a href="https://github.com/angiie" rel="noreferrer">GitHub</a>
+      </span>
+    </footer>
+  </div>
+
+  <script>
+    const storeUrl = ""; // 上架后填 https://chromewebstore.google.com/detail/<item-id>
+    const dict = {
+      zh: {
+        "nav.home": "虎啦首页", "nav.features": "功能", "nav.shots": "截图", "nav.privacy": "隐私政策",
+        "hero.title": "把标签页<br /><em>收进口袋</em>",
+        "hero.lead": "开了一堆标签页，关掉可惜、留着碍事。Omnipotent-Pocket 让你一键把想留住的页面收进本地收藏库：自动去重、可搜索、带摘要，然后安心关掉它们。",
+        "hero.cta": "查看上架信息",
+        "hero.secondary": "它能做什么",
+        "hero.hint": "上架审核中 · 通过后这里会直接跳到 Chrome 应用商店",
+        "features.title": "六个真正会用到的功能",
+        "features.sub": "没有账号、没有云同步开关、没有埋点。",
+        "f1.title": "一键收集", "f1.body": "按域名规则收集当前窗口或全部窗口，自动去重，重复链接直接跳过。",
+        "f2.title": "数据留在本机", "f2.body": "收藏、规则、设置都存在 chrome.storage.local，卸载即删。",
+        "f3.title": "中文优先摘要", "f3.body": "抓取 GitHub README 时优先用中文版本，生成一段能直接读的摘要。",
+        "f4.title": "GitHub 增强搜索", "f4.body": "按语言、star、fork 筛选仓库，选中的结果直接收进收藏库。",
+        "f5.title": "导出与备份", "f5.body": "Markdown 清单或完整 JSON 备份，随时导入还原。",
+        "f6.title": "可选 Gist 同步", "f6.body": "填自己的 GitHub Token，备份写进你账号下的私有 Gist，多设备共用。",
+        "shots.title": "界面是这样",
+        "shots.sub": "中英双语，跟随浏览器语言，也可以手动切换。",
+        "privacy.title": "隐私很简单",
+        "privacy.body": "默认不联网、不统计、不追踪。只有你主动用 GitHub 搜索、README 摘要或 Gist 同步时，才会直接请求 api.github.com。",
+        "privacy.cta": "读完整隐私政策",
+        "footer.note": "Omnipotent-Pocket · 开源 Chrome 扩展",
+        "footer.home": "虎啦", "footer.privacy": "隐私政策",
+        "lang.label": "EN"
+      },
+      en: {
+        "nav.home": "Holatiger", "nav.features": "Features", "nav.shots": "Screenshots", "nav.privacy": "Privacy",
+        "hero.title": "Put your tabs<br /><em>in a pocket</em>",
+        "hero.lead": "Thirty tabs open: closing them feels wasteful, keeping them feels messy. One click moves the ones you care about into a local, searchable library — de-duplicated, summarised — then you can close them without regret.",
+        "hero.cta": "See availability",
+        "hero.secondary": "What it does",
+        "hero.hint": "In review · this button will open the Chrome Web Store once published",
+        "features.title": "Six things you will actually use",
+        "features.sub": "No accounts, no cloud toggle, no telemetry.",
+        "f1.title": "One-click collect", "f1.body": "Collect matching tabs from one or all windows, de-duplicated automatically.",
+        "f2.title": "Local by design", "f2.body": "Library, rules and settings live in chrome.storage.local; removing the extension removes them.",
+        "f3.title": "Chinese-first summaries", "f3.body": "READMEs are fetched with the Chinese version preferred when it exists.",
+        "f4.title": "GitHub search", "f4.body": "Filter repositories by language, stars and forks, then save the results.",
+        "f5.title": "Export and backup", "f5.body": "Markdown checklists or a full JSON backup, restorable at any time.",
+        "f6.title": "Optional Gist sync", "f6.body": "Use your own token to back up into a private Gist in your account.",
+        "shots.title": "How it looks",
+        "shots.sub": "Chinese and English, following your browser language.",
+        "privacy.title": "Privacy, briefly",
+        "privacy.body": "No network access, analytics or tracking by default. Only GitHub search, READMEs and Gist sync talk to api.github.com — and only when you ask.",
+        "privacy.cta": "Read the privacy policy",
+        "footer.note": "Omnipotent-Pocket · open-source Chrome extension",
+        "footer.home": "Holatiger", "footer.privacy": "Privacy",
+        "lang.label": "中文"
+      }
+    };
+
+    const params = new URLSearchParams(location.search);
+    let lang = params.get("lang") === "en" ? "en" : (localStorage.getItem("op-site-lang") || "zh");
+    if (params.get("lang") === "en") localStorage.setItem("op-site-lang", "en");
+
+    function applyLang(next) {
+      lang = next === "en" ? "en" : "zh";
+      localStorage.setItem("op-site-lang", lang);
+      document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
+      const table = dict[lang];
+      for (const el of document.querySelectorAll("[data-i18n]")) {
+        const key = el.dataset.i18n;
+        if (table[key]) el.innerHTML = table[key];
+      }
+      for (const img of document.querySelectorAll("[data-shot]")) {
+        img.src = `/assets/images/omnipotent-pocket/${img.dataset.shot}-${lang}.jpg`;
+      }
+      const toggle = document.getElementById("langToggle");
+      toggle.textContent = table["lang.label"];
+      if (storeUrl) {
+        const btn = document.getElementById("installBtn");
+        btn.href = storeUrl;
+        btn.target = "_blank";
+        btn.rel = "noreferrer";
+      }
+    }
+
+    document.getElementById("langToggle").addEventListener("click", () => {
+      applyLang(lang === "en" ? "zh" : "en");
+    });
+    applyLang(lang);
+  </script>
+</body>
+</html>
