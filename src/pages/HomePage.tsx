@@ -21,8 +21,6 @@ interface TimelineProduct {
   actionLabel: string
   actionHref: string
   detailHref: string
-  secondaryLabel?: string
-  secondaryHref?: string
   isNew?: boolean
   searchKeywords: string
 }
@@ -67,8 +65,8 @@ const HomePage: React.FC = () => {
       statusTone: 'success',
       description: t('omnipotent-pocket.desc', '把标签页收进口袋：一键收集、自动去重、中文优先 README 摘要、GitHub 搜索与可选 Gist 跨设备备份。'),
       tags: isEn ? ['Local First', 'Deduplication', 'README Summary', 'Gist Sync', 'Zero Tracking'] : ['本地优先', '自动去重', 'README 摘要', 'Gist 私有同步', '无埋点'],
-      actionLabel: isEn ? 'Install on Chrome' : '安装扩展',
-      actionHref: 'https://chromewebstore.google.com/detail/omnipotent-pocket/fegafpjecnmogggggafkdalcgccaojpo',
+      actionLabel: t('btn.details', '查看详情'),
+      actionHref: '/omnipotent-pocket',
       detailHref: '/omnipotent-pocket',
       isNew: true,
       searchKeywords: 'omnipotent-pocket pocket tabs bookmarks chrome extension github gist'
@@ -87,11 +85,9 @@ const HomePage: React.FC = () => {
       statusTone: 'success',
       description: t('battery-killer.desc', 'macOS 菜单栏轻量级小工具。用底层软件方式控制电源适配器通断，让电池在指定区间真实充放电循环，消耗循环次数。'),
       tags: isEn ? ['Apple Silicon', 'SMC Control', 'Menu Bar', 'Offline'] : ['Apple Silicon', 'SMC 底层通断', '菜单栏驻留', '不联网'],
-      actionLabel: isEn ? 'Details & Download' : '查看详情',
+      actionLabel: t('btn.details', '查看详情'),
       actionHref: '/battery-killer',
       detailHref: '/battery-killer',
-      secondaryLabel: 'GitHub →',
-      secondaryHref: 'https://github.com/angiie/b-killer',
       searchKeywords: 'battery-killer battery macos macbook discharge cycle smc'
     },
     {
@@ -108,11 +104,9 @@ const HomePage: React.FC = () => {
       statusTone: 'success',
       description: t('ezpixy.desc', '面向独立站与跨境电商卖家的 AI 商品图工作台：模特图、虚拟试衣换装、智能商品抠图白底化与多风格场景商业图渲染。'),
       tags: isEn ? ['AI Fashion Model', 'White Background', 'Cross-border', 'Commercial Quality'] : ['AI 模特换装', '一键白底图', '电商出海', '商业级画质'],
-      actionLabel: isEn ? 'Open Studio' : '打开工作台',
+      actionLabel: t('btn.details', '查看详情'),
       actionHref: '/ezpixy',
       detailHref: '/ezpixy',
-      secondaryLabel: isEn ? 'vs Midjourney →' : '对比 Midjourney →',
-      secondaryHref: '/ezpixy-vs-midjourney',
       isNew: true,
       searchKeywords: 'ezpixy ai model fashion ecommerce product photos background'
     },
@@ -130,11 +124,9 @@ const HomePage: React.FC = () => {
       statusTone: 'success',
       description: t('gemini.desc', '基于反向 Alpha 混合数学算法，纯浏览器端离线运算，无模糊、无重采样、完全无损还原 Gemini AI 水印被遮挡的原图像素。'),
       tags: isEn ? ['Lossless Restore', 'Zero Uploads', 'Batch 50+ Images', 'Instant'] : ['数学无损还原', '0 次服务器上传', '支持 50+ 张批量', '即开即用'],
-      actionLabel: isEn ? 'Try Banana' : '在线去水印',
-      actionHref: '/banana/',
-      detailHref: '/banana/',
-      secondaryLabel: isEn ? 'Algorithm Guide →' : '阅读算法原理 →',
-      secondaryHref: '/blog-gemini-watermark-remover',
+      actionLabel: t('btn.details', '查看详情'),
+      actionHref: '/banana',
+      detailHref: '/banana',
       searchKeywords: 'banana gemini watermark remover google alpha blend wasm'
     },
     {
@@ -170,11 +162,9 @@ const HomePage: React.FC = () => {
       statusTone: 'success',
       description: t('tinypic.desc', '浏览器端本地 WASM 智能图片压缩工具。支持 PNG、JPEG、WebP、AVIF，多线程并行压缩，文件不离开设备。'),
       tags: isEn ? ['WebAssembly', 'Pure Local', 'Batch ZIP Export', 'High Fidelity'] : ['WebAssembly', '纯本地运算', '批量打包 ZIP', '高保真压缩'],
-      actionLabel: t('btn.try-tool', '试用工具'),
-      actionHref: '/tinypic/',
-      detailHref: '/tinypic/',
-      secondaryLabel: isEn ? 'vs Squoosh →' : '对比 Squoosh →',
-      secondaryHref: '/tinypic-vs-squoosh',
+      actionLabel: t('btn.details', '查看详情'),
+      actionHref: '/tinypic',
+      detailHref: '/tinypic',
       searchKeywords: 'tinypic tiny pic image compression wasm png jpeg webp avif'
     },
     {
@@ -191,11 +181,9 @@ const HomePage: React.FC = () => {
       statusTone: 'success',
       description: t('tinypass.desc', '简单而强大的密码生成工具。支持自定义字符集、长度、批量生成、易读发音模式，一键复制，不申请联网权限。'),
       tags: isEn ? ['Crypto Random', 'Zero Network Permission', 'Readable Mode'] : ['密码学安全随机', '0 联网权限', '易读避混淆'],
-      actionLabel: t('btn.install', '安装扩展'),
+      actionLabel: t('btn.details', '查看详情'),
       actionHref: '/tinypass',
       detailHref: '/tinypass',
-      secondaryLabel: isEn ? 'vs 1Password →' : '对比 1Password →',
-      secondaryHref: '/tinypass-vs-1password',
       searchKeywords: 'tinypass password generator security random offline'
     },
     {
@@ -217,11 +205,9 @@ const HomePage: React.FC = () => {
       statusTone: 'success',
       description: t('svg-studio.desc', '轻量级在线 SVG 预览与格式转换工作台。支持实时编辑 SVG 代码、背景网格切换、高质量批量导出 PNG、PDF、ICO 图标包。'),
       tags: isEn ? ['Realtime Preview', 'ICO Pack', 'Vector to Raster'] : ['代码实时预览', 'ICO 图标生成', '矢量转位图'],
-      actionLabel: t('btn.try-tool', '试用工具'),
+      actionLabel: t('btn.details', '查看详情'),
       actionHref: '/svg-studio',
       detailHref: '/svg-studio',
-      secondaryLabel: isEn ? 'vs Inkscape →' : '对比 Inkscape →',
-      secondaryHref: '/svg-studio-vs-inkscape',
       searchKeywords: 'svg studio pro vector viewer export png pdf ico'
     },
     {
@@ -238,7 +224,7 @@ const HomePage: React.FC = () => {
       statusTone: 'success',
       description: t('text-to-png.desc', '将文本段落一键渲染为高清晰度 PNG 图片。支持字体、行距、渐变背景、代码块语法高亮与多平台社交卡片预设。'),
       tags: isEn ? ['Social Card', 'Code Highlight', 'Multi-ratio'] : ['社交卡片排版', '代码高亮', '多比例预设'],
-      actionLabel: t('btn.try-tool', '试用工具'),
+      actionLabel: t('btn.details', '查看详情'),
       actionHref: '/text-to-png',
       detailHref: '/text-to-png',
       searchKeywords: 'text to png image typography card render'
@@ -260,8 +246,6 @@ const HomePage: React.FC = () => {
       actionLabel: t('btn.details', '查看详情'),
       actionHref: '/webdavy',
       detailHref: '/webdavy',
-      secondaryLabel: isEn ? 'vs RaiDrive →' : '对比 RaiDrive →',
-      secondaryHref: '/webdavy-vs-raidrive',
       searchKeywords: 'webdavy webdav nextcloud synology nas chrome extension'
     },
   ], [t, isEn])
@@ -455,10 +439,10 @@ const HomePage: React.FC = () => {
                         <span className={`status-tag ${product.isNew ? 'status-tag-new' : ''}`}>{product.statusLabel}</span>
                       </div>
 
-                      <div className="card-title-row">
+                      <a href={product.href} className="card-title-row">
                         <div className="product-icon">{product.icon}</div>
                         <h3 className="product-name">{product.name}</h3>
-                      </div>
+                      </a>
 
                       <p className="card-desc">{product.description}</p>
 
@@ -470,11 +454,9 @@ const HomePage: React.FC = () => {
                     </div>
 
                     <div className="card-actions">
-                      <a className="btn-primary" href={product.actionHref} target={product.actionHref.startsWith('http') ? '_blank' : undefined} rel="noreferrer">
-                        {product.actionLabel}
-                      </a>
-                      <a className="card-link-sec" href={product.detailHref}>
-                        {isEn ? 'Learn more →' : '查看完整介绍 →'}
+                      <a className="btn-primary" href={product.href}>
+                        <span>{product.actionLabel}</span>
+                        <span aria-hidden="true">→</span>
                       </a>
                     </div>
                   </div>
@@ -503,10 +485,10 @@ const HomePage: React.FC = () => {
                         <span className={`status-tag ${product.isNew ? 'status-tag-new' : ''}`}>{product.statusLabel}</span>
                       </div>
 
-                      <div className="card-title-row">
+                      <a href={product.href} className="card-title-row">
                         <div className="product-icon">{product.icon}</div>
                         <h3 className="product-name">{product.name}</h3>
-                      </div>
+                      </a>
 
                       <p className="card-desc">{product.description}</p>
 
@@ -518,14 +500,10 @@ const HomePage: React.FC = () => {
                     </div>
 
                     <div className="card-actions">
-                      <a className="btn-primary" href={product.actionHref} target={product.actionHref.startsWith('http') ? '_blank' : undefined} rel="noreferrer">
-                        {product.actionLabel}
+                      <a className="btn-primary" href={product.href}>
+                        <span>{product.actionLabel}</span>
+                        <span aria-hidden="true">→</span>
                       </a>
-                      {product.secondaryLabel && product.secondaryHref && (
-                        <a className="card-link-sec" href={product.secondaryHref} target={product.secondaryHref.startsWith('http') ? '_blank' : undefined} rel="noreferrer">
-                          {product.secondaryLabel}
-                        </a>
-                      )}
                     </div>
                   </div>
                 </article>
