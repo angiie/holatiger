@@ -1,70 +1,83 @@
-/* 产品详情页共享样式 */
+/* 产品详情页共享样式 (Omnipotent-Pocket 暖色纸质报刊美学标准) */
 
 /* ===== 可复用产品展示系统 ===== */
 body[data-product] {
-  --product-accent: #c2410c;
-  --product-accent-strong: #9a3412;
-  --product-soft: #fff7ed;
-  --product-rgb: 194, 65, 12;
-  --product-ink: #1c1917;
-  --product-muted: #625e59;
-  --product-line: #e7e5e4;
-  --product-surface: #ffffff;
+  --ink: #1f1a16;
+  --muted: #6b6259;
+  --line: rgba(31, 26, 22, 0.12);
+  --line-subtle: rgba(31, 26, 22, 0.08);
+  --paper: #fbf7f0;
+  --card: #fffdf8;
+  --accent: #d95d39;
+  --forest: #233a30;
+  --serif: "Iowan Old Style", "Palatino Linotype", "Songti SC", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", monospace;
+
+  --product-accent: #d95d39;
+  --product-accent-strong: #bf4320;
+  --product-soft: rgba(217, 93, 57, 0.08);
+  --product-rgb: 217, 93, 57;
+  --product-ink: #1f1a16;
+  --product-muted: #6b6259;
+  --product-line: rgba(31, 26, 22, 0.12);
+  --product-surface: #fffdf8;
 }
 
 body[data-product="tinypass"] {
   --product-accent: #0f766e;
   --product-accent-strong: #115e59;
-  --product-soft: #f0fdfa;
+  --product-soft: rgba(15, 118, 110, 0.08);
   --product-rgb: 15, 118, 110;
 }
 body[data-product="webdavy"] {
   --product-accent: #0369a1;
   --product-accent-strong: #075985;
-  --product-soft: #f0f9ff;
+  --product-soft: rgba(3, 105, 161, 0.08);
   --product-rgb: 3, 105, 161;
 }
 body[data-product="ezpixy"] {
   --product-accent: #b4536a;
   --product-accent-strong: #944154;
-  --product-soft: #fff1f2;
+  --product-soft: rgba(180, 83, 106, 0.08);
   --product-rgb: 180, 83, 106;
 }
 body[data-product="battery-killer"] {
-  --product-accent: #c2410c;
-  --product-accent-strong: #9a3412;
-  --product-soft: #fff7ed;
-  --product-rgb: 194, 65, 12;
+  --product-accent: #d95d39;
+  --product-accent-strong: #bf4320;
+  --product-soft: rgba(217, 93, 57, 0.08);
+  --product-rgb: 217, 93, 57;
 }
 body[data-product="makerworldmate"] {
-  --product-accent: #4d7c0f;
-  --product-accent-strong: #3f6212;
-  --product-soft: #f7fee7;
-  --product-rgb: 77, 124, 15;
+  --product-accent: #233a30;
+  --product-accent-strong: #192a23;
+  --product-soft: rgba(35, 58, 48, 0.08);
+  --product-rgb: 35, 58, 48;
 }
 
 body[data-product].v1-professional {
-  color: var(--product-ink);
-  background:
-    radial-gradient(900px 520px at 88% 3%, rgba(var(--product-rgb), 0.07), transparent 68%),
-    #faf9f7;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 .product-showcase {
   position: relative;
 }
 .product-shell {
-  width: min(100%, 1180px);
+  width: min(100%, 1080px);
 }
 .product-hero-card {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   padding: clamp(1.5rem, 4vw, 3.25rem);
-  border: 1px solid rgba(var(--product-rgb), 0.14);
-  border-radius: 1.75rem;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 28px 70px -52px rgba(28, 25, 23, 0.42);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: var(--card);
+  box-shadow: 0 4px 24px rgba(31, 26, 22, 0.04);
 }
 .product-hero-card > * {
   position: relative;
@@ -76,13 +89,13 @@ body[data-product].v1-professional {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.75;
+  opacity: 0.5;
   background:
-    radial-gradient(520px circle at var(--mouse-x, 12%) var(--mouse-y, 0%), rgba(var(--product-rgb), 0.09), transparent 65%);
+    radial-gradient(520px circle at var(--mouse-x, 12%) var(--mouse-y, 0%), rgba(217, 93, 57, 0.06), transparent 65%);
   transition: opacity 0.25s ease;
 }
 .product-hero-card:hover::before {
-  opacity: 1;
+  opacity: 0.8;
 }
 .product-hero-grid {
   display: grid;
@@ -97,11 +110,13 @@ body[data-product].v1-professional {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--product-accent-strong);
-  font-size: 0.8125rem;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.14em;
   line-height: 1.4;
+  text-transform: uppercase;
 }
 .product-logo {
   display: inline-flex;
@@ -111,9 +126,9 @@ body[data-product].v1-professional {
   width: 2.625rem;
   height: 2.625rem;
   padding: 0.4375rem;
-  border: 1px solid rgba(var(--product-rgb), 0.16);
-  border-radius: 0.8125rem;
-  background: var(--product-soft);
+  border: 1px solid var(--line);
+  border-radius: 0.625rem;
+  background: var(--paper);
 }
 .product-logo img {
   display: block;
@@ -123,30 +138,32 @@ body[data-product].v1-professional {
 }
 .product-name {
   margin-top: 1.5rem;
-  color: var(--product-accent-strong);
-  font-size: 0.875rem;
-  font-weight: 750;
-  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   line-height: 1.4;
   text-transform: uppercase;
   overflow-wrap: anywhere;
 }
 .product-title {
-  max-width: 20ch;
+  max-width: 22ch;
   margin-top: 0.5rem;
-  color: var(--product-ink);
+  color: var(--ink);
+  font-family: var(--serif);
   font-size: clamp(2rem, 4.2vw, 3.5rem);
-  font-weight: 750;
-  letter-spacing: -0.04em;
-  line-height: 1.13;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   overflow-wrap: anywhere;
 }
 .product-summary {
   max-width: 60ch;
   margin-top: 1.25rem;
-  color: var(--product-muted);
+  color: var(--muted);
   font-size: clamp(0.9375rem, 1.4vw, 1.0625rem);
-  line-height: 1.8;
+  line-height: 1.75;
   overflow-wrap: anywhere;
 }
 .product-actions {
@@ -159,41 +176,43 @@ body[data-product].v1-professional {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 3rem;
-  padding: 0.75rem 1.25rem;
+  min-height: 2.875rem;
+  padding: 0.65rem 1.25rem;
   border: 1px solid transparent;
-  border-radius: 0.75rem;
+  border-radius: 0.625rem;
   font-size: 0.9375rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.35;
   text-align: center;
   text-decoration: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: all 0.2s ease;
 }
 .product-button-primary {
-  border-color: var(--product-accent);
-  color: #fff;
-  background: var(--product-accent);
+  border-color: transparent;
+  color: #f9f2e3;
+  background: var(--forest);
 }
 .product-button-primary:hover {
-  border-color: var(--product-accent-strong);
-  background: var(--product-accent-strong);
+  opacity: 0.92;
+  background: var(--forest);
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(35, 58, 48, 0.25);
   transform: translateY(-1px);
 }
 .product-button-secondary {
-  border-color: var(--product-line);
-  color: #44403c;
-  background: rgba(255, 255, 255, 0.7);
+  border-color: var(--line);
+  color: var(--ink);
+  background: transparent;
 }
 .product-button-secondary:hover {
-  border-color: rgba(var(--product-rgb), 0.35);
-  color: var(--product-accent-strong);
-  background: var(--product-soft);
+  border-color: var(--ink);
+  color: var(--ink);
+  background: rgba(31, 26, 22, 0.04);
 }
 .product-button-disabled {
-  border-color: #e7e5e4;
-  color: #78716c;
-  background: #f5f5f4;
+  border-color: var(--line-subtle);
+  color: var(--muted);
+  background: rgba(31, 26, 22, 0.04);
   cursor: not-allowed;
   user-select: none;
 }
@@ -414,32 +433,33 @@ body[data-product="tinypass"] .product-hero-card[data-media="portrait"] .product
 /* 后续区块共享克制的中性卡面，不影响未迁移的工具页。 */
 body[data-product] .feature-card,
 body[data-product] .mwm-feature-card {
-  border: 1px solid var(--product-line);
-  border-radius: 1.125rem;
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: none;
-  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--card);
+  box-shadow: 0 2px 12px rgba(31, 26, 22, 0.03);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 body[data-product] .feature-card:hover,
 body[data-product] .mwm-feature-card:hover {
-  border-color: rgba(var(--product-rgb), 0.3);
-  box-shadow: 0 16px 32px -28px rgba(var(--product-rgb), 0.5);
+  border-color: var(--ink);
+  box-shadow: 0 8px 24px rgba(31, 26, 22, 0.06);
   transform: translateY(-2px);
 }
 body[data-product] .feature-card .flex-shrink-0 {
   background: var(--product-soft) !important;
 }
 body[data-product] main > section.bg-gradient-to-br {
-  background: #f5f4f1;
+  background: var(--paper);
 }
 body[data-product] details {
-  border-color: var(--product-line) !important;
+  border-color: var(--line) !important;
+  background: var(--card) !important;
   box-shadow: none !important;
 }
 body[data-product] a:focus-visible,
 body[data-product] button:focus-visible,
 body[data-product] summary:focus-visible {
-  outline: 3px solid rgba(var(--product-rgb), 0.28);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 

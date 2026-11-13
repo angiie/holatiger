@@ -106,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default', className = '' }) 
     }
 
     return (
-      <a className={getLogoClasses()} href={variant === 'product' ? 'https://holatiger.com/' : '#home'}>
+      <a className={getLogoClasses()} href="/">
         <img src="/assets/images/icons/icon_64x64.png" alt="虎啦 Logo" className="h-8 w-8" />
         <span className="logo-text">{t('logo.text', '虎啦')}</span>
       </a>
