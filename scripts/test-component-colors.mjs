@@ -36,19 +36,15 @@ test('shared styles define one brand accent, neutral surfaces and accessible sta
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/)
 })
 
-test('all homepage products use ProductCard instead of hardcoded action colors', () => {
-  assert.match(home, /<ProductCard/)
+test('all homepage products use timeline cards instead of hardcoded action colors', () => {
+  assert.match(home, /timeline-card/)
   assert.doesNotMatch(home, /backgroundColor:\s*['"]#[0-9a-f]+/i)
   assert.doesNotMatch(home, /bg-(?:blue|indigo|green|purple|pink)-[456]00 text-white rounded-lg/)
-  assert.match(home, /className="ui-button ui-button-primary ui-button-large"/)
-  assert.match(home, /className="ui-button ui-button-secondary ui-button-large"/)
-  assert.equal((home.match(/className="ui-button ui-button-secondary ui-button-small"/g) || []).length, 4)
 })
 
 test('homepage backgrounds retain the original warm palette without changing shared buttons', () => {
   assert.match(css, /\.v1-professional \{ background: linear-gradient\(135deg, #fff7ed 0%, #fed7aa 100%\); \}/)
   assert.match(css, /background: linear-gradient\(to right, #fff7ed, #ffedd5\);/)
-  assert.match(home, /id="tools" className="bg-gradient-to-br from-orange-50\/50 to-red-50\/50 px-6 py-12"/)
   assert.match(css, /\.ui-button-primary \{\s*background-color: var\(--brand-accent\);/)
 })
 

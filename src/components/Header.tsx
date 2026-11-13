@@ -90,8 +90,8 @@ const Header: React.FC<HeaderProps> = ({ variant = 'default', className = '' }) 
     { key: 'nav.extensions', href: variant === 'product' ? '/#extensions' : '#extensions', section: 'extensions' },
     { key: 'nav.apps', href: variant === 'product' ? '/#apps' : '#apps', section: 'apps' },
     { key: 'nav.tools', href: variant === 'product' ? '/#tools' : '#tools', section: 'tools' },
-    { key: 'nav.about', href: variant === 'product' ? '/#about' : '#about', section: 'about' },
     { key: 'nav.blog', href: '/blog', section: '' },
+    { key: 'nav.about', href: variant === 'product' ? '/#about' : '#about', section: 'about' },
   ]
 
   const renderLogo = () => {
