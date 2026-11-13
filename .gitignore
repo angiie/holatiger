@@ -1,14 +1,82 @@
-.vercel/*
-requirement/
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Dependencies
 node_modules/
-**/node_modules/
-/node_modules/*
-.trae/*
-dist/*
+
+# Production / Build outputs
+dist/
+build/
+.next/
+.nuxt/
+
+# Cache directories (Playwright, fonts, vite, parcel, etc.)
+.cache/
+.parcel-cache/
+.vite/
+.eslintcache
+.stylelintcache
+
+# Audits, screenshots & temporary render files
+.audit/
+**/.render-*.html
+*.tmp
+*.temp
+tmp/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+
+# Environment and sensitive files
+.env
+.env.*
+!.env.example
 neon
-.vercel
-.idea/*
-docs/*
-.agents/*
-.claude/*
+
+# Editor directories & files
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# AI & Tool configs
+.agents/
+.claude/
+.trae/
+
+# Project specific & Documentation
+.vercel/
 .vercelignore
+requirement/
+docs/
+
+# Git Worktrees
+.worktrees/
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+blob-report/

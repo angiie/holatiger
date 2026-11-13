@@ -381,6 +381,8 @@
   "battery-killer.faq6.answer": "No. It only reads battery state and talks to the SMC on your machine. No network access, no telemetry, and the source is public on GitHub.",
   "seo.og.battery-killer.title": "BatteryKiller - Battery Charge Cycling for macOS | Deliberate Drain, Cycle Count Burn | HolaTiger",
   "seo.og.battery-killer.description": "A macOS menu bar tool: the adapter is cut at the upper bound so the battery really discharges, and restored at the lower bound. It does not protect your battery — wearing it out is the point.",
+  "omnipotent-pocket.name": "Omnipotent-Pocket",
+  "omnipotent-pocket.desc": "Put your tabs in your pocket: one-click collection, automatic de-duplication, searchable local library.",
   "title.makerworldmate": "MakerWorldMate - Filament & Compatible Printer Badges for MakerWorld",
   "makerworldmate.name": "MakerWorldMate",
   "makerworldmate.desc": "See each model's filament and compatible printer count right on MakerWorld list pages, with a hover panel for the full printer list.",

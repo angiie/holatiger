@@ -13,6 +13,17 @@ const HomePage: React.FC = () => {
 
   const extensions = [
     {
+      href: '/omnipotent-pocket',
+      icon: <img src="/assets/images/omnipotent-pocket/icon.svg" alt="Omnipotent-Pocket" />,
+      name: t('omnipotent-pocket.name', 'Omnipotent-Pocket'),
+      badge: t('extensions.badge', 'Chrome扩展'),
+      description: t('omnipotent-pocket.desc', '把标签页收进口袋：一键收集、自动去重、可搜索的本地收藏库。'),
+      statusLabel: t('status.published', '已发布'),
+      statusTone: 'success' as const,
+      actionLabel: t('btn.install', '安装扩展'),
+      isNew: true,
+    },
+    {
       href: '/tinypass',
       icon: <img src="/assets/images/tinypass/svg-export-40x40.png" alt="TinyPass" />,
       name: t('tinypass.name', 'TinyPass'),
